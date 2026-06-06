@@ -1,0 +1,2124 @@
+{
+  "nav": {
+    "work": "Work",
+    "workSub": "Selected cases",
+    "services": "Services",
+    "servicesSub": "Dev, branding, SEO",
+    "studio": "Studio",
+    "studioSub": "Boutique from Huesca",
+    "love": "Love",
+    "loveSub": "What clients say",
+    "contact": "Contact",
+    "contactSub": "30 min · no commitment",
+    "portal": "Portal",
+    "portalSub": "Client access",
+    "cta": "Book a call",
+    "call": "Call us",
+    "bookVideo": "Book a video call",
+    "callPhone": "Call us",
+    "menuLabel": "// MENU",
+    "menuFooter": "// HUESCA, ES · EST. 2022",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "marqueeDivider": {
+    "tokens": [
+      "ONE LIFE. ONE SHOT.",
+      "EST. 2022 — HUESCA, SPAIN",
+      "BOUTIQUE WEB STUDIO",
+      "70+ PROJECTS · 100% ON TIME",
+      "SHARP EXECUTION · ZERO BLOAT",
+      "AGENCIES & BRANDS WORLDWIDE"
+    ]
+  },
+  "blog": {
+    "metaTitle": "Blog · Bellostas Studio",
+    "metaDescription": "Articles on web development, Next.js, technical SEO and how we build sharp digital products from Huesca.",
+    "label": "// BLOG · STUDIO NOTES",
+    "title_part1": "What we keep ",
+    "title_emphasis": "learning",
+    "title_part2": ".",
+    "sub": "Technical notes, behind-the-scenes and extended cases. No filler.",
+    "readMore": "Read article",
+    "backToBlog": "Back to blog",
+    "empty": "No published articles yet. Soon.",
+    "by": "By",
+    "readingNow": "// ARTICLE"
+  },
+  "manifesto": {
+    "metaTitle": "Manifesto · Bellostas Studio",
+    "metaDescription": "Before you work with us, read this. How we understand design, the method, and who we work with.",
+    "label": "// MANIFESTO",
+    "intro_title_part1": "Read it before you ",
+    "intro_title_emphasis": "work",
+    "intro_title_part2": " with us.",
+    "intro_sub": "It's not marketing. It's how we think. If it resonates, we probably fit.",
+    "rules": [
+      {
+        "n": "01",
+        "title": "The reality",
+        "body": [
+          "The internet is full of pretty websites that don't sell.",
+          "Design without strategy is just decoration. And we don't decorate."
+        ],
+        "punch": "We run from mediocrity — visual and functional."
+      },
+      {
+        "n": "02",
+        "title": "The method",
+        "body": [
+          "We move from \"web design\" to business architecture.",
+          "We don't ship pages. We build digital assets: systems built to scale, measure and bill."
+        ],
+        "punch": "Engineering > Art."
+      },
+      {
+        "n": "03",
+        "title": "The ethos",
+        "body": [
+          "We believe in the long game. In the hard work nobody sees. In technical excellence.",
+          "We don't chase shortcuts. We build legacy."
+        ],
+        "punch": "If your vision is small, we're not for you."
+      },
+      {
+        "n": "04",
+        "title": "The profile",
+        "body": [
+          "Bellostas is for you if you value profit over empty aesthetics.",
+          "If you see your website as an asset, not an expense.",
+          "If you want a strategic partner, not a blind executor."
+        ],
+        "punch": null
+      },
+      {
+        "n": "05",
+        "title": "The next step",
+        "body": [
+          "We don't work with everyone.",
+          "Let's talk and see if we're the right partner for your vision."
+        ],
+        "punch": null
+      }
+    ],
+    "cta": "Apply to work together",
+    "footnote": "// BELLOSTAS MANIFEST · ONE LIFE. ONE SHOT."
+  },
+  "proceso": {
+    "metaTitle": "The process · Bellostas Studio",
+    "metaDescription": "How I work: AI used well to move faster, human judgment for what matters. From brief to launch in 4 phases.",
+    "hero": {
+      "label": "// THE PROCESS",
+      "title_part1": "AI in the engine. ",
+      "title_emphasis": "Judgment",
+      "title_part2": " at the wheel.",
+      "sub": "I use AI to move faster without it showing in the quality. What the machine does well, it does. What truly matters — the architecture, the decisions, the judgment — I do."
+    },
+    "ai": {
+      "label": "// AI USED WELL",
+      "title_part1": "Speeds up the boring. ",
+      "title_emphasis": "Doesn't",
+      "title_part2": " decide what matters.",
+      "sub": "Full transparency on where AI comes in and where it doesn't. No smoke.",
+      "accelerates_label": "What AI speeds up",
+      "accelerates": [
+        "Research and competitor analysis",
+        "Fast exploration of options and wireframes",
+        "Boilerplate and repetitive code",
+        "Copy and content drafts",
+        "QA: catching bugs and edge cases"
+      ],
+      "human_label": "What I do (always)",
+      "human": [
+        "The business architecture and decisions",
+        "The design judgment and direction",
+        "The critical code and business logic",
+        "The strategy: what to build and why",
+        "The relationship with you, start to finish"
+      ],
+      "punch": "AI is a sharp tool. But tools don't have judgment. I do."
+    },
+    "phases": {
+      "label": "// FROM BRIEF TO LAUNCH",
+      "title_part1": "Four phases. ",
+      "title_emphasis": "Zero surprises",
+      "title_part2": ".",
+      "sub": "You know exactly what happens, when, and what you get at each one.",
+      "items": [
+        {
+          "n": "01",
+          "name": "Align + Map",
+          "timeline": "Week 1",
+          "body": "We start with the real problem, not the deliverable you asked for. I review product, goals, users, competitors and constraints before touching anything.",
+          "outputs": [
+            "Project direction",
+            "UX audit",
+            "Flow mapping",
+            "Content architecture",
+            "Sprint plan",
+            "Success criteria"
+          ]
+        },
+        {
+          "n": "02",
+          "name": "Design + Iterate",
+          "timeline": "Weeks 2-4",
+          "body": "AI-assisted exploration + fast iteration to see more options without dragging the project out. You pick the direction, I execute.",
+          "outputs": [
+            "Creative direction",
+            "Wireframes",
+            "High-fidelity design",
+            "Product flows",
+            "Responsive layouts",
+            "Design system foundations"
+          ]
+        },
+        {
+          "n": "03",
+          "name": "Build + Connect",
+          "timeline": "Weeks 4-8",
+          "body": "This is where the design becomes real. Next.js, CMS, integrations and backend — custom code, not templates that break.",
+          "outputs": [
+            "Next.js build",
+            "Custom frontend",
+            "Component system",
+            "CMS and editing panel",
+            "Integrations and backend",
+            "Handoff prep"
+          ]
+        },
+        {
+          "n": "04",
+          "name": "Refine + Ship",
+          "timeline": "Week 8+",
+          "body": "The last 10% is where the work starts to feel expensive. That's the difference between something that works and something sharp.",
+          "outputs": [
+            "Thorough QA",
+            "Copy tweaks",
+            "UI polish",
+            "Fine responsive",
+            "Animation and performance",
+            "Launch support"
+          ]
+        }
+      ]
+    },
+    "stack": {
+      "label": "// THE STACK",
+      "title_part1": "The ",
+      "title_emphasis": "tools",
+      "title_part2": ".",
+      "sub": "What I build with. Modern, fast, maintainable — nothing that depends on a plug-in that dies tomorrow.",
+      "tools": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Payload",
+        "Sanity",
+        "PostgreSQL",
+        "Tailwind",
+        "Framer Motion",
+        "n8n",
+        "OpenAI",
+        "Stripe",
+        "Vercel"
+      ]
+    },
+    "cerca": {
+      "label": "// HOW WE STAY CLOSE",
+      "title_part1": "I don't ",
+      "title_emphasis": "disappear",
+      "title_part2": " for two weeks.",
+      "sub": "The number-one anxiety of any project is not knowing what's going on. With me, you always do.",
+      "items": [
+        {
+          "n": "01",
+          "title": "Frequent updates",
+          "body": "Zero radio silence. You know where I am at all times."
+        },
+        {
+          "n": "02",
+          "title": "Live client portal",
+          "body": "Phases with timestamps, deliverables and comms — without writing 'how's it going'."
+        },
+        {
+          "n": "03",
+          "title": "Preview at every milestone",
+          "body": "You see the work as it progresses, not in a big final reveal."
+        },
+        {
+          "n": "04",
+          "title": "Documented decisions",
+          "body": "Why we did each thing, written down. Nothing gets lost along the way."
+        },
+        {
+          "n": "05",
+          "title": "A direct channel",
+          "body": "You talk to me, not an account manager or a ticket."
+        },
+        {
+          "n": "06",
+          "title": "Clean handoff",
+          "body": "Delivered under your account, documented and ready to maintain."
+        }
+      ]
+    }
+  },
+  "hero": {
+    "label": "// EST. 2022 — HUESCA, ES",
+    "headline_line1": "Web design & development",
+    "headline_line2_pre": "that",
+    "headline_emphasis": "grows",
+    "headline_line2_post": "your brand.",
+    "sub": "Boutique web design and development studio. We work with agencies and brands that need sharp execution — no bloated teams, no endless timelines.",
+    "cta_primary": "Let's talk",
+    "cta_secondary": "See our work",
+    "googleRatingText": "5-Star Rating on Google.",
+    "googleRatingCta": "Read reviews",
+    "stats": {
+      "projects": "70+ projects",
+      "years": "3 years",
+      "ontime": "100% on time"
+    },
+    "booking": "Booking · {q}"
+  },
+  "heroEditorial": {
+    "name": "// ANTONIO BELLOSTAS",
+    "role": "// FOUNDER · DEV LEAD · HUESCA"
+  },
+  "videoTestimonial": {
+    "preLabel": "Testimonial from",
+    "firstName": "Javier",
+    "watchAria": "Watch client testimonial",
+    "closeAria": "Close testimonial",
+    "muteAria": "Mute audio",
+    "unmuteAria": "Unmute audio",
+    "comingSoon": "// TESTIMONIAL COMING SOON",
+    "clientName": "// JAVIER FLORES",
+    "clientCompany": "// SOCIAL11",
+    "badge": "Video",
+    "pauseAria": "Pause video",
+    "playAria": "Play video",
+    "unmuteShort": "Unmute"
+  },
+  "preloader": {
+    "phrases": [
+      "// LOADING STUDIO",
+      "// FROM HUESCA. FOR BRANDS THAT SHIP.",
+      "// ONE LIFE. ONE SHOT."
+    ],
+    "location": "HUESCA"
+  },
+  "shortTestimonials": {
+    "label": "// WHAT THEY SAY",
+    "videoCaption": "// GETS IT BEFORE WE ASK",
+    "watchAria": "Watch video testimonial",
+    "rolePreposition": "at",
+    "items": {
+      "t1": {
+        "name": "Javier Flores",
+        "role": "Director",
+        "company": "Social11",
+        "quote": "He got our product in one call. We'd been trying to explain it to other agencies for months without getting anywhere."
+      },
+      "t2": {
+        "name": "Adela Ocenic",
+        "role": "Coordinator",
+        "company": "Voluntariado Aragón",
+        "quote": "In the social sector it's hard to find someone who truly gets our essence, but Antonio nailed it on the first try: fast and with every detail. The site reflects who we are. We'll definitely work with him again."
+      },
+      "t3": {
+        "name": "Themis López",
+        "role": "President",
+        "company": "FADA",
+        "quote": "Response speed is what we value most. You ask for a change on Monday and it's in production by Tuesday."
+      },
+      "t4": {
+        "name": "Diego Colungo",
+        "role": "Director",
+        "company": "PrimeX Academy",
+        "quote": "He polished every detail of the LMS until it was a joy to use. Students have been spending more time in the platform since the redesign."
+      },
+      "t5": {
+        "name": "Carlos Iribarren",
+        "role": "Owner",
+        "company": "Gotten Gym",
+        "quote": "We called on a Monday asking for 'something simple'. By Friday we had staging up with a custom admin panel. No noise, everything shipped."
+      },
+      "t6": {
+        "name": "Sofía Bandrés",
+        "role": "Marketing Lead",
+        "company": "Teleadhesivo",
+        "quote": "Migrated our store with 500K+ customers without losing a single sale. Flawless end to end."
+      }
+    }
+  },
+  "services": {
+    "label": "// 01 — SERVICES",
+    "title_part1": "One team, ",
+    "title_emphasis": "full stack",
+    "title_part2": ".",
+    "sub": "Design, development, branding, and everything in between. No bloated teams.",
+    "featured": "Featured",
+    "items": {
+      "s01": {
+        "title": "Premium corporate websites",
+        "description": "Brand-led websites for companies with a product who need a presence that converts."
+      },
+      "s02": {
+        "title": "Custom e-commerce",
+        "description": "Online stores for when WooCommerce or Shopify aren't enough. Inventory, multi-language, payments, all connected."
+      },
+      "s03": {
+        "title": "Custom web applications",
+        "description": "SaaS, dashboards, LMS, client portals. From idea to production with no shortcuts."
+      },
+      "s04": {
+        "title": "AI automation and bots",
+        "description": "WhatsApp bots, agents that qualify leads, integrations that save hours every day."
+      },
+      "s05": {
+        "title": "Technical migrations",
+        "description": "From WordPress, WooCommerce, or legacy systems to a modern stack. Without losing SEO or data."
+      },
+      "s06": {
+        "title": "White-label for agencies",
+        "description": "Your client, your brand. I develop in silence under NDA."
+      }
+    }
+  },
+  "process": {
+    "label": "// 02 — PROCESS",
+    "title_part1": "Starting is ",
+    "title_emphasis": "easy",
+    "title_part2": ".",
+    "sub": "Three days from signature to first design delivery.",
+    "days": {
+      "d1": {
+        "tag": "DAY 1",
+        "title": "Book a call",
+        "description": "We talk product, deadlines, and goals. We see if we're a fit."
+      },
+      "d2": {
+        "tag": "DAY 2",
+        "title": "Your project kicks off",
+        "description": "We set up the workspace, align priorities, launch the first sprint."
+      },
+      "d3": {
+        "tag": "DAY 3",
+        "title": "You start seeing work",
+        "description": "First designs in Slack or Notion in under 24h. Daily updates."
+      }
+    }
+  },
+  "clientPortal": {
+    "label": "// THE DIFFERENTIATOR",
+    "title_part1": "You always know what we're ",
+    "title_emphasis": "working on.",
+    "title_part2": "",
+    "sub": "Every client gets a private dashboard with real-time phases, deadlines, deliverables, and comms — no need to ask 'how's it going?' ever again.",
+    "bullets": {
+      "b1": "Live project status",
+      "b2": "Phase tracking with timestamps",
+      "b3": "Direct comms — no email forwarding",
+      "b4": "No endless Gantt charts"
+    },
+    "mockup": {
+      "project": "Bellostas · Site refresh",
+      "phase": "PHASE 03 · DESIGN",
+      "progress": "68%",
+      "next": "Up next: client review"
+    }
+  },
+  "work": {
+    "label": "// 03 — SELECTED WORK",
+    "title_part1": "Some ",
+    "title_emphasis": "recent",
+    "title_part2": " ones.",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "seeAll": "See full portfolio",
+    "modal": {
+      "client": "CLIENT",
+      "year": "YEAR",
+      "stack": "STACK",
+      "viewLive": "View live",
+      "close": "Close"
+    },
+    "items": {
+      "p_seolatte": "Programmatic SEO SaaS with AI-assisted page generation. Next.js frontend, Sanity content, OpenAI integrations for keyword clustering.",
+      "p_primex": "Full LMS for a tennis academy with courses, student progress and payments. Custom Payload backend, Next.js frontend with SSR for SEO.",
+      "p_pva": "WordPress to Next.js + Sanity migration for the Aragón Volunteering portal. 40% faster LCP, scalable to 100k monthly visits.",
+      "p_fada": "Institutional site for the Aragonese Motorsport Federation. Race calendar, members and official communications.",
+      "p_gotten": "Public site and custom admin panel to manage members, classes and bookings. Integrated with the gym access system.",
+      "p_embroidery": "Digital embroidery pattern e-commerce with download licensing. In progress. Medusa + Stripe + instant delivery."
+    }
+  },
+  "studio": {
+    "label": "// THE STUDIO",
+    "imageCaption": "// THE FACE & THE PROCESS · HUESCA, ES",
+    "title_part1": "Boutique by size. ",
+    "title_emphasis": "Sharp",
+    "title_part2": " by design.",
+    "body": "I'm Antonio. I started Bellostas Studio at 20 from a small town in Spain. 70+ projects later, I'm still obsessed with the same thing: shipping work that actually moves the needle. No bloated teams, no endless timelines, no meetings that could've been an email. Just execution.",
+    "fuelLabel": "// WHAT FUELS THE WORK",
+    "fuel": [
+      "Motorsport",
+      "Hip-hop",
+      "Boutique studios",
+      "Open source"
+    ],
+    "tagline": "// THE WORLD IS YOURS — IF YOU SHIP IT RIGHT."
+  },
+  "numbers": {
+    "label": "// THE NUMBERS",
+    "title_part1": "The numbers don't ",
+    "title_emphasis": "lie",
+    "title_part2": ".",
+    "sub": "Real results that back every project — because great design drives real growth.",
+    "items": {
+      "n1": {
+        "value": "17M+",
+        "label": "Impressions generated",
+        "desc": "Across the sites and campaigns we've shipped."
+      },
+      "n2": {
+        "value": "70+",
+        "label": "Projects delivered",
+        "desc": "Brands and agencies that trusted the studio."
+      },
+      "n3": {
+        "value": "100%",
+        "label": "On-time delivery",
+        "desc": "What we promise, we ship. No endless timelines."
+      }
+    }
+  },
+  "faq": {
+    "label": "// QUESTIONS",
+    "title_part1": "Things people ",
+    "title_emphasis": "usually ask",
+    "title_part2": ".",
+    "items": {
+      "q1": {
+        "question": "How much does a website cost?",
+        "answer": "It depends on scope, but typical projects run €3,500–€15,000. 30-min call and I send you a fixed quote within 24h."
+      },
+      "q2": {
+        "question": "How long does delivery take?",
+        "answer": "Marketing sites: 3–4 weeks. SaaS or complex sites: 6–8 weeks. Rushing is real, cutting corners isn't."
+      },
+      "q3": {
+        "question": "Do you work white-label with agencies?",
+        "answer": "Yes. I have a dedicated setup for partnering with agencies under NDA — your client, your brand, I build in silence."
+      },
+      "q4": {
+        "question": "Why not WordPress?",
+        "answer": "Because Next.js sites load twice as fast, are infinitely more maintainable, and nobody calls me at 11pm because a plugin nuked the homepage."
+      },
+      "q5": {
+        "question": "What if I need changes after launch?",
+        "answer": "Monthly maintenance available (from €200/mo), or hourly one-off changes. All projects include 30 days of free post-launch support."
+      },
+      "q6": {
+        "question": "Do you work with clients outside Spain?",
+        "answer": "Yes. Half my clients are outside Huesca and many outside Spain. I work in Spanish or English equally."
+      }
+    }
+  },
+  "servicePages": {
+    "whitelabel": {
+      "metaTitle": "White-label for agencies · Bellostas Studio",
+      "metaDescription": "Boutique studio available to agencies under NDA. 100% on-time delivery, fixed costs, your brand at 100%. Next.js development without a footprint.",
+      "hero": {
+        "label": "// WHITE-LABEL · CONFIDENTIAL",
+        "title_part1": "Your client. Your brand. ",
+        "title_emphasis": "Our code.",
+        "title_part2": "",
+        "sub": "Boutique studio available to agencies under NDA. Your team presents, we deliver. Your client never knows we exist.",
+        "cta_primary": "Book a call",
+        "cta_secondary": "How it works",
+        "metaStrip": "// NDA AVAILABLE IN 24H · BOOKING {q}",
+        "video_name": "Javier Flores",
+        "video_role": "Director · Social11",
+        "video_caption": "Agency testimonial",
+        "video_watch": "Watch testimonial"
+      },
+      "stats": {
+        "label": "// THE NUMBERS THAT MATTER",
+        "items": [
+          {
+            "value": "100%",
+            "label": "On-time delivery"
+          },
+          {
+            "value": "€0",
+            "label": "Hidden costs"
+          },
+          {
+            "value": "24h",
+            "label": "Fixed timeline"
+          },
+          {
+            "value": "NDA",
+            "label": "Day 1, no questions"
+          }
+        ]
+      },
+      "pillars": {
+        "label": "// HOW WE FIX IT",
+        "title_part1": "Predictable where it ",
+        "title_emphasis": "matters",
+        "title_part2": ".",
+        "sub": "Three firm commitments that let your agency sell Next.js without cracking the internal team.",
+        "items": [
+          {
+            "tag": "TIMELINES",
+            "metric": "100%",
+            "title": "Met. No asterisks.",
+            "description": "Fixed timeline on the first call. If we commit to a date, that date is the delivery. No 'there might be delays'."
+          },
+          {
+            "tag": "COSTS",
+            "metric": "€0",
+            "title": "Variations on you.",
+            "description": "Fixed price on signature. Scope creep is on us, not your margin. You calculate real cost from day 0."
+          },
+          {
+            "tag": "BRAND",
+            "metric": "100%",
+            "title": "Your client, your brand.",
+            "description": "No name in the repo, no name in pitches, no name in commits if you ask. Standard NDA signed before we touch anything."
+          }
+        ]
+      },
+      "comparison": {
+        "label": "// THE ALTERNATIVE",
+        "title_part1": "Hire in-house or ",
+        "title_emphasis": "work with us",
+        "title_part2": ".",
+        "sub": "What changes when your pipeline needs Next.js tomorrow, not in six months.",
+        "colA": "Hire in-house",
+        "colB": "White-label Bellostas",
+        "rows": [
+          {
+            "label": "Time to production",
+            "a": "4–6 months",
+            "b": "3–4 weeks"
+          },
+          {
+            "label": "Estimated monthly cost",
+            "a": "€5,500+ base salary",
+            "b": "Per fixed project"
+          },
+          {
+            "label": "Social security charges",
+            "a": "~30% on top of gross",
+            "b": "Included in our rate"
+          },
+          {
+            "label": "Severance / dismissal cost",
+            "a": "Up to 24 months pay",
+            "b": "Zero · service contract"
+          },
+          {
+            "label": "Onboarding & training",
+            "a": "2–3 months · lead's time",
+            "b": "Zero · ready day 1"
+          },
+          {
+            "label": "Holidays & sick leave",
+            "a": "30 days + medical leave",
+            "b": "We cover, always"
+          },
+          {
+            "label": "Software & licenses",
+            "a": "Per dev · on you",
+            "b": "Included in our rate"
+          },
+          {
+            "label": "Next.js specialization",
+            "a": "If you find a senior",
+            "b": "Core of our stack"
+          },
+          {
+            "label": "Risk on leave / resignation",
+            "a": "High",
+            "b": "Zero — firm contract"
+          },
+          {
+            "label": "Client-facing visibility",
+            "a": "—",
+            "b": "Zero · standard NDA"
+          }
+        ]
+      },
+      "process": {
+        "label": "// HOW WE WORK WITH YOU",
+        "title_part1": "Five steps, ",
+        "title_emphasis": "zero friction",
+        "title_part2": ".",
+        "steps": [
+          {
+            "n": "01",
+            "title": "We sign the NDA",
+            "description": "In under 24h. Whatever we discuss stays between you and us."
+          },
+          {
+            "n": "02",
+            "title": "You tell us the project",
+            "description": "A 30-minute call and we get exactly what you need."
+          },
+          {
+            "n": "03",
+            "title": "We send plan & price",
+            "description": "In 48h you have dates and a fixed quote. Show it to your client as your own."
+          },
+          {
+            "n": "04",
+            "title": "We build with you",
+            "description": "Weekly progress, no surprises, and always reachable."
+          },
+          {
+            "n": "05",
+            "title": "We hand it all over",
+            "description": "Site, code and docs under your brand. Ready to launch."
+          }
+        ]
+      },
+      "faq": {
+        "label": "// QUESTIONS · AGENCIES",
+        "title_part1": "What ",
+        "title_emphasis": "agencies always ask",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "How do you present the work to my client?",
+            "answer": "We don't. You're the voice in front of the client. We deliver on the channel we agree on — Slack, Notion, email — at the cadence your agency runs."
+          },
+          "q2": {
+            "question": "Does your name appear anywhere in the project?",
+            "answer": "Zero. Not in the repo, not on the site, not in commits if you ask. We set commit authors as your brand. 100% your client."
+          },
+          "q3": {
+            "question": "Do you offer retainer or just per project?",
+            "answer": "Both. Monthly retainer for agencies with constant flow (discount over standard rates). Per fixed project for one-off hits."
+          },
+          "q4": {
+            "question": "What if the client wants to meet the dev?",
+            "answer": "If you ask, we join the call as 'part of your team' with your agency's email and signature. If you'd rather be the face, we hand you the technical doc needed."
+          },
+          "q5": {
+            "question": "Do you work with international agencies?",
+            "answer": "Yes, especially in European and LATAM time zones. ES/EN with zero friction. If you need another language for deliverables, we coordinate."
+          },
+          "q6": {
+            "question": "What kind of projects fit best?",
+            "answer": "Next.js sites, institutional sites, headless e-commerce, SaaS platforms, CMS integrations and technical SEO. If your client demands pure WordPress, I'll refer you to someone who does it well."
+          }
+        }
+      },
+      "cta": {
+        "label": "// LET'S START",
+        "title_part1": "30 minutes can save you ",
+        "title_emphasis": "months",
+        "title_part2": ".",
+        "sub": "Discovery call, zero commitment. NDA available beforehand if needed. ES or EN.",
+        "button": "Book a call",
+        "footnote": "// 30 MIN · OPTIONAL NDA · BOOKING {q}"
+      }
+    },
+    "apps": {
+      "metaTitle": "Custom web applications · Bellostas Studio",
+      "metaDescription": "SaaS, dashboards, LMS and client portals built with Next.js, Postgres, Clerk and Drizzle. Type-safe, multi-tenant, scalable from day one.",
+      "hero": {
+        "label": "// SERVICE · WEB APPLICATIONS",
+        "title_part1": "From idea to ",
+        "title_emphasis": "production",
+        "title_part2": ", no shortcuts.",
+        "sub": "Custom web applications with a stack that holds up. Next.js + PostgreSQL + Clerk + Drizzle. Type-safe end to end, multi-tenant when needed, auth solved.",
+        "cta_primary": "Let's talk",
+        "cta_secondary": "View cases",
+        "stats": {
+          "lcp": "100% type-safe",
+          "lighthouse": "Auth in 30 min",
+          "uptime": "Multi-tenant ready"
+        }
+      },
+      "trusted": {
+        "label": "// TRUSTED BY"
+      },
+      "manifesto": {
+        "label": "// WHY THIS STACK",
+        "title_part1": "Built to ",
+        "title_emphasis": "scale,",
+        "title_part2": " not to patch.",
+        "body": "Most SaaS dies of accidental complexity — wrong DB, wrong auth, ORM that gets in the way. I build a stack that doesn't force you to rewrite when you grow. From 10 users to 10,000 without touching the core.",
+        "bullets": [
+          "Postgres + Drizzle = type safety from DB to UI",
+          "Clerk = solved multi-tenant auth (SSO, MFA, organizations)",
+          "Server Actions + tRPC when they make sense",
+          "Stack proven on real SaaS with real traffic"
+        ]
+      },
+      "bento": {
+        "label": "// WHAT WE BUILD",
+        "title_part1": "Types of apps we ",
+        "title_emphasis": "build",
+        "title_part2": ".",
+        "items": {
+          "f1": {
+            "title": "Multi-tenant SaaS",
+            "description": "B2B apps with login, organizations, subscription billing and admin panel. The backbone of any startup selling to companies."
+          },
+          "f2": {
+            "title": "Dashboards and admin panels",
+            "description": "Internal views to manage your business: KPIs, real-time reports, user management, control over your operation."
+          },
+          "f3": {
+            "title": "LMS and learning platforms",
+            "description": "Courses, student progress, certifications, integrated payments. Like PrimeX Academy or any academy that needs to scale."
+          },
+          "f4": {
+            "title": "Client portals",
+            "description": "Your client sees project phases, deadlines, deliverables and comms in one place. The real differentiator vs traditional agencies."
+          },
+          "f5": {
+            "title": "Internal tools and automations",
+            "description": "Tools for your team: order management, lightweight CRM, workflows with a UI. Replace 10 scattered spreadsheets."
+          }
+        }
+      },
+      "projects": {
+        "label": "// APPS IN PRODUCTION",
+        "title_part1": "Built ",
+        "title_emphasis": "and running",
+        "title_part2": "."
+      },
+      "faq": {
+        "label": "// QUESTIONS · WEB APPS",
+        "title_part1": "What agencies and founders ",
+        "title_emphasis": "always ask",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Why Postgres and not Mongo or Firebase?",
+            "answer": "Postgres is predictable, ACID, and scales without surprises. Firebase looks easy at first but locks you in and gets expensive fast. Mongo is fine for very specific cases, but most SaaS is relational — joins, transactions, reports. Postgres is the right answer 90% of the time."
+          },
+          "q2": {
+            "question": "What kind of apps have you built?",
+            "answer": "Complete LMS with courses + payments (PrimeX Academy), custom admin panel for member management (Gotten Gym), client portals with project tracking, internal B2B dashboards. If it fits in a browser tab, we build it."
+          },
+          "q3": {
+            "question": "How much does a custom app cost?",
+            "answer": "Functional MVP from €8,000. Full SaaS with multi-tenant, billing and admin panel between €15,000 and €30,000. Fixed price on signature — no variations on you."
+          },
+          "q4": {
+            "question": "How long does it take?",
+            "answer": "Functional MVP 4-6 weeks. Mature product with auth, billing, admin panel and multi-tenant: 8-12 weeks. Fixed timeline on the first call."
+          },
+          "q5": {
+            "question": "What about hosting and costs?",
+            "answer": "Vercel for the frontend (free tier until real traffic), Neon or Supabase for Postgres, Cloudflare R2 for assets. Typical monthly cost for a medium app: €50-200. I leave everything configured and documented for you to scale calmly."
+          },
+          "q6": {
+            "question": "Post-launch support?",
+            "answer": "30 days of free post-launch support included. After that, monthly retainer from €400/month for maintenance + iteration. Or one-off hours at €80/h, no commitment."
+          }
+        }
+      }
+    },
+    "web": {
+      "metaTitle": "Custom web development · Bellostas Studio",
+      "metaDescription": "High-performance custom websites: fast, secure and ready to rank on Google. We pick the right technology for each project.",
+      "hero": {
+        "label": "// SERVICE · WEB DEVELOPMENT",
+        "title_part1": "Custom websites that ",
+        "title_emphasis": "convert",
+        "title_part2": ".",
+        "sub": "Fast, secure sites built around your business — easy to manage and ready to rank on Google. We pick the right technology for each project, so all you have to care about is results.",
+        "cta_primary": "Let's talk",
+        "cta_secondary": "View cases",
+        "stats": {
+          "lcp": "< 1.2s LCP",
+          "lighthouse": "Lighthouse 100",
+          "uptime": "99.99% uptime"
+        }
+      },
+      "trusted": {
+        "label": "// TRUSTED BY"
+      },
+      "manifesto": {
+        "label": "// WHY CUSTOM",
+        "title_part1": "Built to ",
+        "title_emphasis": "last",
+        "title_part2": ".",
+        "body": "WordPress works until it doesn't. A custom build loads twice as fast, handles traffic spikes without blinking, and doesn't break when a plugin updates. More control, fewer surprises — and we pick the technology that best fits your case.",
+        "bullets": [
+          "SSR + SSG in the same project",
+          "End-to-end strong typing",
+          "Edge deployment with Vercel",
+          "Zero coupling to the CMS"
+        ]
+      },
+      "bento": {
+        "label": "// WHAT'S INCLUDED",
+        "title_part1": "Modern stack, ",
+        "title_emphasis": "clean execution",
+        "title_part2": ".",
+        "items": {
+          "f1": {
+            "title": "Brutal performance",
+            "description": "Lighthouse 100 on mobile and desktop. Image, font and code optimization by default."
+          },
+          "f2": {
+            "title": "SEO from first commit",
+            "description": "SSR, automatic schema markup, dynamic sitemap, hreflang and per-page meta tags."
+          },
+          "f3": {
+            "title": "Headless-friendly",
+            "description": "We integrate with Sanity, Payload or your CMS of choice. Your team edits without touching code."
+          },
+          "f4": {
+            "title": "Edge-ready",
+            "description": "Deployed on Vercel's global network. Your site responds in milliseconds from anywhere."
+          },
+          "f5": {
+            "title": "TypeScript end-to-end",
+            "description": "Type safety from API to the last component. Fewer bugs, fearless refactors."
+          }
+        }
+      },
+      "projects": {
+        "label": "// RECENT CASES",
+        "title_part1": "Built ",
+        "title_emphasis": "in production",
+        "title_part2": "."
+      },
+      "faq": {
+        "label": "// QUESTIONS · WEB DEVELOPMENT",
+        "title_part1": "Things ",
+        "title_emphasis": "people usually ask",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Why custom and not a template?",
+            "answer": "A custom site loads faster, scales better and doesn't depend on fragile plugins that break on update. We pick the right technology for each project (Next.js, Astro…); you just get a fast, secure, easy-to-maintain site."
+          },
+          "q2": {
+            "question": "Can I edit content without touching code?",
+            "answer": "Yes. We connect Sanity, Payload or Notion depending on the case. You get a visual panel to edit text, images and sections without risk of breaking anything."
+          },
+          "q3": {
+            "question": "How long does a custom site take?",
+            "answer": "Marketing sites: 3-4 weeks. SaaS or platforms with backend: 6-8 weeks. I send you a fixed timeline on the first call."
+          },
+          "q4": {
+            "question": "What hosting do you recommend?",
+            "answer": "Vercel for most cases — auto-scaling, instant deploys, global CDN. For special cases we also deploy on Cloudflare or AWS."
+          },
+          "q5": {
+            "question": "Do you migrate from WordPress / Webflow?",
+            "answer": "Yes. We've migrated from WordPress to Next.js preserving URLs and SEO. Zero ranking loss, 40-60% speed gain."
+          }
+        }
+      }
+    },
+    "ecommerce": {
+      "metaTitle": "E-commerce and migrations · Bellostas Studio",
+      "metaDescription": "Complete online stores: advanced Shopify, custom-built e-commerce, automated email marketing and SEO-safe migrations from WooCommerce, PrestaShop or Magento.",
+      "hero": {
+        "label": "// SERVICE · E-COMMERCE",
+        "title_part1": "Designed to ",
+        "title_emphasis": "convert,",
+        "title_part2": " not just to sell.",
+        "sub": "From Shopify to custom-built. Complete online stores: inventory, multi-language, international payments, automated email marketing and migrations without losing SEO.",
+        "cta_primary": "Let's talk",
+        "cta_secondary": "View cases",
+        "stats": {
+          "lcp": "Shopify & custom",
+          "lighthouse": "+500K customers (TeleAdhesivo)",
+          "uptime": "SEO-safe migrations"
+        }
+      },
+      "trusted": {
+        "label": "// TRUSTED BY"
+      },
+      "manifesto": {
+        "label": "// WHY IT MATTERS",
+        "title_part1": "Your store isn't a ",
+        "title_emphasis": "website,",
+        "title_part2": " it's a sales engine.",
+        "body": "An online store is inventory, payments, emails, analytics and SEO — all at once. We build each piece to sell, not just to exist. And if you're coming from WooCommerce or PrestaShop, we migrate you without losing a single position on Google.",
+        "bullets": [
+          "Advanced Shopify or custom development based on your scale",
+          "Payments in 100+ countries with Stripe",
+          "Email marketing integrated with Klaviyo or Mailchimp",
+          "SEO-safe migrations — preserved URLs, 301 redirects"
+        ]
+      },
+      "bento": {
+        "label": "// WHAT WE DO",
+        "title_part1": "Everything your store ",
+        "title_emphasis": "needs",
+        "title_part2": ".",
+        "items": {
+          "f1": {
+            "title": "Advanced Shopify",
+            "description": "Custom theme + Liquid + integrated apps. For stores with extensive catalogs, multi-country and real operations. No generic templates."
+          },
+          "f2": {
+            "title": "Custom-built e-commerce",
+            "description": "When Shopify isn't enough: complex catalogs, B2B logic, per-product margins or rules that don't fit any plug-in."
+          },
+          "f3": {
+            "title": "Automated email marketing",
+            "description": "Klaviyo or Mailchimp integrated. Abandoned cart sequences, post-purchase, cohort segmentation. You sell while you sleep."
+          },
+          "f4": {
+            "title": "SEO-safe migrations",
+            "description": "From WooCommerce, PrestaShop or Magento to a modern stack. URLs preserved, 301 redirects, domain without downtime. Zero traffic lost."
+          },
+          "f5": {
+            "title": "UX & conversion optimization",
+            "description": "Cart audits, A/B testing and performance that reduces bounce. Like we did at TeleAdhesivo, an e-commerce with +500K customers since 2000."
+          }
+        }
+      },
+      "projects": {
+        "label": "// STORES IN PRODUCTION",
+        "title_part1": "Selling ",
+        "title_emphasis": "live",
+        "title_part2": "."
+      },
+      "faq": {
+        "label": "// QUESTIONS · E-COMMERCE",
+        "title_part1": "What brands ",
+        "title_emphasis": "always ask",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Shopify or custom-built?",
+            "answer": "It depends. Shopify wins when your logic fits the ecosystem and you want to ship fast — perfect up to 7-figure revenue. Custom-built wins when your model is B2B, you have complex catalog logic, or you don't want to pay Shopify commissions forever. We evaluate it on the first call."
+          },
+          "q2": {
+            "question": "How much does an online store cost?",
+            "answer": "Shopify with custom theme and key apps: from €4,500. Custom e-commerce with complex catalog, multi-language and B2B: between €15,000 and €25,000. Fixed price on signature, no variations on you."
+          },
+          "q3": {
+            "question": "How long does it take?",
+            "answer": "Advanced Shopify: 2-3 weeks. SEO-safe migration from WooCommerce or PrestaShop: 4-6 weeks. Custom e-commerce: 6-10 weeks. Fixed timeline on the first call."
+          },
+          "q4": {
+            "question": "Will I lose SEO if I migrate?",
+            "answer": "Not if it's done right. We map every old URL, 301-redirect to the new ones, preserve meta tags and schemas, and monitor Search Console for 30 days post-launch. In recent migrations we've kept 100% of organic traffic — and improved rankings thanks to the performance boost."
+          },
+          "q5": {
+            "question": "Do you include email marketing?",
+            "answer": "Yes, optional. We integrate Klaviyo or Mailchimp with abandoned cart flows, post-purchase, win-back and segmented newsletters. If you already have a platform, we connect it to the store. If not, we help you pick the best one for your volume."
+          },
+          "q6": {
+            "question": "Have you worked with large stores?",
+            "answer": "Yes. We've collaborated with TeleAdhesivo — an e-commerce founded in 2000 with over half a million customers — on technical SEO, UX and conversion improvements. If your store has real volume, we know what breaks at scale and what holds."
+          }
+        }
+      }
+    },
+    "automatizaciones": {
+      "metaTitle": "AI automation and bots · Bellostas Studio",
+      "metaDescription": "We automate repetitive processes: WhatsApp bots, AI lead qualification, integrations between your CRM, email, Slack and tools. What your team does every day — without anyone touching it.",
+      "hero": {
+        "label": "// SERVICE · AUTOMATION",
+        "title_part1": "Processes that now ",
+        "title_emphasis": "run themselves",
+        "title_part2": ".",
+        "sub": "Bots that qualify leads, integrations that sync your CRM with email and Slack, workflows that generate reports while you sleep. What your team does every day, without anyone having to touch it.",
+        "cta_primary": "Let's talk",
+        "cta_secondary": "View cases",
+        "stats": {
+          "lcp": "+200h/month saved",
+          "lighthouse": "Setup in 1-2 weeks",
+          "uptime": "ROI < 2 months"
+        }
+      },
+      "trusted": {
+        "label": "// TRUSTED BY"
+      },
+      "manifesto": {
+        "label": "// THE HIDDEN COST",
+        "title_part1": "Every repetitive click is a ",
+        "title_emphasis": "hidden cost.",
+        "title_part2": "",
+        "body": "If your team copies data between apps, answers the same email 20 times a day, or generates reports manually every Monday, you're paying for work a machine does better. We automate the repetitive so your team focuses on what adds real value.",
+        "bullets": [
+          "WhatsApp bots that qualify leads 24/7",
+          "CRM ↔ email ↔ Slack ↔ Notion ↔ Stripe synced",
+          "Daily reports generated automatically (Notion, email, PDF)",
+          "AI workflows: classification, scoring, generation"
+        ]
+      },
+      "bento": {
+        "label": "// WHAT WE AUTOMATE",
+        "title_part1": "Types of processes that ",
+        "title_emphasis": "handle themselves",
+        "title_part2": ".",
+        "items": {
+          "f1": {
+            "title": "WhatsApp & chat bots",
+            "description": "Conversational on WhatsApp, web or internal chat. Answer FAQs, capture data, qualify leads and route to the right human."
+          },
+          "f2": {
+            "title": "AI lead qualification",
+            "description": "Agents that read forms, emails and meetings, score the lead and send only the good ones to sales. Goodbye to time spent with the curious."
+          },
+          "f3": {
+            "title": "App integrations",
+            "description": "CRM ↔ email ↔ Slack ↔ Notion ↔ Stripe ↔ Calendar. Data flows between the tools you already use — no manual copy-paste."
+          },
+          "f4": {
+            "title": "Automated email marketing",
+            "description": "Klaviyo or Mailchimp with welcome sequences, abandoned cart, win-back and segmented newsletters. You sell while you sleep."
+          },
+          "f5": {
+            "title": "AI internal workflows",
+            "description": "Daily reports, document classification, competitor scraping, draft generation. The team reviews — it doesn't produce."
+          }
+        }
+      },
+      "projects": {
+        "label": "// LIVE AUTOMATIONS",
+        "title_part1": "Processes in ",
+        "title_emphasis": "production",
+        "title_part2": "."
+      },
+      "faq": {
+        "label": "// QUESTIONS · AUTOMATION",
+        "title_part1": "What companies ",
+        "title_emphasis": "always ask.",
+        "title_part2": "",
+        "items": {
+          "q1": {
+            "question": "What can actually be automated?",
+            "answer": "If it's repetitive and follows logic, it can. Lead capture, frequent responses, report generation, app sync, AI scoring, internal alerts, follow-ups. If your team does it more than five times a week, there's a case to automate it."
+          },
+          "q2": {
+            "question": "Does it work in my industry?",
+            "answer": "Yes. We've automated processes in e-commerce, real estate agencies, gyms, online academies and professional services. The base tech (n8n + AI + APIs) is industry-agnostic — what changes is the business logic."
+          },
+          "q3": {
+            "question": "How much does it cost?",
+            "answer": "Simple automation (1-2 integrations, no AI): from €800. AI workflow (agents, scoring, generation): €2,500-6,000. Full system with dashboard and 10+ integrations: €8,000-15,000. Fixed price on signature."
+          },
+          "q4": {
+            "question": "How long does it take?",
+            "answer": "Simple automation: 1-2 weeks. AI workflow: 3-4 weeks. Full system: 6-8 weeks. Fixed timeline on the first call."
+          },
+          "q5": {
+            "question": "What if an API changes or breaks?",
+            "answer": "We maintain it. APIs change (Notion does every 6 months, WhatsApp too). We include 30 days of free post-launch support and an optional monthly retainer from €200/month for maintenance and new iterations."
+          },
+          "q6": {
+            "question": "Do you need my credentials and access?",
+            "answer": "For many integrations, yes. We use secure managers (1Password, n8n vault) and sign NDA if you prefer. Your credentials never leave the controlled environment, and at the end of the project everything is handed over under your account."
+          }
+        }
+      }
+    },
+    "migraciones": {
+      "metaTitle": "SEO-safe migrations · Bellostas Studio",
+      "metaDescription": "We migrate WordPress, Wix, Squarespace or Shopify to a modern stack — Next.js, Sanity, Payload — without losing rankings, with no downtime and a clean Lighthouse 100.",
+      "hero": {
+        "label": "// SERVICE · MIGRATIONS",
+        "title_part1": "Change your stack ",
+        "title_emphasis": "without breaking SEO",
+        "title_part2": ".",
+        "sub": "We migrate WordPress, Wix, Squarespace or Shopify to Next.js, Sanity or Payload. URLs preserved, permanent 301s, exact metadata and Lighthouse +90 from day one. Monitored launch and a rollback ready in case anything looks off.",
+        "cta_primary": "Let's talk",
+        "cta_secondary": "See cases",
+        "stats": {
+          "lcp": "0% ranking drop",
+          "lighthouse": "Lighthouse 30 → 100",
+          "uptime": "Setup in 2-4 weeks"
+        }
+      },
+      "trusted": {
+        "label": "// TRUSTED BY"
+      },
+      "manifesto": {
+        "label": "// THE USUAL FEAR",
+        "title_part1": "Migrating ",
+        "title_emphasis": "shouldn't hurt.",
+        "title_part2": "",
+        "body": "Migrations break for the same reasons every time: someone forgets the 301s, metadata is lost in transit or DNS is published before the new site is ready. We do it in small steps, with preview, backup and live monitoring. You decide when we hit the switch.",
+        "bullets": [
+          "1:1 map of old → new URLs with permanent 301s",
+          "Metadata, OG images and sitemap migrated exactly",
+          "Content preserved: posts, products, users, media",
+          "DNS-controlled launch with rollback ready in 5 minutes"
+        ]
+      },
+      "bento": {
+        "label": "// WHAT WE MIGRATE",
+        "title_part1": "Migrations we ",
+        "title_emphasis": "do well.",
+        "title_part2": "",
+        "items": {
+          "f1": {
+            "title": "WordPress → Next.js + Sanity",
+            "description": "The classic: leaving WP when it weighs more than the site itself. We extract posts, authors, taxonomies and media to a headless CMS. 10× faster, same editorial team."
+          },
+          "f2": {
+            "title": "Wix / Squarespace → modern stack",
+            "description": "When builders fall short. We rewrite design and content into Next.js + CMS, recover performance and stop paying inflexible subscriptions."
+          },
+          "f3": {
+            "title": "Shopify legacy → Hydrogen",
+            "description": "Same back-end, headless front. More speed, more SEO, more creative control. Checkout, payments and stock untouched."
+          },
+          "f4": {
+            "title": "WooCommerce → Shopify",
+            "description": "Full migration of products, variants, customers and orders. URLs preserved with 301s and canonicalization rules. Stock synced on switch day."
+          },
+          "f5": {
+            "title": "Custom legacy → Next.js + Postgres",
+            "description": "10-year-old PHP apps, inherited internal systems, unmaintained stacks. Module-by-module rewrite — no big-bang, no business interruption."
+          }
+        }
+      },
+      "projects": {
+        "label": "// LIVE MIGRATIONS",
+        "title_part1": "Before and ",
+        "title_emphasis": "after",
+        "title_part2": "."
+      },
+      "faq": {
+        "label": "// QUESTIONS · MIGRATIONS",
+        "title_part1": "What everyone ",
+        "title_emphasis": "asks first.",
+        "title_part2": "",
+        "items": {
+          "q1": {
+            "question": "Are you going to tank my Google rankings?",
+            "answer": "No. We do a full SEO audit before touching anything, map every old URL to its new equivalent with a permanent 301, keep metadata and structured data, and monitor Search Console for 4 weeks post-launch. Most of our migrations gain organic traffic — they don't lose it."
+          },
+          "q2": {
+            "question": "How do you migrate data without losing anything?",
+            "answer": "We export everything cold (posts, products, users, media, comments), transform it to the new CMS structure and upload it to staging for your validation before touching the live site. We diff content to guarantee 100% parity before the switch."
+          },
+          "q3": {
+            "question": "How much does migrating cost?",
+            "answer": "Corporate site (< 200 pages): €2,500 - €5,000. Large blog or digital media (< 2,000 posts): €5,000 - €10,000. E-commerce with thousands of products: €8,000 - €18,000. Complex legacy app: from €15,000. Fixed budget after the initial audit."
+          },
+          "q4": {
+            "question": "How long does it take?",
+            "answer": "Corporate site: 2-3 weeks. Blog or media: 3-5 weeks. E-commerce: 4-8 weeks. Legacy app: 8-16 weeks with module releases. We always launch on Tuesday or Wednesday — never a Friday."
+          },
+          "q5": {
+            "question": "And if something goes wrong on launch day?",
+            "answer": "We have a rollback plan ready: if anything looks off in the first hours (ranking drop, 500s, broken data), we revert to the previous site in 5 minutes by switching DNS. That's why we always keep the old site alive on a subdomain for the first 2 weeks."
+          },
+          "q6": {
+            "question": "Do you keep the old URLs or does everything change?",
+            "answer": "Your call. If the old URLs work SEO-wise, we replicate them 1:1 on the new site. If they're badly structured, we redesign them with permanent 301s — Google reassigns equity in 4-8 weeks with no measurable loss."
+          }
+        }
+      }
+    }
+  },
+  "lovePage": {
+    "metaTitle": "Love · What clients say about Bellostas Studio",
+    "metaDescription": "Real testimonials from Bellostas Studio clients. Video testimonials, concrete metrics and 5-star Google reviews.",
+    "hero": {
+      "label": "// LOVE · WHAT THEY SAY",
+      "title_part1": "What they say when ",
+      "title_emphasis": "I'm not listening",
+      "title_part2": ".",
+      "sub": "This page is accumulated proof. Video testimonials, client words, real metrics and reviews I can't edit.",
+      "meta": "// 70+ PROJECTS · 100% ON TIME · ZERO DELAYS",
+      "googleRating": "5-star rating on Google",
+      "googleCta": "Read reviews"
+    },
+    "featuredVideos": {
+      "label": "// IN THEIR WORDS",
+      "title_part1": "Cameras ",
+      "title_emphasis": "rolling",
+      "title_part2": ".",
+      "sub": "Two clients telling — unscripted — what it was like working with us. Better than any copy I could write.",
+      "comingSoonLabel": "// COMING SOON",
+      "playLabel": "Play testimonial",
+      "indexMeta": "on camera · 70+ in total",
+      "items": [
+        {
+          "name": "Javier Flores",
+          "role": "CEO",
+          "company": "Social11",
+          "quote": "He gets our product before we finish explaining it."
+        },
+        {
+          "name": "Themis López",
+          "role": "President",
+          "company": "FADA",
+          "quote": "Rebuilt our entire site in three weeks. Hard to ask for more."
+        }
+      ]
+    },
+    "numbers": {
+      "label": "// THE NUMBERS",
+      "items": [
+        {
+          "value": "70+",
+          "label": "Projects shipped"
+        },
+        {
+          "value": "100%",
+          "label": "On-time delivery"
+        },
+        {
+          "value": "4h",
+          "label": "Avg response time"
+        },
+        {
+          "value": "5/5",
+          "label": "Google reviews"
+        }
+      ]
+    },
+    "mosaic": {
+      "label": "// CLIENT WORDS",
+      "title_part1": "Unfiltered, ",
+      "title_emphasis": "unedited",
+      "title_part2": ".",
+      "rolePreposition": "at",
+      "items": {
+        "t1": {
+          "name": "Javier Flores",
+          "role": "CEO",
+          "company": "Social11",
+          "quote": "He got our product in one call. We'd been trying to explain it to other agencies for months without getting anywhere."
+        },
+        "t2": {
+          "name": "Adela Ocenic",
+          "role": "Coordinator",
+          "company": "Voluntariado Aragón",
+          "quote": "Delighted to work with Antonio. In the social sector it's hard to find professionals who understand our essence, but he nailed it on the first try, fast and with every detail. The result reflects who we are. We'll work with him again and recommend him to any organization in the sector."
+        },
+        "t3": {
+          "name": "Themis López",
+          "role": "President",
+          "company": "FADA",
+          "quote": "Response speed is what we value most. You ask for a change on Monday and it's in production by Tuesday."
+        },
+        "t4": {
+          "name": "Diego Colungo",
+          "role": "Director",
+          "company": "PrimeX Academy",
+          "quote": "He polished every detail of the LMS until it was a joy to use. Students have been spending more time in the platform since the redesign."
+        },
+        "t5": {
+          "name": "Carlos Iribarren",
+          "role": "Owner",
+          "company": "Gotten Gym",
+          "quote": "We called on a Monday asking for 'something simple'. By Friday we had staging up with a custom admin panel. No noise, everything shipped."
+        },
+        "t6": {
+          "name": "Diego Plana",
+          "role": "Marketing",
+          "company": "Como Me Lo Como",
+          "quote": "A clean, fast landing page with real conversion. Signed off without discussion."
+        },
+        "t7": {
+          "name": "Pablo Marina",
+          "role": "Founder",
+          "company": "Embroidery Download",
+          "quote": "Five years trying to get this e-commerce live with others. Antonio had it running in six weeks."
+        },
+        "t8": {
+          "name": "Sofía Bandrés",
+          "role": "Marketing Lead",
+          "company": "Teleadhesivo",
+          "quote": "A pro, plain and simple. Doesn't know the word 'impossible'."
+        }
+      }
+    },
+    "results": {
+      "label": "// CONCRETE RESULTS",
+      "title_part1": "What happens ",
+      "title_emphasis": "after delivery",
+      "title_part2": ".",
+      "sub": "Not promises — real metrics from clients we still keep in touch with.",
+      "items": [
+        {
+          "metric": "+40%",
+          "label": "Faster LCP",
+          "client": "FADA",
+          "description": "WordPress → Next.js + Sanity migration. Site 2× faster on mobile.",
+          "projectSlug": "fada"
+        },
+        {
+          "metric": "100k",
+          "label": "Scalable visits",
+          "client": "Voluntariado Aragón",
+          "description": "Stack ready for peaks without rewriting. Zero downtime in migration.",
+          "projectSlug": "voluntariado-aragon"
+        },
+        {
+          "metric": "1 wk",
+          "label": "Slack to staging",
+          "client": "Gotten Gym",
+          "description": "Call on Monday, staging with custom admin by Friday. Zero drama.",
+          "projectSlug": "gotten-gym"
+        },
+        {
+          "metric": "+25%",
+          "label": "Time in platform",
+          "client": "PrimeX Academy",
+          "description": "LMS redesign. More sessions, better retention, less support.",
+          "projectSlug": "primex-academy"
+        }
+      ],
+      "viewCase": "View case"
+    },
+    "google": {
+      "label": "// EXTERNAL VALIDATION",
+      "title_part1": "Five stars on ",
+      "title_emphasis": "Google",
+      "title_part2": ".",
+      "sub": "Verified reviews we can't edit. The ones that count.",
+      "ctaText": "See all Google reviews",
+      "googleProfileUrl": "https://www.google.com/search?q=bellostas+studio+huesca"
+    },
+    "cta": {
+      "label": "// NEXT PIECE",
+      "title_part1": "Want to be ",
+      "title_emphasis": "next",
+      "title_part2": " on this page.",
+      "sub": "If you want to end up on this page in a few months, let's talk.",
+      "button": "Book a call",
+      "footnote": "// 30 MIN · NO COMMITMENT · BOOKING {q}"
+    }
+  },
+  "studioPage": {
+    "metaTitle": "The Studio · Bellostas Studio",
+    "metaDescription": "Boutique web studio from Huesca. One studio, one desk, 70+ projects. The philosophy, the space and the way we work — behind Bellostas Studio.",
+    "hero": {
+      "label": "// THE STUDIO · HUESCA, EST. 2022",
+      "title_part1": "One studio. One desk. ",
+      "title_emphasis": "70+ projects",
+      "title_part2": ".",
+      "sub": "I'm Antonio. Started this in 2022 from a small town in Spain with a simple idea: build work that ages well, for clients who know what they ship. Same idea today. Just with more miles in the legs.",
+      "cta_primary": "Book a call",
+      "cta_secondary": "Scroll",
+      "meta": "EST. 2022 · HUESCA, ES · 1 PERSON · 1 DESK",
+      "photoCaption": "Antonio · Huesca studio"
+    },
+    "manifesto": {
+      "label": "// MANIFESTO",
+      "title_part1": "A team, ",
+      "title_emphasis": "without a team.",
+      "title_part2": "",
+      "body": [
+        "I started solo. I'm still solo. Not to save money — by choice.",
+        "Agencies of 20 people need to sell to 20 people to survive. They take briefs that don't fit, impossible deadlines, clients going nowhere. The team grows and the average work drops.",
+        "A boutique studio works the other way. Every project goes through one head, one hand. What ships is exactly what was in my head on day one. No broken-telephone effect.",
+        "There are 30 or 40 boutique studios in the world I admire that work like this. Slow to scale, fast to execute. Exactly what the clients I fit with need."
+      ],
+      "pullQuote": "70+ projects. 1 studio."
+    },
+    "timeline": {
+      "label": "// THE STORY",
+      "title_part1": "Ten years, ",
+      "title_emphasis": "one obsession",
+      "title_part2": ".",
+      "milestones": [
+        {
+          "year": "2016",
+          "title": "The origin",
+          "body": "At 14, at my first digital marketing & web congress. Before the studio, before everything — just a kid obsessed with the internet.",
+          "photoLabel": "Antonio · age 14 · first congress"
+        },
+        {
+          "year": "2022",
+          "title": "Bellostas Studio starts",
+          "body": "December. First project, first local client. A raw idea: solo, boutique, no commitments. Without really knowing where it ends.",
+          "photoLabel": "Initial setup · 2022"
+        },
+        {
+          "year": "2023",
+          "title": "The year of brutal learning",
+          "body": "Migration from WordPress to Next.js as main stack. Learn Sanity. Start saying no to more things than yes. First recurring client.",
+          "photoLabel": "Screen with code · 2023"
+        },
+        {
+          "year": "2024",
+          "title": "Stack consolidated",
+          "body": "Next.js + Sanity + Payload as base. The way of working becomes repeatable. Three returning clients, two projects per month.",
+          "photoLabel": "Process detail · 2024"
+        },
+        {
+          "year": "2025",
+          "title": "White-label for agencies",
+          "body": "Launch the white-label model. Start working under NDA with agencies that don't reach their deadlines. Works better than expected.",
+          "photoLabel": "Notebook · brief 2025"
+        },
+        {
+          "year": "2026",
+          "title": "Today",
+          "body": "70+ projects shipped. Zero delays. Several agencies on retainer. Mature stack, Cal integrated, client panel. Same obsessions as always.",
+          "photoLabel": "Studio · current view"
+        }
+      ]
+    },
+    "gallery": {
+      "label": "// THE SPACE",
+      "title_part1": "Where it all ",
+      "title_emphasis": "happens",
+      "title_part2": ".",
+      "sub": "Our own space in Huesca. We built it with our hands — starting with the sign at the door.",
+      "videoCaption": "BUILDING THE STUDIO · HUESCA",
+      "videoBadge": "THE SIGN"
+    },
+    "fuel": {
+      "label": "// WHAT FUELS THE WORK",
+      "title_part1": "Obsessions ",
+      "title_emphasis": "outside the code",
+      "title_part2": ".",
+      "columns": [
+        {
+          "title": "On rotation",
+          "items": [
+            "Tame Impala",
+            "C. Tangana",
+            "Nujabes",
+            "Bonobo",
+            "Yves Tumor"
+          ]
+        },
+        {
+          "title": "Now reading",
+          "items": [
+            "Almanack — Naval Ravikant",
+            "Show Your Work! — Austin Kleon",
+            "The Pathless Path — Paul Millerd"
+          ]
+        },
+        {
+          "title": "Tools",
+          "items": [
+            "Cursor + Next.js",
+            "Figma",
+            "Linear + Slack",
+            "Vercel + Cal.com",
+            "Notion + Sanity"
+          ]
+        },
+        {
+          "title": "Studios I admire",
+          "items": [
+            "Aristide Benoist",
+            "Locomotive",
+            "Resn",
+            "Studio Mast",
+            "Basement Studio"
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "The world is yours — if you ship it right.",
+      "signature": "// FOUNDER · BELLOSTAS STUDIO"
+    }
+  },
+  "workPage": {
+    "metaTitle": "Work · Bellostas Studio",
+    "metaDescription": "A recent selection of projects: SaaS, e-commerce, institutional sites and custom platforms. Next.js, Sanity, Payload.",
+    "label": "// 03 — SELECTED WORK",
+    "title_part1": "Selected ",
+    "title_emphasis": "work",
+    "title_part2": ".",
+    "sub": "A recent showcase. Every project with a real client, real metrics, and code that ages well.",
+    "stats": {
+      "projects": "70+ projects",
+      "since": "Since 2022",
+      "ontime": "100% on-time delivery"
+    },
+    "viewCase": "View case",
+    "featured": "Featured",
+    "cta": {
+      "label": "// WHAT'S NEXT?",
+      "title_part1": "Your project, ",
+      "title_emphasis": "next",
+      "title_part2": ".",
+      "sub": "A 30-minute call is enough to align scope, timeline and budget.",
+      "button": "Let's talk"
+    }
+  },
+  "introPage": {
+    "metaTitle": "Book your call · Bellostas Studio",
+    "metaDescription": "Schedule a 30-minute call with Bellostas Studio. We talk about your project and see if we're a fit.",
+    "label": "// BOOK · 30 MIN",
+    "title_part1": "Let's ",
+    "title_emphasis": "get to know each other",
+    "title_part2": ".",
+    "sub": "Book a 30-minute call, no commitment. Tell me about your project, timelines and goals, and we'll see together if we're the right team to take your website to the next level.",
+    "points": [
+      "30 minutes over video",
+      "No commitment",
+      "We reply within 4 business hours"
+    ],
+    "testimonials": [
+      {
+        "name": "Javier Flores",
+        "role": "Director · Social11",
+        "quote": "He understood our product in a single call. We'd spent months trying to explain it to others with nothing to show for it."
+      },
+      {
+        "name": "Themis López",
+        "role": "President · FADA",
+        "quote": "Response speed is what we value most. You ask for a change on Monday and it's in production on Tuesday."
+      },
+      {
+        "name": "Adela Ocenic",
+        "role": "Coordinator · Voluntariado Aragón",
+        "quote": "In the social sector it's hard to find someone who gets our essence, but Antonio nailed it on the first try. The site reflects who we are. We'll definitely work with him again."
+      }
+    ]
+  },
+  "contactPage": {
+    "label": "// CONTACT",
+    "title_part1": "Tell us about the ",
+    "title_emphasis": "project",
+    "title_part2": ".",
+    "sub": "Book a call or drop us a line. We reply fast, on whichever channel you prefer.",
+    "call_title": "Prefer a live call?",
+    "call_sub": "Start with a 30-minute discovery session.",
+    "call_name": "Antonio Bellostas",
+    "call_role": "Founder · Bellostas Studio",
+    "call_cta": "Book a call",
+    "email_title": "Send an email",
+    "metaTitle": "Contact · Bellostas Studio",
+    "metaDescription": "Tell us about your project. 30-min call, fixed quote within 24h.",
+    "booking": {
+      "label": "// SCHEDULE",
+      "title_part1": "Or book a ",
+      "title_emphasis": "call",
+      "title_part2": " directly.",
+      "sub": "30 minutes. Zero commitment. We reply through whichever channel you prefer.",
+      "duration": "30 min",
+      "durationLabel": "Duration",
+      "modality": "Video call",
+      "modalityLabel": "Format",
+      "responseTime": "< 4h business",
+      "responseLabel": "Avg response",
+      "calComing": "Calendar integration coming soon",
+      "fallbackCta": "Prefer email? Reach us at",
+      "weekdaysShort": [
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S",
+        "S"
+      ],
+      "slots": [
+        "09:00",
+        "10:30",
+        "12:00",
+        "16:00",
+        "17:30"
+      ]
+    }
+  },
+  "contact": {
+    "label": "// CONTACT",
+    "title_part1": "Tell us about the ",
+    "title_emphasis": "project",
+    "title_part2": ".",
+    "sub": "A 30-minute call is enough to see if we're a fit. No commitment.",
+    "services": {
+      "label": "Which service are you interested in?",
+      "hint": "Pick one or more",
+      "options": {
+        "web_design": "Corporate website",
+        "ecommerce": "E-commerce",
+        "web_app": "Web app",
+        "automation": "Automation / AI",
+        "migration": "Technical migration",
+        "white_label": "White-label",
+        "other": "Other"
+      }
+    },
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "company": "Company (optional)",
+      "message": "A line or two about it",
+      "budget": "Estimated budget (optional)"
+    },
+    "budgetOptions": {
+      "under_3k": "< €3K",
+      "3k_7k": "€3K – €7K",
+      "7k_15k": "€7K – €15K",
+      "15k_plus": "> €15K",
+      "not_sure": "Not sure yet"
+    },
+    "consent": {
+      "marketing": "I'd like to receive updates and case studies by email (optional, unsubscribe anytime).",
+      "privacyPrefix": "By submitting this form you accept our",
+      "privacyLink": "privacy policy"
+    },
+    "submit": "Send",
+    "sending": "Sending…",
+    "successTitle": "Got it.",
+    "successBody": "We'll reply within 4 business hours.",
+    "errorBody": "Something failed. Email us at info@bellostas.studio."
+  },
+  "ctaFinal": {
+    "label": "// ONE LIFE. ONE SHOT.",
+    "title_part1": "Let's build something ",
+    "title_emphasis": "sharp",
+    "title_part2": ".",
+    "sub": "Over 70 brands have already trusted us to take their websites to the next level.",
+    "cta": "Book a call",
+    "footnote": "// 30 MIN · NO COMMITMENT · BOOKING {q}"
+  },
+  "notFound": {
+    "metaTitle": "404 · Page not found · Bellostas Studio",
+    "metaDescription": "This URL doesn't exist. These are the routes that are alive.",
+    "label": "// LOG #404 · NOT FOUND",
+    "command": "$ trace --route",
+    "notInRegistry": "not in registry",
+    "title_part1": "This page ",
+    "title_emphasis": "went on tour",
+    "title_part2": ".",
+    "body": "The URL you wanted doesn't exist, moved or never made it past staging. Happens. These are the routes that are alive:",
+    "links": {
+      "home": "Back to studio",
+      "homeSub": "/ · The home",
+      "work": "See work",
+      "workSub": "/work · 70+ cases",
+      "contact": "Book a call",
+      "contactSub": "/contact · 30 min",
+      "portal": "Client portal",
+      "portalSub": "Active client access"
+    },
+    "footnote": "// EVEN GREAT ARCHIVES LOSE A PAGE NOW AND THEN."
+  },
+  "legal": {
+    "common": {
+      "tocLabel": "// CONTENTS",
+      "lastUpdatedLabel": "Last updated",
+      "lastUpdated": "May 15, 2026",
+      "backToTop": "Back to top",
+      "openCookieSettings": "Open cookie settings"
+    },
+    "notice": {
+      "metaTitle": "Legal notice · Bellostas Studio",
+      "metaDescription": "Site owner information under the Spanish LSSI-CE: holder, tax ID, address and contact details.",
+      "label": "// LEGAL NOTICE",
+      "title": "Legal notice",
+      "intro": "Information that complies with articles 9 and 10 of Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE).",
+      "sections": [
+        {
+          "id": "owner",
+          "title": "1. Site owner",
+          "blocks": [
+            {
+              "p": "Bellostas Studio is a personal brand operated by:"
+            },
+            {
+              "ul": [
+                "Holder: Antonio Bellostas Fetysov",
+                "Spanish tax ID (NIF): 18060373Z",
+                "Address: C. Fornillos, 13, 22005 Huesca, Spain",
+                "Contact email: info@bellostas.studio",
+                "Website: bellostas.studio"
+              ]
+            },
+            {
+              "p": "Bellostas Studio is the trade name of the holder. As of the last update it is not incorporated as a limited company; any engagement and liability is undertaken personally by the holder above."
+            }
+          ]
+        },
+        {
+          "id": "purpose",
+          "title": "2. Purpose",
+          "blocks": [
+            {
+              "p": "This website showcases the professional design and development services offered by Bellostas Studio: web design and build, e-commerce, custom applications, automations, migrations and white-label projects."
+            },
+            {
+              "p": "Using the website grants the visitor the condition of user and implies full acceptance of every term in this legal notice."
+            }
+          ]
+        },
+        {
+          "id": "ip",
+          "title": "3. Intellectual and industrial property",
+          "blocks": [
+            {
+              "p": "All content on the website —texts, photographs, graphics, images, icons, typefaces, trademarks, trade names, logos, source code, graphic design and information architecture— is the exclusive property of the holder or duly licensed, and is protected by Spanish and international intellectual and industrial property law."
+            },
+            {
+              "p": "Any reproduction, distribution, public communication or transformation without express written authorisation from the holder is prohibited. Unauthorised use constitutes an infringement and will be pursued through the appropriate legal channels."
+            }
+          ]
+        },
+        {
+          "id": "liability",
+          "title": "4. Liability",
+          "blocks": [
+            {
+              "p": "The holder is not liable for service interruptions, data transmission errors or network outages outside its control. Published information is updated periodically, but the holder does not guarantee the absence of errors in its content."
+            },
+            {
+              "p": "The holder is not responsible for misuse of the website by third parties or for damages arising from the user's misuse."
+            }
+          ]
+        },
+        {
+          "id": "third-party-links",
+          "title": "5. Third-party links",
+          "blocks": [
+            {
+              "p": "This site may contain links to third-party websites (LinkedIn, Instagram, Cal.com, etc.). The holder accepts no responsibility for the content, privacy policies or practices of those sites. Inclusion is purely informational and does not imply endorsement, association or sponsorship."
+            }
+          ]
+        },
+        {
+          "id": "changes",
+          "title": "6. Changes",
+          "blocks": [
+            {
+              "p": "The holder reserves the right to make, without notice, any modifications it deems appropriate to this website, including changing, removing or adding content, services, or the way they are presented."
+            }
+          ]
+        },
+        {
+          "id": "law",
+          "title": "7. Applicable law and jurisdiction",
+          "blocks": [
+            {
+              "p": "The relationship between the holder and the user is governed by Spanish law. For any dispute, the parties expressly submit to the courts and tribunals of Huesca (Spain), unless applicable law provides otherwise."
+            }
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "metaTitle": "Privacy policy · Bellostas Studio",
+      "metaDescription": "How we handle your personal data: purposes, legal bases, retention, processors and your rights under GDPR.",
+      "label": "// PRIVACY POLICY",
+      "title": "Privacy policy",
+      "intro": "Bellostas Studio takes your privacy seriously. This document explains what data we collect, why, and what rights you have over it. We comply with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 on Data Protection and Digital Rights (LOPDGDD).",
+      "sections": [
+        {
+          "id": "controller",
+          "title": "1. Data controller",
+          "blocks": [
+            {
+              "ul": [
+                "Controller: Antonio Bellostas Fetysov",
+                "Spanish tax ID (NIF): 18060373Z",
+                "Address: C. Fornillos, 13, 22005 Huesca, Spain",
+                "Email: info@bellostas.studio"
+              ]
+            },
+            {
+              "p": "Given its size and activity, Bellostas Studio is not legally required to appoint a Data Protection Officer (DPO). Any privacy question can be sent directly to the email above."
+            }
+          ]
+        },
+        {
+          "id": "data",
+          "title": "2. What data we collect",
+          "blocks": [
+            {
+              "p": "We collect only the data that is strictly needed to deliver the service or reply to your request:"
+            },
+            {
+              "ul": [
+                "Identification data (first name, last name) when you submit a form or book a call.",
+                "Contact data (email, optional phone, company) to reply or manage the project.",
+                "The content of your message (project brief, rough budget, etc.).",
+                "Technical browsing data (anonymised IP, browser, OS, page views) when you accept analytics cookies."
+              ]
+            },
+            {
+              "p": "We do not collect special categories of data (health, beliefs, sexual orientation, etc.) or data from minors under 14."
+            }
+          ]
+        },
+        {
+          "id": "purposes",
+          "title": "3. Purposes and legal bases",
+          "blocks": [
+            {
+              "p": "We process your data for the following purposes, each with its own legal basis:"
+            },
+            {
+              "ul": [
+                "Reply to your contact or quote request — basis: your explicit consent when submitting the form (Art. 6.1.a GDPR).",
+                "Manage the contractual relationship if we end up working together — basis: contract performance (Art. 6.1.b GDPR).",
+                "Comply with tax and accounting obligations — basis: legal obligation (Art. 6.1.c GDPR).",
+                "Measure and improve the site through aggregate analytics — basis: your prior consent via the cookie banner (Art. 6.1.a GDPR)."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "retention",
+          "title": "4. Retention periods",
+          "blocks": [
+            {
+              "ul": [
+                "Contact data and pre-contract communications: up to 12 months from the last message, unless you ask us to delete it sooner.",
+                "Active client data: throughout the contractual relationship and afterwards for the legally required periods (6 years for tax records, up to 10 years for anti-money-laundering rules).",
+                "Aggregate analytics data: up to 14 months (GA4 default)."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "processors",
+          "title": "5. Recipients and processors",
+          "blocks": [
+            {
+              "p": "To deliver the service we rely on providers that comply with GDPR and with whom we have (or will have, once activated) the relevant data processing agreement:"
+            },
+            {
+              "ul": [
+                "Netcup GmbH (Germany, EU) — website hosting. Data stored within the EEA.",
+                "Cal.com Inc. (EU instance) — call booking management. Data processed on European servers.",
+                "Resend Inc. (USA) — transactional email delivery (once enabled). Listed under the EU-US Data Privacy Framework with Standard Contractual Clauses (SCCs) in place.",
+                "Google Ireland Ltd. — Google Analytics 4. Aggregate data, anonymised IP, US transfer covered by the Data Privacy Framework and SCCs.",
+                "Bellostas Studio internal CRM — storage of contacts and sales opportunities. Hosted on the controller's own European infrastructure."
+              ]
+            },
+            {
+              "p": "We do not sell or transfer your data to third parties for purposes other than those described above."
+            }
+          ]
+        },
+        {
+          "id": "transfers",
+          "title": "6. International transfers",
+          "blocks": [
+            {
+              "p": "Some processors are based outside the EEA (Resend, Google). These transfers are made under the EU-US Data Privacy Framework or, otherwise, through Standard Contractual Clauses approved by the European Commission, in accordance with Article 46 GDPR."
+            }
+          ]
+        },
+        {
+          "id": "rights",
+          "title": "7. Your rights",
+          "blocks": [
+            {
+              "p": "You can exercise the following rights over your data at any time:"
+            },
+            {
+              "ul": [
+                "Access: know what data we hold about you.",
+                "Rectification: correct inaccurate data.",
+                "Erasure: ask us to delete data we no longer need.",
+                "Objection: object to a specific processing activity.",
+                "Restriction: ask us to freeze processing in certain cases.",
+                "Portability: receive your data in a structured format to move it to another controller.",
+                "Withdraw any consent you have given, without retroactive effect."
+              ]
+            },
+            {
+              "p": "To exercise any of these rights, write to info@bellostas.studio attaching an ID document. We will respond within one month at most."
+            },
+            {
+              "p": "If you feel your request has not been properly handled, you can file a complaint with the Spanish Data Protection Agency (www.aepd.es)."
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "title": "8. Security measures",
+          "blocks": [
+            {
+              "p": "We apply reasonable technical and organisational measures to protect your data: TLS encryption on all communications, access restricted to authorised personnel, regular backups and ongoing supplier review."
+            }
+          ]
+        },
+        {
+          "id": "changes",
+          "title": "9. Changes to this policy",
+          "blocks": [
+            {
+              "p": "We may update this policy to reflect legal or service changes. When changes are substantial, we will notify users on the site. The date of the latest version is always shown at the top of the document."
+            }
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "metaTitle": "Cookie policy · Bellostas Studio",
+      "metaDescription": "Which cookies we use, what they do and how to enable or disable them at any time.",
+      "label": "// COOKIE POLICY",
+      "title": "Cookie policy",
+      "intro": "This document explains what cookies are, which ones we use on bellostas.studio and how you can manage them at any time. It complies with Article 22.2 of the Spanish LSSI-CE and with the guidelines from the Spanish Data Protection Agency.",
+      "sections": [
+        {
+          "id": "what-are-cookies",
+          "title": "1. What are cookies",
+          "blocks": [
+            {
+              "p": "Cookies are small text files stored on your device when you visit a website. They make it possible to recognise the user, remember preferences or measure how the site is used. They are not viruses, do not access other files on your device and do not collect sensitive information."
+            }
+          ]
+        },
+        {
+          "id": "types",
+          "title": "2. Types of cookies we use",
+          "blocks": [
+            {
+              "p": "We classify cookies in three categories:"
+            },
+            {
+              "ul": [
+                "Essential — required for the site to work (remembering your language and your own cookie choice). They do not require consent and cannot be disabled.",
+                "Analytics — let us understand, in aggregate, how the site is being used so we can improve design and content. They require your explicit consent.",
+                "Marketing — we don't currently use marketing cookies. If we ever do, this policy will be updated first."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "list",
+          "title": "3. Detailed list",
+          "blocks": [
+            {
+              "p": "These are the cookies active on this site:"
+            },
+            {
+              "table": {
+                "headers": [
+                  "Cookie",
+                  "Provider",
+                  "Type",
+                  "Purpose",
+                  "Duration"
+                ],
+                "rows": [
+                  [
+                    "bellostas-cookie-consent",
+                    "Bellostas Studio",
+                    "Essential",
+                    "Remembers your cookie choice",
+                    "12 months"
+                  ],
+                  [
+                    "NEXT_LOCALE",
+                    "Bellostas Studio",
+                    "Essential",
+                    "Remembers chosen language",
+                    "12 months"
+                  ],
+                  [
+                    "_ga, _ga_*",
+                    "Google LLC",
+                    "Analytics",
+                    "Distinguish users and measure aggregate use (GA4)",
+                    "13 months"
+                  ]
+                ]
+              }
+            },
+            {
+              "p": "Analytics cookies are only loaded after you explicitly accept them through the banner. Until then, no data is sent to Google or any third party."
+            }
+          ]
+        },
+        {
+          "id": "manage",
+          "title": "4. Managing your cookies",
+          "blocks": [
+            {
+              "p": "You can change your preferences at any time by clicking the \"Open cookie settings\" button just below this text. You can also delete or block cookies from your browser settings (Chrome, Firefox, Safari, Edge)."
+            },
+            {
+              "p": "Rejecting all non-analytics cookies does not affect browsing: the site works exactly the same."
+            }
+          ]
+        },
+        {
+          "id": "changes",
+          "title": "5. Changes to this policy",
+          "blocks": [
+            {
+              "p": "We may update this policy if we add or remove cookies. When the changes are relevant, we will notify users on the site and request your consent again if necessary."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "cookieBanner": {
+    "title": "About cookies",
+    "body": "We use essential cookies to make the site work, and — with your permission — analytics ones to understand how it's being used. You can change your mind at any time.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "configure": "Configure",
+    "policyLink": "Cookie policy",
+    "modal": {
+      "title": "Cookie preferences",
+      "intro": "Choose which types of cookies you want to allow. Essential ones are required for the site to work; everything else is optional.",
+      "save": "Save preferences",
+      "saveAndClose": "Save and close",
+      "close": "Close",
+      "categories": {
+        "necessary": {
+          "title": "Essential",
+          "description": "Required for basic functioning: remembering your language and your cookie choice.",
+          "alwaysOn": "Always on"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Help us understand, in aggregate, how the site is used (most-viewed pages, average time, devices). Anonymised data, no individual profiling."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "We don't use marketing cookies today. This category stays off by default."
+        }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Boutique web design & development. From Huesca, Spain. For brands worldwide.",
+    "booking": "Booking · {q}",
+    "hqHeading": "HEADQUARTERS",
+    "hqAddress": "C. Fornillos, 13",
+    "hqCity": "22005 Huesca · Spain",
+    "studioHeading": "STUDIO",
+    "legalHeading": "LEGAL",
+    "connectHeading": "CONNECT",
+    "links": {
+      "work": "Work",
+      "services": "Services",
+      "proceso": "Process",
+      "studio": "Studio",
+      "blog": "Blog",
+      "love": "Love",
+      "contact": "Contact",
+      "portal": "Client portal ↗",
+      "legal": "Legal notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "twitter": "Twitter / X",
+      "github": "GitHub"
+    },
+    "bottomLeft": "// BELLOSTAS STUDIO · HUESCA, ES · EST. 2022",
+    "bottomRight": "// © 2026 · ONE LIFE. ONE SHOT."
+  },
+  "meta": {
+    "title": "Bellostas Studio · Boutique web design & development",
+    "description": "Boutique web design and development studio based in Huesca, Spain. We work with B2B brands and agencies that need sharp execution. Next.js, Sanity, Payload."
+  }
+}

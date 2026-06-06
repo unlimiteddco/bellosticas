@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.turbo
+.vercel
+.backup-pre-payload
+npm-debug.log*
+.DS_Store
+.env.local
+.env*.local
+public/media
+docker-compose.dev.yml
+/tmp
+*.md

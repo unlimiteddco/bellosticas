@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+.env.local
+.env*.local
+.DS_Store
+*.log
+.vercel
+next-env.d.ts
+.turbo
+
+# Payload
+public/media/
+.backup-pre-payload/
+
+# build / OS junk
+*.tsbuildinfo
+.DS_Store

@@ -1,0 +1,26 @@
+# Local Postgres for Payload CMS development.
+# Start:  docker compose -f docker-compose.dev.yml up -d
+# Stop:   docker compose -f docker-compose.dev.yml down
+# Wipe:   docker compose -f docker-compose.dev.yml down -v   (deletes the volume)
+#
+# Connection string for .env.local:
+#   DATABASE_URI=postgres://bellostas:bellostas_dev@localhost:5433/bellostas_web
+#
+# Port 5433 (not 5432) avoids clashing with any system Postgres you may run.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bellostas-web-db-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bellostas
+      POSTGRES_PASSWORD: bellostas_dev
+      POSTGRES_DB: bellostas_web
+    ports:
+      - "5433:5432"
+    volumes:
+      - bellostas_web_pgdata:/var/lib/postgresql/data
+
+volumes:
+  bellostas_web_pgdata:

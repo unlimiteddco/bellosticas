@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #FDFDFB;
+  --color-surface: #FDFDFB;
+  --color-surface-2: #F4F2EE;
+  --color-accent: #C2263A;
+  --color-accent-hover: #A81E31;
+  --color-text: #1D1D1B;
+  --color-text-muted: #6B6B68;
+  --color-border: #E5E2DC;
+  --color-black: #1D1D1B;
+  --color-white: #FFFFFF;
+
+  --font-display: var(--font-crimson), Georgia, serif;
+  --font-body: var(--font-helvena), system-ui, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("/images/grain.svg");
+  background-repeat: repeat;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  animation: grain-drift 8s steps(8) infinite;
+}
+
+@keyframes grain-drift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, 1%); }
+  20% { transform: translate(1%, -1%); }
+  30% { transform: translate(-1%, -1%); }
+  50% { transform: translate(1%, 1%); }
+  70% { transform: translate(-1%, 0); }
+  90% { transform: translate(1%, -1%); }
+}
+
+@keyframes booking-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.booking-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #1FAE5C;
+  animation: booking-pulse 1.8s ease-in-out infinite;
+}
+
+/* Base layer so Tailwind text-color utilities on <a>/<button> win. Unlayered
+   rules beat layered utilities in Tailwind v4 — keeping these in @layer base
+   lets `text-[...]` classes override the default inherit. */
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Blog rich-text (Lexical output) — editorial prose styling without a plugin */
+.prose-bellostas {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.prose-bellostas > * + * {
+  margin-top: 1.4em;
+}
+.prose-bellostas h2 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.2;
+  margin-top: 2em;
+  margin-bottom: 0.2em;
+}
+.prose-bellostas h3 {
+  font-family: var(--font-display);
+  font-size: 23px;
+  line-height: 1.25;
+  margin-top: 1.6em;
+  margin-bottom: 0.2em;
+}
+.prose-bellostas h4 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 1.4em;
+}
+.prose-bellostas p {
+  color: var(--color-text);
+}
+.prose-bellostas a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-bellostas ul,
+.prose-bellostas ol {
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.prose-bellostas ul {
+  list-style: none;
+}
+.prose-bellostas ul > li {
+  position: relative;
+  padding-left: 1.2em;
+}
+.prose-bellostas ul > li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+.prose-bellostas ol {
+  list-style: decimal;
+}
+.prose-bellostas blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.2em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--color-text-muted);
+}
+.prose-bellostas img {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+}
+.prose-bellostas code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--color-surface-2);
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+}
+.prose-bellostas pre {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 1.2em 1.4em;
+  border-radius: 14px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.prose-bellostas pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.prose-bellostas hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.4em 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  body::after {
+    animation: none;
+  }
+}

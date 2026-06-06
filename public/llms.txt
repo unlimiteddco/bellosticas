@@ -1,0 +1,28 @@
+# Bellostas Studio
+
+> Estudio boutique de diseño y desarrollo web en Huesca (España). Diseñamos y desarrollamos webs a medida que hacen crecer marcas: rápidas, seguras y listas para posicionar. Trabajamos con agencias y marcas que necesitan ejecución afilada — sin equipos hinchados ni plazos eternos.
+
+Fundado en 2022 por Antonio Bellostas. Cada proyecto pasa por una sola cabeza y una sola mano: lo que sale a producción es exactamente lo que se diseñó. Elegimos la tecnología adecuada para cada caso (Next.js, Astro, Payload, etc.), incluida IA bien aplicada. Más de 70 proyectos entregados, 100% a tiempo. Disponible en español e inglés.
+
+## Servicios
+- [Desarrollo web a medida](https://bellostas.studio/servicios/desarrollo-web): webs corporativas premium, rápidas y orientadas a convertir.
+- [E-commerce a medida](https://bellostas.studio/servicios/ecommerce): tiendas online completas (stock, multi-idioma, pagos, automatizaciones).
+- [Aplicaciones web a medida](https://bellostas.studio/servicios/aplicaciones-web): SaaS, dashboards, paneles de cliente.
+- [Automatizaciones y bots con IA](https://bellostas.studio/servicios/automatizaciones): bots, agentes que califican leads e integraciones.
+- [Migraciones técnicas](https://bellostas.studio/servicios/migraciones): de WordPress/Shopify a un stack moderno sin perder SEO ni datos.
+- [White-label para agencias](https://bellostas.studio/servicios/white-label): desarrollo bajo NDA, tu marca al frente.
+
+## Páginas principales
+- [Inicio](https://bellostas.studio/): qué hacemos y a quién ayudamos.
+- [Trabajos](https://bellostas.studio/work): casos y proyectos seleccionados.
+- [Estudio](https://bellostas.studio/studio): historia, manifiesto y forma de trabajar.
+- [Love](https://bellostas.studio/love): testimonios y reseñas de clientes.
+- [Contacto](https://bellostas.studio/contacto): formulario y reserva de llamada.
+- [Reservar llamada](https://bellostas.studio/intro): agenda una videollamada de 30 minutos.
+- [Blog](https://bellostas.studio/blog): artículos sobre diseño, desarrollo y rendimiento web.
+
+## Contacto
+- Email: info@bellostas.studio
+- Teléfono: +34 624 010 424
+- Ubicación: Huesca, España
+- Idiomas: Español (por defecto, `/`) e Inglés (`/en`).
