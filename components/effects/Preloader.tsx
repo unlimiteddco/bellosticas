@@ -7,7 +7,7 @@ import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 import { Logo } from "@/components/ui/Logo";
 
 const SESSION_KEY = "bs:preloader-shown";
-const TOTAL_DURATION = 1200;
+const TOTAL_DURATION = 700;
 
 export function Preloader() {
   const t = useTranslations("preloader");
@@ -75,7 +75,7 @@ export function Preloader() {
           initial={{ clipPath: "inset(0 0 0 0)" }}
           exit={{ clipPath: "inset(0 0 100% 0)" }}
           transition={{
-            duration: reduced ? 0 : 0.7,
+            duration: reduced ? 0 : 0.5,
             ease: [0.4, 0, 0.2, 1],
           }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--color-bg)]"

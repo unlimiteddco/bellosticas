@@ -34,9 +34,32 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
   images: {
+    formats: ["image/avif", "image/webp"],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  // Long-lived caching for static media so repeat visits don't refetch.
+  // NOTE: if Cloudflare sits in front, also set its "Browser Cache TTL" to
+  // "Respect Existing Headers" (or add a Cache Rule) or it overrides these.
+  async headers() {
+    return [
+      {
+        source: "/(.*)\\.(woff|woff2)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/(.*)\\.(jpg|jpeg|png|gif|svg|webp|avif|ico|mp4)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
   },
 };
 

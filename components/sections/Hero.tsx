@@ -61,7 +61,7 @@ export function Hero() {
         y: 10,
         duration: 0.5,
         ease: "power2.out",
-        delay: 1.2,
+        delay: 0.35,
       });
 
       const chars = headlineRef.current?.querySelectorAll("[data-char]");
@@ -69,25 +69,25 @@ export function Hero() {
         gsap.from(chars, {
           y: 40,
           opacity: 0,
-          duration: 0.7,
-          stagger: 0.015,
+          duration: 0.6,
+          stagger: 0.012,
           ease: "power3.out",
-          delay: 1.3,
+          delay: 0.45,
         });
       }
 
       gsap.from(subRef.current, {
         opacity: 0,
         y: 20,
-        duration: 0.6,
-        delay: 1.6,
+        duration: 0.55,
+        delay: 0.6,
       });
 
       gsap.from(ctasRef.current?.children ?? [], {
         opacity: 0,
         y: 20,
         duration: 0.5,
-        delay: 1.95,
+        delay: 0.85,
         stagger: 0.08,
         clearProps: "opacity,transform",
       });
