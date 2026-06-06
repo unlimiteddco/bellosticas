@@ -1,60 +1,52 @@
 "use client";
 
-import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCookieConsent } from "./CookieProvider";
 
 /**
- * Conditionally loads Google Analytics 4 when:
- *   1. `NEXT_PUBLIC_GA4_ID` is configured at build time, AND
- *   2. The user has granted analytics consent via the cookie banner.
+ * Google Consent Mode v2 — runtime updater.
  *
- * If the user later revokes consent, GA cookies are cleared and gtag is
- * neutralised — but the already-loaded script remains in the page until the
- * next reload. Standard for static-site GDPR setups.
+ * The gtag base + `consent default (denied)` + config are injected directly in
+ * the root layout, so the tag loads on every page (Google can detect it) while
+ * NO analytics storage fires until consent. This component only listens to the
+ * cookie banner and pushes `consent update` when the visitor accepts or rejects
+ * analytics — and clears the `_ga*` cookies when consent is revoked.
  */
 export function AnalyticsLoader() {
   const { consent } = useCookieConsent();
   const gaId = process.env.NEXT_PUBLIC_GA4_ID;
-  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const allowed = consent?.choices.analytics === true;
-    setEnabled(allowed);
+    if (!gaId || typeof window === "undefined") return;
 
-    if (!allowed && typeof window !== "undefined") {
-      // Tombstone gtag and clear the _ga* cookies if consent is revoked.
-      const w = window as unknown as { [k: string]: unknown };
-      w["ga-disable-" + (gaId ?? "")] = true;
+    const w = window as unknown as {
+      gtag?: (...args: unknown[]) => void;
+      [k: string]: unknown;
+    };
+    const granted = consent?.choices.analytics === true;
+
+    if (typeof w.gtag === "function") {
+      w.gtag("consent", "update", {
+        analytics_storage: granted ? "granted" : "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+    }
+
+    // Hard kill-switch + cookie cleanup when consent is absent/revoked.
+    w["ga-disable-" + gaId] = !granted;
+    if (!granted) {
+      const base = window.location.hostname.replace(/^www\./, "");
       document.cookie.split(";").forEach((c) => {
         const name = c.split("=")[0].trim();
         if (name.startsWith("_ga")) {
-          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${window.location.hostname.replace(
-            /^www\./,
-            "",
-          )}`;
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${base}`;
           document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
         }
       });
     }
   }, [consent, gaId]);
 
-  if (!gaId || !enabled) return null;
-
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaId}', { anonymize_ip: true });
-        `}
-      </Script>
-    </>
-  );
+  return null;
 }

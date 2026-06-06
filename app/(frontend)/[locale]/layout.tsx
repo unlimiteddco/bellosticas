@@ -26,6 +26,18 @@ import { TESTIMONIAL_MEDIA } from "@/lib/testimonial-media";
 const NAVBAR_VARIANT: "pill" | "classic" = "pill";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bellostas.studio";
+const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
+
+/**
+ * Google Consent Mode v2 bootstrap. The tag loads on EVERY page (so Google can
+ * detect it), but with tracking storage DENIED by default — no analytics
+ * cookies fire until the visitor accepts in the cookie banner. The default is
+ * read straight from the stored consent so returning visitors who already
+ * accepted get `granted` immediately. `AnalyticsLoader` flips consent on change.
+ */
+const gaConsentBootstrap = GA_ID
+  ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var a='denied';try{var r=localStorage.getItem('bellostas-cookie-consent');if(r){var p=JSON.parse(r);if(p&&p.version===1&&p.choices&&p.choices.analytics===true)a='granted';}}catch(e){}gtag('consent','default',{ad_storage:'denied',analytics_storage:a,ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`
+  : "";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -198,6 +210,16 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={effectiveLocale}>
+      {GA_ID && (
+        <>
+          {/* Google Consent Mode v2 — denied by default, granted on consent */}
+          <script dangerouslySetInnerHTML={{ __html: gaConsentBootstrap }} />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+        </>
+      )}
       <CookieProvider>
         <HtmlLangSync locale={effectiveLocale} />
         <TrackingBootstrap />
