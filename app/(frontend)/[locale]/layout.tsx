@@ -119,6 +119,9 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
+    verification: {
+      google: "OTzUYI1ByopRYh-hD9AiH8T_1xd6lluMj_SsQ1CijWU",
+    },
     icons: {
       icon: [
         {
