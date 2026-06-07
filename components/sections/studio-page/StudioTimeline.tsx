@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { MixedHeadline } from "@/components/ui/MixedHeadline";
-import { StudioPhoto } from "./StudioPhoto";
 
 type Milestone = {
   year: string;
@@ -70,32 +69,19 @@ export function StudioTimeline() {
                 </p>
               </div>
 
-              {/* Year as the visual anchor (replaces the photos). The origin
-                  milestone (2016) keeps a small real photo of the first congress. */}
+              {/* Year as the visual anchor (replaces the photos). */}
               <div
                 className="md:col-span-5 md:col-start-8"
                 style={{ direction: "ltr" }}
               >
                 <div
-                  className={`flex flex-col gap-5 ${
-                    isRight ? "md:items-start" : "md:items-end"
+                  className={`flex ${
+                    isRight ? "md:justify-start" : "md:justify-end"
                   }`}
                 >
                   <span className="font-display italic text-[var(--color-accent)] leading-[0.82] text-[84px] md:text-[116px] lg:text-[132px]">
                     {m.year}
                   </span>
-                  {m.year === "2016" && (
-                    <div className="w-full max-w-[220px]">
-                      <StudioPhoto
-                        src="/studio/timeline-2016.jpg"
-                        alt={`${m.year} — ${m.title}`}
-                        label={m.photoLabel}
-                        aspect="4 / 3"
-                        tone="warm"
-                        objectPosition="top"
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
 
