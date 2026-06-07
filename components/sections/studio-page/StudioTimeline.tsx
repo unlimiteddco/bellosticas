@@ -62,9 +62,6 @@ export function StudioTimeline() {
                 className="md:col-span-6 flex flex-col gap-4"
                 style={{ direction: "ltr" }}
               >
-                <span className="font-display italic text-[var(--color-accent)] leading-none text-[64px] md:text-[88px] lg:text-[104px]">
-                  {m.year}
-                </span>
                 <h3 className="font-display text-[24px] md:text-[28px] leading-tight text-[var(--color-text)]">
                   {m.title}
                 </h3>
@@ -73,24 +70,32 @@ export function StudioTimeline() {
                 </p>
               </div>
 
-              {/* Photo */}
+              {/* Year as the visual anchor (replaces the photos). The origin
+                  milestone (2016) keeps a small real photo of the first congress. */}
               <div
                 className="md:col-span-5 md:col-start-8"
                 style={{ direction: "ltr" }}
               >
                 <div
-                  className={`relative ${
-                    isRight ? "md:ml-0 md:mr-auto" : "md:ml-auto md:mr-0"
-                  } max-w-[360px]`}
+                  className={`flex flex-col gap-5 ${
+                    isRight ? "md:items-start" : "md:items-end"
+                  }`}
                 >
-                  <StudioPhoto
-                    src={`/studio/timeline-${m.year}.jpg`}
-                    alt={`${m.year} — ${m.title}`}
-                    label={m.photoLabel}
-                    aspect="4 / 3"
-                    tone="warm"
-                    objectPosition="top"
-                  />
+                  <span className="font-display italic text-[var(--color-accent)] leading-[0.82] text-[84px] md:text-[116px] lg:text-[132px]">
+                    {m.year}
+                  </span>
+                  {m.year === "2016" && (
+                    <div className="w-full max-w-[220px]">
+                      <StudioPhoto
+                        src="/studio/timeline-2016.jpg"
+                        alt={`${m.year} — ${m.title}`}
+                        label={m.photoLabel}
+                        aspect="4 / 3"
+                        tone="warm"
+                        objectPosition="top"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 

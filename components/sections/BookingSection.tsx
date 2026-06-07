@@ -95,9 +95,12 @@ export function BookingSection({ centered = false, hideHeader = false }: Props) 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-        className="w-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden p-2 md:p-4"
+        // No border/background/padding here — the Cal.com embed renders its own
+        // card, so styling the wrapper produced a visible double border. We only
+        // round + drop a soft shadow behind the embed's own card.
+        className="w-full rounded-2xl overflow-hidden"
         style={{
-          boxShadow: "0 24px 60px -24px rgba(29,29,27,0.18)",
+          boxShadow: "0 24px 60px -24px rgba(29,29,27,0.16)",
         }}
         // The Cal.com embed is a cross-origin iframe that swallows wheel events,
         // which makes Lenis smooth-scroll feel "stuck" over it. Pause Lenis while
