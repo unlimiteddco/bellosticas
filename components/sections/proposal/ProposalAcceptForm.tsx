@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Loader2, Building2, Landmark, ArrowRight } from "lucide-react";
+import { Check, Loader2, Building2, Landmark, Mail } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
@@ -149,23 +149,15 @@ export function ProposalAcceptForm({ token }: { token: string }) {
               </div>
             </div>
 
-            {/* Tu portal, ya en marcha */}
+            {/* Tu portal: el acceso llega por email */}
             <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
-              <p className="font-body text-[13px] font-medium text-[var(--color-text)]">
+              <p className="font-body text-[13px] font-medium text-[var(--color-text)] flex items-center gap-2">
+                <Mail size={15} className="text-[var(--color-accent)]" />
                 {t("success.portal_title")}
               </p>
-              <p className="mt-1 font-body text-[13px] leading-[1.55] text-[var(--color-text-muted)] max-w-[460px]">
+              <p className="mt-1.5 font-body text-[13px] leading-[1.55] text-[var(--color-text-muted)] max-w-[460px]">
                 {t("success.portal_note")}
               </p>
-              {result?.portalLoginUrl && (
-                <a
-                  href={result.portalLoginUrl}
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--color-text)] hover:bg-[var(--color-accent)] px-6 py-3 font-body text-[14px] font-medium text-white transition-colors"
-                >
-                  {t("success.portal_cta")}
-                  <ArrowRight size={15} />
-                </a>
-              )}
             </div>
           </div>
         ) : (

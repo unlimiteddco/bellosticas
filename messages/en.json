@@ -102,8 +102,7 @@
       "reserve_note_single": "This payment confirms your project and gets it started.",
       "transfer_title": "Payment by bank transfer",
       "portal_title": "Your portal is ready",
-      "portal_note": "We've emailed you your access link. From your portal you can complete the onboarding and follow your project's progress.",
-      "portal_cta": "Go to my portal"
+      "portal_note": "Check your email: we've sent you the access link to your portal. From there you can complete the onboarding and follow your project's progress."
     },
     "accepted_title": "This proposal has already been accepted",
     "accepted_body": "If you need anything, reach us at info@bellostas.studio.",
