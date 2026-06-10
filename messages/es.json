@@ -2,9 +2,6 @@
   "proposalPage": {
     "metaTitle": "Propuesta · Bellostas Studio",
     "label": "PROPUESTA",
-    "greeting_hello": "Hola, {name} 👋",
-    "greeting_hello_anon": "Hola 👋",
-    "greeting_line": "esta es la propuesta que hemos preparado para ti",
     "summary_label": "Inversión",
     "total_note_short": "IVA no incluido",
     "status_accepted": "Propuesta aceptada",
