@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Loader2, Building2, CreditCard } from "lucide-react";
+import { Check, Loader2, Building2, Landmark, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
@@ -11,9 +11,17 @@ type Status = "idle" | "sending" | "sent" | "error";
 type AcceptResponse = {
   ok: boolean;
   error?: string;
-  invoice?: { number: string; total: number; netAmount: number; iban: string | null } | null;
+  invoice?: {
+    number: string;
+    total: number;
+    netAmount: number;
+    iban: string | null;
+    /** Etiqueta real del plazo facturado ("Pago único", "Anticipo 50%"…). */
+    installmentLabel?: string;
+    /** Nº de plazos del plan — 1 = pago único. */
+    installmentsCount?: number;
+  } | null;
   portalLoginUrl?: string;
-  checkoutUrl?: string | null;
 };
 
 function formatEUR(amount: number, locale: string): string {
@@ -36,29 +44,6 @@ export function ProposalAcceptForm({ token }: { token: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorDetail, setErrorDetail] = useState<string | null>(null);
   const [result, setResult] = useState<AcceptResponse | null>(null);
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
-  const [checkoutError, setCheckoutError] = useState<string | null>(null);
-
-  // Paso 2: pagar el anticipo con tarjeta (Stripe Checkout).
-  const payWithCard = async () => {
-    setCheckoutLoading(true);
-    setCheckoutError(null);
-    try {
-      const res = await fetch(`/api/propuestas/${encodeURIComponent(token)}/checkout`, {
-        method: "POST",
-      });
-      const data = (await res.json().catch(() => null)) as { ok?: boolean; url?: string; error?: string } | null;
-      if (res.ok && data?.ok && data.url) {
-        window.location.href = data.url;
-        return;
-      }
-      setCheckoutError(data?.error ?? "No se pudo iniciar el pago");
-      setCheckoutLoading(false);
-    } catch {
-      setCheckoutError("Error de red");
-      setCheckoutLoading(false);
-    }
-  };
 
   const honeypotRef = useRef<HTMLInputElement>(null);
   const mountedAt = useRef<number>(0);
@@ -94,11 +79,6 @@ export function ProposalAcceptForm({ token }: { token: string }) {
       const data = (await res.json().catch(() => null)) as AcceptResponse | null;
 
       if (res.ok && data?.ok) {
-        // Pago con tarjeta → redirige a Stripe Checkout.
-        if (data.checkoutUrl) {
-          window.location.href = data.checkoutUrl;
-          return;
-        }
         setResult(data);
         setStatus("sent");
       } else {
@@ -133,41 +113,32 @@ export function ProposalAcceptForm({ token }: { token: string }) {
 
         {invoice ? (
           <div className="mt-7 space-y-6">
-            <p className="font-body text-[14px] text-[var(--color-text)]">{t("success.reserve_note")}</p>
+            <p className="font-body text-[14px] text-[var(--color-text)]">
+              {(invoice.installmentsCount ?? 2) === 1
+                ? t("success.reserve_note_single")
+                : t("success.reserve_note")}
+            </p>
 
-            <div className="flex items-baseline justify-between gap-3 pb-4 border-b border-[var(--color-border)]">
-              <span
-                className="font-body uppercase text-[10px] text-[var(--color-text-muted)]"
-                style={{ letterSpacing: "0.18em" }}
-              >
-                {t("success.amount_label")}
-              </span>
-              <span className="font-display text-[30px] text-[var(--color-text)] tabular-nums">
-                {formatEUR(invoice.total, locale)}
-              </span>
-            </div>
-
-            {/* Tarjeta (instantáneo) */}
-            <div>
-              <button
-                onClick={payWithCard}
-                disabled={checkoutLoading}
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] px-6 py-3 font-body text-[14px] font-medium text-white transition-colors disabled:opacity-70"
-              >
-                {checkoutLoading ? <Loader2 size={16} className="animate-spin" /> : <CreditCard size={16} />}
-                {t("pay_card_cta")}
-              </button>
-              {checkoutError && (
-                <p className="mt-2 font-body text-[12px] text-[var(--color-accent)]">{checkoutError}</p>
-              )}
-            </div>
-
-            {/* o transferencia */}
-            <div className="pt-2">
-              <p className="font-body text-[12px] text-[var(--color-text-muted)] mb-3">
-                {t("pay_card_or_transfer")}
+            {/* Transferencia — el bloque protagonista */}
+            <div className="rounded-2xl border border-[var(--color-accent)]/25 bg-[var(--color-bg)] p-6">
+              <p className="font-body text-[13px] font-medium text-[var(--color-text)] flex items-center gap-2">
+                <Landmark size={15} className="text-[var(--color-accent)]" />
+                {t("success.transfer_title")}
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+              <div className="mt-4 flex items-baseline justify-between gap-3 pb-4 border-b border-[var(--color-border)]">
+                <span
+                  className="font-body uppercase text-[10px] text-[var(--color-text-muted)]"
+                  style={{ letterSpacing: "0.18em" }}
+                >
+                  {invoice.installmentLabel || t("success.amount_label")}
+                </span>
+                <span className="font-display text-[32px] text-[var(--color-text)] tabular-nums">
+                  {formatEUR(invoice.total, locale)}
+                </span>
+              </div>
+
+              <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {invoice.iban && <DataBlock label={t("success.iban_label")} value={invoice.iban} mono />}
                 <DataBlock
                   label={t("success.concept_label")}
@@ -176,6 +147,25 @@ export function ProposalAcceptForm({ token }: { token: string }) {
                   note={t("success.concept_note")}
                 />
               </div>
+            </div>
+
+            {/* Tu portal, ya en marcha */}
+            <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6">
+              <p className="font-body text-[13px] font-medium text-[var(--color-text)]">
+                {t("success.portal_title")}
+              </p>
+              <p className="mt-1 font-body text-[13px] leading-[1.55] text-[var(--color-text-muted)] max-w-[460px]">
+                {t("success.portal_note")}
+              </p>
+              {result?.portalLoginUrl && (
+                <a
+                  href={result.portalLoginUrl}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--color-text)] hover:bg-[var(--color-accent)] px-6 py-3 font-body text-[14px] font-medium text-white transition-colors"
+                >
+                  {t("success.portal_cta")}
+                  <ArrowRight size={15} />
+                </a>
+              )}
             </div>
           </div>
         ) : (
