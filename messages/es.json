@@ -63,6 +63,7 @@
     "payment_card": "Tarjeta",
     "payment_card_hint": "Pago seguro con tarjeta, al instante.",
     "redirecting": "Redirigiendo al pago seguro…",
+    "cta_view": "Ver qué incluye",
     "pay_card_cta": "Pagar con tarjeta ahora",
     "pay_card_or_transfer": "O págalo por transferencia bancaria:",
     "cta": "Aceptar propuesta y empezar",

@@ -99,8 +99,8 @@ export default async function ProposalPage({
                 </span>
               )}
               {!accepted && !unavailable && (
-                <PrimaryButton href="#aceptar" className="whitespace-nowrap">
-                  {t("cta_short")}
+                <PrimaryButton href="#incluye" className="whitespace-nowrap">
+                  {t("cta_view")}
                 </PrimaryButton>
               )}
             </div>

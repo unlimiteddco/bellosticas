@@ -63,6 +63,7 @@
     "payment_card": "Card",
     "payment_card_hint": "Secure card payment, instant.",
     "redirecting": "Redirecting to secure checkout…",
+    "cta_view": "See what's included",
     "pay_card_cta": "Pay by card now",
     "pay_card_or_transfer": "Or pay by bank transfer:",
     "cta": "Accept proposal & start",
