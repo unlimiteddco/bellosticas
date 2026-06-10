@@ -31,6 +31,8 @@ export type Phase = { name: string; tags?: string[]; items: string[] };
 
 export type ProposalData = {
   title: string;
+  /** Nombre del cliente (empresa o persona, según venga del CRM) para el saludo del hero. */
+  clientName?: string | null;
   serviceType: string | null;
   transformation: string | null;
   timeline: string | null;
@@ -97,6 +99,7 @@ const DEMO_PROPOSAL: ProposalPayload = {
   expired: false,
   proposal: {
     title: "Tienda online a medida para Gotten Gym",
+    clientName: "Hugo",
     serviceType: "tienda_online",
     transformation:
       "Convertir las visitas en socios: una tienda rápida, con pasarela de pago y panel propio para gestionar planes sin depender de nadie.",

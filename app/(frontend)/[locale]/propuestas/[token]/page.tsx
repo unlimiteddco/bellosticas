@@ -9,6 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
 import { Footer } from "@/components/layout/Footer";
 import { ProposalAcceptForm } from "@/components/sections/proposal/ProposalAcceptForm";
+import { ProposalGreeting } from "@/components/sections/proposal/ProposalGreeting";
 import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav";
 import { fetchProposal, formatEUR, lineTotal } from "@/lib/proposals";
 
@@ -75,22 +76,30 @@ export default async function ProposalPage({
       <article className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-12 pt-[150px] pb-20">
         {/* ── Hero — a ancho completo, sin tarjeta ── */}
         <header className="flex flex-col gap-6 max-w-[920px] mb-14 lg:mb-20">
-          <Reveal immediate delay={0.05}>
+          <ProposalGreeting
+            greeting={
+              proposal.clientName
+                ? t("greeting_hello", { name: proposal.clientName })
+                : t("greeting_hello_anon")
+            }
+            line={t("greeting_line")}
+          />
+          <Reveal immediate delay={0.35}>
             <EditorialLabel>{`// ${serviceKey ? t(`service.${serviceKey}`) : t("label")}`}</EditorialLabel>
           </Reveal>
-          <Reveal immediate delay={0.12}>
+          <Reveal immediate delay={0.42}>
             <h1 className="font-body font-medium tracking-tight leading-[1.04] text-[42px] md:text-[60px] lg:text-[68px] text-[var(--color-text)]">
               {proposal.title}
             </h1>
           </Reveal>
           {proposal.transformation && (
-            <Reveal immediate delay={0.22}>
+            <Reveal immediate delay={0.52}>
               <p className="font-display italic text-[22px] md:text-[28px] leading-[1.4] text-[var(--color-accent)] max-w-[760px]">
                 {proposal.transformation}
               </p>
             </Reveal>
           )}
-          <Reveal immediate delay={0.32}>
+          <Reveal immediate delay={0.62}>
             <div className="flex flex-wrap items-center gap-3 mt-1">
               {proposal.timeline && (
                 <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 font-body text-[13px] text-[var(--color-text-muted)]">
