@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Clock } from "lucide-react";
+import { Clock, CalendarClock } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/navigation";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { MixedHeadline } from "@/components/ui/MixedHeadline";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
-import { Footer } from "@/components/layout/Footer";
 import { ProposalAcceptForm } from "@/components/sections/proposal/ProposalAcceptForm";
 import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav";
+import { ProposalMobileCta } from "@/components/sections/proposal/ProposalMobileCta";
 import { fetchProposal, formatEUR, lineTotal } from "@/lib/proposals";
 
 export const dynamic = "force-dynamic";
@@ -64,6 +66,15 @@ export default async function ProposalPage({
   const ivaSum = baseSum * IVA;
   const totSum = baseSum + ivaSum;
 
+  // "Válida hasta el…" — urgencia honesta si la propuesta tiene caducidad.
+  const validUntil =
+    proposal.expiresAt && !unavailable
+      ? new Intl.DateTimeFormat(locale === "es" ? "es-ES" : "en-GB", {
+          day: "numeric",
+          month: "long",
+        }).format(new Date(proposal.expiresAt))
+      : null;
+
   const navSections = [
     { id: "incluye", label: t("nav_incluye") },
     { id: "inversion", label: t("nav_inversion") },
@@ -96,6 +107,12 @@ export default async function ProposalPage({
                 <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 font-body text-[13px] text-[var(--color-text-muted)]">
                   <Clock size={14} className="text-[var(--color-accent)]" />
                   {proposal.timeline}
+                </span>
+              )}
+              {validUntil && (
+                <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/[0.05] px-4 py-2 font-body text-[13px] text-[var(--color-text)]">
+                  <CalendarClock size={14} className="text-[var(--color-accent)]" />
+                  {t("valid_until", { date: validUntil })}
                 </span>
               )}
               {!accepted && !unavailable && (
@@ -237,13 +254,25 @@ export default async function ProposalPage({
               </Reveal>
               <Reveal delay={0.08}>
                 <MixedHeadline
-                  className="text-[32px] md:text-[44px] mt-4 mb-8"
+                  className="text-[32px] md:text-[44px] mt-4 mb-6"
                   parts={[
                     { text: t("investment_title_1") },
                     { text: t("investment_title_accent"), accent: true },
                     { text: t("investment_title_2") },
                   ]}
                 />
+              </Reveal>
+
+              {/* Prueba social en el momento de máxima duda: junto a la cifra */}
+              <Reveal delay={0.09}>
+                <figure className="mb-8 border-l-2 border-[var(--color-accent)] pl-5 max-w-[640px]">
+                  <blockquote className="font-display italic text-[17px] md:text-[19px] leading-[1.55] text-[var(--color-text)]">
+                    “{t("quote_text")}”
+                  </blockquote>
+                  <figcaption className="font-body text-[12px] text-[var(--color-text-muted)] mt-2">
+                    {t("quote_author")}
+                  </figcaption>
+                </figure>
               </Reveal>
 
               {installments.length > 0 ? (
@@ -338,6 +367,36 @@ export default async function ProposalPage({
                   </div>
                 </Reveal>
               )}
+
+              {/* Mini-FAQ — mata objeciones sin que tenga que escribirte */}
+              <Reveal delay={0.12}>
+                <div className="mt-12 border-t border-[var(--color-border)] pt-8">
+                  <p
+                    className="font-body uppercase text-[11px] text-[var(--color-text-muted)]"
+                    style={{ letterSpacing: "0.18em" }}
+                  >
+                    {t("faq_label")}
+                  </p>
+                  <div className="mt-3 divide-y divide-[var(--color-border)]">
+                    {(["q1", "q2", "q3", "q4"] as const).map((k) => (
+                      <details key={k} className="group py-3.5">
+                        <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-body text-[15px] text-[var(--color-text)]">
+                          {t(`faq_${k}`)}
+                          <span
+                            aria-hidden
+                            className="shrink-0 text-[var(--color-text-muted)] text-[18px] leading-none transition-transform duration-200 group-open:rotate-45"
+                          >
+                            +
+                          </span>
+                        </summary>
+                        <p className="font-body text-[14px] text-[var(--color-text-muted)] leading-[1.6] mt-2 max-w-[640px]">
+                          {t(`faq_${k}_a`)}
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
             </section>
 
             {/* ── Empezar (formulario) ── */}
@@ -383,6 +442,46 @@ export default async function ProposalPage({
                   <p className="font-body text-[16px] leading-[1.55] text-[var(--color-text-muted)] max-w-[600px] mt-4 mb-7">
                     {t("accept_sub")}
                   </p>
+
+                  {/* Qué pasa al aceptar — desactiva el miedo al botón */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    {([1, 2, 3] as const).map((n) => (
+                      <div
+                        key={n}
+                        className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-2)]/50 p-4"
+                      >
+                        <span className="font-display italic text-[20px] text-[var(--color-accent)]">
+                          0{n}
+                        </span>
+                        <p className="font-body text-[14px] font-medium text-[var(--color-text)] mt-1.5">
+                          {t(`step${n}_title`)}
+                        </p>
+                        <p className="font-body text-[12.5px] text-[var(--color-text-muted)] leading-[1.5] mt-1">
+                          {t(`step${n}_body`)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* La persona detrás — boutique de verdad */}
+                  <div className="flex items-center gap-4 mb-8">
+                    <Image
+                      src="/images/antonio-bellostas-hero.jpg"
+                      alt="Antonio Bellostas"
+                      width={96}
+                      height={96}
+                      className="h-12 w-12 rounded-full object-cover border border-[var(--color-border)] shrink-0"
+                    />
+                    <div>
+                      <p className="font-display italic text-[16px] leading-[1.45] text-[var(--color-text)]">
+                        “{t("signature_line")}”
+                      </p>
+                      <p className="font-body text-[12px] text-[var(--color-text-muted)] mt-0.5">
+                        {t("signature_name")}
+                      </p>
+                    </div>
+                  </div>
+
                   <ProposalAcceptForm token={token} />
                 </Reveal>
               )}
@@ -396,7 +495,42 @@ export default async function ProposalPage({
         <ShortTestimonials />
       </div>
 
-      <Footer />
+      {/* Footer mínimo: la página de cierre es un pasillo, no una plaza. */}
+      <footer className="relative z-10 border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+        <div className="max-w-[1320px] mx-auto px-6 lg:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-body text-[12px] text-[var(--color-text-muted)]">
+            © Bellostas Studio
+          </p>
+          <a
+            href="mailto:info@bellostas.studio"
+            className="font-body text-[13px] text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            {t("footer_questions")} info@bellostas.studio
+          </a>
+          <div className="flex items-center gap-5">
+            <Link
+              href="/legal"
+              className="font-body text-[12px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+            >
+              {t("footer_legal")}
+            </Link>
+            <Link
+              href="/privacidad"
+              className="font-body text-[12px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+            >
+              {t("footer_privacy")}
+            </Link>
+          </div>
+        </div>
+      </footer>
+
+      {/* CTA fijo en móvil: aparece tras pasar la inversión */}
+      {!accepted && !unavailable && (
+        <ProposalMobileCta
+          total={formatEUR(installments.length > 0 ? totSum : proposal.total, locale)}
+          label={t("cta_short")}
+        />
+      )}
     </>
   );
 }

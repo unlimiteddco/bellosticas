@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -16,9 +17,14 @@ import { MobileMenu } from "./MobileMenu";
  */
 export function NavbarPill() {
   const t = useTranslations("nav");
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Página de propuesta = pasillo de cierre: sin navegación ni CTAs que
+  // compitan con aceptar. Solo marca + idioma.
+  const isProposal = pathname?.includes("/propuestas/") ?? false;
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -40,6 +46,35 @@ export function NavbarPill() {
     { key: "love", href: "/love" },
     { key: "contact", href: "/contact" },
   ] as const;
+
+  if (isProposal) {
+    return (
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        className="fixed top-4 left-0 right-0 z-50 px-4 lg:px-8 pointer-events-none"
+      >
+        <div className="max-w-[1280px] mx-auto pointer-events-auto">
+          <div
+            className="relative flex items-center justify-between gap-3 rounded-full pl-2 pr-2 lg:pl-3 lg:pr-4 h-[64px]"
+            style={{
+              background: "rgba(253, 253, 251, 0.72)",
+              backdropFilter: "blur(20px) saturate(140%)",
+              WebkitBackdropFilter: "blur(20px) saturate(140%)",
+              border: "1px solid rgba(229, 226, 220, 0.6)",
+              boxShadow: "0 6px 24px -8px rgba(29, 29, 27, 0.12)",
+            }}
+          >
+            <div className="flex items-center justify-center h-12 px-4 lg:px-5 rounded-full bg-[var(--color-bg)] border border-[var(--color-border)] shrink-0">
+              <AnimatedLogo height={20} asLink={false} />
+            </div>
+            <LocaleSwitcher />
+          </div>
+        </div>
+      </motion.header>
+    );
+  }
 
   return (
     <>

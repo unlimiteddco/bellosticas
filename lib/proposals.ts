@@ -38,6 +38,8 @@ export type ProposalData = {
   timeline: string | null;
   total: string | number;
   status: string;
+  /** Fecha de expiración (ISO) — se muestra como "válida hasta" si existe. */
+  expiresAt?: string | null;
   /** Piezas de la solución (rejilla cualitativa, estilo documento). */
   highlights?: Highlight[] | null;
   /** Alcance fase a fase. */
@@ -106,6 +108,7 @@ const DEMO_PROPOSAL: ProposalPayload = {
     timeline: "Entrega en 3–4 semanas desde el anticipo",
     total: "4200.00",
     status: "sent",
+    expiresAt: "2026-06-24T00:00:00.000Z",
     highlights: [
       { title: "Tienda profesional", description: "Catálogo, carrito y pasarela de pago lista para vender desde el primer día." },
       { title: "Panel propio", description: "Gestiona productos, pedidos y planes sin depender de nadie ni de plantillas." },
