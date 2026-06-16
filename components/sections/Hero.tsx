@@ -171,10 +171,14 @@ export function Hero() {
 
           <div
             ref={ctasRef}
-            className="flex flex-wrap items-center justify-center gap-3"
+            className="flex flex-col w-full sm:w-auto sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-3"
           >
-            <PrimaryButton href="/contact">{t("cta_primary")}</PrimaryButton>
-            <GhostButton href="/work">{t("cta_secondary")}</GhostButton>
+            <PrimaryButton href="/contact" className="w-full sm:w-auto">
+              {t("cta_primary")}
+            </PrimaryButton>
+            <GhostButton href="/work" className="w-full sm:w-auto">
+              {t("cta_secondary")}
+            </GhostButton>
           </div>
         </div>
       </div>

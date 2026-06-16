@@ -398,14 +398,14 @@
   },
   "videoTestimonial": {
     "preLabel": "Videotestimonio de",
-    "firstName": "Javier",
+    "firstName": "Themis",
     "watchAria": "Ver testimonial de cliente",
     "closeAria": "Cerrar testimonial",
     "muteAria": "Silenciar audio",
     "unmuteAria": "Activar audio",
     "comingSoon": "// TESTIMONIO PRÓXIMAMENTE",
-    "clientName": "// JAVIER FLORES",
-    "clientCompany": "// SOCIAL11",
+    "clientName": "// THEMIS LÓPEZ",
+    "clientCompany": "// FADA",
     "badge": "Vídeo",
     "pauseAria": "Pausar vídeo",
     "playAria": "Reproducir vídeo",
@@ -628,7 +628,7 @@
       },
       "q5": {
         "question": "¿Qué pasa si necesito cambios después del launch?",
-        "answer": "Mantenimiento mensual disponible (desde 200€/mes), o cambios puntuales por horas. Los proyectos llevan 30 días de soporte gratis post-launch incluidos."
+        "answer": "Mantenimiento web mensual disponible (desde 150€/mes), o cambios puntuales por horas. Los proyectos llevan 30 días de soporte gratis post-launch incluidos."
       },
       "q6": {
         "question": "¿Trabajas con clientes fuera de España?",
@@ -921,7 +921,7 @@
           },
           "q3": {
             "question": "¿Cuánto cuesta una aplicación a medida?",
-            "answer": "MVP funcional desde 8.000 €. SaaS completo con multi-tenant, billing y panel admin entre 15.000 € y 30.000 €. Presupuesto cerrado al firmar — sin variaciones a tu cargo."
+            "answer": "MVP funcional desde 4.000 €. SaaS completo con multi-tenant, billing y panel admin entre 6.000 € y 15.000 €. Presupuesto cerrado al firmar — sin variaciones a tu cargo."
           },
           "q4": {
             "question": "¿Cuánto tarda en estar lista?",
@@ -1025,7 +1025,7 @@
           },
           "q4": {
             "question": "¿Qué hosting recomendáis?",
-            "answer": "Vercel para la mayoría — escala automático, deploys instantáneos, CDN global. Para casos especiales también desplegamos en Cloudflare o AWS."
+            "answer": "Usamos Netcup o Hetzner (servidores en Alemania, UE): potentes, fiables y con una relación calidad-precio excelente. Para casos especiales también desplegamos en Cloudflare o AWS."
           },
           "q5": {
             "question": "¿Migráis desde WordPress / Webflow?",

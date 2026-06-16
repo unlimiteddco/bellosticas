@@ -240,8 +240,8 @@ export default async function LocaleLayout({
         {/* Floating video testimonial — only shows on pages that include a
             [data-video-trigger] element (home, work, service pages). */}
         <VideoTestimonialWidget
-          videoSrc={TESTIMONIAL_MEDIA.javier.video}
-          posterSrc={TESTIMONIAL_MEDIA.javier.poster}
+          videoSrc={TESTIMONIAL_MEDIA.themis.video}
+          posterSrc={TESTIMONIAL_MEDIA.themis.poster}
         />
       </CookieProvider>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 type Testimonial = { name: string; role: string; quote: string };
@@ -21,6 +21,7 @@ export function IntroTestimonials() {
 
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     if (paused || items.length <= 1) return;
@@ -31,13 +32,29 @@ export function IntroTestimonials() {
     return () => window.clearInterval(id);
   }, [paused, items.length]);
 
+  const go = (dir: number) =>
+    setActive((i) => (i + dir + items.length) % items.length);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setPaused(true);
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    touchStartX.current = null;
+  };
+
   const current = items[active];
 
   return (
     <div
-      className="flex flex-col items-center text-center gap-7"
+      className="flex flex-col items-center text-center gap-7 select-none touch-pan-y"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <AnimatePresence mode="wait">
         <motion.figure

@@ -49,7 +49,7 @@ export function ProcessV2Card({ index, day, tag, title, description }: Props) {
       {/* Centered text below */}
       <div className="flex flex-col items-center gap-4 max-w-[380px]">
         <span
-          className="font-body uppercase text-[12px] text-[var(--color-accent)]"
+          className="font-body uppercase text-[15px] md:text-[12px] font-medium text-[var(--color-accent)]"
           style={{ letterSpacing: "0.18em" }}
         >
           {tag}

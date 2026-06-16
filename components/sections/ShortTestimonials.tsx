@@ -224,14 +224,14 @@ export function ShortTestimonials() {
           badge={tv("badge")}
           watchAria={t("watchAria")}
           onPlay={() => openVideo(javier)}
-          className="aspect-[9/13] md:aspect-auto md:min-h-[440px] lg:min-h-0 lg:aspect-auto lg:col-start-3 lg:row-start-1 lg:row-span-2 order-2 md:order-2"
+          className="aspect-[9/13] md:aspect-auto md:min-h-[440px] lg:min-h-0 lg:aspect-auto lg:col-start-3 lg:row-start-1 lg:row-span-2 order-4 md:order-2"
         />
 
         {/* Left-side reviews (lg col 1) */}
         <TestimonialCard
           item={adela}
           delay={0.05}
-          className="order-3 md:order-3 lg:col-start-1 lg:row-start-1"
+          className="order-2 md:order-3 lg:col-start-1 lg:row-start-1"
         />
         <TestimonialCard
           item={carlos}
@@ -243,7 +243,7 @@ export function ShortTestimonials() {
         <TestimonialCard
           item={diego}
           delay={0.15}
-          className="order-4 md:order-4 lg:col-start-4 lg:row-start-1"
+          className="order-3 md:order-4 lg:col-start-4 lg:row-start-1"
         />
         <TestimonialCard
           item={sofia}

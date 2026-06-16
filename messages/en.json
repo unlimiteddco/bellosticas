@@ -398,14 +398,14 @@
   },
   "videoTestimonial": {
     "preLabel": "Testimonial from",
-    "firstName": "Javier",
+    "firstName": "Themis",
     "watchAria": "Watch client testimonial",
     "closeAria": "Close testimonial",
     "muteAria": "Mute audio",
     "unmuteAria": "Unmute audio",
     "comingSoon": "// TESTIMONIAL COMING SOON",
-    "clientName": "// JAVIER FLORES",
-    "clientCompany": "// SOCIAL11",
+    "clientName": "// THEMIS LÓPEZ",
+    "clientCompany": "// FADA",
     "badge": "Video",
     "pauseAria": "Pause video",
     "playAria": "Play video",
@@ -628,7 +628,7 @@
       },
       "q5": {
         "question": "What if I need changes after launch?",
-        "answer": "Monthly maintenance available (from €200/mo), or hourly one-off changes. All projects include 30 days of free post-launch support."
+        "answer": "Monthly website maintenance available (from €150/mo), or hourly one-off changes. All projects include 30 days of free post-launch support."
       },
       "q6": {
         "question": "Do you work with clients outside Spain?",
@@ -921,7 +921,7 @@
           },
           "q3": {
             "question": "How much does a custom app cost?",
-            "answer": "Functional MVP from €8,000. Full SaaS with multi-tenant, billing and admin panel between €15,000 and €30,000. Fixed price on signature — no variations on you."
+            "answer": "Functional MVP from €4,000. Full SaaS with multi-tenant, billing and admin panel between €6,000 and €15,000. Fixed price on signature — no variations on you."
           },
           "q4": {
             "question": "How long does it take?",
@@ -1025,7 +1025,7 @@
           },
           "q4": {
             "question": "What hosting do you recommend?",
-            "answer": "Vercel for most cases — auto-scaling, instant deploys, global CDN. For special cases we also deploy on Cloudflare or AWS."
+            "answer": "We use Netcup or Hetzner (servers in Germany, EU): powerful, reliable and great value. For special cases we also deploy on Cloudflare or AWS."
           },
           "q5": {
             "question": "Do you migrate from WordPress / Webflow?",
