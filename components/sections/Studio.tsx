@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { MixedHeadline } from "@/components/ui/MixedHeadline";
@@ -9,55 +9,122 @@ import { AsteriskIcon } from "@/components/ui/AsteriskIcon";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 
 /**
- * A single diptych photo — forced to brand B&W + grain so even casual phone
- * shots read as intentional editorial. Falls back to a tasteful placeholder
- * panel if the image is missing (e.g. the working photo isn't uploaded yet).
+ * Left-column brand panel — the real sign-mounting timelapse running behind the
+ * studio tagline, dimmed by a black veil so the type stays legible while the
+ * footage still reads through.
+ *
+ * Performance: the video (and its poster) are only mounted once the panel is
+ * near the viewport, so the 2.7 MB clip never weighs on initial page load. On
+ * mobile the panel is taller and the secondary mono labels are dropped to keep
+ * it from feeling crowded. Reduced-motion users keep the still poster.
  */
-function StudioPhoto({
-  src,
-  alt,
-  placeholderLabel,
-}: {
-  src: string;
-  alt: string;
-  placeholderLabel?: string;
-}) {
-  const [errored, setErrored] = useState(false);
+function StudioPanel() {
+  const t = useTranslations("studio");
+  const reduced = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [active, setActive] = useState(false);
+
+  // Lazy-mount: don't fetch the poster/video until the panel is near view.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setActive(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Play once mounted and on screen — unless reduced motion is preferred.
+  useEffect(() => {
+    if (active && !reduced && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [active, reduced]);
 
   return (
-    <div className="group relative aspect-[4/5] overflow-hidden bg-[var(--color-text)]">
-      {!errored ? (
-        <img
-          src={src}
-          alt={alt}
-          onError={() => setErrored(true)}
-          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
-          style={{ filter: "grayscale(1) contrast(1.04) brightness(0.98)" }}
+    <div
+      ref={containerRef}
+      className="relative aspect-[4/5] md:aspect-[8/5] rounded-lg overflow-hidden bg-[var(--color-text)] flex flex-col justify-between p-6 md:p-7 lg:p-9 shadow-[0_24px_60px_-30px_rgba(29,29,27,0.3)]"
+    >
+      {/* Background — the real "putting up the sign" timelapse (lazy) */}
+      {active && (
+        <video
+          ref={videoRef}
+          src="/studio/sign-timelapse.mp4"
+          poster="/studio/sign-timelapse-poster.jpg"
+          muted
+          loop
+          playsInline
+          preload={reduced ? "none" : "auto"}
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "50% 35%" }}
         />
-      ) : (
-        // Placeholder until the working photo is dropped at the configured path
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          <AsteriskIcon className="w-14 h-14 text-[var(--color-accent)]/50" />
-          {placeholderLabel && (
-            <span
-              className="font-mono uppercase text-[10px] text-[var(--color-bg)]/55"
-              style={{ letterSpacing: "0.16em" }}
-            >
-              {placeholderLabel}
-            </span>
-          )}
-        </div>
       )}
 
-      {/* Per-photo grain overlay — unifies both shots with the brand texture */}
+      {/* Black veil — darker behind the type (left), lighter on the right so the
+          footage still breathes. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(100deg, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.42) 55%, rgba(0,0,0,0.26) 100%)",
+        }}
+      />
+
+      {/* Top row — asterisk mark + tag (tag hidden on mobile to declutter) */}
+      <div className="relative z-10 flex items-center justify-between">
+        <AsteriskIcon className="w-6 h-6 md:w-7 md:h-7 text-[var(--color-accent)]" />
+        <span
+          className="hidden md:inline-block font-mono uppercase text-[10px] text-[var(--color-bg)]/70"
+          style={{ letterSpacing: "0.16em" }}
+        >
+          {t("panelTag")}
+        </span>
+      </div>
+
+      {/* Centerpiece — the tagline, big and editorial */}
+      <div className="relative z-10">
+        <span
+          aria-hidden
+          className="block w-10 h-px bg-[var(--color-accent)] mb-3 md:mb-4"
+        />
+        <p className="font-display italic text-[var(--color-bg)] text-[21px] md:text-[26px] lg:text-[32px] leading-[1.15] max-w-[18ch] drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
+          {t("tagline").replace(/^\/\/\s*/, "")}
+        </p>
+      </div>
+
+      {/* Bottom — signature + place/volume (volume hidden on mobile) */}
+      <div className="relative z-10 flex items-end justify-between gap-4">
+        <span className="font-display text-[var(--color-bg)] text-[16px] md:text-[17px] lg:text-[19px] tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
+          Antonio Bellostas
+        </span>
+        <span
+          className="hidden md:block font-mono uppercase text-[10px] text-[var(--color-bg)]/70 text-right"
+          style={{ letterSpacing: "0.14em" }}
+        >
+          {t("panelMeta")}
+        </span>
+      </div>
+
+      {/* Brand grain — unifies the panel with the rest of the site */}
       <span
         aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url(/images/grain.svg)",
           backgroundRepeat: "repeat",
-          opacity: 0.1,
-          mixBlendMode: "multiply",
+          opacity: 0.12,
+          mixBlendMode: "soft-light",
         }}
       />
     </div>
@@ -88,34 +155,7 @@ export function Studio() {
           className="md:col-span-6 relative"
         >
           <motion.div style={{ y: reduced ? 0 : y }}>
-            {/* Diptych — two equal photos with a hairline divider between */}
-            <div className="relative grid grid-cols-2 rounded-lg overflow-hidden shadow-[0_24px_60px_-30px_rgba(29,29,27,0.3)]">
-              <StudioPhoto
-                src="/images/antonio-bellostas-hero-grain.jpg"
-                alt="Antonio Bellostas"
-              />
-              <StudioPhoto
-                src="/images/antonio-trabajando.jpg"
-                alt="Antonio trabajando"
-                placeholderLabel={t("imageCaption").replace(/^\/\/\s*/, "").split(" · ")[0]}
-              />
-              {/* Hairline divider with corner ticks */}
-              <span
-                aria-hidden
-                className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-[var(--color-bg)] z-10"
-              >
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-3 bg-[var(--color-accent)]" />
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-3 bg-[var(--color-accent)]" />
-              </span>
-            </div>
-
-            {/* Mono caption */}
-            <span
-              className="block mt-3 font-mono uppercase text-[10px] text-[var(--color-text-muted)]"
-              style={{ letterSpacing: "0.16em" }}
-            >
-              {t("imageCaption")}
-            </span>
+            <StudioPanel />
           </motion.div>
         </motion.div>
 
@@ -152,13 +192,6 @@ export function Studio() {
               ))}
             </div>
           </div>
-
-          <p
-            className="font-display italic text-[16px] text-[var(--color-text-muted)] mt-6"
-            style={{ letterSpacing: "0.02em" }}
-          >
-            {t("tagline")}
-          </p>
         </motion.div>
       </div>
     </section>
