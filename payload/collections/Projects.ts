@@ -179,6 +179,17 @@ export const Projects: CollectionConfig = {
       },
     },
     {
+      name: "comingSoon",
+      type: "checkbox",
+      label: "Próximamente",
+      defaultValue: false,
+      admin: {
+        position: "sidebar",
+        description:
+          "Trabajo hecho pero con el caso aún sin terminar. En la web aparece con la etiqueta 'Próximamente' (con efecto) y no abre el detalle.",
+      },
+    },
+    {
       name: "order",
       type: "number",
       label: "Orden",

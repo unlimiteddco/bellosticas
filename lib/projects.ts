@@ -23,6 +23,8 @@ export type Project = {
    * If you provide an odd number, the last item spans both columns.
    */
   gallery?: { src: string; alt?: string }[];
+  /** Marca el trabajo como "Próximamente" (caso aún sin desarrollar). */
+  comingSoon?: boolean;
 };
 
 export const projects: Project[] = [

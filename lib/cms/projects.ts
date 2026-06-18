@@ -58,6 +58,7 @@ export async function getProjects(locale: string): Promise<ResolvedProject[]> {
             gallery: gallery && gallery.length > 0 ? gallery : undefined,
             featured: Boolean(d.featured),
             logoScale: typeof d.logoScale === "number" ? d.logoScale : 100,
+            comingSoon: Boolean(d.comingSoon),
           };
         });
       }
@@ -88,6 +89,7 @@ async function staticFallback(locale: string): Promise<ResolvedProject[]> {
     // Static list has no explicit featured flag — it's chosen positionally by
     // the Work components (first project with logo+cover).
     featured: undefined,
+    comingSoon: p.comingSoon ?? false,
   }));
 }
 

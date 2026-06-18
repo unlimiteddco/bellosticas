@@ -23,6 +23,8 @@ export type ResolvedProject = {
   featured?: boolean;
   /** Logo display size as a percentage (100 = default). */
   logoScale?: number;
+  /** Trabajo hecho pero con el caso aún sin desarrollar → se muestra como "Próximamente". */
+  comingSoon?: boolean;
 };
 
 export type ResolvedServiceHero = {
