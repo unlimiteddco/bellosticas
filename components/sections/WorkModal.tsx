@@ -42,6 +42,9 @@ export function WorkModal({ project, onClose }: Props) {
 
   if (!mounted) return null;
 
+  const gallery = project.gallery ?? [];
+  const hasGallery = gallery.length > 0;
+
   const node = (
     <motion.div
       initial={{ opacity: 0 }}
@@ -164,7 +167,8 @@ export function WorkModal({ project, onClose }: Props) {
                 className="w-full h-auto block"
               />
             </div>
-          ) : (
+          ) : !hasGallery ? (
+            // Placeholders de color SOLO cuando no hay ni cover ni galería.
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div
                 className="aspect-[4/3] rounded-2xl"
@@ -175,17 +179,15 @@ export function WorkModal({ project, onClose }: Props) {
                 style={{ backgroundColor: `${project.color}99` }}
               />
             </div>
-          )}
+          ) : null}
 
           {/* Optional 2-column gallery — extras shown below the cover. The
               last image spans both columns when the count is odd so the grid
               stays balanced. */}
-          {project.gallery && project.gallery.length > 0 && (
+          {hasGallery && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-              {project.gallery.map((shot, i) => {
-                const isLastOdd =
-                  project.gallery!.length % 2 === 1 &&
-                  i === project.gallery!.length - 1;
+              {gallery.map((shot, i) => {
+                const isLastOdd = gallery.length % 2 === 1 && i === gallery.length - 1;
                 return (
                   <div
                     key={shot.src}
