@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { MixedHeadline } from "@/components/ui/MixedHeadline";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
-import { StudioPhoto } from "./StudioPhoto";
+import { StudioHeroVisual } from "./StudioHeroVisual";
 
 const NS = "studioPage.hero";
 
@@ -79,14 +79,7 @@ export function StudioHero() {
           className="lg:col-span-5"
         >
           <div className="relative max-w-[420px] ml-auto">
-            <StudioPhoto
-              src="/studio/antonio-working.jpg"
-              alt="Antonio working at the studio"
-              label={t("photoCaption")}
-              aspect="4 / 5"
-              tone="warm"
-              withAsterisk
-            />
+            <StudioHeroVisual />
           </div>
         </motion.div>
       </div>
