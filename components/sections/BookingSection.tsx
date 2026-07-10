@@ -95,10 +95,16 @@ export function BookingSection({ centered = false, hideHeader = false }: Props) 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-        // No border/background/padding here — the Cal.com embed renders its own
-        // card, so styling the wrapper produced a visible double border. We only
-        // round + drop a soft shadow behind the embed's own card.
-        className="w-full rounded-2xl overflow-hidden"
+        // No border here — the Cal.com embed renders its own card, so styling the
+        // wrapper produced a visible double border. We only round + drop a soft
+        // shadow behind the embed's own card.
+        //
+        // El iframe de Cal deja mucho más aire abajo (hueco + marca "Cal.eu") que
+        // arriba, y es cross-origin: no podemos tocar su interior. Como nuestra
+        // sombra dibuja la caja alrededor del iframe, el contenido se veía
+        // descentrado. Compensamos con padding superior; el fondo es el mismo
+        // blanco que usa el embed (`cal-bg`), así que la costura es invisible.
+        className="w-full rounded-2xl overflow-hidden bg-[var(--color-bg)] pt-10 lg:pt-[60px]"
         style={{
           boxShadow: "0 24px 60px -24px rgba(29,29,27,0.16)",
         }}
