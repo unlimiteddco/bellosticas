@@ -87,7 +87,7 @@ export function ServicesMegaMenu({
             transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
             onMouseEnter={enter}
             onMouseLeave={leave}
-            className="absolute left-0 right-0 mx-auto top-[calc(100%+12px)] hidden lg:block w-full max-w-[980px]"
+            className="absolute left-0 right-0 top-[calc(100%+12px)] hidden lg:block"
           >
             <div
               className="rounded-3xl overflow-hidden"
