@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LocalLanding } from "@/components/sections/local/LocalLanding";
 import { getLocalPage } from "@/lib/local-pages";
@@ -32,6 +32,11 @@ export default async function DisenoWebZaragozaPage({
 
   const config = getLocalPage(KEY);
   if (!config) notFound();
+
+  // Landing de SEO local: solo en español. La keyword es española y en inglés
+  // no hay demanda de búsqueda, así que /en/... redirige (308) a la versión ES
+  // en vez de servir una traducción duplicada y sin valor.
+  if (locale !== "es") permanentRedirect(`/${config.slug}`);
 
   const t = await getTranslations({ locale, namespace: config.i18nNamespace });
   const schemas = [

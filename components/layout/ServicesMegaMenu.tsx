@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { services } from "@/lib/services";
 import { AsteriskIcon } from "@/components/ui/AsteriskIcon";
 
@@ -27,6 +27,9 @@ export function ServicesMegaMenu({
 }) {
   const t = useTranslations("nav");
   const ts = useTranslations("services");
+  const locale = useLocale();
+  // Las landings de SEO local solo existen en español.
+  const showLocalLinks = locale === "es";
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const closeTimer = useRef<number | null>(null);
@@ -177,22 +180,26 @@ export function ServicesMegaMenu({
               {/* ── Bottom strip: local pages + view all ── */}
               <div className="flex items-center justify-between gap-4 px-6 lg:px-7 py-3.5 border-t border-[var(--color-border)]">
                 <span className="flex items-center gap-4 min-w-0">
-                  <span
-                    className="font-body uppercase text-[9.5px] text-[var(--color-text-muted)]/70 shrink-0"
-                    style={{ letterSpacing: "0.16em" }}
-                  >
-                    {t("mm.localLabel")}
-                  </span>
-                  {(["zaragoza", "huesca", "teruel"] as const).map((c) => (
-                    <Link
-                      key={c}
-                      href={`/diseno-web-${c}`}
-                      onClick={() => setOpen(false)}
-                      className="font-body text-[12.5px] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors capitalize"
-                    >
-                      {c}
-                    </Link>
-                  ))}
+                  {showLocalLinks && (
+                    <>
+                      <span
+                        className="font-body uppercase text-[9.5px] text-[var(--color-text-muted)]/70 shrink-0"
+                        style={{ letterSpacing: "0.16em" }}
+                      >
+                        {t("mm.localLabel")}
+                      </span>
+                      {(["zaragoza", "huesca", "teruel"] as const).map((c) => (
+                        <Link
+                          key={c}
+                          href={`/diseno-web-${c}`}
+                          onClick={() => setOpen(false)}
+                          className="font-body text-[12.5px] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors capitalize"
+                        >
+                          {c}
+                        </Link>
+                      ))}
+                    </>
+                  )}
                 </span>
                 <Link
                   href="/#services"

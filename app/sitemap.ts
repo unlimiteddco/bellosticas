@@ -28,6 +28,17 @@ const ROUTE_KEYS = [
   "/diseno-web-teruel",
 ] as const;
 
+/**
+ * Landings de SEO local: solo existen en español (la keyword es española y en
+ * inglés no hay demanda de búsqueda). /en/diseno-web-* redirige a la versión
+ * ES, así que no emitimos alternates hreflang para ellas.
+ */
+const ES_ONLY_ROUTES: readonly string[] = [
+  "/diseno-web-zaragoza",
+  "/diseno-web-huesca",
+  "/diseno-web-teruel",
+];
+
 /** Localized, fully-qualified URL for a route key in a given locale (as-needed prefix). */
 function urlFor(key: keyof typeof pathnames, locale: Locale): string {
   const value = pathnames[key];
@@ -56,7 +67,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         : key === "/contact" || key === "/work" || key.startsWith("/services")
           ? 0.8
           : 0.6,
-    alternates: alternates(key),
+    // Las landings locales son solo-ES: sin hreflang alternates.
+    ...(ES_ONLY_ROUTES.includes(key) ? {} : { alternates: alternates(key) }),
   }));
 
   // Blog posts — shared "/blog/<slug>" path per locale. Tolerant of an empty/

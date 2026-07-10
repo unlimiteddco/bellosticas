@@ -1,11 +1,14 @@
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Logo } from "@/components/ui/Logo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { bookingQuarter } from "@/lib/booking";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
+  // Las landings de SEO local solo existen en español.
+  const showLocalLinks = locale === "es";
   const year = new Date().getFullYear();
 
   const studioLinks = [
@@ -109,26 +112,30 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Local SEO — landings por ciudad (enlazado interno) */}
-        <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2">
-          <span
-            className="font-body uppercase text-[10px] text-[var(--color-bg)]/40"
-            style={{ letterSpacing: "0.18em" }}
-          >
-            {t("localHeading")}
-          </span>
-          {(["zaragoza", "huesca", "teruel"] as const).map((c) => (
-            <Link
-              key={c}
-              href={`/diseno-web-${c}`}
-              className="font-body text-[13px] text-[var(--color-bg)]/60 hover:text-[var(--color-bg)] transition-colors"
+        {/* Local SEO — landings por ciudad (enlazado interno). Solo en ES. */}
+        {showLocalLinks && (
+          <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span
+              className="font-body uppercase text-[10px] text-[var(--color-bg)]/40"
+              style={{ letterSpacing: "0.18em" }}
             >
-              {t(`localLinks.${c}`)}
-            </Link>
-          ))}
-        </div>
+              {t("localHeading")}
+            </span>
+            {(["zaragoza", "huesca", "teruel"] as const).map((c) => (
+              <Link
+                key={c}
+                href={`/diseno-web-${c}`}
+                className="font-body text-[13px] text-[var(--color-bg)]/60 hover:text-[var(--color-bg)] transition-colors"
+              >
+                {t(`localLinks.${c}`)}
+              </Link>
+            ))}
+          </div>
+        )}
 
-        <div className="mt-8 pt-8 border-t border-[var(--color-bg)]/15 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div
+          className={`${showLocalLinks ? "mt-8" : "mt-16"} pt-8 border-t border-[var(--color-bg)]/15 flex flex-col gap-4 md:flex-row md:items-center md:justify-between`}
+        >
           <span
             className="font-body uppercase text-[11px] text-[var(--color-bg)]/60"
             style={{ letterSpacing: "0.18em" }}
