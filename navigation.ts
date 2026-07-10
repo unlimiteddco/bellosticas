@@ -10,11 +10,19 @@ import { locales, defaultLocale } from "./i18n";
  * Using `defineRouting` (which knows the defaultLocale) means `as-needed` drops
  * the prefix for the default locale, so ES links render `/servicios/…`, not
  * `/es/servicios/…`.
+ *
+ * `localeDetection: false` — el idioma lo manda SOLO la URL. Por defecto
+ * next-intl mira la cabecera `Accept-Language`, así que un móvil con Chrome en
+ * inglés entraba a bellostas.studio y era redirigido (307) a /en, aunque la
+ * SERP mostrase la página en español. La web debe servirse siempre en español
+ * salvo que el visitante cambie de idioma, y el selector navega por URL
+ * (`router.replace(..., { locale })`), así que sigue funcionando.
  */
 export const routing = defineRouting({
   locales,
   defaultLocale,
   localePrefix: "as-needed",
+  localeDetection: false,
   pathnames: {
     "/": "/",
     "/work": "/work",
