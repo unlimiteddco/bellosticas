@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { AnimatedLogo } from "@/components/ui/AnimatedLogo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
+import { ServicesMegaMenu } from "./ServicesMegaMenu";
 
 /**
  * Floating glassy pill navbar. Alternative to /components/layout/Navbar.tsx (classic style).
@@ -21,6 +23,9 @@ export function NavbarPill() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Host del panel del megamenú: fuera del pill (que tiene backdrop-filter y
+  // rompería el blur del panel), pero dentro del wrapper posicionado.
+  const megaPanelHost = useRef<HTMLDivElement>(null);
 
   // Página de propuesta = pasillo de cierre: sin navegación ni CTAs que
   // compitan con aceptar. Solo marca + idioma.
@@ -87,7 +92,7 @@ export function NavbarPill() {
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
         className="fixed top-4 left-0 right-0 z-50 px-4 lg:px-8 pointer-events-none"
       >
-        <div className="max-w-[1280px] mx-auto pointer-events-auto">
+        <div ref={megaPanelHost} className="relative max-w-[1280px] mx-auto pointer-events-auto">
           <div
             className="relative flex items-center justify-between gap-3 rounded-full pl-2 pr-2 lg:pl-3 lg:pr-3 h-[64px] transition-all duration-300"
             style={{
@@ -113,16 +118,20 @@ export function NavbarPill() {
 
             {/* Center nav */}
             <nav className="hidden lg:flex items-center gap-7 mx-2">
-              {links.map((l) => (
-                <Link
-                  key={l.key}
-                  href={l.href}
-                  className="group relative font-body text-[14px] text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)]"
-                >
-                  {t(l.key)}
-                  <span className="absolute left-0 -bottom-1 h-px w-0 bg-[var(--color-accent)] transition-[width] duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              {links.map((l) =>
+                l.key === "services" ? (
+                  <ServicesMegaMenu key={l.key} panelHost={megaPanelHost} />
+                ) : (
+                  <Link
+                    key={l.key}
+                    href={l.href}
+                    className="group relative font-body text-[14px] text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)]"
+                  >
+                    {t(l.key)}
+                    <span className="absolute left-0 -bottom-1 h-px w-0 bg-[var(--color-accent)] transition-[width] duration-300 group-hover:w-full" />
+                  </Link>
+                ),
+              )}
             </nav>
 
             {/* Right actions */}
@@ -130,6 +139,9 @@ export function NavbarPill() {
               <div className="hidden md:flex items-center">
                 <LocaleSwitcher />
               </div>
+
+              {/* WhatsApp — visible también en móvil (contacto rápido) */}
+              <WhatsAppButton variant="icon" source="navbar" />
 
               <div className="hidden sm:block">
                 <PrimaryButton href="/intro" className="h-11 px-5 text-[13px]">

@@ -109,7 +109,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[var(--color-bg)]/15 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        {/* Local SEO — landings por ciudad (enlazado interno) */}
+        <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <span
+            className="font-body uppercase text-[10px] text-[var(--color-bg)]/40"
+            style={{ letterSpacing: "0.18em" }}
+          >
+            {t("localHeading")}
+          </span>
+          {(["zaragoza", "huesca", "teruel"] as const).map((c) => (
+            <Link
+              key={c}
+              href={`/diseno-web-${c}`}
+              className="font-body text-[13px] text-[var(--color-bg)]/60 hover:text-[var(--color-bg)] transition-colors"
+            >
+              {t(`localLinks.${c}`)}
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-[var(--color-bg)]/15 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <span
             className="font-body uppercase text-[11px] text-[var(--color-bg)]/60"
             style={{ letterSpacing: "0.18em" }}

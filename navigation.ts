@@ -28,6 +28,9 @@ export const routing = defineRouting({
     "/cookies": "/cookies",
     "/privacidad": "/privacidad",
     "/preview": "/preview",
+    "/diseno-web-zaragoza": "/diseno-web-zaragoza",
+    "/diseno-web-huesca": "/diseno-web-huesca",
+    "/diseno-web-teruel": "/diseno-web-teruel",
     "/contact": { es: "/contacto", en: "/contact" },
     "/services/desarrollo-web": {
       es: "/servicios/desarrollo-web",

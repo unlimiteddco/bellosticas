@@ -2,11 +2,17 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Phone, Video, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  MessageCircle,
+  Phone,
+  Video,
+  X,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect } from "react";
-import { BrandPattern } from "@/components/ui/BrandPattern";
-import { AsteriskIcon } from "@/components/ui/AsteriskIcon";
+import { useEffect, useState } from "react";
+import { services } from "@/lib/services";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 interface MobileMenuProps {
@@ -39,9 +45,12 @@ const itemVariants = {
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const t = useTranslations("nav");
+  const ts = useTranslations("services");
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     if (!open) return;
+    setServicesOpen(false); // cada apertura arranca con el desplegable cerrado
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
@@ -69,7 +78,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             aria-hidden
           />
 
-          {/* Panel */}
+          {/* Panel — minimal: fondo plano de marca, sin patrón ni adornos */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -80,28 +89,6 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             aria-modal="true"
             aria-label={t("menuLabel")}
           >
-            {/* Brand pattern bg */}
-            <BrandPattern asBackground opacity={0.08} size="md" />
-
-            {/* Aura glow */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 70% 50% at 90% 100%, rgba(194,38,58,0.22) 0%, rgba(194,38,58,0) 60%)",
-              }}
-            />
-
-            {/* Decorative asterisk top-right */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.6, rotate: -25 }}
-              animate={{ opacity: 0.1, scale: 1, rotate: -10 }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute -top-12 -right-12 w-[220px] h-[220px] text-[var(--color-accent)] pointer-events-none"
-            >
-              <AsteriskIcon className="w-full h-full" />
-            </motion.div>
-
             {/* Header */}
             <header className="relative z-10 flex items-center justify-between px-7 pt-7">
               <motion.span
@@ -134,37 +121,120 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               exit="exit"
               className="relative z-10 flex-1 flex flex-col justify-center gap-0.5 px-7 overflow-y-auto"
             >
-              {ITEMS.map((item) => (
-                <motion.div key={item.key} variants={itemVariants}>
-                  <Link
-                    href={item.href}
-                    onClick={onClose}
-                    className="group flex items-baseline gap-4 py-2.5 border-b border-[var(--color-bg)]/10 transition-colors"
-                  >
-                    <span
-                      className="font-body uppercase text-[11px] text-[var(--color-bg)]/40 tabular-nums shrink-0"
-                      style={{ letterSpacing: "0.18em" }}
+              {ITEMS.map((item) =>
+                item.key === "services" ? (
+                  /* Servicios — desplegable con los 6 servicios */
+                  <motion.div key={item.key} variants={itemVariants}>
+                    <button
+                      type="button"
+                      onClick={() => setServicesOpen((v) => !v)}
+                      aria-expanded={servicesOpen}
+                      className="group w-full flex items-baseline gap-4 py-2.5 border-b border-[var(--color-bg)]/10 transition-colors text-left"
                     >
-                      {item.n}
-                    </span>
-                    <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                      <span className="flex items-center gap-2 font-display text-[26px] leading-none text-[var(--color-bg)] transition-colors group-hover:text-[var(--color-accent)]">
-                        {t(item.key)}
-                        <ArrowUpRight
-                          size={16}
-                          className="text-[var(--color-bg)]/30 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all duration-300"
-                        />
-                      </span>
                       <span
-                        className="font-body text-[11px] text-[var(--color-bg)]/55 uppercase mt-1"
-                        style={{ letterSpacing: "0.12em" }}
+                        className="font-body uppercase text-[11px] text-[var(--color-bg)]/40 tabular-nums shrink-0"
+                        style={{ letterSpacing: "0.18em" }}
                       >
-                        {t(`${item.key}Sub`)}
+                        {item.n}
                       </span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+                      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                        <span
+                          className={`flex items-center gap-2 font-display text-[26px] leading-none transition-colors ${
+                            servicesOpen ? "text-[var(--color-accent)]" : "text-[var(--color-bg)]"
+                          }`}
+                        >
+                          {t(item.key)}
+                          <ChevronDown
+                            size={17}
+                            className={`transition-transform duration-300 ${
+                              servicesOpen
+                                ? "rotate-180 text-[var(--color-accent)]"
+                                : "text-[var(--color-bg)]/40"
+                            }`}
+                          />
+                        </span>
+                        <span
+                          className="font-body text-[11px] text-[var(--color-bg)]/55 uppercase mt-1"
+                          style={{ letterSpacing: "0.12em" }}
+                        >
+                          {t(`${item.key}Sub`)}
+                        </span>
+                      </div>
+                    </button>
+
+                    {/* Colapso con CSS grid-rows: fiable sin JS por frame */}
+                    <div
+                      className="grid transition-[grid-template-rows,opacity] duration-300 ease-out"
+                      style={{
+                        gridTemplateRows: servicesOpen ? "1fr" : "0fr",
+                        opacity: servicesOpen ? 1 : 0,
+                      }}
+                    >
+                      <div className="min-h-0 overflow-hidden">
+                        <div className="pl-9 py-2 border-b border-[var(--color-bg)]/10">
+                            {services.map((s) => (
+                              <Link
+                                key={s.slug}
+                                href={`/services/${s.slug}`}
+                                onClick={onClose}
+                                className="group flex items-center gap-3 py-2"
+                              >
+                                <span
+                                  className="font-mono text-[10px] text-[var(--color-accent)]/80 shrink-0"
+                                  style={{ letterSpacing: "0.08em" }}
+                                >
+                                  {s.number}
+                                </span>
+                                <span className="font-body text-[15px] text-[var(--color-bg)]/85 group-hover:text-[var(--color-accent)] transition-colors">
+                                  {ts(`items.${s.titleKey}.title`)}
+                                </span>
+                              </Link>
+                            ))}
+                            <Link
+                              href="/#services"
+                              onClick={onClose}
+                              className="inline-flex items-center gap-1.5 py-2 font-body text-[12px] uppercase text-[var(--color-bg)]/50 hover:text-[var(--color-accent)] transition-colors"
+                              style={{ letterSpacing: "0.14em" }}
+                            >
+                              {t("mm.viewAll")}
+                              <ArrowUpRight size={12} />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                  </motion.div>
+                ) : (
+                  <motion.div key={item.key} variants={itemVariants}>
+                    <Link
+                      href={item.href}
+                      onClick={onClose}
+                      className="group flex items-baseline gap-4 py-2.5 border-b border-[var(--color-bg)]/10 transition-colors"
+                    >
+                      <span
+                        className="font-body uppercase text-[11px] text-[var(--color-bg)]/40 tabular-nums shrink-0"
+                        style={{ letterSpacing: "0.18em" }}
+                      >
+                        {item.n}
+                      </span>
+                      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                        <span className="flex items-center gap-2 font-display text-[26px] leading-none text-[var(--color-bg)] transition-colors group-hover:text-[var(--color-accent)]">
+                          {t(item.key)}
+                          <ArrowUpRight
+                            size={16}
+                            className="text-[var(--color-bg)]/30 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all duration-300"
+                          />
+                        </span>
+                        <span
+                          className="font-body text-[11px] text-[var(--color-bg)]/55 uppercase mt-1"
+                          style={{ letterSpacing: "0.12em" }}
+                        >
+                          {t(`${item.key}Sub`)}
+                        </span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ),
+              )}
             </motion.nav>
 
             {/* Footer block */}
@@ -182,6 +252,22 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 <Video size={17} />
                 {t("bookVideo")}
               </Link>
+              <a
+                href="https://wa.me/34624010424?text=Hola%20Antonio%20%F0%9F%91%8B%20Vengo%20de%20la%20web%20y%20me%20gustar%C3%ADa%20hablar%20de%20un%20proyecto."
+                target="_blank"
+                rel="noopener"
+                onClick={() =>
+                  (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.(
+                    "event",
+                    "whatsapp_click",
+                    { source: "mobile-menu" },
+                  )
+                }
+                className="flex items-center justify-center gap-2.5 h-12 rounded-full border border-[#25D366]/50 text-[var(--color-bg)] text-[14px] font-medium hover:bg-[#25D366]/15 transition-colors"
+              >
+                <MessageCircle size={16} className="text-[#25D366]" />
+                WhatsApp
+              </a>
               <a
                 href="tel:+34624010424"
                 className="flex items-center justify-center gap-2.5 h-12 rounded-full border border-[var(--color-bg)]/30 text-[var(--color-bg)] text-[14px] font-medium hover:bg-[var(--color-bg)]/10 transition-colors"

@@ -11,6 +11,11 @@ import type { Payload } from "payload";
  */
 
 let cached: Promise<Payload> | null = null;
+// Tras un fallo de conexión, no reintentar en cada request (cada render
+// dispararía un nuevo intento contra Postgres, llenando la consola de
+// errores y rejections sueltas del pool de pg). Backoff sencillo.
+let lastFailureAt = 0;
+const RETRY_AFTER_MS = 60_000;
 
 export function isCMSEnabled(): boolean {
   return Boolean(process.env.DATABASE_URI && process.env.PAYLOAD_SECRET);
@@ -22,18 +27,27 @@ export function isCMSEnabled(): boolean {
  */
 export async function getCMS(): Promise<Payload | null> {
   if (!isCMSEnabled()) return null;
+  if (lastFailureAt && Date.now() - lastFailureAt < RETRY_AFTER_MS) return null;
   try {
     if (!cached) {
       // Lazy import so the heavy payload bundle isn't pulled when CMS is off.
       const { getPayload } = await import("payload");
       const configModule = await import("@payload-config");
       cached = getPayload({ config: configModule.default });
+      // Marca el promise como manejado también para el que no llegue a await
+      // (evita "unhandledRejection" cuando dos renders compiten).
+      cached.catch(() => {});
     }
-    return await cached;
+    const payload = await cached;
+    lastFailureAt = 0;
+    return payload;
   } catch (err) {
     // Reset cache so a later request can retry after the DB recovers.
     cached = null;
-    console.error("[cms] Payload unavailable, falling back to static data:", err);
+    lastFailureAt = Date.now();
+    // warn, no error: el fallback a datos estáticos es un estado soportado
+    // (p. ej. desarrollo local sin Postgres), no un fallo de la web.
+    console.warn("[cms] Payload unavailable, falling back to static data:", err);
     return null;
   }
 }

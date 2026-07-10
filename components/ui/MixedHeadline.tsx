@@ -11,15 +11,17 @@ type Props = {
   parts: HeadlinePart[];
   className?: string;
   dark?: boolean;
+  /** Heading tag. Landing heroes should pass "h1" (SEO); default keeps "h2". */
+  as?: "h1" | "h2" | "h3";
 };
 
-export function MixedHeadline({ parts, className = "", dark = false }: Props) {
+export function MixedHeadline({ parts, className = "", dark = false, as: Tag = "h2" }: Props) {
   const reduce = useReducedMotion();
   const baseStyles = "tracking-tight leading-[1.05]";
   const normalColor = dark ? "text-[var(--color-bg)]" : "text-[var(--color-text)]";
 
   return (
-    <h2 className={`${baseStyles} ${className}`}>
+    <Tag className={`${baseStyles} ${className}`}>
       {parts.map((part, i) => (
         <motion.span
           key={i}
@@ -41,6 +43,6 @@ export function MixedHeadline({ parts, className = "", dark = false }: Props) {
           {part.text}
         </motion.span>
       ))}
-    </h2>
+    </Tag>
   );
 }

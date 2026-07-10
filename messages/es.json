@@ -129,7 +129,16 @@
     "menuLabel": "// MENU",
     "menuFooter": "// HUESCA, ES · EST. 2022",
     "openMenu": "Abrir menú",
-    "closeMenu": "Cerrar menú"
+    "closeMenu": "Cerrar menú",
+    "mm": {
+      "label": "// SERVICIOS DEL ESTUDIO",
+      "helpLabel": "// ¿NO LO TIENES CLARO?",
+      "helpText": "Cuéntanos qué necesitas y te decimos qué encaja — sin compromiso y en una llamada de 20 minutos.",
+      "helpCta": "Agenda una llamada",
+      "viewWork": "Ver casos de éxito",
+      "viewAll": "Ver todos los servicios",
+      "localLabel": "// DISEÑO WEB EN ARAGÓN"
+    }
   },
   "marqueeDivider": {
     "tokens": [
@@ -581,6 +590,247 @@
     "tagline": "// THE WORLD IS YOURS — IF YOU SHIP IT RIGHT.",
     "panelTag": "ESTUDIO INDEPENDIENTE",
     "panelMeta": "HUESCA, ES · 70+ PROYECTOS"
+  },
+  "localPages": {
+    "zaragoza": {
+      "metaTitle": "Diseño web en Zaragoza | Bellostas Studio",
+      "metaDescription": "Estudio de diseño y desarrollo web para negocios de Zaragoza. Webs a medida desde 3.500 €, tiendas online y aplicaciones. Trato directo con el estudio que diseña y construye, presupuesto cerrado y casos reales en Aragón.",
+      "hero": {
+        "label": "// DISEÑO WEB · ZARAGOZA",
+        "title_part1": "Diseño web en ",
+        "title_emphasis": "Zaragoza",
+        "title_part2": ".",
+        "sub": "En Bellostas Studio diseñamos y desarrollamos webs, tiendas online y aplicaciones a medida para negocios de Zaragoza. Sin capas de comerciales: tratas directamente con el estudio que diseña y construye tu proyecto, con presupuesto cerrado desde el primer día.",
+        "cta": "Agenda una llamada",
+        "whatsappMessage": "Hola Antonio 👋 Vengo de la página de diseño web en Zaragoza y me gustaría hablar de un proyecto.",
+        "meta": "ESTUDIO EN ARAGÓN · ZARAGOZA · PRESENCIAL O REMOTO"
+      },
+      "projects": {
+        "label": "// TRABAJO EN ARAGÓN",
+        "title_part1": "Casos ",
+        "title_emphasis": "de Aragón",
+        "title_part2": "."
+      },
+      "why": {
+        "label": "// ESTUDIO, NO AGENCIA",
+        "title_part1": "¿Por qué un ",
+        "title_emphasis": "estudio",
+        "title_part2": " y no una agencia?",
+        "items": {
+          "i1": {
+            "title": "Tratas con el estudio",
+            "body": "Nada de comerciales ni gestores de cuenta. Trabajas mano a mano con el estudio que diseña y programa tu web, y las decisiones se toman en una llamada, no en una cadena de correos."
+          },
+          "i2": {
+            "title": "Presupuesto cerrado",
+            "body": "Precio cerrado al firmar, sin variaciones a tu cargo. Incluimos 30 días de soporte gratis tras el lanzamiento en todos los proyectos."
+          },
+          "i3": {
+            "title": "Enraizado en Aragón",
+            "body": "Estudio con base en Huesca y clientes por todo Aragón — del Gobierno de Aragón a negocios de Zaragoza como Noal Design. Conocemos el mercado y el terreno."
+          }
+        }
+      },
+      "faq": {
+        "label": "// PREGUNTAS FRECUENTES",
+        "title_part1": "Preguntas ",
+        "title_emphasis": "frecuentes",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "¿Cuánto cuesta una página web en Zaragoza?",
+            "answer": "Depende del alcance del proyecto. Una web corporativa a medida parte de 3.500 €, una tienda online en Shopify con tema propio desde 4.500 €, una aplicación web desde 4.000 € y una automatización de procesos desde 800 €. En todos los casos trabajamos con presupuesto cerrado: te damos el precio final tras una llamada de 20 minutos y no cambia después. Si necesitas mantenimiento, tenemos planes desde 150 €/mes."
+          },
+          "q2": {
+            "question": "¿Qué incluye el diseño de una web con vuestro estudio?",
+            "answer": "Un proyecto tipo incluye una fase de descubrimiento para entender tu negocio y objetivos, diseño a medida —nada de plantillas genéricas—, desarrollo a medida, optimización SEO de base para que Google entienda tu web, una web rápida y adaptada a móvil, formación para que puedas gestionar tú el contenido y 30 días de soporte tras el lanzamiento. Todo pensado para que la web trabaje en captar clientes, no solo para estar online."
+          },
+          "q3": {
+            "question": "¿Trabajáis presencialmente en Zaragoza?",
+            "answer": "Sí. El estudio está en Huesca, a menos de una hora de Zaragoza, y nos desplazamos para las reuniones clave cuando el proyecto lo pide. El día a día lo llevamos por videollamada y un canal directo de mensajería, que suele ser más ágil para todos y te deja ver los avances en tiempo real."
+          },
+          "q4": {
+            "question": "¿Cuánto se tarda en tener la web lista?",
+            "answer": "La mayoría de webs corporativas salen en 2 a 4 semanas desde el kickoff, con fechas cerradas desde que firmamos. Los proyectos más grandes —tiendas online complejas o aplicaciones a medida— llevan más, pero siempre con un calendario claro por fases para que sepas qué se entrega y cuándo. No trabajamos con proyectos eternos y sin fecha."
+          },
+          "q5": {
+            "question": "¿Hacéis SEO local para posicionar en Google en Zaragoza?",
+            "answer": "Sí. Toda web sale con una base SEO técnica sólida: velocidad, estructura correcta, datos estructurados, etiquetas y sitemap. Para posicionar por búsquedas locales como «diseño web Zaragoza» o «[tu sector] en Zaragoza» trabajamos el SEO on-page, el contenido orientado a intención de compra y te ayudamos a optimizar tu ficha de Google Business Profile, que es lo que hace que aparezcas en el mapa de resultados locales."
+          },
+          "q6": {
+            "question": "¿Qué diferencia a un estudio de una agencia de Zaragoza?",
+            "answer": "Un estudio boutique trabaja con pocos clientes a la vez, así que tu proyecto no pasa por cinco manos ni se subcontrata fuera. Tratas siempre con las mismas personas, con criterio propio de diseño y desarrollo, y con un precio cerrado sin sorpresas. Ganas la cercanía de trabajar con alguien de aquí y el nivel técnico de un estudio que ha trabajado para el Gobierno de Aragón y federaciones deportivas."
+          }
+        }
+      }
+    },
+    "huesca": {
+      "metaTitle": "Diseño web en Huesca | Bellostas Studio",
+      "metaDescription": "Estudio de diseño y desarrollo web en Huesca. Webs a medida desde 3.500 €, tiendas online y aplicaciones para negocios oscenses. Trato en persona, presupuesto cerrado y soporte tras el lanzamiento.",
+      "hero": {
+        "label": "// DISEÑO WEB · HUESCA",
+        "title_part1": "Diseño web en ",
+        "title_emphasis": "Huesca",
+        "title_part2": ".",
+        "sub": "Bellostas Studio nació en Huesca en 2022. Diseñamos y desarrollamos webs, tiendas online y aplicaciones para negocios de la provincia, con el nivel de un estudio de ciudad grande y la cercanía de tratar con alguien de aquí.",
+        "cta": "Agenda una llamada",
+        "whatsappMessage": "Hola Antonio 👋 Vengo de la página de diseño web en Huesca y me gustaría hablar de un proyecto.",
+        "meta": "ESTUDIO EN HUESCA · TRATO CERCANO · EST. 2022"
+      },
+      "projects": {
+        "label": "// TRABAJO EN ARAGÓN",
+        "title_part1": "Casos ",
+        "title_emphasis": "de aquí",
+        "title_part2": "."
+      },
+      "why": {
+        "label": "// ESTUDIO, NO AGENCIA",
+        "title_part1": "Lo bueno de un estudio ",
+        "title_emphasis": "de aquí",
+        "title_part2": ".",
+        "items": {
+          "i1": {
+            "title": "Cerca de verdad",
+            "body": "Estamos en Huesca: nos tomamos un café y hablamos de tu proyecto en persona. Después, un canal directo con el estudio para el día a día, sin intermediarios ni tickets."
+          },
+          "i2": {
+            "title": "Presupuesto cerrado",
+            "body": "Precio cerrado al firmar, sin variaciones a tu cargo. Incluimos 30 días de soporte gratis tras el lanzamiento en todos los proyectos."
+          },
+          "i3": {
+            "title": "Nivel de fuera, trato de aquí",
+            "body": "El mismo estándar que un estudio de Madrid o Barcelona —con trabajo para el Gobierno de Aragón y federaciones— sin las tarifas infladas ni la distancia de una agencia grande."
+          }
+        }
+      },
+      "faq": {
+        "label": "// PREGUNTAS FRECUENTES",
+        "title_part1": "Preguntas ",
+        "title_emphasis": "frecuentes",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "¿Podemos reunirnos en persona en Huesca?",
+            "answer": "Claro, es una de las ventajas de contratar a un estudio de aquí. La primera reunión la hacemos donde te venga bien, en persona. El seguimiento del proyecto suele ir por videollamada y WhatsApp para no robarte tiempo, pero para los hitos importantes siempre podemos vernos cara a cara."
+          },
+          "q2": {
+            "question": "¿Cuánto cuesta una página web en Huesca?",
+            "answer": "Una web corporativa a medida parte de 3.500 €, una tienda online desde 4.500 € y una aplicación web desde 4.000 €. Las automatizaciones arrancan en 800 €. Trabajamos con presupuesto cerrado desde el inicio y ofrecemos mantenimiento opcional desde 150 €/mes. Te damos el precio final tras una llamada corta, sin compromiso."
+          },
+          "q3": {
+            "question": "¿Qué tipo de webs hacéis?",
+            "answer": "Webs corporativas y de servicios, tiendas online, plataformas a medida, aplicaciones web y sistemas de reservas. Desde la web de un negocio local de Huesca hasta plataformas para instituciones como el Gobierno de Aragón. Si tu proyecto necesita algo a medida y bien hecho, encaja con el estudio."
+          },
+          "q4": {
+            "question": "¿Trabajáis con negocios pequeños o solo con instituciones?",
+            "answer": "Con ambos. Hemos trabajado para el Gobierno de Aragón y la Federación Aragonesa de Automovilismo, pero también para gimnasios, tiendas, despachos y negocios familiares de la provincia. El proceso y el presupuesto se adaptan al tamaño del proyecto; ningún negocio es «demasiado pequeño»."
+          },
+          "q5": {
+            "question": "¿Qué pasa después de lanzar la web?",
+            "answer": "Incluimos 30 días de soporte gratis tras el lanzamiento. A partir de ahí puedes contratar un plan de mantenimiento desde 150 €/mes —para actualizaciones, copias de seguridad y pequeños cambios— o pedir cambios puntuales por horas. La web no se queda huérfana el día después de publicarla."
+          },
+          "q6": {
+            "question": "¿Ayudáis a posicionar el negocio en Google en Huesca?",
+            "answer": "Sí. Cada web sale optimizada técnicamente para SEO y trabajamos el posicionamiento por búsquedas locales de Huesca y provincia. Además te guiamos para poner a punto tu ficha de Google Business Profile y conseguir reseñas, que es clave para aparecer en el mapa cuando alguien busca tu servicio en la zona."
+          }
+        }
+      }
+    },
+    "teruel": {
+      "metaTitle": "Diseño web en Teruel | Bellostas Studio",
+      "metaDescription": "Sí, diseño web para Teruel también. Estudio aragonés: webs a medida desde 3.500 €, tiendas online y aplicaciones para negocios turolenses. Trato cercano, presupuesto cerrado y entregas por fases.",
+      "hero": {
+        "label": "// DISEÑO WEB · TERUEL",
+        "title_part1": "Diseño web en ",
+        "title_emphasis": "Teruel",
+        "title_part2": ".",
+        "sub": "Casi ninguna agencia atiende Teruel en serio. Bellostas Studio es un estudio aragonés que sí lo hace: diseñamos y desarrollamos webs, tiendas online y aplicaciones para negocios turolenses, con trato cercano y presupuesto cerrado.",
+        "cta": "Agenda una llamada",
+        "whatsappMessage": "Hola Antonio 👋 Vengo de la página de diseño web en Teruel y me gustaría hablar de un proyecto.",
+        "meta": "ESTUDIO ARAGONÉS · TERUEL · REMOTO ÁGIL O PRESENCIAL"
+      },
+      "projects": {
+        "label": "// TRABAJO EN ARAGÓN",
+        "title_part1": "Casos ",
+        "title_emphasis": "de Aragón",
+        "title_part2": "."
+      },
+      "why": {
+        "label": "// ESTUDIO, NO AGENCIA",
+        "title_part1": "Cercanía ",
+        "title_emphasis": "de verdad",
+        "title_part2": ", no de eslogan.",
+        "items": {
+          "i1": {
+            "title": "Mismo idioma de negocio",
+            "body": "Misma tierra, mismo huso, mismo trato. Trabajas con un estudio que entiende el negocio de aquí, con una llamada y un canal directo — sin tickets ni esperas de agencia grande."
+          },
+          "i2": {
+            "title": "Presupuesto cerrado",
+            "body": "Precio cerrado al firmar, sin variaciones a tu cargo. Incluimos 30 días de soporte gratis tras el lanzamiento en todos los proyectos."
+          },
+          "i3": {
+            "title": "Experiencia regional",
+            "body": "Proyectos para el Gobierno de Aragón y la Federación Aragonesa de Automovilismo. Tu negocio de Teruel no es «demasiado pequeño» para nosotros: es justo el tipo de cliente que mejor tratamos."
+          }
+        }
+      },
+      "faq": {
+        "label": "// PREGUNTAS FRECUENTES",
+        "title_part1": "Preguntas ",
+        "title_emphasis": "frecuentes",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "¿Trabajáis con negocios de Teruel?",
+            "answer": "Sí, y con muchas ganas. El proceso funciona igual de bien en remoto: videollamadas, un canal directo y entregas por fases que ves avanzar cada pocos días en un enlace privado. Y para los hitos importantes, Teruel no está tan lejos de nuestro estudio en Huesca."
+          },
+          "q2": {
+            "question": "¿Cuánto cuesta una página web en Teruel?",
+            "answer": "Lo mismo que en cualquier otro sitio, sin recargo por distancia: una web corporativa a medida desde 3.500 €, una tienda online desde 4.500 €, una aplicación web desde 4.000 € y automatizaciones desde 800 €. Presupuesto cerrado tras una llamada de 20 minutos y mantenimiento opcional desde 150 €/mes."
+          },
+          "q3": {
+            "question": "¿Qué sectores de Teruel encajan mejor?",
+            "answer": "Turismo rural, agroalimentario, industria, hostelería, servicios profesionales… Cualquier negocio cuya web tenga que traer reservas, pedidos o clientes, y no solo existir. Si dudas si encajas, escríbenos por WhatsApp y te lo decimos claro y sin compromiso."
+          },
+          "q4": {
+            "question": "¿Trabajar en remoto pierde calidad?",
+            "answer": "No. La mayoría de nuestros clientes trabajan así. Ves avances reales cada pocos días en un enlace privado, en vez de un «confía en mí» de dos meses. El resultado se mide igual en cualquier caso: en clientes y ventas que llegan a través de la web."
+          },
+          "q5": {
+            "question": "¿Hacéis también SEO para aparecer en Google en Teruel?",
+            "answer": "Sí. Toda web sale con una base SEO técnica y trabajamos el posicionamiento por búsquedas locales de Teruel y provincia, donde además hay muy poca competencia. Te ayudamos a optimizar tu ficha de Google Business Profile para aparecer en el mapa, que en zonas pequeñas es donde se juega gran parte de las visitas."
+          },
+          "q6": {
+            "question": "¿Qué incluye el precio de la web?",
+            "answer": "Diseño a medida, desarrollo, una web rápida y adaptada a móvil, optimización SEO de base, formación para que gestiones tú el contenido y 30 días de soporte tras el lanzamiento. Sin costes ocultos: el presupuesto es cerrado y lo que acordamos es lo que pagas."
+          }
+        }
+      }
+    },
+    "common": {
+      "services": {
+        "label": "// TODOS LOS SERVICIOS",
+        "title_part1": "Todo lo que hacemos, ",
+        "title_emphasis": "a un clic",
+        "title_part2": "."
+      },
+      "gcard": {
+        "businessType": "Diseño y desarrollo web",
+        "location": "Huesca, Aragón",
+        "verified": "Verificado por Google",
+        "reviewsLabel": "Reseñas de Google",
+        "cta": "Ver perfil en Google",
+        "r1": {
+          "name": "Themis López",
+          "text": "Proceso clarísimo y resultado de más nivel del que esperábamos. La web trae clientes."
+        },
+        "r2": {
+          "name": "Javier Flores",
+          "text": "Entiende el negocio, no solo el diseño. Entrega rápida y sin sorpresas en el precio."
+        }
+      }
+    }
   },
   "numbers": {
     "label": "// LOS NÚMEROS",
@@ -2226,6 +2476,12 @@
       "instagram": "Instagram",
       "twitter": "Twitter / X",
       "github": "GitHub"
+    },
+    "localHeading": "// DISEÑO WEB EN ARAGÓN",
+    "localLinks": {
+      "zaragoza": "Diseño web en Zaragoza",
+      "huesca": "Diseño web en Huesca",
+      "teruel": "Diseño web en Teruel"
     },
     "bottomLeft": "// BELLOSTAS STUDIO · HUESCA, ES · EST. 2022",
     "bottomRight": "// © 2026 · ONE LIFE. ONE SHOT."

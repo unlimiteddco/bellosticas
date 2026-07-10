@@ -129,7 +129,16 @@
     "menuLabel": "// MENU",
     "menuFooter": "// HUESCA, ES · EST. 2022",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "mm": {
+      "label": "// STUDIO SERVICES",
+      "helpLabel": "// NOT SURE WHAT FITS?",
+      "helpText": "Tell us what you need and we'll tell you what fits — no commitment, in a 20-minute call.",
+      "helpCta": "Book a call",
+      "viewWork": "See case studies",
+      "viewAll": "See all services",
+      "localLabel": "// WEB DESIGN IN ARAGÓN"
+    }
   },
   "marqueeDivider": {
     "tokens": [
@@ -581,6 +590,247 @@
     "tagline": "// THE WORLD IS YOURS — IF YOU SHIP IT RIGHT.",
     "panelTag": "INDEPENDENT STUDIO",
     "panelMeta": "HUESCA, ES · 70+ PROJECTS"
+  },
+  "localPages": {
+    "zaragoza": {
+      "metaTitle": "Web design in Zaragoza | Bellostas Studio",
+      "metaDescription": "Web design and development studio for businesses in Zaragoza, Spain. Custom websites from €3,500, online stores and web apps. Direct contact with the studio that designs and builds, fixed pricing, real cases in Aragón.",
+      "hero": {
+        "label": "// WEB DESIGN · ZARAGOZA",
+        "title_part1": "Web design in ",
+        "title_emphasis": "Zaragoza",
+        "title_part2": ".",
+        "sub": "At Bellostas Studio we design and build custom websites, online stores and web apps for businesses in Zaragoza. No layers of salespeople: you work directly with the studio that designs and builds your project, with a fixed price from day one.",
+        "cta": "Book a call",
+        "whatsappMessage": "Hi Antonio 👋 I found the Zaragoza web design page and I'd like to talk about a project.",
+        "meta": "STUDIO IN ARAGÓN · ZARAGOZA · IN PERSON OR REMOTE"
+      },
+      "projects": {
+        "label": "// WORK IN ARAGÓN",
+        "title_part1": "Cases ",
+        "title_emphasis": "from Aragón",
+        "title_part2": "."
+      },
+      "why": {
+        "label": "// STUDIO, NOT AGENCY",
+        "title_part1": "Why a ",
+        "title_emphasis": "studio",
+        "title_part2": " and not an agency?",
+        "items": {
+          "i1": {
+            "title": "You deal with the studio",
+            "body": "No salespeople, no account managers. You work hand in hand with the studio that designs and builds your site, and decisions happen in one call, not an email chain."
+          },
+          "i2": {
+            "title": "Fixed pricing",
+            "body": "Price locked at signing, no surprise variations. We include 30 days of free post-launch support on every project."
+          },
+          "i3": {
+            "title": "Rooted in Aragón",
+            "body": "Studio based in Huesca with clients across Aragón — from the Government of Aragón to Zaragoza businesses like Noal Design. We know the market and the ground."
+          }
+        }
+      },
+      "faq": {
+        "label": "// FAQ",
+        "title_part1": "Common ",
+        "title_emphasis": "questions",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "How much does a website cost in Zaragoza?",
+            "answer": "It depends on the scope. A custom corporate website starts at €3,500, a custom-theme Shopify store at €4,500, a web app at €4,000 and a process automation at €800. In every case we work with fixed pricing: you get the final price after a 20-minute call and it doesn't change later. If you need maintenance, we have plans from €150/month."
+          },
+          "q2": {
+            "question": "What does a website with your studio include?",
+            "answer": "A typical project includes a discovery phase to understand your business and goals, custom design — no generic templates — custom development, base SEO optimization so Google understands your site, a fast, mobile-ready website, training so you can manage your own content, and 30 days of post-launch support. All built so the site works to win clients, not just to exist online."
+          },
+          "q3": {
+            "question": "Do you work in person in Zaragoza?",
+            "answer": "Yes. The studio is in Huesca, under an hour from Zaragoza, and we travel for key meetings when the project calls for it. Day-to-day runs on video calls and a direct messaging channel, which is usually faster for everyone and lets you see progress in real time."
+          },
+          "q4": {
+            "question": "How long does it take to have the website ready?",
+            "answer": "Most corporate websites ship in 2 to 4 weeks from kickoff, with dates locked from signing. Larger projects — complex online stores or custom apps — take longer, but always with a clear phased schedule so you know what's delivered and when. We don't do never-ending, date-less projects."
+          },
+          "q5": {
+            "question": "Do you do local SEO to rank on Google in Zaragoza?",
+            "answer": "Yes. Every website ships with a solid technical SEO base: speed, correct structure, structured data, tags and sitemap. To rank for local searches like «web design Zaragoza» or «[your sector] in Zaragoza» we work on-page SEO, purchase-intent content, and help you optimize your Google Business Profile, which is what gets you onto the local map pack."
+          },
+          "q6": {
+            "question": "What sets a studio apart from a Zaragoza agency?",
+            "answer": "A boutique studio works with few clients at a time, so your project doesn't pass through five hands or get subcontracted out. You always deal with the same people, with our own design and development judgement, and a fixed price with no surprises. You get the closeness of working with someone local and the technical level of a studio that has worked for the Government of Aragón and sports federations."
+          }
+        }
+      }
+    },
+    "huesca": {
+      "metaTitle": "Web design in Huesca | Bellostas Studio",
+      "metaDescription": "Web design and development studio in Huesca, Spain. Custom websites from €3,500, online stores and web apps for local businesses. In-person treatment, fixed pricing and post-launch support.",
+      "hero": {
+        "label": "// WEB DESIGN · HUESCA",
+        "title_part1": "Web design in ",
+        "title_emphasis": "Huesca",
+        "title_part2": ".",
+        "sub": "Bellostas Studio was born in Huesca in 2022. We design and build websites, online stores and web apps for businesses across the province, with the level of a big-city studio and the closeness of dealing with someone local.",
+        "cta": "Book a call",
+        "whatsappMessage": "Hi Antonio 👋 I found the Huesca web design page and I'd like to talk about a project.",
+        "meta": "STUDIO IN HUESCA · CLOSE TREATMENT · EST. 2022"
+      },
+      "projects": {
+        "label": "// WORK IN ARAGÓN",
+        "title_part1": "Local ",
+        "title_emphasis": "cases",
+        "title_part2": "."
+      },
+      "why": {
+        "label": "// STUDIO, NOT AGENCY",
+        "title_part1": "The upside of a ",
+        "title_emphasis": "local studio",
+        "title_part2": ".",
+        "items": {
+          "i1": {
+            "title": "Genuinely close",
+            "body": "We're in Huesca: we grab a coffee and talk about your project in person. Then a direct channel with the studio for the day-to-day, no middlemen, no tickets."
+          },
+          "i2": {
+            "title": "Fixed pricing",
+            "body": "Price locked at signing, no surprise variations. We include 30 days of free post-launch support on every project."
+          },
+          "i3": {
+            "title": "Big-city standard, local treatment",
+            "body": "The same standard as a Madrid or Barcelona studio — with work for the Government of Aragón and federations — without the inflated rates or the distance of a big agency."
+          }
+        }
+      },
+      "faq": {
+        "label": "// FAQ",
+        "title_part1": "Common ",
+        "title_emphasis": "questions",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Can we meet in person in Huesca?",
+            "answer": "Of course — that's one of the perks of hiring a local studio. We do the first meeting wherever suits you, in person. Project follow-up usually runs on video calls and WhatsApp to save you time, but for the important milestones we can always meet face to face."
+          },
+          "q2": {
+            "question": "How much does a website cost in Huesca?",
+            "answer": "A custom corporate website starts at €3,500, an online store at €4,500 and a web app at €4,000. Automations start at €800. We work with fixed pricing from the start and offer optional maintenance from €150/month. You get the final price after a short call, no commitment."
+          },
+          "q3": {
+            "question": "What kind of websites do you build?",
+            "answer": "Corporate and service websites, online stores, custom platforms, web apps and booking systems. From a local Huesca business's website to platforms for institutions like the Government of Aragón. If your project needs something custom and well built, it's a fit for the studio."
+          },
+          "q4": {
+            "question": "Do you work with small businesses or only institutions?",
+            "answer": "Both. We've worked for the Government of Aragón and the Aragonese Motorsport Federation, but also for gyms, shops, firms and family businesses across the province. The process and the budget adapt to the project size; no business is «too small»."
+          },
+          "q5": {
+            "question": "What happens after the website launches?",
+            "answer": "We include 30 days of free post-launch support. After that you can take a maintenance plan from €150/month — for updates, backups and small changes — or request one-off changes by the hour. Your site isn't left orphaned the day after it goes live."
+          },
+          "q6": {
+            "question": "Do you help rank the business on Google in Huesca?",
+            "answer": "Yes. Every website ships technically optimized for SEO and we work on ranking for local searches across Huesca and the province. We also guide you to fine-tune your Google Business Profile and get reviews, which is key to showing up on the map when someone searches for your service in the area."
+          }
+        }
+      }
+    },
+    "teruel": {
+      "metaTitle": "Web design in Teruel | Bellostas Studio",
+      "metaDescription": "Yes, web design for Teruel too. Aragonese studio: custom websites from €3,500, online stores and web apps for Teruel businesses. Close treatment, fixed pricing and phased delivery.",
+      "hero": {
+        "label": "// WEB DESIGN · TERUEL",
+        "title_part1": "Web design in ",
+        "title_emphasis": "Teruel",
+        "title_part2": ".",
+        "sub": "Almost no agency takes Teruel seriously. Bellostas Studio is an Aragonese studio that does: we design and build websites, online stores and web apps for Teruel businesses, with close treatment and fixed pricing.",
+        "cta": "Book a call",
+        "whatsappMessage": "Hi Antonio 👋 I found the Teruel web design page and I'd like to talk about a project.",
+        "meta": "ARAGONESE STUDIO · TERUEL · AGILE REMOTE OR IN PERSON"
+      },
+      "projects": {
+        "label": "// WORK IN ARAGÓN",
+        "title_part1": "Cases ",
+        "title_emphasis": "from Aragón",
+        "title_part2": "."
+      },
+      "why": {
+        "label": "// STUDIO, NOT AGENCY",
+        "title_part1": "Closeness ",
+        "title_emphasis": "for real",
+        "title_part2": ", not as a slogan.",
+        "items": {
+          "i1": {
+            "title": "Same business language",
+            "body": "Same land, same timezone, same treatment. You work with a studio that understands local business, with one call and a direct channel — no tickets, no big-agency queues."
+          },
+          "i2": {
+            "title": "Fixed pricing",
+            "body": "Price locked at signing, no surprise variations. We include 30 days of free post-launch support on every project."
+          },
+          "i3": {
+            "title": "Regional experience",
+            "body": "Projects for the Government of Aragón and the Aragonese Motorsport Federation. Your Teruel business isn't «too small» for us: it's exactly the kind of client we treat best."
+          }
+        }
+      },
+      "faq": {
+        "label": "// FAQ",
+        "title_part1": "Common ",
+        "title_emphasis": "questions",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Do you work with businesses in Teruel?",
+            "answer": "Yes, and gladly. The process works just as well remotely: video calls, a direct channel and phased deliveries you watch progress every few days on a private link. And for the key milestones, Teruel isn't that far from our studio in Huesca."
+          },
+          "q2": {
+            "question": "How much does a website cost in Teruel?",
+            "answer": "The same as anywhere else, with no distance surcharge: a custom corporate website from €3,500, an online store from €4,500, a web app from €4,000 and automations from €800. Fixed price after a 20-minute call and optional maintenance from €150/month."
+          },
+          "q3": {
+            "question": "Which Teruel sectors are the best fit?",
+            "answer": "Rural tourism, agri-food, industry, hospitality, professional services… Any business whose website should bring bookings, orders or clients, and not just exist. If you're not sure you're a fit, message us on WhatsApp and we'll tell you straight, no commitment."
+          },
+          "q4": {
+            "question": "Does remote work lose quality?",
+            "answer": "No. Most of our clients work this way. You see real progress every few days on a private link, instead of a two-month «trust me». The result is measured the same either way: in clients and sales arriving through the website."
+          },
+          "q5": {
+            "question": "Do you also do SEO to show up on Google in Teruel?",
+            "answer": "Yes. Every website ships with a technical SEO base and we work on ranking for local searches across Teruel and the province, where there's also very little competition. We help you optimize your Google Business Profile to appear on the map, which in smaller areas is where a big share of the visits is won."
+          },
+          "q6": {
+            "question": "What does the website price include?",
+            "answer": "Custom design, development, a fast, mobile-ready site, base SEO optimization, training so you manage your own content, and 30 days of post-launch support. No hidden costs: the budget is fixed and what we agree is what you pay."
+          }
+        }
+      }
+    },
+    "common": {
+      "services": {
+        "label": "// ALL SERVICES",
+        "title_part1": "Everything we do, ",
+        "title_emphasis": "one click away",
+        "title_part2": "."
+      },
+      "gcard": {
+        "businessType": "Web design & development",
+        "location": "Huesca, Aragón",
+        "verified": "Verified by Google",
+        "reviewsLabel": "Google reviews",
+        "cta": "See profile on Google",
+        "r1": {
+          "name": "Themis López",
+          "text": "Crystal-clear process and a result above what we expected. The website brings in clients."
+        },
+        "r2": {
+          "name": "Javier Flores",
+          "text": "He understands the business, not just the design. Fast delivery, no pricing surprises."
+        }
+      }
+    }
   },
   "numbers": {
     "label": "// THE NUMBERS",
@@ -2226,6 +2476,12 @@
       "instagram": "Instagram",
       "twitter": "Twitter / X",
       "github": "GitHub"
+    },
+    "localHeading": "// WEB DESIGN IN ARAGÓN",
+    "localLinks": {
+      "zaragoza": "Web design in Zaragoza",
+      "huesca": "Web design in Huesca",
+      "teruel": "Web design in Teruel"
     },
     "bottomLeft": "// BELLOSTAS STUDIO · HUESCA, ES · EST. 2022",
     "bottomRight": "// © 2026 · ONE LIFE. ONE SHOT."

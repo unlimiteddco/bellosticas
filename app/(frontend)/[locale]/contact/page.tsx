@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
 import { Footer } from "@/components/layout/Footer";
 
@@ -103,6 +104,9 @@ export default async function ContactPage({
                 />
               </span>
             </Link>
+
+            {/* WhatsApp — la vía rápida para quien no rellena formularios */}
+            <WhatsAppButton source="contact" className="self-start" />
           </div>
           </Reveal>
 

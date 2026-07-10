@@ -23,6 +23,9 @@ const ROUTE_KEYS = [
   "/services/migraciones",
   "/services/automatizaciones",
   "/services/white-label",
+  "/diseno-web-zaragoza",
+  "/diseno-web-huesca",
+  "/diseno-web-teruel",
 ] as const;
 
 /** Localized, fully-qualified URL for a route key in a given locale (as-needed prefix). */
