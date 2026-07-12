@@ -87,9 +87,12 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <ReadingProgress />
+      <ReadingProgress targetId="post-content" />
 
-      <div className="relative z-10 max-w-[1120px] mx-auto px-6 lg:px-8 pt-[140px] pb-16">
+      <div
+        id="post-content"
+        className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 pt-[140px] pb-16"
+      >
         <Link
           href={blogBase}
           className="inline-flex items-center gap-1.5 mb-10 font-mono text-[11px] uppercase text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
@@ -138,7 +141,7 @@ export default async function BlogPostPage({
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 mt-10">
           <PostSidebar slug={slug} title={post.title} locale={locale} />
 
-          <article className="min-w-0 max-w-[720px]">
+          <article className="min-w-0 max-w-[780px]">
             {post.coverImage && (
               <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-10 bg-[var(--color-text)] border border-[var(--color-border)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

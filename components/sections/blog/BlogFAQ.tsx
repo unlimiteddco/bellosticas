@@ -15,7 +15,7 @@ export function BlogFAQ({ questionKeys }: { questionKeys: string[] }) {
   const [open, setOpen] = useState<string | null>(questionKeys[0] ?? null);
 
   return (
-    <section className="relative z-10 max-w-[1120px] mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <section className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 py-16 lg:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10 lg:gap-16">
         {/* Izquierda: titular + tarjeta */}
         <div className="lg:sticky lg:top-[120px] self-start flex flex-col gap-6">
