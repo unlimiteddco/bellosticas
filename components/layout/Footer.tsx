@@ -222,7 +222,10 @@ export function Footer() {
           >
             {t("bottomRight").replace("2026", String(year))}
           </span>
-          <LocaleSwitcher variant="toggle" />
+          {/* self-start para que en móvil (columna) no se estire a todo el ancho */}
+          <div className="self-start">
+            <LocaleSwitcher variant="toggle" />
+          </div>
         </div>
       </div>
     </footer>
@@ -236,8 +239,12 @@ function FooterColumn({
   heading: string;
   items: { name: string; href: string; external?: boolean; soon?: boolean }[];
 }) {
+  // Subrayado animado igual que el header (crece de 0 a 100% al hover).
   const cls =
-    "font-body text-[14px] font-medium text-[var(--color-bg)]/80 hover:text-[var(--color-accent)] transition-colors w-fit";
+    "group relative inline-block font-body text-[14px] font-medium text-[var(--color-bg)]/80 hover:text-[var(--color-accent)] transition-colors w-fit";
+  const underline = (
+    <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-[var(--color-accent)] transition-[width] duration-300 group-hover:w-full" />
+  );
   return (
     <div className="flex flex-col gap-4">
       <span
@@ -263,10 +270,12 @@ function FooterColumn({
             ) : it.external ? (
               <a href={it.href} target="_blank" rel="noopener noreferrer" className={cls}>
                 {it.name}
+                {underline}
               </a>
             ) : (
               <Link href={it.href} className={cls}>
                 {it.name}
+                {underline}
               </Link>
             )}
           </li>

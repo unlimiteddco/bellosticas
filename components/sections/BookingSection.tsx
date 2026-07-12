@@ -40,11 +40,14 @@ export function BookingSection({ centered = false, hideHeader = false }: Props) 
         "cal-text": "#1D1D1B",
         "cal-text-emphasis": "#1D1D1B",
         "cal-text-muted": "#6B6B68",
-        "cal-bg": "#FDFDFB",
-        "cal-bg-emphasis": "#F4F2EE",
-        "cal-bg-muted": "#F4F2EE",
-        "cal-border": "#E5E2DC",
-        "cal-border-emphasis": "#1D1D1B",
+        // Fondo gris muy suave y limpio (los slots/inputs siguen en blanco)
+        "cal-bg": "#F4F4F3",
+        "cal-bg-emphasis": "#FFFFFF",
+        "cal-bg-muted": "#ECECEA",
+        "cal-border": "#E4E4E2",
+        // Antes #1D1D1B: en hover/foco pintaba de negro el bloque de aceptación.
+        // Con el rojo de marca, el énfasis es limpio y coherente.
+        "cal-border-emphasis": "#C2263A",
         "cal-text-on-brand": "#FFFFFF",
       };
       cal("ui", {
@@ -104,7 +107,7 @@ export function BookingSection({ centered = false, hideHeader = false }: Props) 
         // sombra dibuja la caja alrededor del iframe, el contenido se veía
         // descentrado. Compensamos con padding superior; el fondo es el mismo
         // blanco que usa el embed (`cal-bg`), así que la costura es invisible.
-        className="w-full rounded-2xl overflow-hidden bg-[var(--color-bg)] pt-10 lg:pt-[60px]"
+        className="w-full rounded-2xl overflow-hidden bg-[#F4F4F3] pt-10 lg:pt-[60px]"
         style={{
           boxShadow: "0 24px 60px -24px rgba(29,29,27,0.16)",
         }}

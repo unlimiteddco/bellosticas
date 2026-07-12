@@ -14,7 +14,7 @@ export const services: Service[] = [
     number: "01",
     titleKey: "s01",
     slug: "desarrollo-web",
-    stack: ["Next.js", "Sanity", "Tailwind", "Performance 100/100"],
+    stack: ["Next.js", "Sanity", "Tailwind"],
     hasPage: true,
   },
   {
@@ -28,7 +28,7 @@ export const services: Service[] = [
     number: "03",
     titleKey: "s03",
     slug: "aplicaciones-web",
-    stack: ["Next.js", "PostgreSQL", "Clerk", "Drizzle ORM"],
+    stack: ["Next.js", "PostgreSQL", "Clerk"],
     featured: true,
     hasPage: true,
   },
@@ -43,7 +43,7 @@ export const services: Service[] = [
     number: "05",
     titleKey: "s05",
     slug: "migraciones",
-    stack: ["Next.js", "Payload", "Scripts custom", "DNS handling"],
+    stack: ["Next.js", "Payload", "Scripts custom"],
     hasPage: true,
   },
   {
