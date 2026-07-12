@@ -136,11 +136,6 @@ export function VideoTestimonialWidget({
               className="text-[var(--color-accent)]"
               strokeWidth={2.2}
             />
-            {/* Pointer notch on the right edge of the bubble */}
-            <span
-              className="absolute top-1/2 -translate-y-1/2 -right-[5px] w-2.5 h-2.5 rotate-45 bg-[var(--color-bg)]"
-              aria-hidden
-            />
           </motion.div>
 
           <motion.div

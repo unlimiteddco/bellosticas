@@ -162,7 +162,54 @@
     "backToBlog": "Back to blog",
     "empty": "No published articles yet. Soon.",
     "by": "By",
-    "readingNow": "// ARTICLE"
+    "readingNow": "// ARTICLE",
+    "relatedLabel": "// KEEP READING",
+    "readArticle": "Read article",
+    "aiSummarizeLabel": "SUMMARIZE WITH AI",
+    "aiSummarizeAria": "Summarize this article with",
+    "aiSummarizePrompt": "Summarize this Bellostas Studio article in 5 key points and tell me who it's useful for: {url}",
+    "cta": {
+      "label": "// YOUR DESIGN + BUILD PARTNER",
+      "title": "Got a project in mind? Let's talk.",
+      "body": "We design and build websites, stores and apps for businesses that want to win clients. Fixed pricing and direct contact with the studio.",
+      "button": "Book a call"
+    },
+    "faq": {
+      "label": "// FAQ",
+      "title_part1": "What people ",
+      "title_emphasis": "usually ask",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "How much does it cost to work with Bellostas Studio?",
+          "answer": "It depends on the project, but always with a fixed price: a corporate website from €3,500, online stores from €4,500, custom apps from €4,000 and automations from €800. You get the final price after a 20-minute call and it doesn't change. Optional monthly maintenance from €150/month."
+        },
+        "q2": {
+          "question": "Do you only design, or also build?",
+          "answer": "Both, with the same team. We design and code custom — no outsourcing, no design-to-dev handoff — so what you see in the design is exactly what ships. From websites and e-commerce to web apps and AI automations."
+        },
+        "q3": {
+          "question": "What kind of businesses do you work with?",
+          "answer": "Businesses that live off their website: from the Government of Aragón and sports federations to gyms, renovators, clinics and shops. If your site needs to bring in clients, we're a fit. No business is too small."
+        },
+        "q4": {
+          "question": "How long does a project take?",
+          "answer": "Most websites ship in 2-4 weeks from kickoff, with dates locked at signing. Larger projects take longer, but always with a clear phased schedule. No never-ending, date-less projects."
+        },
+        "q5": {
+          "question": "What happens after launch?",
+          "answer": "We include 30 days of free post-launch support. After that you can take maintenance from €150/month or request one-off changes by the hour. Your project isn't left orphaned the day after it goes live."
+        }
+      },
+      "kicker": "// NEED MORE INFO?",
+      "heading": "Frequently asked questions",
+      "cantFindTitle": "Can't find your answer?",
+      "cantFindBody": "Book a call and let's talk.",
+      "startProject": "Start your project",
+      "orEmail": "Or email us"
+    },
+    "shareLabel": "SHARE",
+    "tocLabel": "IN THIS ARTICLE"
   },
   "manifesto": {
     "metaTitle": "Manifesto · Bellostas Studio",
@@ -2475,19 +2522,160 @@
       "linkedin": "LinkedIn",
       "instagram": "Instagram",
       "twitter": "Twitter / X",
-      "github": "GitHub"
+      "github": "GitHub",
+      "careers": "Careers"
     },
     "localHeading": "// WEB DESIGN IN ARAGÓN",
     "localLinks": {
-      "zaragoza": "Web design in Zaragoza",
-      "huesca": "Web design in Huesca",
-      "teruel": "Web design in Teruel"
+      "seoLocal": "Local SEO",
+      "zaragoza": "Web design Zaragoza",
+      "huesca": "Web design Huesca",
+      "teruel": "Web design Teruel"
     },
     "bottomLeft": "// BELLOSTAS STUDIO · HUESCA, ES · EST. 2022",
-    "bottomRight": "// © 2026 · ONE LIFE. ONE SHOT."
+    "bottomRight": "// © 2026 · ONE LIFE. ONE SHOT.",
+    "letsTalk": "LET'S TALK",
+    "sendEmail": "SEND EMAIL",
+    "bookCall": "Book a call",
+    "askAiHeading": "ASK AI ABOUT US",
+    "askAiQuery": "Evaluate Bellostas Studio (https://bellostas.studio) as a potential web design and development partner for my business. Use public information and summarize their positioning, services, case studies, reviews and proof, strengths, potential concerns, and ideal client fit.",
+    "seoHeading": "LOCAL SEO",
+    "reviewsLine": "Rated 5.0 on Google",
+    "reviewsCta": "See all reviews",
+    "servicesHeading": "SERVICES",
+    "servicesLinks": {
+      "web": "Web design",
+      "ecommerce": "E-commerce",
+      "apps": "Web apps",
+      "autom": "Automations & AI",
+      "migr": "Migrations",
+      "whitelabel": "White-label",
+      "all": "All services →"
+    },
+    "askAiAria": "Ask about Bellostas Studio on"
   },
   "meta": {
     "title": "Bellostas Studio · Boutique web design & development",
     "description": "Boutique web design and development studio based in Huesca, Spain. We work with B2B brands and agencies that need sharp execution. Next.js, Sanity, Payload."
+  },
+  "seoLocal": {
+    "metaTitle": "Local SEO for your business | Bellostas Studio",
+    "metaDescription": "Show up on Google in every locality you serve. Configure your plan in 1 minute: instant monthly price, lead and results estimates.",
+    "hero": {
+      "label": "// SEO LOCAL · CAPTACIÓN QUE TRABAJA SOLA",
+      "title_part1": "Aparece en Google en ",
+      "title_emphasis": "cada localidad",
+      "title_part2": " donde trabajas.",
+      "sub": "We build and rank your network of local pages so clients find you, not your competitors. You handle the leads; we do the rest.",
+      "cta": "Calcula tu precio en 1 minuto",
+      "ctaNote": "Sin datos personales para ver el precio. Presupuesto al instante.",
+      "chips": {
+        "c1": "From €79/month",
+        "c2": "Precio al instante, sin llamadas",
+        "c3": "Estudio real detrás, no una plantilla"
+      }
+    },
+    "how": {
+      "label": "// CÓMO FUNCIONA",
+      "title_part1": "Tres pasos, ",
+      "title_emphasis": "cero complicaciones",
+      "title_part2": ".",
+      "steps": {
+        "s1": {
+          "title": "Configura tu plan en 1 minuto",
+          "body": "Eliges tu nicho, el ámbito y cuántas localidades quieres cubrir. El configurador te da precio mensual, plazo estimado y leads esperados — con un número de presupuesto personalizado."
+        },
+        "s2": {
+          "title": "Montamos tu red local",
+          "body": "Creamos y posicionamos las páginas de cada localidad: contenido específico, SEO técnico, ficha de Google y seguimiento. Todo con la calidad de estudio que ves en esta web."
+        },
+        "s3": {
+          "title": "Recibes leads, pagas una cuota",
+          "body": "Las llamadas y formularios de cada localidad llegan directos a ti. Una única cuota mensual cerrada; los resultados se miden en clientes, no en informes."
+        }
+      }
+    },
+    "proof": {
+      "label": "// POR QUÉ NOSOTROS",
+      "title_part1": "Un estudio ",
+      "title_emphasis": "de verdad",
+      "title_part2": " detrás de cada página.",
+      "body": "No es una plantilla clonada mil veces: es la misma calidad con la que hemos trabajado para el Gobierno de Aragón, federaciones deportivas y negocios de toda España. Reseñas reales, resultados reales y alguien al otro lado del WhatsApp."
+    },
+    "faq": {
+      "label": "// PREGUNTAS FRECUENTES",
+      "title_part1": "Preguntas ",
+      "title_emphasis": "frecuentes",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "¿Cuánto cuesta el SEO local?",
+          "answer": "It depends on how many localities you want to cover: from €79/month for the first two months (launch offer) and from €99/month after. The configurator gives you the exact price in one minute, no personal data and no sales calls."
+        },
+        "q2": {
+          "question": "¿Cuándo empezaré a ver resultados?",
+          "answer": "El SEO local es más rápido que el SEO nacional porque la competencia en cada localidad es menor, pero no es inmediato: según el nicho y la competencia, entre 3 y 9 meses para posicionarte de forma estable. El configurador te da la horquilla para tu caso concreto, y durante ese tiempo ves el avance de cada página."
+        },
+        "q3": {
+          "question": "¿Cuántos clientes puedo conseguir?",
+          "answer": "Depende del nicho y del número de localidades. Un cerrajero que cubre 10 localidades puede recibir entre 10 y 30 contactos al mes una vez posicionado; una empresa de reformas, menos contactos pero de ticket mucho mayor. El configurador te da una estimación honesta para tu nicho — horquillas orientativas, no promesas."
+        },
+        "q4": {
+          "question": "¿Qué necesito para empezar?",
+          "answer": "Prácticamente nada: tu nicho, las zonas donde trabajas y un teléfono donde atender a los clientes. Nosotros nos encargamos del dominio, las páginas, el contenido, el SEO técnico y el seguimiento. Si ya tienes web, tu red local convive con ella sin tocarla."
+        },
+        "q5": {
+          "question": "¿Hay permanencia?",
+          "answer": "El servicio es mensual. Ten en cuenta que el SEO necesita meses para dar fruto — entrar pensando en 2-3 meses es tirar el dinero, y preferimos decírtelo antes. Si un mes decides parar, las páginas y el trabajo hecho se quedan documentados y hablamos de la mejor salida."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "¿Cuánto costaría en tu nicho?",
+      "sub": "Configúralo en un minuto. Precio al instante, con tu número de presupuesto — sin dejar el teléfono ni esperar a que te llamen."
+    },
+    "wizard": {
+      "ariaLabel": "Configurador de SEO local",
+      "close": "Cerrar",
+      "back": "Atrás",
+      "edit": "Cambiar configuración",
+      "nicheTitle": "¿A qué te dedicas?",
+      "nicheSub": "Elige tu nicho — ajusta la estimación de leads y competencia.",
+      "scopeTitle": "¿Dónde quieres aparecer?",
+      "scopeSub": "El ámbito define la estrategia y la dificultad.",
+      "scopeAragon": "Aragón",
+      "scopeAragonDesc": "Huesca, Zaragoza, Teruel y sus comarcas. Nuestra casa: competencia baja y conocimiento del terreno.",
+      "scopeEspana": "Toda España",
+      "scopeEspanaDesc": "Las localidades que elijas en cualquier provincia. Más volumen, competencia variable.",
+      "localitiesTitle": "¿Cuántas localidades?",
+      "localitiesSub": "Cada localidad es una página posicionada captando clientes. Cuantas más, menor precio por localidad.",
+      "localitiesUnit": "localidades",
+      "monthlyLabel": "Tu cuota mensual",
+      "monthlyNote": "Todo incluido: páginas, contenido, SEO técnico y seguimiento.",
+      "resultsLabel": "Resultados en",
+      "months": "meses",
+      "leadsLabel": "Leads estimados",
+      "breakEvenLabel": "Se amortiza con",
+      "breakEvenValue": "~{n} trabajo(s)/mes",
+      "quoteLabel": "Presupuesto",
+      "disclaimer": "Estimaciones orientativas basadas en datos del nicho: el SEO depende de la competencia real de cada zona. El número de presupuesto guarda tu configuración — si nos escribes con él, sabremos exactamente qué necesitas.",
+      "contactTitle": "¿Te encaja? Te lo reservamos y te contamos el detalle",
+      "name": "Tu nombre",
+      "email": "Email",
+      "phone": "Teléfono / WhatsApp (opcional)",
+      "message": "¿Algo que debamos saber? (opcional)",
+      "send": "Quiero este plan",
+      "sending": "Enviando…",
+      "sentTitle": "¡Recibido!",
+      "sentBody": "Tu presupuesto {number} queda guardado con tu configuración. Te escribimos en menos de 24 h laborables para contarte el siguiente paso.",
+      "errorSend": "No se pudo enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
+      "scopeOtherLabel": "From another region? Find yours",
+      "scopeOtherPlaceholder": "Type your region… (Catalonia, Madrid, Galicia…)",
+      "recommended": "Recommended",
+      "localitiesNote": "No pressure: the plan can grow or shrink later based on results.",
+      "launchLabel": "Your first {months} months",
+      "launchBadge": "Launch offer",
+      "afterLaunch": "From month {month}: {price} €/month — SEO needs runway, so you can try it without betting big."
+    }
   }
 }

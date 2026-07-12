@@ -39,6 +39,7 @@ export const routing = defineRouting({
     "/diseno-web-zaragoza": "/diseno-web-zaragoza",
     "/diseno-web-huesca": "/diseno-web-huesca",
     "/diseno-web-teruel": "/diseno-web-teruel",
+    "/seo-local": "/seo-local",
     "/contact": { es: "/contacto", en: "/contact" },
     "/services/desarrollo-web": {
       es: "/servicios/desarrollo-web",

@@ -1,6 +1,7 @@
 import "server-only";
 import { getCMS, cmsLocale } from "./client";
 import type { ResolvedPost, ResolvedPostSummary } from "./types";
+import { getStaticPosts, getStaticPostBySlug, getStaticPostSlugs } from "@/lib/posts";
 
 type MediaLike = { url?: string | null } | string | null | undefined;
 
@@ -24,7 +25,7 @@ function toSummary(d: Record<string, unknown>): ResolvedPostSummary {
 /** Published posts, newest first. Empty array if the CMS is unavailable. */
 export async function getPosts(locale: string): Promise<ResolvedPostSummary[]> {
   const cms = await getCMS();
-  if (!cms) return [];
+  if (!cms) return getStaticPosts();
   try {
     const res = await cms.find({
       collection: "posts",
@@ -47,7 +48,7 @@ export async function getPostBySlug(
   locale: string,
 ): Promise<ResolvedPost | null> {
   const cms = await getCMS();
-  if (!cms) return null;
+  if (!cms) return getStaticPostBySlug(slug);
   try {
     const res = await cms.find({
       collection: "posts",
@@ -78,7 +79,7 @@ export async function getPostBySlug(
 /** All published slugs — for generateStaticParams / sitemap. */
 export async function getAllPostSlugs(): Promise<string[]> {
   const cms = await getCMS();
-  if (!cms) return [];
+  if (!cms) return getStaticPostSlugs();
   try {
     const res = await cms.find({
       collection: "posts",

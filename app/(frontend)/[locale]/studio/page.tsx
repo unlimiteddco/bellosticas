@@ -6,7 +6,6 @@ import { StudioTimeline } from "@/components/sections/studio-page/StudioTimeline
 import { StudioGallery } from "@/components/sections/studio-page/StudioGallery";
 import { ManifestoHorizontal } from "@/components/sections/ManifestoHorizontal";
 import { StudioFuel } from "@/components/sections/studio-page/StudioFuel";
-import { StudioQuote } from "@/components/sections/studio-page/StudioQuote";
 
 export async function generateMetadata({
   params,
@@ -36,7 +35,6 @@ export default async function StudioFullPage({
       <StudioGallery />
       <ManifestoHorizontal />
       <StudioFuel />
-      <StudioQuote />
       <Footer />
     </>
   );

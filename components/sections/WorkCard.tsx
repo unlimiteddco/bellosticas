@@ -27,7 +27,9 @@ export function WorkCard({
   const t = useTranslations("workPage");
   const comingSoon = Boolean(project.comingSoon);
   const hasLogo = Boolean(project.logo);
-  const hasCover = Boolean(project.cover) && !comingSoon;
+  // Imagen del hover: la cover o, si el proyecto no tiene, la primera de la galería.
+  const hoverImage = project.cover ?? project.gallery?.[0]?.src;
+  const hasCover = Boolean(hoverImage) && !comingSoon;
   const logoScale = project.logoScale ?? 100;
   // Base max-width of the logo within the card, scaled per-project.
   const logoMaxW = (featured ? 32 : 55) * (logoScale / 100);
@@ -64,7 +66,7 @@ export function WorkCard({
       {hasCover && (
         <>
           <img
-            src={project.cover}
+            src={hoverImage}
             alt={`${project.name} mockup`}
             className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-[600ms] ease-out"
           />
@@ -148,17 +150,17 @@ export function WorkCard({
 
   // ── Pie: nombre + categoría/año, o "Próximamente" en acento ──
   const meta = (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex items-center justify-between gap-4 mt-0.5">
       <span
-        className={`font-body text-[14px] text-[var(--color-text)] ${
+        className={`font-body text-[17px] md:text-[18px] font-medium tracking-tight text-[var(--color-text)] shrink-0 ${
           comingSoon ? "" : "group-hover:text-[var(--color-accent)]"
         } transition-colors`}
       >
         {project.name}
       </span>
       <span
-        className="font-body uppercase text-[11px] text-right truncate"
-        style={{ letterSpacing: "0.18em" }}
+        className="font-body uppercase text-[12px] md:text-[12.5px] text-right truncate min-w-0"
+        style={{ letterSpacing: "0.13em" }}
       >
         {comingSoon ? (
           <span className="text-[var(--color-accent)]">{t("comingSoon")}</span>

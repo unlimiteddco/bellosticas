@@ -26,6 +26,7 @@ const ROUTE_KEYS = [
   "/diseno-web-zaragoza",
   "/diseno-web-huesca",
   "/diseno-web-teruel",
+  "/seo-local",
 ] as const;
 
 /**
@@ -34,6 +35,7 @@ const ROUTE_KEYS = [
  * ES, así que no emitimos alternates hreflang para ellas.
  */
 const ES_ONLY_ROUTES: readonly string[] = [
+  "/seo-local",
   "/diseno-web-zaragoza",
   "/diseno-web-huesca",
   "/diseno-web-teruel",
