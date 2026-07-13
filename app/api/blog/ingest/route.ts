@@ -20,6 +20,14 @@ export const dynamic = "force-dynamic";
 const SECRET = process.env.WEB_WEBHOOK_SECRET;
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bellostas.studio";
 
+interface IngestTranslation {
+  title?: string;
+  excerpt?: string | null;
+  metaTitle?: string | null;
+  metaDescription?: string | null;
+  bodyMarkdown?: string;
+}
+
 interface IngestBody {
   language?: "es" | "en";
   title?: string;
@@ -31,6 +39,7 @@ interface IngestBody {
   bodyMarkdown?: string;
   publishedAt?: string | null;
   payloadId?: string | null;
+  translations?: { en?: IngestTranslation };
 }
 
 export async function POST(request: Request) {
@@ -114,6 +123,26 @@ export async function POST(request: Request) {
       doc = await cms.create({
         collection: "posts",
         data,
+        overrideAccess: true,
+      });
+    }
+
+    // Traducción al inglés → rellena la locale `en` de los campos localizados.
+    const en = body.translations?.en;
+    if (en && (en.title || en.bodyMarkdown)) {
+      await cms.update({
+        collection: "posts",
+        id: String(doc.id),
+        locale: "en",
+        data: {
+          title: en.title,
+          excerpt: en.excerpt ?? undefined,
+          content: en.bodyMarkdown ? markdownToLexical(en.bodyMarkdown) : undefined,
+          seo: {
+            metaTitle: en.metaTitle ?? undefined,
+            metaDescription: en.metaDescription ?? undefined,
+          },
+        },
         overrideAccess: true,
       });
     }
