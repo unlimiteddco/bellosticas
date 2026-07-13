@@ -30,6 +30,7 @@ interface IngestTranslation {
 
 interface IngestBody {
   language?: "es" | "en";
+  status?: "draft" | "published"; // draft = a editar en Payload; published = en vivo
   title?: string;
   slug?: string;
   excerpt?: string | null;
@@ -81,7 +82,8 @@ export async function POST(request: Request) {
   }
 
   const content = markdownToLexical(bodyMarkdown);
-  const publishedAt = body.publishedAt ?? new Date().toISOString();
+  // draft (por defecto) → se termina y publica en Payload; published → en vivo ya.
+  const status = body.status === "published" ? "published" : "draft";
 
   const data: Record<string, unknown> = {
     title,
@@ -89,13 +91,17 @@ export async function POST(request: Request) {
     excerpt: body.excerpt ?? undefined,
     content,
     tags: Array.isArray(body.tags) ? body.tags : [],
-    publishedAt,
-    _status: "published",
+    _status: status,
     seo: {
       metaTitle: body.metaTitle ?? undefined,
       metaDescription: body.metaDescription ?? undefined,
     },
   };
+  // publishedAt solo cuando se publica (si se deja en borrador, Payload lo
+  // fija al publicar desde su editor).
+  if (status === "published") {
+    data.publishedAt = body.publishedAt ?? new Date().toISOString();
+  }
 
   try {
     // Determina si actualizar (por payloadId, o por slug existente) o crear.
@@ -147,10 +153,13 @@ export async function POST(request: Request) {
       });
     }
 
+    const base = SITE_URL.replace(/\/+$/, "");
     return NextResponse.json({
       ok: true,
       payloadId: String(doc.id),
-      url: `${SITE_URL.replace(/\/+$/, "")}/blog/${slug}`,
+      status,
+      url: `${base}/blog/${slug}`,
+      editUrl: `${base}/admin/collections/posts/${doc.id}`,
     });
   } catch (e) {
     console.error("[/api/blog/ingest] error creando/actualizando post", e);
