@@ -129,23 +129,24 @@ body::after {
   margin-top: 1.7em;
 }
 .prose-bellostas h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 33px;
+  font-size: 31px;
   line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
-  margin-top: 2.5em;
-  margin-bottom: 0.45em;
-}
-.prose-bellostas h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.3;
+  letter-spacing: -0.02em;
   color: var(--color-text);
   margin-top: 2em;
-  margin-bottom: 0.35em;
+  margin-bottom: 0.5em;
+}
+.prose-bellostas h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-top: 1.6em;
+  margin-bottom: 0.4em;
 }
 .prose-bellostas h4 {
   font-weight: 700;
