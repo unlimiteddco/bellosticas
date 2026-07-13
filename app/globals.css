@@ -116,27 +116,53 @@ body::after {
   font-size: 17px;
   line-height: 1.75;
 }
-.prose-bellostas > * + * {
-  margin-top: 1.4em;
+/* Espaciado entre bloques. Payload's RichText envuelve el contenido en un
+   <div class="payload-richtext">, así que el patrón de hijo directo `> * + *`
+   NO alcanza los párrafos. Usamos márgenes por tipo de elemento (descendiente),
+   que funcionan estén envueltos o no. */
+.prose-bellostas p,
+.prose-bellostas ul,
+.prose-bellostas ol,
+.prose-bellostas blockquote,
+.prose-bellostas pre,
+.prose-bellostas hr {
+  margin-top: 1.7em;
 }
 .prose-bellostas h2 {
   font-family: var(--font-display);
-  font-size: 30px;
+  font-weight: 600;
+  font-size: 33px;
   line-height: 1.2;
-  margin-top: 2em;
-  margin-bottom: 0.2em;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-top: 2.5em;
+  margin-bottom: 0.45em;
 }
 .prose-bellostas h3 {
   font-family: var(--font-display);
-  font-size: 23px;
-  line-height: 1.25;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-top: 2em;
+  margin-bottom: 0.35em;
+}
+.prose-bellostas h4 {
+  font-weight: 700;
+  font-size: 18px;
   margin-top: 1.6em;
   margin-bottom: 0.2em;
 }
-.prose-bellostas h4 {
-  font-weight: 600;
-  font-size: 18px;
-  margin-top: 1.4em;
+/* El párrafo justo tras un encabezado se pega a él (buena jerarquía). */
+.prose-bellostas h2 + p,
+.prose-bellostas h3 + p,
+.prose-bellostas h4 + p {
+  margin-top: 0.4em;
+}
+/* El primer bloque del artículo no lleva margen superior. */
+.prose-bellostas .payload-richtext > :first-child,
+.prose-bellostas > :first-child {
+  margin-top: 0;
 }
 .prose-bellostas p {
   color: var(--color-text);

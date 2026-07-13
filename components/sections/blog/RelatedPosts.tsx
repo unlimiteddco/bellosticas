@@ -31,8 +31,11 @@ export async function RelatedPosts({
   if (related.length === 0) return null;
 
   return (
-    <section className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 pb-24">
-      <EditorialLabel className="block mb-8">{t("relatedLabel")}</EditorialLabel>
+    <section className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 pt-16 lg:pt-20 pb-24">
+      <EditorialLabel className="block mb-3">{t("relatedLabel")}</EditorialLabel>
+      <h2 className="font-display text-[32px] md:text-[40px] leading-[1.05] text-[var(--color-text)] mb-8">
+        {t("relatedTitle")}
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
         {related.map((p) => (
           <Link

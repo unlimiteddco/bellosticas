@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { ReadingProgress } from "@/components/sections/blog/ReadingProgress";
 import { SafeRichText } from "@/components/sections/blog/SafeRichText";
@@ -168,33 +168,22 @@ export default async function BlogPostPage({
                 }
               />
             </div>
-
-            {/* End marker + back */}
-            <div className="mt-16 pt-8 border-t border-[var(--color-border)] flex items-center justify-between gap-4">
-              <span
-                className="font-mono text-[11px] text-[var(--color-text-muted)]"
-                style={{ letterSpacing: "0.08em" }}
-              >
-                {locale === "en" ? "// END OF FILE" : "// FIN DEL ARTÍCULO"}
-              </span>
-              <Link
-                href={blogBase}
-                className="group inline-flex items-center gap-2 font-mono uppercase text-[11px] text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
-                style={{ letterSpacing: "0.1em" }}
-              >
-                {t("backToBlog")}
-                <ArrowUpRight
-                  size={14}
-                  className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"
-                />
-              </Link>
-            </div>
           </article>
         </div>
       </div>
 
+      {/* Divisoria post → FAQ, al ancho de la cabecera (igual que la del título) */}
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+        <div className="border-t border-[var(--color-border)]" />
+      </div>
+
       {/* FAQ compartida (igual en todas las entradas) */}
       <BlogFAQ questionKeys={["q1", "q2", "q3", "q4", "q5"]} />
+
+      {/* Divisoria FAQ → relacionados, al ancho de la cabecera */}
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+        <div className="border-t border-[var(--color-border)]" />
+      </div>
 
       {/* Posts relacionados */}
       <RelatedPosts
