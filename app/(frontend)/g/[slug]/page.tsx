@@ -8,8 +8,8 @@ import { LeadMagnetForm } from "@/components/sections/lead/LeadMagnetForm";
  *
  * Vive FUERA del árbol de locales a propósito: sin navbar, sin preloader,
  * sin smooth-scroll ni widgets. El 95% del tráfico llega desde el navegador
- * interno de Instagram en móvil, así que la página es mínima: título,
- * anticipo difuminado de la guía, bullets y el formulario de email.
+ * interno de Instagram en móvil (columna única), pero en escritorio se abre
+ * a dos columnas: copy a la izquierda, anticipo + formulario a la derecha.
  * La entrega es SOLO por email (garantiza emails reales para la lista).
  */
 
@@ -41,71 +41,81 @@ export default async function LeadMagnetPage({
 
   return (
     <div className="min-h-dvh bg-[var(--color-bg)] flex flex-col">
-      <div className="w-full max-w-[480px] mx-auto px-6 pt-10 pb-8 flex-1 flex flex-col">
+      <div className="w-full max-w-[460px] lg:max-w-[1060px] mx-auto px-6 lg:px-10 pt-9 lg:pt-12 pb-8 flex-1 flex flex-col">
         {/* Marca */}
-        <p className="text-center select-none mb-9">
-          <span className="font-body font-bold text-[19px] tracking-tight text-[var(--color-text)]">
-            Bellostas
-          </span>
-          <span className="font-display italic text-[19px] text-[var(--color-text)]"> studio</span>
-        </p>
+        <div className="flex justify-center lg:justify-start mb-9 lg:mb-14">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logos/logo-black.svg"
+            alt="Bellostas Studio"
+            className="h-[26px] lg:h-[30px] w-auto select-none"
+          />
+        </div>
 
-        {/* Título + subtítulo */}
-        <h1 className="font-display text-[32px] leading-[1.1] text-[var(--color-text)] text-center">
-          {resource.title}
-        </h1>
-        {resource.subtitle && (
-          <p className="mt-4 font-body text-[15.5px] leading-[1.6] text-[var(--color-text-muted)] text-center">
-            {resource.subtitle}
-          </p>
-        )}
-
-        {/* Anticipo difuminado de la guía */}
-        {resource.coverUrl ? (
-          <div className="relative mt-8 rounded-2xl overflow-hidden border border-[var(--color-border)] aspect-[4/3] bg-[var(--color-surface-2,#F1F0EC)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={resource.coverUrl}
-              alt={`Vista previa: ${resource.title}`}
-              className="absolute inset-0 w-full h-full object-cover object-top blur-[7px] scale-[1.06]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(253,253,251,0.92)] via-transparent to-transparent" />
-            <span
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-full bg-[var(--color-text)] text-white font-mono uppercase text-[10.5px]"
-              style={{ letterSpacing: "0.12em" }}
-            >
-              Vista previa
-            </span>
-          </div>
-        ) : (
-          <div className="relative mt-8 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center bg-gradient-to-br from-[#2C2417] via-[#1D1D1B] to-[#14110D]">
-            <span className="font-display italic text-[22px] text-white/80 px-8 text-center">
+        <div className="lg:grid lg:grid-cols-[1fr_420px] lg:gap-16 lg:items-start">
+          {/* Columna de copy */}
+          <div>
+            <h1 className="font-display text-[32px] lg:text-[46px] leading-[1.1] lg:leading-[1.06] text-[var(--color-text)] text-center lg:text-left">
               {resource.title}
-            </span>
+            </h1>
+            {resource.subtitle && (
+              <p className="mt-4 lg:mt-6 font-body text-[15.5px] lg:text-[17px] leading-[1.6] text-[var(--color-text-muted)] text-center lg:text-left lg:max-w-[520px]">
+                {resource.subtitle}
+              </p>
+            )}
+
+            {/* Qué hay dentro */}
+            {resource.bullets.length > 0 && (
+              <ul className="mt-8 lg:mt-10 flex flex-col gap-3 lg:gap-4">
+                {resource.bullets.map((b) => (
+                  <li
+                    key={b}
+                    className="flex items-start gap-3 font-body text-[15px] lg:text-[16px] leading-[1.5] text-[var(--color-text)]"
+                  >
+                    <span className="mt-[3px] text-[var(--color-accent)] font-bold" aria-hidden>
+                      ✓
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-        )}
 
-        {/* Qué hay dentro */}
-        {resource.bullets.length > 0 && (
-          <ul className="mt-8 flex flex-col gap-3">
-            {resource.bullets.map((b) => (
-              <li key={b} className="flex items-start gap-3 font-body text-[15px] leading-[1.5] text-[var(--color-text)]">
-                <span className="mt-[3px] text-[var(--color-accent)] font-bold" aria-hidden>
-                  ✓
+          {/* Columna de conversión: anticipo + formulario */}
+          <div className="mt-8 lg:mt-0">
+            {resource.coverUrl ? (
+              <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] aspect-[4/3] bg-[#F1F0EC]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={resource.coverUrl}
+                  alt={`Vista previa: ${resource.title}`}
+                  className="absolute inset-0 w-full h-full object-cover object-top blur-[7px] scale-[1.06]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(253,253,251,0.92)] via-transparent to-transparent" />
+                <span
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-full bg-[var(--color-text)] text-white font-mono uppercase text-[10.5px]"
+                  style={{ letterSpacing: "0.12em" }}
+                >
+                  Vista previa
                 </span>
-                {b}
-              </li>
-            ))}
-          </ul>
-        )}
+              </div>
+            ) : (
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center bg-gradient-to-br from-[#2C2417] via-[#1D1D1B] to-[#14110D]">
+                <span className="font-display italic text-[22px] text-white/80 px-8 text-center">
+                  {resource.title}
+                </span>
+              </div>
+            )}
 
-        {/* Formulario */}
-        <div className="mt-9">
-          <LeadMagnetForm slug={resource.slug} ctaLabel={resource.ctaLabel} />
+            <div className="mt-5">
+              <LeadMagnetForm slug={resource.slug} ctaLabel={resource.ctaLabel} />
+            </div>
+          </div>
         </div>
 
         {/* Pie mínimo */}
-        <footer className="mt-auto pt-10 text-center font-body text-[12px] text-[var(--color-text-muted)]">
+        <footer className="mt-auto pt-10 lg:pt-16 text-center font-body text-[12px] text-[var(--color-text-muted)]">
           © {new Date().getFullYear()} Bellostas Studio ·{" "}
           <a href="/privacidad" className="underline underline-offset-2 hover:text-[var(--color-text)]">
             Privacidad

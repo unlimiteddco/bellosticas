@@ -27,18 +27,25 @@ function mediaUrl(value: unknown): string | undefined {
   return undefined;
 }
 
-/** Vista previa de diseño cuando la CMS no está disponible (solo /g/demo). */
+/**
+ * Recurso de respaldo cuando la CMS no está disponible (solo /g/demo).
+ * Usa una guía real (assets en public/guias/) para que la landing sea
+ * funcional de punta a punta incluso sin Payload.
+ */
 const demoResource: ResolvedResource = {
   slug: "demo",
-  title: "Las herramientas de IA con las que llevo mi estudio",
+  title: "Las primeras 24 horas después del «sí»",
   subtitle:
-    "La guía que uso de verdad: qué herramienta para qué tarea, cuánto cuesta cada una y cómo las conecto entre sí.",
+    "Cerrar el proyecto no es el final de la venta: es cuando el cliente empieza a preguntarse si ha acertado. Este es el sistema de onboarding que sigo yo, en cuatro pasos.",
   bullets: [
-    "Las 12 herramientas exactas (con precios)",
-    "Cómo uso Claude Code para desarrollar webs",
-    "Mi flujo de contenido: de idea a reel en 30 min",
-    "Las 3 automatizaciones que más tiempo me ahorran",
+    "Contrato personalizado y firmado en 15 min",
+    "Factura emitida al momento (pagar tiene que ser lo más fácil)",
+    "Acceso a su portal de cliente desde el día uno",
+    "La llamada de arranque que alinea objetivos antes de tocar nada",
   ],
+  coverUrl: "/guias/primeras-24-horas-cover.png",
+  pdfUrl: "/guias/primeras-24-horas.pdf",
+  keyword: "24HORAS",
   ctaLabel: "Quiero la guía",
 };
 
