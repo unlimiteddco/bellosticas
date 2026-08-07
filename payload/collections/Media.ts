@@ -33,7 +33,8 @@ export const Media: CollectionConfig = {
     adminThumbnail: "thumbnail",
     // Allow raster images + SVG (logos). SVGs sniff as application/xml, so we
     // list it explicitly. Uploads are admin-only, so this is safe.
-    mimeTypes: ["image/*", "image/svg+xml", "application/xml"],
+    // PDF: guías/lead magnets (colección Resources) que se entregan por email.
+    mimeTypes: ["image/*", "image/svg+xml", "application/xml", "application/pdf"],
   },
   fields: [
     {

@@ -12,6 +12,7 @@ import { Media } from "./payload/collections/Media";
 import { Projects } from "./payload/collections/Projects";
 import { Posts } from "./payload/collections/Posts";
 import { ServiceHeroes } from "./payload/collections/ServiceHeroes";
+import { Resources } from "./payload/collections/Resources";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -89,7 +90,7 @@ export default buildConfig({
     fallback: true,
   },
 
-  collections: [Projects, Posts, ServiceHeroes, Media, Users],
+  collections: [Projects, Posts, ServiceHeroes, Resources, Media, Users],
 
   // Cloudflare R2 storage for Media uploads (active only when R2 env is set).
   plugins: [r2Plugin],

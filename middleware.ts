@@ -15,6 +15,7 @@ export default function middleware(request: NextRequest) {
 export const config = {
   // Exclude Payload's admin UI (/admin) and its API (/payload-api) from the
   // next-intl locale middleware, plus the site's own /api, Next internals,
-  // and any file with an extension.
-  matcher: ["/((?!api|payload-api|admin|_next|_vercel|.*\\..*).*)"],
+  // any file with an extension, and the bare lead-magnet landings (/g/…),
+  // which live outside the locale tree on purpose (ligeras, solo español).
+  matcher: ["/((?!api|payload-api|admin|g/|_next|_vercel|.*\\..*).*)"],
 };
