@@ -85,20 +85,13 @@ export default async function LeadMagnetPage({
           {/* Columna de conversión: anticipo + formulario */}
           <div className="mt-8 lg:mt-0">
             {resource.coverUrl ? (
-              <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] aspect-[4/3] bg-[#F1F0EC]">
+              <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] aspect-[4/3] bg-[#F1F0EC] shadow-[0_18px_40px_-18px_rgba(29,29,27,0.25)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={resource.coverUrl}
-                  alt={`Vista previa: ${resource.title}`}
-                  className="absolute inset-0 w-full h-full object-cover object-top blur-[7px] scale-[1.06]"
+                  alt={`Portada: ${resource.title}`}
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(253,253,251,0.92)] via-transparent to-transparent" />
-                <span
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-full bg-[var(--color-text)] text-white font-mono uppercase text-[10.5px]"
-                  style={{ letterSpacing: "0.12em" }}
-                >
-                  Vista previa
-                </span>
               </div>
             ) : (
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center bg-gradient-to-br from-[#2C2417] via-[#1D1D1B] to-[#14110D]">

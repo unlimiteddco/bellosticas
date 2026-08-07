@@ -36,11 +36,20 @@ export async function POST(request: Request) {
   }
 
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+  const name = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
   const slug = typeof body.slug === "string" ? body.slug.trim() : "";
   const consent = body.consent === true;
 
+  // Segmentación de un toque — solo valores conocidos.
+  const SEGMENTS = ["negocio_local", "negocio_online", "freelance_agencia", "sin_negocio"];
+  const segment =
+    typeof body.segment === "string" && SEGMENTS.includes(body.segment) ? body.segment : null;
+
   if (!EMAIL_RE.test(email) || email.length > 254) {
     return NextResponse.json({ ok: false, error: "Email no válido" }, { status: 400 });
+  }
+  if (name.length < 2) {
+    return NextResponse.json({ ok: false, error: "Falta el nombre" }, { status: 400 });
   }
   if (!slug || slug.length > 120 || !consent) {
     return NextResponse.json({ ok: false, error: "Petición no válida" }, { status: 400 });
@@ -61,6 +70,8 @@ export async function POST(request: Request) {
 
   const payload = {
     email,
+    name,
+    segment,
     consent: true,
     resource_slug: resource.slug,
     resource_title: resource.title,

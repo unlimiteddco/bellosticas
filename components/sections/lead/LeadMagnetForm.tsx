@@ -6,13 +6,28 @@ import { getTrackingContext } from "@/lib/tracking";
 /**
  * Formulario de captura de la landing /g/[slug].
  *
- * Entrega SOLO por email: al enviar, el servidor resuelve el recurso, guarda
- * el suscriptor en el CRM y el CRM manda la guía por correo. Aquí solo se
- * muestra el estado de éxito («revisa tu correo»).
+ * Pide nombre + email + UNA pregunta de segmentación de un toque («¿cuál es
+ * tu caso?») que etiqueta al suscriptor hacia el servicio que le encaja
+ * (SEO local / webs / white-label / nurture). Teléfono y país fuera: matan
+ * conversión y no aportan a este embudo.
  *
- * Detalles móvil: input a 16px (evita el zoom automático de iOS) y botón
+ * Entrega SOLO por email: al enviar, el servidor resuelve el recurso, guarda
+ * el suscriptor en el CRM y el CRM manda la guía por correo.
+ *
+ * Detalles móvil: inputs a 16px (evita el zoom automático de iOS) y botón
  * de altura generosa para el pulgar.
  */
+
+export const SEGMENTS = [
+  { value: "negocio_local", label: "Tengo un negocio local" },
+  { value: "negocio_online", label: "Tengo una tienda online / negocio digital" },
+  { value: "freelance_agencia", label: "Soy freelance o tengo una agencia" },
+  { value: "sin_negocio", label: "Todavía no tengo negocio" },
+] as const;
+
+const inputClass =
+  "mt-2 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3.5 font-body text-[16px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-[var(--color-accent)] transition-colors";
+
 export function LeadMagnetForm({
   slug,
   ctaLabel,
@@ -20,16 +35,27 @@ export function LeadMagnetForm({
   slug: string;
   ctaLabel: string;
 }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [segment, setSegment] = useState("");
   const [consent, setConsent] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const clean = email.trim().toLowerCase();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(clean)) {
+    const cleanName = name.trim();
+    const cleanEmail = email.trim().toLowerCase();
+    if (cleanName.length < 2) {
+      setError("Dime tu nombre para poder enviártela.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) {
       setError("Revisa el email — parece incompleto.");
+      return;
+    }
+    if (!segment) {
+      setError("Elige tu caso — así te envío solo lo que te sirve.");
       return;
     }
     if (!consent) {
@@ -43,7 +69,9 @@ export function LeadMagnetForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: clean,
+          name: cleanName,
+          email: cleanEmail,
+          segment,
           slug,
           consent: true,
           tracking: getTrackingContext(),
@@ -72,7 +100,7 @@ export function LeadMagnetForm({
           ✓
         </span>
         <p className="mt-4 font-display text-[24px] leading-[1.15] text-[var(--color-text)]">
-          ¡Hecho! Revisa tu correo
+          ¡Hecho, {name.trim().split(/\s+/)[0]}! Revisa tu correo
         </p>
         <p className="mt-2 font-body text-[14.5px] leading-[1.6] text-[var(--color-text-muted)]">
           Te la acabo de enviar a <strong className="text-[var(--color-text)]">{email.trim()}</strong>.
@@ -85,22 +113,62 @@ export function LeadMagnetForm({
 
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl border border-[var(--color-border)] bg-white px-5 py-6">
-      <label htmlFor="lm-email" className="block font-body text-[14px] font-medium text-[var(--color-text)]">
-        ¿Dónde te la envío?
-      </label>
-      <input
-        id="lm-email"
-        type="email"
-        inputMode="email"
-        autoComplete="email"
-        placeholder="tu@email.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3.5 font-body text-[16px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
-      />
+      <div>
+        <label htmlFor="lm-name" className="block font-body text-[14px] font-medium text-[var(--color-text)]">
+          Tu nombre
+        </label>
+        <input
+          id="lm-name"
+          type="text"
+          autoComplete="given-name"
+          placeholder="Antonio"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className={inputClass}
+        />
+      </div>
 
-      <label className="mt-3.5 flex items-start gap-2.5 cursor-pointer select-none">
+      <div className="mt-3.5">
+        <label htmlFor="lm-email" className="block font-body text-[14px] font-medium text-[var(--color-text)]">
+          Tu email
+        </label>
+        <input
+          id="lm-email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          placeholder="tu@email.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className={inputClass}
+        />
+      </div>
+
+      <div className="mt-3.5">
+        <label htmlFor="lm-segment" className="block font-body text-[14px] font-medium text-[var(--color-text)]">
+          ¿Cuál es tu caso?
+        </label>
+        <select
+          id="lm-segment"
+          value={segment}
+          onChange={(e) => setSegment(e.target.value)}
+          required
+          className={`${inputClass} appearance-none ${segment ? "" : "text-[var(--color-text-muted)]/60"}`}
+        >
+          <option value="" disabled>
+            Elige una opción
+          </option>
+          {SEGMENTS.map((s) => (
+            <option key={s.value} value={s.value} className="text-[var(--color-text)]">
+              {s.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <label className="mt-4 flex items-start gap-2.5 cursor-pointer select-none">
         <input
           type="checkbox"
           checked={consent}

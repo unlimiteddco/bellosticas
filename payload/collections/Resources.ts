@@ -63,11 +63,11 @@ export const Resources: CollectionConfig = {
       name: "coverImage",
       type: "upload",
       relationTo: "media",
-      label: "Portada (se muestra difuminada)",
+      label: "Portada",
       required: true,
       admin: {
         description:
-          "Captura de la portada o una página interior. Se enseña borrosa como anticipo.",
+          "La primera página de la guía (limpia y legible): es lo que vende en la landing.",
       },
     },
     {
