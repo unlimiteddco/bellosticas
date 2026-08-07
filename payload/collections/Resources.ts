@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { slugField } from "../fields/slug";
+import { RESOURCE_TYPES } from "../../lib/resource-type";
 
 /**
  * Recursos (lead magnets) — guías/PDFs que se regalan a cambio del email.
@@ -32,12 +33,24 @@ export const Resources: CollectionConfig = {
   },
   fields: [
     {
+      name: "type",
+      type: "select",
+      label: "Tipo de recurso",
+      required: true,
+      defaultValue: "guia",
+      options: RESOURCE_TYPES.map((t) => ({ value: t.value, label: t.label })),
+      admin: {
+        description:
+          "Decide cómo se nombra en la landing y el email («Quiero la guía» / «Quiero el proceso»…).",
+      },
+    },
+    {
       name: "title",
       type: "text",
-      label: "Título de la guía",
+      label: "Título",
       required: true,
       admin: {
-        description: "El H1 de la landing. Ej: «Las 12 herramientas IA con las que llevo mi estudio».",
+        description: "El H1 de la landing. Ej: «Cómo trabajo yo con Claude Code, paso a paso».",
       },
     },
     slugField("title"),
@@ -74,7 +87,7 @@ export const Resources: CollectionConfig = {
       name: "pdf",
       type: "upload",
       relationTo: "media",
-      label: "PDF de la guía",
+      label: "Archivo (PDF)",
       required: true,
       admin: {
         description: "El archivo que se envía por email al suscriptor.",
@@ -95,9 +108,11 @@ export const Resources: CollectionConfig = {
         {
           name: "ctaLabel",
           type: "text",
-          label: "Texto del botón",
-          defaultValue: "Quiero la guía",
-          admin: { width: "50%" },
+          label: "Texto del botón (opcional)",
+          admin: {
+            width: "50%",
+            description: "Si lo dejas vacío: «Quiero la guía / el proceso…» según el tipo.",
+          },
         },
       ],
     },

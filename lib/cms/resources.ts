@@ -1,4 +1,5 @@
 import { getCMS } from "@/lib/cms/client";
+import { withArticle, type ResourceType } from "@/lib/resource-type";
 
 /**
  * Lectura de recursos (lead magnets) desde Payload para las landings /g/[slug].
@@ -10,6 +11,7 @@ import { getCMS } from "@/lib/cms/client";
 
 export type ResolvedResource = {
   slug: string;
+  type: ResourceType;
   title: string;
   subtitle?: string;
   bullets: string[];
@@ -32,8 +34,11 @@ function mediaUrl(value: unknown): string | undefined {
  * Usa una guía real (assets en public/guias/) para que la landing sea
  * funcional de punta a punta incluso sin Payload.
  */
+const DEMO_TYPE: ResourceType = "guia";
+
 const demoResource: ResolvedResource = {
   slug: "demo",
+  type: DEMO_TYPE,
   title: "Las primeras 24 horas después del «sí»",
   subtitle:
     "Cerrar el proyecto no es el final de la venta: es cuando el cliente empieza a preguntarse si ha acertado. Este es el sistema de onboarding que sigo yo, en cuatro pasos.",
@@ -46,7 +51,7 @@ const demoResource: ResolvedResource = {
   coverUrl: "/guias/primeras-24-horas-cover.png",
   pdfUrl: "/guias/primeras-24-horas.pdf",
   keyword: "24HORAS",
-  ctaLabel: "Quiero la guía",
+  ctaLabel: `Quiero ${withArticle(DEMO_TYPE)}`,
 };
 
 export async function getResourceBySlug(
@@ -73,18 +78,22 @@ export async function getResourceBySlug(
           .filter(Boolean)
       : [];
 
+    const type = (typeof doc.type === "string" ? doc.type : "guia") as ResourceType;
+
     return {
       slug: String(doc.slug),
+      type,
       title: String(doc.title),
       subtitle: typeof doc.subtitle === "string" ? doc.subtitle : undefined,
       bullets,
       coverUrl: mediaUrl(doc.coverImage),
       pdfUrl: mediaUrl(doc.pdf),
       keyword: typeof doc.keyword === "string" ? doc.keyword : undefined,
+      // Si no se define, el CTA se deriva del tipo: "Quiero la guía / el proceso…"
       ctaLabel:
-        typeof doc.ctaLabel === "string" && doc.ctaLabel
-          ? doc.ctaLabel
-          : "Quiero la guía",
+        typeof doc.ctaLabel === "string" && doc.ctaLabel.trim()
+          ? doc.ctaLabel.trim()
+          : `Quiero ${withArticle(type)}`,
     };
   } catch (err) {
     console.warn("[cms] resources unavailable:", err);

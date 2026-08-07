@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getResourceBySlug } from "@/lib/cms/resources";
 import { LeadMagnetForm } from "@/components/sections/lead/LeadMagnetForm";
+import { LandingViewTracker } from "@/components/sections/lead/LandingViewTracker";
 
 /**
  * Landing de captura para lead magnets — /g/[slug].
@@ -41,6 +42,7 @@ export default async function LeadMagnetPage({
 
   return (
     <div className="min-h-dvh bg-[var(--color-bg)] flex flex-col">
+      <LandingViewTracker slug={resource.slug} title={resource.title} type={resource.type} />
       <div className="w-full max-w-[460px] lg:max-w-[1060px] mx-auto px-6 lg:px-10 pt-9 lg:pt-12 pb-8 flex-1 flex flex-col">
         {/* Marca */}
         <div className="flex justify-center lg:justify-start mb-9 lg:mb-14">
@@ -102,7 +104,11 @@ export default async function LeadMagnetPage({
             )}
 
             <div className="mt-5">
-              <LeadMagnetForm slug={resource.slug} ctaLabel={resource.ctaLabel} />
+              <LeadMagnetForm
+                slug={resource.slug}
+                type={resource.type}
+                ctaLabel={resource.ctaLabel}
+              />
             </div>
           </div>
         </div>

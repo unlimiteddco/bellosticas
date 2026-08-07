@@ -75,6 +75,8 @@ export async function POST(request: Request) {
     consent: true,
     resource_slug: resource.slug,
     resource_title: resource.title,
+    // El tipo se toma del recurso resuelto en servidor, no del cliente.
+    resource_type: resource.type,
     keyword: resource.keyword ?? null,
     pdf_url: absolute(resource.pdfUrl),
     landing_url: `${SITE_URL.replace(/\/+$/, "")}/g/${resource.slug}`,

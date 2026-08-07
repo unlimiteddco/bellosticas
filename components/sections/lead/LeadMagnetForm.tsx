@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getTrackingContext } from "@/lib/tracking";
+import { noun, pronoun, withArticle } from "@/lib/resource-type";
 
 /**
  * Formulario de captura de la landing /g/[slug].
@@ -30,9 +31,11 @@ const inputClass =
 
 export function LeadMagnetForm({
   slug,
+  type,
   ctaLabel,
 }: {
   slug: string;
+  type: string;
   ctaLabel: string;
 }) {
   const [name, setName] = useState("");
@@ -47,7 +50,7 @@ export function LeadMagnetForm({
     const cleanName = name.trim();
     const cleanEmail = email.trim().toLowerCase();
     if (cleanName.length < 2) {
-      setError("Dime tu nombre para poder enviártela.");
+      setError(`Dime tu nombre para poder enviárte${pronoun(type)}.`);
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) {
@@ -59,7 +62,7 @@ export function LeadMagnetForm({
       return;
     }
     if (!consent) {
-      setError("Marca la casilla de privacidad para poder enviarte la guía.");
+      setError(`Marca la casilla de privacidad para poder enviarte ${withArticle(type)}.`);
       return;
     }
     setError(null);
@@ -73,6 +76,7 @@ export function LeadMagnetForm({
           email: cleanEmail,
           segment,
           slug,
+          type,
           consent: true,
           tracking: getTrackingContext(),
         }),
@@ -103,9 +107,10 @@ export function LeadMagnetForm({
           ¡Hecho, {name.trim().split(/\s+/)[0]}! Revisa tu correo
         </p>
         <p className="mt-2 font-body text-[14.5px] leading-[1.6] text-[var(--color-text-muted)]">
-          Te la acabo de enviar a <strong className="text-[var(--color-text)]">{email.trim()}</strong>.
+          Te {pronoun(type)} acabo de enviar a{" "}
+          <strong className="text-[var(--color-text)]">{email.trim()}</strong>.
           <br />
-          Si no la ves en un par de minutos, mira en spam o promociones.
+          Si no {pronoun(type)} ves en un par de minutos, mira en spam o promociones.
         </p>
       </div>
     );
@@ -176,7 +181,7 @@ export function LeadMagnetForm({
           className="mt-[3px] h-4 w-4 accent-[var(--color-accent)]"
         />
         <span className="font-body text-[12.5px] leading-[1.5] text-[var(--color-text-muted)]">
-          Acepto recibir la guía y algún email útil de Bellostas Studio.{" "}
+          Acepto recibir {withArticle(type)} y algún email útil de Bellostas Studio.{" "}
           <a
             href="/privacidad"
             target="_blank"
@@ -204,7 +209,8 @@ export function LeadMagnetForm({
       </button>
 
       <p className="mt-3 text-center font-body text-[12px] text-[var(--color-text-muted)]">
-        Gratis. Sin spam. Directa a tu bandeja.
+        Gratis. Sin spam. {noun(type) === "guía" || noun(type) === "plantilla" ? "Directa" : "Directo"}{" "}
+        a tu bandeja.
       </p>
     </form>
   );
