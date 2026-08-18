@@ -54,12 +54,12 @@ function StudioPanel() {
       ref={containerRef}
       className="relative aspect-[4/5] md:aspect-[8/5] rounded-lg overflow-hidden bg-[var(--color-text)] flex flex-col justify-between p-6 md:p-7 lg:p-9 shadow-[0_24px_60px_-30px_rgba(29,29,27,0.3)]"
     >
-      {/* Background — the real "putting up the sign" timelapse (lazy) */}
+      {/* Fondo — el estudio de verdad, trabajando (montaje diferido) */}
       {active && (
         <video
           ref={videoRef}
-          src="/studio/sign-timelapse.mp4"
-          poster="/studio/sign-timelapse-poster.jpg"
+          src="/studio/oficina.mp4"
+          poster="/studio/oficina-poster.jpg"
           muted
           loop
           playsInline

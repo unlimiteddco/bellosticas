@@ -591,10 +591,7 @@
       "b4": "No endless Gantt charts"
     },
     "mockup": {
-      "project": "Bellostas · Site refresh",
-      "phase": "PHASE 03 · DESIGN",
-      "progress": "68%",
-      "next": "Up next: client review"
+      "alt": "Bellostas Studio's client portal: a client viewing their projects, contracts and invoices"
     }
   },
   "work": {
