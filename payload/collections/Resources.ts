@@ -76,21 +76,30 @@ export const Resources: CollectionConfig = {
       name: "coverImage",
       type: "upload",
       relationTo: "media",
-      label: "Portada",
-      required: true,
+      label: "Portada (opcional)",
       admin: {
         description:
-          "La primera página de la guía (limpia y legible): es lo que vende en la landing.",
+          "Opcional: si la dejas vacía, la landing dibuja una portada de marca con el título. Así puedes cambiar el título sin rehacer la imagen.",
       },
     },
     {
       name: "pdf",
       type: "upload",
       relationTo: "media",
-      label: "Archivo (PDF)",
-      required: true,
+      label: "Archivo (PDF) subido a mano",
       admin: {
-        description: "El archivo que se envía por email al suscriptor.",
+        description:
+          "Solo si subes el PDF tú. Los recursos creados desde el CRM usan el campo de abajo.",
+      },
+    },
+    {
+      name: "pdfUrl",
+      type: "text",
+      label: "URL del PDF (generado en el CRM)",
+      admin: {
+        readOnly: true,
+        description:
+          "Lo rellena el CRM al publicar. El archivo se genera al vuelo, así que refleja siempre el contenido actual.",
       },
     },
     {

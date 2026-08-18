@@ -96,10 +96,26 @@ export default async function LeadMagnetPage({
                 />
               </div>
             ) : (
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center bg-gradient-to-br from-[#2C2417] via-[#1D1D1B] to-[#14110D]">
-                <span className="font-display italic text-[22px] text-white/80 px-8 text-center">
-                  {resource.title}
-                </span>
+              /* Sin imagen subida: portada de marca dibujada con el propio
+                 título. Así se puede iterar el título sin rehacer nada. */
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-[var(--color-border)] bg-white shadow-[0_18px_40px_-18px_rgba(29,29,27,0.25)] flex flex-col">
+                <div className="flex items-center justify-between px-6 pt-6 pb-3 border-b border-[var(--color-text)]">
+                  <span className="font-display text-[15px] text-[var(--color-text)]">
+                    Bellostas <span className="italic">studio</span>
+                  </span>
+                  <span
+                    className="font-mono uppercase text-[8px] text-[var(--color-text-muted)]"
+                    style={{ letterSpacing: "0.16em" }}
+                  >
+                    {resource.keyword ? `#${resource.keyword}` : "Recurso"}
+                  </span>
+                </div>
+                <div className="flex-1 px-6 py-5 flex flex-col justify-center">
+                  <p className="font-display text-[26px] leading-[1.12] text-[var(--color-text)] line-clamp-4">
+                    {resource.title}
+                  </p>
+                  <span className="mt-4 h-[2px] w-12 bg-[var(--color-accent)]" />
+                </div>
               </div>
             )}
 

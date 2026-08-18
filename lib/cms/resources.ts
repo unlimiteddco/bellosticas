@@ -87,7 +87,10 @@ export async function getResourceBySlug(
       subtitle: typeof doc.subtitle === "string" ? doc.subtitle : undefined,
       bullets,
       coverUrl: mediaUrl(doc.coverImage),
-      pdfUrl: mediaUrl(doc.pdf),
+      // Preferimos el PDF generado en el CRM; si no, el subido a mano.
+      pdfUrl:
+        (typeof doc.pdfUrl === "string" && doc.pdfUrl ? doc.pdfUrl : undefined) ??
+        mediaUrl(doc.pdf),
       keyword: typeof doc.keyword === "string" ? doc.keyword : undefined,
       // Si no se define, el CTA se deriva del tipo: "Quiero la guía / el proceso…"
       ctaLabel:
