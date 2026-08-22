@@ -8,15 +8,13 @@ type LenisLike = { scrollTo: (target: Element | number, opts?: { offset?: number
 /**
  * Barra inferior fija SOLO en móvil (el menú lateral no existe ahí): aparece
  * cuando el lector pasa la sección de inversión y desaparece cuando el
- * formulario de aceptar ya está a la vista. Muestra el total + CTA.
+ * formulario de aceptar ya está a la vista.
+ *
+ * Sin precio: el total ya lo ha leído justo encima. Repetirlo pegado al botón
+ * convierte el último paso en una decisión de dinero otra vez, en vez de en
+ * el gesto de continuar.
  */
-export function ProposalMobileCta({
-  total,
-  label,
-}: {
-  total: string;
-  label: string;
-}) {
+export function ProposalMobileCta({ label }: { label: string }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -68,7 +66,7 @@ export function ProposalMobileCta({
       }`}
     >
       <div
-        className="flex items-center justify-between gap-3 px-5 py-3 pb-[max(12px,env(safe-area-inset-bottom))]"
+        className="px-5 py-3 pb-[max(12px,env(safe-area-inset-bottom))]"
         style={{
           background: "rgba(253, 253, 251, 0.92)",
           backdropFilter: "blur(16px) saturate(140%)",
@@ -76,13 +74,10 @@ export function ProposalMobileCta({
           borderTop: "1px solid var(--color-border)",
         }}
       >
-        <span className="font-body text-[15px] font-medium text-[var(--color-text)] tabular-nums">
-          {total}
-        </span>
         <button
           type="button"
           onClick={go}
-          className="inline-flex items-center gap-2 rounded-full bg-[var(--color-text)] hover:bg-[var(--color-accent)] px-5 py-2.5 font-body text-[13px] font-medium text-white transition-colors"
+          className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-text)] hover:bg-[var(--color-accent)] px-5 py-3.5 font-body text-[15px] font-medium text-white transition-colors"
         >
           {label}
           <ArrowRight size={14} />

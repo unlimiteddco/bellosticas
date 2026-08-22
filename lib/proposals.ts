@@ -58,6 +58,16 @@ export type MaintenancePlan = {
   nota?: string | null;
 };
 
+/** Datos que el CRM ya tiene del cliente: rellenan el formulario, no lo ocultan. */
+export type ProposalPrefill = {
+  fiscalName?: string;
+  vatNumber?: string;
+  fiscalAddress?: string;
+  contactName?: string;
+  contactEmail?: string;
+  phone?: string;
+};
+
 export type ProposalPayload = {
   ok: boolean;
   proposal: ProposalData;
@@ -65,6 +75,7 @@ export type ProposalPayload = {
   installments: Installment[];
   expired: boolean;
   maintenance?: MaintenancePlan | null;
+  prefill?: ProposalPrefill | null;
 };
 
 export async function fetchProposal(token: string): Promise<ProposalPayload | null> {
@@ -143,6 +154,7 @@ export function lineTotal(item: ProposalItem): number {
 const DEMO_PROPOSAL: ProposalPayload = {
   ok: true,
   expired: false,
+  prefill: { contactName: "Hugo Gotten", contactEmail: "hugo@gottengym.es", phone: "600 123 456" },
   maintenance: {
     id: "profesional",
     nombre: "Profesional",

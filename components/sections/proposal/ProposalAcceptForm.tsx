@@ -5,6 +5,7 @@ import { Check, Loader2, Building2, Landmark, Mail } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import type { ProposalPrefill } from "@/lib/proposals";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -33,16 +34,23 @@ function formatEUR(amount: number, locale: string): string {
   }).format(Number.isFinite(amount) ? amount : 0);
 }
 
-export function ProposalAcceptForm({ token }: { token: string }) {
+export function ProposalAcceptForm({
+  token,
+  prefill,
+}: {
+  token: string;
+  /** Lo que ya sabemos de él: se muestra relleno y editable, nunca oculto. */
+  prefill?: ProposalPrefill | null;
+}) {
   const t = useTranslations("proposalPage");
   const locale = useLocale();
 
-  const [fiscalName, setFiscalName] = useState("");
-  const [vatNumber, setVatNumber] = useState("");
-  const [fiscalAddress, setFiscalAddress] = useState("");
-  const [contactName, setContactName] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [fiscalName, setFiscalName] = useState(prefill?.fiscalName ?? "");
+  const [vatNumber, setVatNumber] = useState(prefill?.vatNumber ?? "");
+  const [fiscalAddress, setFiscalAddress] = useState(prefill?.fiscalAddress ?? "");
+  const [contactName, setContactName] = useState(prefill?.contactName ?? "");
+  const [contactEmail, setContactEmail] = useState(prefill?.contactEmail ?? "");
+  const [phone, setPhone] = useState(prefill?.phone ?? "");
   const [status, setStatus] = useState<Status>("idle");
   const [errorDetail, setErrorDetail] = useState<string | null>(null);
   const [result, setResult] = useState<AcceptResponse | null>(null);
@@ -302,7 +310,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         required={required}
         autoComplete={autoComplete}
-        className="w-full h-11 px-3 rounded-md bg-transparent border border-[var(--color-border)] text-[15px] font-body text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-text)] focus:outline-none transition-colors"
+        className="w-full h-11 px-3 rounded-md bg-transparent border border-[var(--color-border)] text-[16px] sm:text-[15px] font-body text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:border-[var(--color-text)] focus:outline-none transition-colors"
       />
     </label>
   );

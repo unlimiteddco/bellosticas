@@ -53,7 +53,7 @@ export default async function ProposalPage({
   const data = await fetchProposal(token);
   if (!data) notFound();
 
-  const { proposal, items, installments, expired, maintenance } = data;
+  const { proposal, items, installments, expired, maintenance, prefill } = data;
   const accepted = proposal.status === "accepted";
   const unavailable = expired || proposal.status === "rejected" || proposal.status === "expired";
   const serviceKey =
@@ -84,7 +84,7 @@ export default async function ProposalPage({
 
   return (
     <>
-      <article className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-12 pt-[150px] pb-20">
+      <article className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-12 pt-[150px] pb-[104px] lg:pb-20">
         {/* ── Hero — a ancho completo, sin tarjeta ── */}
         <header className="flex flex-col gap-6 max-w-[920px] mb-14 lg:mb-20">
           <Reveal immediate delay={0.05}>
@@ -544,7 +544,7 @@ export default async function ProposalPage({
                     </div>
                   </div>
 
-                  <ProposalAcceptForm token={token} />
+                  <ProposalAcceptForm token={token} prefill={prefill} />
                 </Reveal>
               )}
             </section>
@@ -588,10 +588,7 @@ export default async function ProposalPage({
 
       {/* CTA fijo en móvil: aparece tras pasar la inversión */}
       {!accepted && !unavailable && (
-        <ProposalMobileCta
-          total={formatEUR(installments.length > 0 ? totSum : proposal.total, locale)}
-          label={t("cta_short")}
-        />
+        <ProposalMobileCta label={t("cta_short")} />
       )}
     </>
   );
