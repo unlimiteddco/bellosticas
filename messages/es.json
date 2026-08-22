@@ -87,7 +87,12 @@
     "cta": "Aceptar propuesta y empezar",
     "sending": "Procesando…",
     "consent": "Al aceptar confirmas los datos fiscales y el inicio del proyecto.",
-    "error": "No se pudo procesar la aceptación. Inténtalo de nuevo o escríbenos.",
+    "error": {
+      "title": "No hemos podido cargar tu propuesta",
+      "body": "Es un problema temporal por nuestra parte, no de tu enlace. Tu propuesta sigue ahí y el plazo no corre por esto. Vuelve a intentarlo en un momento.",
+      "retry": "Reintentar",
+      "help": "Si sigue pasando, escríbeme a hola@bellostas.studio y lo resuelvo."
+    },
     "success": {
       "title": "¡Propuesta aceptada!",
       "body": "Gracias por la confianza. Te hemos enviado por email un enlace de acceso a tu portal.",
@@ -107,7 +112,14 @@
     "accepted_title": "Esta propuesta ya está aceptada",
     "accepted_body": "Si necesitas cualquier cosa, escríbenos a info@bellostas.studio.",
     "expired_title": "Esta propuesta ya no está disponible",
-    "expired_body": "Escríbenos y preparamos una propuesta actualizada para ti."
+    "expired_body": "Escríbenos y preparamos una propuesta actualizada para ti.",
+    "maintenance_label": "Después de publicar",
+    "maintenance_title": "Mantenimiento {plan}",
+    "maintenance_month": "/mes",
+    "maintenance_included": "Los 3 primeros meses van incluidos en el proyecto. A partir del cuarto continúa automáticamente.",
+    "maintenance_annual": "Opción anual: {anual} al año — ahorras {ahorro}.",
+    "maintenance_note": "Incluye:",
+    "download_pdf": "Descargar en PDF"
   },
   "nav": {
     "work": "Trabajos",
@@ -1809,13 +1821,13 @@
     "metaDescription": "Boutique web studio desde Huesca. Un estudio, una mesa, 70+ proyectos. Detrás de Bellostas Studio: filosofía, espacio y manera de trabajar.",
     "hero": {
       "label": "// EL ESTUDIO · HUESCA, EST. 2022",
-      "title_part1": "Un estudio. Una mesa. ",
+      "title_part1": "Somos el estudio detrás de ",
       "title_emphasis": "70+ proyectos",
       "title_part2": ".",
-      "sub": "Soy Antonio. Empecé esto en 2022 desde un pueblo de Huesca con una idea simple: hacer trabajo que envejezca bien, para clientes que sepan lo que envían. Hoy sigue siendo eso. Solo que con más millas a la espalda.",
+      "sub": "Diseñamos y desarrollamos webs, tiendas y aplicaciones desde Huesca. Trabajo que envejece bien, para clientes que saben lo que envían.",
       "cta_primary": "Reservar llamada",
       "cta_secondary": "Bajar",
-      "meta": "EST. 2022 · HUESCA, ES · 1 PERSONA · 1 MESA",
+      "meta": "EST. 2022 · HUESCA, ES · 70+ PROYECTOS",
       "photoCaption": "Antonio · estudio en Huesca"
     },
     "manifesto": {

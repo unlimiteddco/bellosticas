@@ -87,7 +87,12 @@
     "cta": "Accept proposal & start",
     "sending": "Processing…",
     "consent": "By accepting you confirm the billing details and the start of the project.",
-    "error": "We couldn't process the acceptance. Please try again or contact us.",
+    "error": {
+      "title": "We couldn't load your proposal",
+      "body": "This is a temporary problem on our side, not with your link. Your proposal is still there and this doesn't affect the deadline. Please try again in a moment.",
+      "retry": "Try again",
+      "help": "If it keeps happening, email me at hola@bellostas.studio and I'll sort it out."
+    },
     "success": {
       "title": "Proposal accepted!",
       "body": "Thank you for your trust. We've emailed you an access link to your portal.",
@@ -107,7 +112,14 @@
     "accepted_title": "This proposal has already been accepted",
     "accepted_body": "If you need anything, reach us at info@bellostas.studio.",
     "expired_title": "This proposal is no longer available",
-    "expired_body": "Get in touch and we'll prepare an updated proposal for you."
+    "expired_body": "Get in touch and we'll prepare an updated proposal for you.",
+    "maintenance_label": "After launch",
+    "maintenance_title": "{plan} maintenance",
+    "maintenance_month": "/month",
+    "maintenance_included": "The first 3 months are included in the project. From the fourth month it continues automatically.",
+    "maintenance_annual": "Annual option: {anual} per year — you save {ahorro}.",
+    "maintenance_note": "Includes:",
+    "download_pdf": "Download as PDF"
   },
   "nav": {
     "work": "Work",
@@ -1809,13 +1821,13 @@
     "metaDescription": "Boutique web studio from Huesca. One studio, one desk, 70+ projects. The philosophy, the space and the way we work — behind Bellostas Studio.",
     "hero": {
       "label": "// THE STUDIO · HUESCA, EST. 2022",
-      "title_part1": "One studio. One desk. ",
+      "title_part1": "We're the studio behind ",
       "title_emphasis": "70+ projects",
       "title_part2": ".",
-      "sub": "I'm Antonio. Started this in 2022 from a small town in Spain with a simple idea: build work that ages well, for clients who know what they ship. Same idea today. Just with more miles in the legs.",
+      "sub": "We design and develop websites, stores and applications from Huesca. Work that ages well, for clients who know what they're shipping.",
       "cta_primary": "Book a call",
       "cta_secondary": "Scroll",
-      "meta": "EST. 2022 · HUESCA, ES · 1 PERSON · 1 DESK",
+      "meta": "EST. 2022 · HUESCA, ES · 70+ PROJECTS",
       "photoCaption": "Antonio · Huesca studio"
     },
     "manifesto": {

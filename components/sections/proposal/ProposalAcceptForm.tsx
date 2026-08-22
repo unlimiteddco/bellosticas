@@ -11,6 +11,8 @@ type Status = "idle" | "sending" | "sent" | "error";
 type AcceptResponse = {
   ok: boolean;
   error?: string;
+  /** La propuesta ya estaba aceptada: para el cliente es éxito, no error. */
+  alreadyAccepted?: boolean;
   invoice?: {
     number: string;
     total: number;
@@ -78,7 +80,9 @@ export function ProposalAcceptForm({ token }: { token: string }) {
       });
       const data = (await res.json().catch(() => null)) as AcceptResponse | null;
 
-      if (res.ok && data?.ok) {
+      // `alreadyAccepted` significa que la aceptación SÍ se completó (nuestro
+      // reintento llegó después). Para el cliente eso es un éxito, no un fallo.
+      if ((res.ok && data?.ok) || data?.alreadyAccepted) {
         setResult(data);
         setStatus("sent");
       } else {
@@ -198,7 +202,7 @@ export function ProposalAcceptForm({ token }: { token: string }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <Field label={t("fiscal.contactName")} value={contactName} onChange={setContactName} autoComplete="name" />
-        <Field label={t("fiscal.contactEmail")} type="email" value={contactEmail} onChange={setContactEmail} autoComplete="email" />
+        <Field label={t("fiscal.contactEmail")} type="email" value={contactEmail} onChange={setContactEmail} autoComplete="email" required />
       </div>
       <Field label={t("fiscal.phone")} type="tel" value={phone} onChange={setPhone} autoComplete="tel" />
 

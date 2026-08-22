@@ -46,12 +46,25 @@ export type ProposalData = {
   phases?: Phase[] | null;
 };
 
+/** Plan de mantenimiento asignado a esta propuesta (uno solo, nunca un menú). */
+export type MaintenancePlan = {
+  id: string;
+  nombre: string;
+  mensual: number;
+  anual: number;
+  /** Ahorro anual EN EUROS — nunca en porcentaje. */
+  ahorro: number;
+  incluye: string[];
+  nota?: string | null;
+};
+
 export type ProposalPayload = {
   ok: boolean;
   proposal: ProposalData;
   items: ProposalItem[];
   installments: Installment[];
   expired: boolean;
+  maintenance?: MaintenancePlan | null;
 };
 
 export async function fetchProposal(token: string): Promise<ProposalPayload | null> {
@@ -60,26 +73,42 @@ export async function fetchProposal(token: string): Promise<ProposalPayload | nu
     return DEMO_PROPOSAL;
   }
 
+  // Una propuesta que no se puede leer NO es una propuesta que no existe.
+  // Devolver `null` ante un CRM caído acaba en un 404: el cliente lee
+  // "esta propuesta no existe" y da por hecho que se la hemos retirado.
+  // Solo el 404 real del CRM devuelve null; lo demás lanza y lo recoge
+  // el error boundary, que sí invita a reintentar.
   if (!SECRET) {
     console.error("[propuestas] WEB_WEBHOOK_SECRET no configurado");
-    return null;
+    throw new Error("proposal_fetch_misconfigured");
   }
 
+  const url = `${CRM_BASE_URL.replace(/\/+$/, "")}/api/public/proposals/${encodeURIComponent(token)}`;
+  let res: Response;
   try {
-    const url = `${CRM_BASE_URL.replace(/\/+$/, "")}/api/public/proposals/${encodeURIComponent(token)}`;
-    const res = await fetch(url, {
+    res = await fetch(url, {
       headers: { "x-webhook-secret": SECRET },
       // El estado de la propuesta cambia (vista/aceptada) → siempre fresco.
       cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
     });
-    if (!res.ok) return null;
-    const data = (await res.json()) as ProposalPayload;
-    if (!data?.ok) return null;
-    return data;
   } catch (e) {
-    console.error("[propuestas] error consultando el CRM", e);
-    return null;
+    console.error("[propuestas] el CRM no responde", e);
+    throw new Error("proposal_fetch_unreachable");
   }
+
+  // Token inexistente o revocado: eso sí es un 404 honesto.
+  if (res.status === 404) return null;
+
+  if (!res.ok) {
+    console.error(`[propuestas] el CRM respondió ${res.status} para el token ${token}`);
+    throw new Error(`proposal_fetch_failed_${res.status}`);
+  }
+
+  const data = (await res.json().catch(() => null)) as ProposalPayload | null;
+  if (!data) throw new Error("proposal_fetch_bad_json");
+  if (!data.ok) return null;
+  return data;
 }
 
 export function formatEUR(amount: string | number, locale: string): string {
@@ -88,6 +117,21 @@ export function formatEUR(amount: string | number, locale: string): string {
     style: "currency",
     currency: "EUR",
   }).format(Number.isFinite(n) ? n : 0);
+}
+
+/**
+ * Igual que `formatEUR`, pero sin céntimos cuando el importe es redondo.
+ * Los precios de mantenimiento son titulares ("89 €/mes"), no líneas de
+ * factura: los ",00" ensucian la lectura.
+ */
+export function formatEURPrecio(amount: number, locale: string): string {
+  const entero = Number.isInteger(amount);
+  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: entero ? 0 : 2,
+    maximumFractionDigits: 2,
+  }).format(Number.isFinite(amount) ? amount : 0);
 }
 
 export function lineTotal(item: ProposalItem): number {
@@ -99,6 +143,24 @@ export function lineTotal(item: ProposalItem): number {
 const DEMO_PROPOSAL: ProposalPayload = {
   ok: true,
   expired: false,
+  maintenance: {
+    id: "profesional",
+    nombre: "Profesional",
+    mensual: 89,
+    anual: 960,
+    ahorro: 108,
+    incluye: [
+      "Servidor, dominio y SSL",
+      "Actualizaciones de seguridad",
+      "Copias de seguridad diarias",
+      "Monitorización de caída",
+      "Soporte por email (24 h laborables)",
+      "1 h/mes de cambios",
+      "Entorno de pruebas",
+      "Informe mensual",
+    ],
+    nota: null,
+  },
   proposal: {
     title: "Tienda online a medida para Gotten Gym",
     clientName: "Hugo",

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Clock, CalendarClock } from "lucide-react";
+import { Clock, CalendarClock, Download } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/navigation";
+import { defaultLocale } from "@/i18n";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { MixedHeadline } from "@/components/ui/MixedHeadline";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
@@ -12,7 +13,7 @@ import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
 import { ProposalAcceptForm } from "@/components/sections/proposal/ProposalAcceptForm";
 import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav";
 import { ProposalMobileCta } from "@/components/sections/proposal/ProposalMobileCta";
-import { fetchProposal, formatEUR, lineTotal } from "@/lib/proposals";
+import { fetchProposal, formatEUR, formatEURPrecio, lineTotal } from "@/lib/proposals";
 
 export const dynamic = "force-dynamic";
 
@@ -52,7 +53,7 @@ export default async function ProposalPage({
   const data = await fetchProposal(token);
   if (!data) notFound();
 
-  const { proposal, items, installments, expired } = data;
+  const { proposal, items, installments, expired, maintenance } = data;
   const accepted = proposal.status === "accepted";
   const unavailable = expired || proposal.status === "rejected" || proposal.status === "expired";
   const serviceKey =
@@ -119,6 +120,19 @@ export default async function ProposalPage({
                 <PrimaryButton href="#incluye" className="whitespace-nowrap">
                   {t("cta_view")}
                 </PrimaryButton>
+              )}
+              {/* Muchos clientes deciden con alguien más delante: el PDF es
+                  para reenviar a un socio, a la gestoría o a quien firma. */}
+              {!unavailable && (
+                <a
+                  href={locale === defaultLocale ? `/propuestas/${token}/pdf` : `/${locale}/propuestas/${token}/pdf`}
+                  className="group inline-flex items-center gap-2 font-body text-[13px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)] rounded-sm"
+                >
+                  <Download size={14} strokeWidth={1.75} />
+                  <span className="border-b border-transparent group-hover:border-[var(--color-accent)] pb-px">
+                    {t("download_pdf")}
+                  </span>
+                </a>
               )}
             </div>
           </Reveal>
@@ -367,6 +381,54 @@ export default async function ProposalPage({
                   </div>
                 </Reveal>
               )}
+
+              {/* Mantenimiento — se ve ANTES de aceptar, no en la 4ª factura */}
+              {maintenance ? (
+                <Reveal delay={0.1}>
+                  <div className="mt-12 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-7 md:p-9">
+                    <p
+                      className="font-body uppercase text-[11px] text-[var(--color-text-muted)]"
+                      style={{ letterSpacing: "0.18em" }}
+                    >
+                      {t("maintenance_label")}
+                    </p>
+                    <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h3 className="font-display text-[24px] md:text-[30px] leading-tight text-[var(--color-text)]">
+                        {t("maintenance_title", { plan: maintenance.nombre })}
+                      </h3>
+                      <p className="font-display text-[24px] md:text-[30px] leading-tight text-[var(--color-text)]">
+                        {formatEURPrecio(maintenance.mensual, locale)}
+                        <span className="font-body text-[15px] text-[var(--color-text-muted)]">
+                          {t("maintenance_month")}
+                        </span>
+                      </p>
+                    </div>
+                    <p className="mt-3 font-body text-[15px] leading-[1.6] text-[var(--color-text-muted)] max-w-[600px]">
+                      {maintenance.nota || t("maintenance_included")}
+                    </p>
+                    <ul className="mt-5 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+                      {maintenance.incluye.map((linea) => (
+                        <li
+                          key={linea}
+                          className="font-body text-[14px] leading-[1.5] text-[var(--color-text)] flex gap-2.5"
+                        >
+                          <span aria-hidden className="text-[var(--color-accent)] mt-[2px]">
+                            &#8226;
+                          </span>
+                          {linea}
+                        </li>
+                      ))}
+                    </ul>
+                    {/* El ahorro anual va en EUROS, nunca en porcentaje. */}
+                    <p className="mt-5 font-body text-[14px] text-[var(--color-text-muted)]">
+                      {t("maintenance_annual", {
+                        anual: formatEURPrecio(maintenance.anual, locale),
+                        ahorro: formatEURPrecio(maintenance.ahorro, locale),
+                      })}
+                    </p>
+                  </div>
+                </Reveal>
+              ) : null}
 
               {/* Mini-FAQ — mata objeciones sin que tenga que escribirte */}
               <Reveal delay={0.12}>

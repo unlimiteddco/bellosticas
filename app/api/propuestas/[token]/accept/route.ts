@@ -44,7 +44,11 @@ export async function POST(
   if (
     typeof payload.fiscal_name !== "string" ||
     typeof payload.vat_number !== "string" ||
-    typeof payload.fiscal_address !== "string"
+    typeof payload.fiscal_address !== "string" ||
+    // El email es imprescindible: el acceso al portal se envía ahí y el login
+    // del cliente es por email. Sin él, acepta y se queda sin nada.
+    typeof payload.contact_email !== "string" ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(payload.contact_email)
   ) {
     return NextResponse.json(
       { ok: false, error: "Missing fiscal fields" },
@@ -90,6 +94,16 @@ export async function POST(
     // 4xx (excepto 429) → problema de validación, no reintentar
     if (response.status >= 400 && response.status < 500 && response.status !== 429) {
       const data = await safeJson(response);
+
+      // "Ya estaba aceptada" NO es un error para el cliente: pasa cuando un
+      // reintento nuestro llega después de que la primera petición SÍ se
+      // completara (el CRM tarda en responder porque envía el email y crea la
+      // factura antes de contestar). Decirle "no se pudo procesar" cuando su
+      // proyecto y su factura ya existen le hace pulsar otra vez o rendirse.
+      if (data && (data as { alreadyAccepted?: boolean }).alreadyAccepted) {
+        return NextResponse.json({ ...data, ok: true, alreadyAccepted: true }, { status: 200 });
+      }
+
       return NextResponse.json(
         data ?? { ok: false, error: `CRM rejected with ${response.status}` },
         { status: response.status },
