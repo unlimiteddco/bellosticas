@@ -87,12 +87,7 @@
     "cta": "Aceptar propuesta y empezar",
     "sending": "Procesando…",
     "consent": "Al aceptar confirmas los datos fiscales y el inicio del proyecto.",
-    "error": {
-      "title": "No hemos podido cargar tu propuesta",
-      "body": "Es un problema temporal por nuestra parte, no de tu enlace. Tu propuesta sigue ahí y el plazo no corre por esto. Vuelve a intentarlo en un momento.",
-      "retry": "Reintentar",
-      "help": "Si sigue pasando, escríbeme a hola@bellostas.studio y lo resuelvo."
-    },
+    "error": "No se pudo procesar la aceptación. Inténtalo de nuevo o escríbenos.",
     "success": {
       "title": "¡Propuesta aceptada!",
       "body": "Gracias por la confianza. Te hemos enviado por email un enlace de acceso a tu portal.",
@@ -119,7 +114,14 @@
     "maintenance_included": "Los 3 primeros meses van incluidos en el proyecto. A partir del cuarto continúa automáticamente.",
     "maintenance_annual": "Opción anual: {anual} al año — ahorras {ahorro}.",
     "maintenance_note": "Incluye:",
-    "download_pdf": "Descargar en PDF"
+    "download_pdf": "Descargar en PDF",
+    "loadError": {
+      "title": "No hemos podido cargar tu propuesta",
+      "body": "Es un problema temporal por nuestra parte, no de tu enlace. Tu propuesta sigue ahí y el plazo no corre por esto. Vuelve a intentarlo en un momento.",
+      "retry": "Reintentar",
+      "help": "Si sigue pasando, escríbeme a hola@bellostas.studio y lo resuelvo."
+    },
+    "prefill_note": "Estos datos ya los teníamos de nuestras conversaciones. Revísalos y corrige lo que haga falta."
   },
   "nav": {
     "work": "Trabajos",

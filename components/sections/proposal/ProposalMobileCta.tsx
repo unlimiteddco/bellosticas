@@ -61,6 +61,11 @@ export function ProposalMobileCta({ label }: { label: string }) {
 
   return (
     <div
+      // Oculta = fuera del tabulador y del árbol de accesibilidad. Si no, se
+      // enfoca un botón invisible al final de la página y el anillo de foco
+      // desaparece de la pantalla.
+      aria-hidden={!show}
+      inert={!show ? true : undefined}
       className={`lg:hidden fixed bottom-0 inset-x-0 z-40 transition-transform duration-300 ${
         show ? "translate-y-0" : "translate-y-full"
       }`}

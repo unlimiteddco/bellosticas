@@ -87,12 +87,7 @@
     "cta": "Accept proposal & start",
     "sending": "Processing…",
     "consent": "By accepting you confirm the billing details and the start of the project.",
-    "error": {
-      "title": "We couldn't load your proposal",
-      "body": "This is a temporary problem on our side, not with your link. Your proposal is still there and this doesn't affect the deadline. Please try again in a moment.",
-      "retry": "Try again",
-      "help": "If it keeps happening, email me at hola@bellostas.studio and I'll sort it out."
-    },
+    "error": "We couldn't process the acceptance. Please try again or contact us.",
     "success": {
       "title": "Proposal accepted!",
       "body": "Thank you for your trust. We've emailed you an access link to your portal.",
@@ -119,7 +114,14 @@
     "maintenance_included": "The first 3 months are included in the project. From the fourth month it continues automatically.",
     "maintenance_annual": "Annual option: {anual} per year — you save {ahorro}.",
     "maintenance_note": "Includes:",
-    "download_pdf": "Download as PDF"
+    "download_pdf": "Download as PDF",
+    "loadError": {
+      "title": "We couldn't load your proposal",
+      "body": "This is a temporary problem on our side, not with your link. Your proposal is still there and this doesn't affect the deadline. Please try again in a moment.",
+      "retry": "Try again",
+      "help": "If it keeps happening, email me at hola@bellostas.studio and I'll sort it out."
+    },
+    "prefill_note": "We already had these details from our conversations. Check them and correct anything that's off."
   },
   "nav": {
     "work": "Work",

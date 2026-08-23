@@ -34,9 +34,13 @@ const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
  * cookies fire until the visitor accepts in the cookie banner. The default is
  * read straight from the stored consent so returning visitors who already
  * accepted get `granted` immediately. `AnalyticsLoader` flips consent on change.
+ *
+ * The proposal token is a bearer credential: whoever holds the URL can read
+ * the proposal and accept it. It must never reach a third-party report, so the
+ * page_location is sanitised before the page_view leaves the browser.
  */
 const gaConsentBootstrap = GA_ID
-  ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var a='denied';try{var r=localStorage.getItem('bellostas-cookie-consent');if(r){var p=JSON.parse(r);if(p&&p.version===1&&p.choices&&p.choices.analytics===true)a='granted';}}catch(e){}gtag('consent','default',{ad_storage:'denied',analytics_storage:a,ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`
+  ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var a='denied';try{var r=localStorage.getItem('bellostas-cookie-consent');if(r){var p=JSON.parse(r);if(p&&p.version===1&&p.choices&&p.choices.analytics===true)a='granted';}}catch(e){}gtag('consent','default',{ad_storage:'denied',analytics_storage:a,ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());var l=location.pathname.replace(/(\\/propuestas\\/)[^/]+/,'$1[token]');gtag('config','${GA_ID}',{anonymize_ip:true,page_location:location.origin+l+location.search});`
   : "";
 
 export function generateStaticParams() {

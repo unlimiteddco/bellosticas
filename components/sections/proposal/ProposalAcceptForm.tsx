@@ -45,9 +45,9 @@ export function ProposalAcceptForm({
   const t = useTranslations("proposalPage");
   const locale = useLocale();
 
-  const [fiscalName, setFiscalName] = useState(prefill?.fiscalName ?? "");
-  const [vatNumber, setVatNumber] = useState(prefill?.vatNumber ?? "");
-  const [fiscalAddress, setFiscalAddress] = useState(prefill?.fiscalAddress ?? "");
+  const [fiscalName, setFiscalName] = useState("");
+  const [vatNumber, setVatNumber] = useState("");
+  const [fiscalAddress, setFiscalAddress] = useState("");
   const [contactName, setContactName] = useState(prefill?.contactName ?? "");
   const [contactEmail, setContactEmail] = useState(prefill?.contactEmail ?? "");
   const [phone, setPhone] = useState(prefill?.phone ?? "");
@@ -55,11 +55,20 @@ export function ProposalAcceptForm({
   const [errorDetail, setErrorDetail] = useState<string | null>(null);
   const [result, setResult] = useState<AcceptResponse | null>(null);
 
+  const hasPrefill = Boolean(prefill?.contactName || prefill?.contactEmail || prefill?.phone);
+
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const mountedAt = useRef<number>(0);
   useEffect(() => {
     mountedAt.current = Date.now();
   }, []);
+
+  // El formulario se sustituye por la confirmación: sin esto el foco se queda
+  // en el body y no se anuncia nada.
+  useEffect(() => {
+    if (status === "sent") successRef.current?.focus();
+  }, [status]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,10 +117,14 @@ export function ProposalAcceptForm({
     const invoice = result?.invoice ?? null;
     return (
       <motion.div
+        ref={successRef}
+        tabIndex={-1}
+        role="status"
+        aria-live="polite"
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-8 md:p-10"
+        className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-8 md:p-10 outline-none"
       >
         <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-accent)]/12">
           <Check size={22} className="text-[var(--color-accent)]" strokeWidth={2.5} />
@@ -214,13 +227,21 @@ export function ProposalAcceptForm({
       </div>
       <Field label={t("fiscal.phone")} type="tel" value={phone} onChange={setPhone} autoComplete="tel" />
 
+      {/* Sin esto, ver el formulario ya escrito descoloca: "¿de dónde ha
+          sacado mi teléfono?". Decirlo lo convierte en un detalle a favor. */}
+      {hasPrefill && (
+        <p className="font-body text-[12px] leading-[1.5] text-[var(--color-text-muted)]">
+          {t("prefill_note")}
+        </p>
+      )}
+
 
       <p className="font-body text-[11px] leading-[1.5] text-[var(--color-text-muted)]/80">
         {t("consent")}
       </p>
 
       <div className="flex items-center gap-4 mt-1 flex-wrap">
-        <PrimaryButton>
+        <PrimaryButton disabled={status === "sending"} aria-busy={status === "sending"}>
           {status === "sending" ? (
             <span className="inline-flex items-center gap-2">
               <Loader2 size={14} className="animate-spin" />
@@ -234,6 +255,7 @@ export function ProposalAcceptForm({
         <AnimatePresence>
           {status === "error" && (
             <motion.span
+              role="alert"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               className="font-body text-[13px] text-[var(--color-accent)]"

@@ -8,6 +8,10 @@ type Props = {
   onClick?: () => void;
   className?: string;
   variant?: "default" | "inverse";
+  /** Bloquea el botón mientras se envía: evita dobles aceptaciones. */
+  disabled?: boolean;
+  /** Anuncia a los lectores de pantalla que la acción está en curso. */
+  "aria-busy"?: boolean;
 };
 
 export function PrimaryButton({
@@ -16,6 +20,8 @@ export function PrimaryButton({
   onClick,
   className,
   variant = "default",
+  disabled = false,
+  "aria-busy": ariaBusy,
 }: Props) {
   const isDefault = variant === "default";
 
@@ -48,6 +54,7 @@ export function PrimaryButton({
 
   // Hover handled via JS to ensure color toggles even without Tailwind utility classes.
   const handleEnter = (e: React.MouseEvent<HTMLElement>) => {
+    if (disabled) return;
     e.currentTarget.style.backgroundColor = "var(--color-accent)";
     e.currentTarget.style.color = "#FFFFFF";
   };
@@ -74,7 +81,9 @@ export function PrimaryButton({
   return (
     <button
       onClick={onClick}
-      className={`${baseClasses} ${className ?? ""}`}
+      disabled={disabled}
+      aria-busy={ariaBusy}
+      className={`${baseClasses} ${disabled ? "opacity-60 cursor-not-allowed hover:scale-100" : ""} ${className ?? ""}`}
       style={inlineStyle}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}

@@ -16,7 +16,7 @@ export default function ProposalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const t = useTranslations("proposalPage.error");
+  const t = useTranslations("proposalPage.loadError");
 
   useEffect(() => {
     console.error("[propuestas] fallo al cargar la propuesta", error);

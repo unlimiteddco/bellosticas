@@ -60,9 +60,6 @@ export type MaintenancePlan = {
 
 /** Datos que el CRM ya tiene del cliente: rellenan el formulario, no lo ocultan. */
 export type ProposalPrefill = {
-  fiscalName?: string;
-  vatNumber?: string;
-  fiscalAddress?: string;
   contactName?: string;
   contactEmail?: string;
   phone?: string;
