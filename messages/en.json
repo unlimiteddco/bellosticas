@@ -107,7 +107,7 @@
     "maintenance_label": "After launch",
     "maintenance_title": "{plan} maintenance",
     "maintenance_month": "/month + VAT",
-    "maintenance_included": "The first 3 months are included in the project. From the fourth month it continues automatically.",
+    "maintenance_included": "The first month is included in the project: it's the warranty and fine-tuning period, when we fix whatever only shows up once the site is really in use. From the second month, the plan continues.",
     "maintenance_annual": "Annual option: {anual} per year — you save {ahorro}.",
     "maintenance_note": "Includes:",
     "download_pdf": "Download as PDF",
