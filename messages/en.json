@@ -106,7 +106,7 @@
     "expired_body": "Get in touch and we'll prepare an updated proposal for you.",
     "maintenance_label": "After launch",
     "maintenance_title": "{plan} maintenance",
-    "maintenance_month": "/month",
+    "maintenance_month": "/month + VAT",
     "maintenance_included": "The first 3 months are included in the project. From the fourth month it continues automatically.",
     "maintenance_annual": "Annual option: {anual} per year — you save {ahorro}.",
     "maintenance_note": "Includes:",
@@ -118,9 +118,10 @@
       "help": "If it keeps happening, email me at hola@bellostas.studio and I'll sort it out."
     },
     "prefill_note": "We already had these details from our conversations. Check them and correct anything that's off.",
-    "table_amount": "Amount (VAT incl.)",
+    "table_amount": "Amount (excl. VAT)",
     "pay_today": "Today you only pay the first instalment. The rest is tied to what gets delivered — you never pay ahead of the work.",
-    "phase_n": "Phase {n} ·"
+    "phase_n": "Phase {n} ·",
+    "total_vat_note": "+ {iva} VAT · {total} incl. VAT"
   },
   "nav": {
     "work": "Work",

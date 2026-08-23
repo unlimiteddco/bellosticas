@@ -212,14 +212,6 @@ export default async function ProposalPage({
                                   )}
                                   {ph.name}
                                 </h3>
-                                {ph.tags && ph.tags.length > 0 && (
-                                  <span
-                                    className="font-body uppercase text-[10px] text-[var(--color-text-muted)]"
-                                    style={{ letterSpacing: "0.14em" }}
-                                  >
-                                    {ph.tags.join(" · ")}
-                                  </span>
-                                )}
                               </div>
                               <ul className="flex flex-col gap-2.5">
                                 {ph.items.map((it, j) => (
@@ -321,7 +313,7 @@ export default async function ProposalPage({
                                 </span>
                               </td>
                               <td className="py-4 pl-3 text-right font-body text-[15px] text-[var(--color-text)] tabular-nums">
-                                {formatEUR(base * (1 + IVA), locale)}
+                                {formatEUR(base, locale)}
                               </td>
                             </tr>
                           );
@@ -333,11 +325,16 @@ export default async function ProposalPage({
                   {/* Total del proyecto — barra carmín (estilo PDF) */}
                   <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-[var(--color-accent)] text-white px-5 py-4">
                     <span className="font-body text-[14px] font-medium">{t("table_grand_total")}</span>
-                    <div className="flex items-baseline gap-5 tabular-nums">
-                      <span className="hidden sm:inline font-body text-[13px] text-white/75">
-                        {formatEUR(baseSum, locale)} + {formatEUR(ivaSum, locale)} IVA
+                    <div className="flex flex-col items-end tabular-nums">
+                      <span className="font-display text-[26px] leading-none">
+                        {formatEURPrecio(baseSum, locale)}
                       </span>
-                      <span className="font-display text-[24px]">{formatEUR(totSum, locale)}</span>
+                      <span className="font-body text-[12px] text-white/75 mt-1">
+                        {t("total_vat_note", {
+                          iva: formatEURPrecio(ivaSum, locale),
+                          total: formatEURPrecio(totSum, locale),
+                        })}
+                      </span>
                     </div>
                   </div>
                   <p className="font-body text-[13px] leading-[1.55] text-[var(--color-text)]/75 mt-4 max-w-[620px]">

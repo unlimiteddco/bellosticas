@@ -106,7 +106,7 @@
     "expired_body": "Escríbenos y preparamos una propuesta actualizada para ti.",
     "maintenance_label": "Después de publicar",
     "maintenance_title": "Mantenimiento {plan}",
-    "maintenance_month": "/mes",
+    "maintenance_month": "/mes + IVA",
     "maintenance_included": "Los 3 primeros meses van incluidos en el proyecto. A partir del cuarto continúa automáticamente.",
     "maintenance_annual": "Opción anual: {anual} al año — ahorras {ahorro}.",
     "maintenance_note": "Incluye:",
@@ -118,9 +118,10 @@
       "help": "Si sigue pasando, escríbeme a hola@bellostas.studio y lo resuelvo."
     },
     "prefill_note": "Estos datos ya los teníamos de nuestras conversaciones. Revísalos y corrige lo que haga falta.",
-    "table_amount": "Importe (IVA incl.)",
+    "table_amount": "Importe (sin IVA)",
     "pay_today": "Hoy solo pagas el primer plazo. El resto va ligado a lo que se entrega: nunca pagas por delante del trabajo.",
-    "phase_n": "Fase {n} ·"
+    "phase_n": "Fase {n} ·",
+    "total_vat_note": "+ {iva} IVA · {total} con IVA"
   },
   "nav": {
     "work": "Trabajos",
