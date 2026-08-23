@@ -202,6 +202,14 @@ export default async function ProposalPage({
                             <div className="border-t border-[var(--color-border)] pt-6">
                               <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
                                 <h3 className="font-display text-[22px] text-[var(--color-text)]">
+                                  {/* El nombre solo no deja ver que hay un orden.
+                                      Si el propio nombre ya dice "Fase 2", no se
+                                      repite. */}
+                                  {!/^\s*fase\s*\d/i.test(ph.name) && (
+                                    <span className="text-[var(--color-accent)]">
+                                      {t("phase_n", { n: i + 1 })}{" "}
+                                    </span>
+                                  )}
                                   {ph.name}
                                 </h3>
                                 {ph.tags && ph.tags.length > 0 && (
@@ -277,25 +285,13 @@ export default async function ProposalPage({
                 />
               </Reveal>
 
-              {/* Prueba social en el momento de máxima duda: junto a la cifra */}
-              <Reveal delay={0.09}>
-                <figure className="mb-8 border-l-2 border-[var(--color-accent)] pl-5 max-w-[640px]">
-                  <blockquote className="font-display italic text-[17px] md:text-[19px] leading-[1.55] text-[var(--color-text)]">
-                    “{t("quote_text")}”
-                  </blockquote>
-                  <figcaption className="font-body text-[12px] text-[var(--color-text-muted)] mt-2">
-                    {t("quote_author")}
-                  </figcaption>
-                </figure>
-              </Reveal>
-
               {installments.length > 0 ? (
                 <Reveal delay={0.1}>
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-[440px] border-collapse">
                       <thead>
                         <tr className="border-b border-[var(--color-text)]/15">
-                          {[t("table_concept"), t("table_base"), t("table_iva"), t("table_total")].map(
+                          {[t("table_concept"), t("table_amount")].map(
                             (h, i) => (
                               <th
                                 key={i}
@@ -313,34 +309,19 @@ export default async function ProposalPage({
                       <tbody>
                         {installments.map((inst, i) => {
                           const base = Number(inst.amount) || 0;
-                          const iva = base * IVA;
-                          const ruleLabel =
-                            inst.dueRule === "date" && inst.dueDate
-                              ? inst.dueDate
-                              : DUE_RULES.has(inst.dueRule)
-                                ? t(`dueRule.${inst.dueRule}`)
-                                : inst.dueRule;
+                          // La etiqueta ya dice cuándo se paga ("50% Fase 1, al
+                          // aceptar"). Numerarla además como "Pago 1" hace que el
+                          // cliente cuente pagos en vez de leer el calendario.
+                          const label = inst.label.replace(/^\s*pago\s*\d+\s*[·:.-]\s*/i, "");
                           return (
                             <tr key={inst.id ?? i} className="border-b border-[var(--color-border)]">
                               <td className="py-4 pr-4">
                                 <span className="font-body text-[15px] text-[var(--color-text)]">
-                                  {inst.label}
+                                  {label}
                                 </span>
-                                <span
-                                  className="block font-body text-[11px] uppercase text-[var(--color-text-muted)] mt-0.5"
-                                  style={{ letterSpacing: "0.1em" }}
-                                >
-                                  {ruleLabel}
-                                </span>
-                              </td>
-                              <td className="py-4 px-3 text-right font-body text-[15px] text-[var(--color-text-muted)] tabular-nums">
-                                {formatEUR(base, locale)}
-                              </td>
-                              <td className="py-4 px-3 text-right font-body text-[15px] text-[var(--color-text-muted)] tabular-nums">
-                                {formatEUR(iva, locale)}
                               </td>
                               <td className="py-4 pl-3 text-right font-body text-[15px] text-[var(--color-text)] tabular-nums">
-                                {formatEUR(base + iva, locale)}
+                                {formatEUR(base * (1 + IVA), locale)}
                               </td>
                             </tr>
                           );
@@ -359,7 +340,10 @@ export default async function ProposalPage({
                       <span className="font-display text-[24px]">{formatEUR(totSum, locale)}</span>
                     </div>
                   </div>
-                  <p className="font-body text-[12px] text-[var(--color-text-muted)]/80 mt-3">
+                  <p className="font-body text-[13px] leading-[1.55] text-[var(--color-text)]/75 mt-4 max-w-[620px]">
+                    {t("pay_today")}
+                  </p>
+                  <p className="font-body text-[12px] text-[var(--color-text-muted)]/80 mt-2">
                     {t("plan_note")}
                   </p>
                 </Reveal>

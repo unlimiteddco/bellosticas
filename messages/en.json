@@ -16,8 +16,6 @@
     "investment_title_2": ".",
     "phases_subtitle": "Phase by phase",
     "table_concept": "Item",
-    "table_base": "Base",
-    "table_iva": "VAT (21%)",
     "table_total": "Total",
     "table_grand_total": "Project total",
     "service": {
@@ -62,8 +60,6 @@
     "payment_transfer_hint": "We'll send you the IBAN and invoice number for the deposit.",
     "cta_view": "See what's included",
     "valid_until": "Valid until {date}",
-    "quote_text": "We called on a Monday asking for something simple; by Friday the site was live with its own admin panel. No noise, everything shipped.",
-    "quote_author": "Carlos Iribarren — Gotten Gym",
     "faq_label": "Quick questions",
     "faq_q1": "When do I pay each part?",
     "faq_q1_a": "Exactly as shown in the table above: each installment is invoiced when due, no surprises. Payment is made by bank transfer — we send you the details with each invoice.",
@@ -121,7 +117,10 @@
       "retry": "Try again",
       "help": "If it keeps happening, email me at hola@bellostas.studio and I'll sort it out."
     },
-    "prefill_note": "We already had these details from our conversations. Check them and correct anything that's off."
+    "prefill_note": "We already had these details from our conversations. Check them and correct anything that's off.",
+    "table_amount": "Amount (VAT incl.)",
+    "pay_today": "Today you only pay the first instalment. The rest is tied to what gets delivered — you never pay ahead of the work.",
+    "phase_n": "Phase {n} ·"
   },
   "nav": {
     "work": "Work",

@@ -16,8 +16,6 @@
     "investment_title_2": ".",
     "phases_subtitle": "Fase a fase",
     "table_concept": "Concepto",
-    "table_base": "Base",
-    "table_iva": "IVA (21%)",
     "table_total": "Total",
     "table_grand_total": "Total del proyecto",
     "service": {
@@ -62,8 +60,6 @@
     "payment_transfer_hint": "Te daremos el IBAN y el nº de factura para el pago del anticipo.",
     "cta_view": "Ver qué incluye",
     "valid_until": "Válida hasta el {date}",
-    "quote_text": "Llamamos un lunes pidiendo algo sencillo; el viernes ya estaba la web montada, con su panel propio. Cero ruido, todo entregado.",
-    "quote_author": "Carlos Iribarren — Gotten Gym",
     "faq_label": "Preguntas rápidas",
     "faq_q1": "¿Cuándo pago cada parte?",
     "faq_q1_a": "Tal y como ves en la tabla de arriba: cada plazo se factura en su momento, sin sorpresas. El pago se hace por transferencia bancaria — te enviamos los datos con cada factura.",
@@ -121,7 +117,10 @@
       "retry": "Reintentar",
       "help": "Si sigue pasando, escríbeme a hola@bellostas.studio y lo resuelvo."
     },
-    "prefill_note": "Estos datos ya los teníamos de nuestras conversaciones. Revísalos y corrige lo que haga falta."
+    "prefill_note": "Estos datos ya los teníamos de nuestras conversaciones. Revísalos y corrige lo que haga falta.",
+    "table_amount": "Importe (IVA incl.)",
+    "pay_today": "Hoy solo pagas el primer plazo. El resto va ligado a lo que se entrega: nunca pagas por delante del trabajo.",
+    "phase_n": "Fase {n} ·"
   },
   "nav": {
     "work": "Trabajos",
