@@ -70,6 +70,8 @@ export type ProposalExtra = {
   id: string;
   label: string;
   description: string | null;
+  /** Explicación larga para el "ver más". */
+  details?: string | null;
   price: string | number;
   recommended: boolean;
 };
@@ -168,6 +170,8 @@ const DEMO_PROPOSAL: ProposalPayload = {
       id: "11111111-1111-1111-1111-111111111111",
       label: "Diseño de packaging",
       description: "Etiquetas y cajas listas para imprenta, con tu identidad.",
+      details:
+        "Diseñamos las etiquetas y las cajas con tu identidad y te las entregamos en los formatos que pide tu imprenta, con sangrado y perfiles de color listos. Tú solo los mandas a producción: no hay que rehacer nada ni pagar pruebas de más porque el archivo venga mal.",
       price: "450",
       recommended: true,
     },
@@ -182,6 +186,8 @@ const DEMO_PROPOSAL: ProposalPayload = {
       id: "33333333-3333-3333-3333-333333333333",
       label: "Formulario de presupuesto",
       description: "Pide medidas y tirada, y te llega ya calculado.",
+      details:
+        "Un formulario donde el cliente elige material, medidas y tirada, y el precio se calcula solo con tus tarifas. Puedes compartir el enlace con tu equipo para que cada uno lo use desde su móvil. Dejas de pasar la mañana respondiendo «¿cuánto me costaría…?» por WhatsApp.",
       price: "250",
       recommended: false,
     },

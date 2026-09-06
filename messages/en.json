@@ -128,7 +128,9 @@
     "trust_rating_label": "on Google",
     "extras_label": "You can add",
     "extras_intro": "The scope above already covers what we discussed. These are pieces you can add now — tick them and the total updates.",
-    "extras_recommended": "Recommended"
+    "extras_recommended": "Recommended",
+    "extras_more": "Learn more",
+    "extras_close": "Close"
   },
   "nav": {
     "work": "Work",
