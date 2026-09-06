@@ -12,6 +12,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
 import { ProposalAcceptForm } from "@/components/sections/proposal/ProposalAcceptForm";
 import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav";
+import { ProposalExtras } from "@/components/sections/proposal/ProposalExtras";
+import { ProposalExtrasProvider } from "@/components/sections/proposal/ProposalExtrasContext";
+import { ProposalTotalBar } from "@/components/sections/proposal/ProposalTotalBar";
 import { ProposalMobileCta } from "@/components/sections/proposal/ProposalMobileCta";
 import { fetchProposal, formatEUR, formatEURPrecio, lineTotal } from "@/lib/proposals";
 
@@ -54,6 +57,7 @@ export default async function ProposalPage({
   if (!data) notFound();
 
   const { proposal, items, installments, expired, maintenance, prefill } = data;
+  const extras = data.extras ?? [];
   const accepted = proposal.status === "accepted";
   const unavailable = expired || proposal.status === "rejected" || proposal.status === "expired";
   const serviceKey =
@@ -83,7 +87,7 @@ export default async function ProposalPage({
   ];
 
   return (
-    <>
+    <ProposalExtrasProvider extras={extras}>
       <article className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-12 pt-[150px] pb-[104px] lg:pb-20">
         {/* ── Hero — a ancho completo, sin tarjeta ── */}
         <header className="flex flex-col gap-6 max-w-[920px] mb-14 lg:mb-20">
@@ -148,6 +152,12 @@ export default async function ProposalPage({
               accepted={accepted}
               unavailable={unavailable}
               acceptedLabel={t("status_accepted")}
+              trust={{
+                projectsCount: t("trust_projects_count"),
+                projectsLabel: t("trust_projects_label"),
+                ratingValue: t("trust_rating_value"),
+                ratingLabel: t("trust_rating_label"),
+              }}
             />
           </aside>
 
@@ -322,21 +332,12 @@ export default async function ProposalPage({
                     </table>
                   </div>
 
+                  {/* Añadidos opcionales antes del total: al marcarlos, la
+                      cifra de abajo se mueve sola. */}
+                  <ProposalExtras />
+
                   {/* Total del proyecto — barra carmín (estilo PDF) */}
-                  <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-[var(--color-accent)] text-white px-5 py-4">
-                    <span className="font-body text-[14px] font-medium">{t("table_grand_total")}</span>
-                    <div className="flex flex-col items-end tabular-nums">
-                      <span className="font-display text-[26px] leading-none">
-                        {formatEURPrecio(baseSum, locale)}
-                      </span>
-                      <span className="font-body text-[12px] text-white/75 mt-1">
-                        {t("total_vat_note", {
-                          iva: formatEURPrecio(ivaSum, locale),
-                          total: formatEURPrecio(totSum, locale),
-                        })}
-                      </span>
-                    </div>
-                  </div>
+                  <ProposalTotalBar baseSum={baseSum} taxRate={IVA} />
                   <p className="font-body text-[13px] leading-[1.55] text-[var(--color-text)]/75 mt-4 max-w-[620px]">
                     {t("pay_today")}
                   </p>
@@ -571,6 +572,6 @@ export default async function ProposalPage({
       {!accepted && !unavailable && (
         <ProposalMobileCta label={t("cta_short")} />
       )}
-    </>
+    </ProposalExtrasProvider>
   );
 }

@@ -65,6 +65,15 @@ export type ProposalPrefill = {
   phone?: string;
 };
 
+/** Añadido opcional que el cliente puede marcar. */
+export type ProposalExtra = {
+  id: string;
+  label: string;
+  description: string | null;
+  price: string | number;
+  recommended: boolean;
+};
+
 export type ProposalPayload = {
   ok: boolean;
   proposal: ProposalData;
@@ -73,6 +82,8 @@ export type ProposalPayload = {
   expired: boolean;
   maintenance?: MaintenancePlan | null;
   prefill?: ProposalPrefill | null;
+  extras?: ProposalExtra[] | null;
+  selectedExtras?: { id: string; label: string; price: string }[] | null;
 };
 
 export async function fetchProposal(token: string): Promise<ProposalPayload | null> {
@@ -152,6 +163,29 @@ const DEMO_PROPOSAL: ProposalPayload = {
   ok: true,
   expired: false,
   prefill: { contactName: "Hugo Gotten", contactEmail: "hugo@gottengym.es", phone: "600 123 456" },
+  extras: [
+    {
+      id: "11111111-1111-1111-1111-111111111111",
+      label: "Diseño de packaging",
+      description: "Etiquetas y cajas listas para imprenta, con tu identidad.",
+      price: "450",
+      recommended: true,
+    },
+    {
+      id: "22222222-2222-2222-2222-222222222222",
+      label: "Catálogo descargable",
+      description: "Tu catálogo en PDF, actualizable por ti desde el panel.",
+      price: "300",
+      recommended: false,
+    },
+    {
+      id: "33333333-3333-3333-3333-333333333333",
+      label: "Formulario de presupuesto",
+      description: "Pide medidas y tirada, y te llega ya calculado.",
+      price: "250",
+      recommended: false,
+    },
+  ],
   maintenance: {
     id: "profesional",
     nombre: "Profesional",

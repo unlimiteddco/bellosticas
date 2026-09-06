@@ -8,7 +8,7 @@ type Props = {
   className?: string;
 };
 
-function GoogleG({ size = 22 }: { size?: number }) {
+export function GoogleG({ size = 22 }: { size?: number }) {
   return (
     <svg
       width={size}
@@ -37,7 +37,7 @@ function GoogleG({ size = 22 }: { size?: number }) {
   );
 }
 
-function Star({ size = 14 }: { size?: number }) {
+export function Star({ size = 14 }: { size?: number }) {
   return (
     <svg
       width={size}

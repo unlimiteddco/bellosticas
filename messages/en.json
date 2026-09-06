@@ -121,7 +121,14 @@
     "table_amount": "Amount (excl. VAT)",
     "pay_today": "Today you only pay the first instalment. The rest is tied to what gets delivered — you never pay ahead of the work.",
     "phase_n": "Phase {n} ·",
-    "total_vat_note": "+ {iva} VAT · {total} incl. VAT"
+    "total_vat_note": "+ {iva} VAT · {total} incl. VAT",
+    "trust_projects_count": "+70",
+    "trust_projects_label": "projects delivered",
+    "trust_rating_value": "5.0",
+    "trust_rating_label": "on Google",
+    "extras_label": "You can add",
+    "extras_intro": "The scope above already covers what we discussed. These are pieces you can add now — tick them and the total updates.",
+    "extras_recommended": "Recommended"
   },
   "nav": {
     "work": "Work",

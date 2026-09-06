@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import type { ProposalPrefill } from "@/lib/proposals";
+import { useProposalExtras } from "./ProposalExtrasContext";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -44,6 +45,7 @@ export function ProposalAcceptForm({
 }) {
   const t = useTranslations("proposalPage");
   const locale = useLocale();
+  const extrasCtx = useProposalExtras();
 
   const [fiscalName, setFiscalName] = useState("");
   const [vatNumber, setVatNumber] = useState("");
@@ -93,6 +95,8 @@ export function ProposalAcceptForm({
           contact_email: contactEmail.trim() || undefined,
           phone: phone.trim() || undefined,
           payment_method: "transfer",
+          // Solo los ids: el servidor relee los precios de su base de datos.
+          extra_ids: extrasCtx?.seleccion ?? [],
         }),
       });
       const data = (await res.json().catch(() => null)) as AcceptResponse | null;

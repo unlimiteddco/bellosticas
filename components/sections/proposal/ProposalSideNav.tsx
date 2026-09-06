@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
+import { ProposalTrust } from "./ProposalTrust";
 
 type Section = { id: string; label: string };
 
@@ -18,6 +19,7 @@ export function ProposalSideNav({
   accepted,
   unavailable,
   acceptedLabel,
+  trust,
 }: {
   label: string;
   sections: Section[];
@@ -25,6 +27,13 @@ export function ProposalSideNav({
   accepted: boolean;
   unavailable: boolean;
   acceptedLabel: string;
+  /** Prueba social: acompaña toda la lectura, también la del precio. */
+  trust?: {
+    projectsCount: string;
+    projectsLabel: string;
+    ratingValue: string;
+    ratingLabel: string;
+  } | null;
 }) {
   const [active, setActive] = useState(sections[0]?.id ?? "");
 
@@ -118,6 +127,8 @@ export function ProposalSideNav({
           <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
         </a>
       )}
+
+      {trust && <ProposalTrust {...trust} />}
     </nav>
   );
 }
