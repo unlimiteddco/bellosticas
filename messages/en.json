@@ -32,9 +32,9 @@
     "includes_title_2": ".",
     "total": "Project total",
     "total_note": "Amount excluding VAT. An invoice with the corresponding VAT will be issued.",
-    "plan_label": "PAYMENT PLAN",
-    "plan_title_1": "Payment ",
-    "plan_title_accent": "plan",
+    "plan_label": "Payment plan",
+    "plan_title_1": "You pay as it gets ",
+    "plan_title_accent": "delivered",
     "plan_title_2": ".",
     "plan_note": "Each payment is made by bank transfer. We send you the details when you accept.",
     "dueRule": {
@@ -131,7 +131,25 @@
     "extras_close": "Close",
     "welcome_eyebrow": "Proposal prepared for",
     "welcome_eyebrow_generic": "Your proposal is ready",
-    "welcome_studio": "Bellostas Studio · Huesca"
+    "welcome_studio": "Bellostas Studio · Huesca",
+    "method": {
+      "label": "How we work",
+      "title_1": "Progress every week or two, not ",
+      "title_accent": "months of silence",
+      "title_2": ".",
+      "r1_title": "Every phase ends with a delivery and a written approval",
+      "r1_body": "Nothing moves on assumptions. What's approved is fixed before the next phase starts.",
+      "r2_title": "Revision rounds are included in every phase",
+      "r2_body": "A round is one consolidated list of comments in a single document, not scattered messages.",
+      "r3_title": "A closed phase doesn't reopen",
+      "r3_body": "Changing something already approved is additional work, and it's quoted separately."
+    },
+    "price_label": "Investment",
+    "price_base_note": "base, excl. VAT",
+    "price_closed": "Fixed price for the complete project. No open-ended items and no licences renewing every year.",
+    "price_you_get": "What you get",
+    "plan_plus_vat": "+ VAT",
+    "nav_metodo": "How we work"
   },
   "nav": {
     "work": "Work",

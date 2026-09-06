@@ -32,9 +32,9 @@
     "includes_title_2": ".",
     "total": "Total del proyecto",
     "total_note": "Importe sin IVA. Se emitirá factura con el IVA correspondiente.",
-    "plan_label": "PLAN DE PAGO",
-    "plan_title_1": "Plan de ",
-    "plan_title_accent": "pago",
+    "plan_label": "Plan de cobro",
+    "plan_title_1": "Se paga a medida que se ",
+    "plan_title_accent": "entrega",
     "plan_title_2": ".",
     "plan_note": "Cada pago se realiza por transferencia bancaria. Te enviamos los datos al aceptar.",
     "dueRule": {
@@ -131,7 +131,25 @@
     "extras_close": "Cerrar",
     "welcome_eyebrow": "Propuesta preparada para",
     "welcome_eyebrow_generic": "Tu propuesta está lista",
-    "welcome_studio": "Bellostas Studio · Huesca"
+    "welcome_studio": "Bellostas Studio · Huesca",
+    "method": {
+      "label": "Cómo se trabaja",
+      "title_1": "Novedades cada una o dos semanas, no ",
+      "title_accent": "silencio",
+      "title_2": " de meses.",
+      "r1_title": "Cada fase termina con una entrega y una aprobación por escrito",
+      "r1_body": "Nada avanza sobre supuestos. Lo aprobado queda fijado antes de empezar la fase siguiente.",
+      "r2_title": "Las rondas de revisión van incluidas en cada fase",
+      "r2_body": "Una ronda es una lista de comentarios reunida en un único documento, no mensajes sueltos.",
+      "r3_title": "Una fase cerrada no se reabre",
+      "r3_body": "Cambiar en desarrollo algo que ya se aprobó antes es trabajo adicional, y se presupuesta aparte."
+    },
+    "price_label": "Inversión",
+    "price_base_note": "base sin IVA",
+    "price_closed": "Precio cerrado por el proyecto completo. Sin partidas abiertas ni licencias que se renueven cada año.",
+    "price_you_get": "Lo que te llevas",
+    "plan_plus_vat": "+ IVA",
+    "nav_metodo": "Cómo se trabaja"
   },
   "nav": {
     "work": "Trabajos",

@@ -14,7 +14,9 @@ import { ProposalAcceptForm } from "@/components/sections/proposal/ProposalAccep
 import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav";
 import { ProposalExtras } from "@/components/sections/proposal/ProposalExtras";
 import { ProposalExtrasProvider } from "@/components/sections/proposal/ProposalExtrasContext";
-import { ProposalTotalBar } from "@/components/sections/proposal/ProposalTotalBar";
+import { ProposalPrice } from "@/components/sections/proposal/ProposalPrice";
+import { ProposalPaymentPlan } from "@/components/sections/proposal/ProposalPaymentPlan";
+import { ProposalMethod } from "@/components/sections/proposal/ProposalMethod";
 import { ProposalPreloader } from "@/components/sections/proposal/ProposalPreloader";
 import { ProposalMobileCta } from "@/components/sections/proposal/ProposalMobileCta";
 import { fetchProposal, formatEUR, formatEURPrecio, lineTotal } from "@/lib/proposals";
@@ -69,8 +71,6 @@ export default async function ProposalPage({
   // Tabla de inversión (estilo documento): base por plazo + IVA 21% + total.
   const IVA = 0.21;
   const baseSum = installments.reduce((s, i) => s + (Number(i.amount) || 0), 0);
-  const ivaSum = baseSum * IVA;
-  const totSum = baseSum + ivaSum;
 
   // "Válida hasta el…" — urgencia honesta si la propuesta tiene caducidad.
   const validUntil =
@@ -83,6 +83,7 @@ export default async function ProposalPage({
 
   const navSections = [
     { id: "incluye", label: t("nav_incluye") },
+    { id: "metodo", label: t("nav_metodo") },
     { id: "inversion", label: t("nav_inversion") },
     { id: "aceptar", label: t("nav_empezar") },
   ];
@@ -273,6 +274,9 @@ export default async function ProposalPage({
               )}
             </section>
 
+            {/* ── Cómo se trabaja — antes del precio a propósito ── */}
+            <ProposalMethod locale={locale} />
+
             {/* ── Inversión (total + plan de pago) ── */}
             <section id="inversion" className="scroll-mt-28">
               <Reveal>
@@ -289,82 +293,45 @@ export default async function ProposalPage({
                 />
               </Reveal>
 
-              {installments.length > 0 ? (
-                <Reveal delay={0.1}>
-                  <div className="overflow-x-auto">
-                    <table className="w-full min-w-[440px] border-collapse">
-                      <thead>
-                        <tr className="border-b border-[var(--color-text)]/15">
-                          {[t("table_concept"), t("table_amount")].map(
-                            (h, i) => (
-                              <th
-                                key={i}
-                                className={`py-3 font-body uppercase text-[10px] font-medium text-[var(--color-text-muted)] ${
-                                  i === 0 ? "pr-4 text-left" : "px-3 text-right"
-                                }`}
-                                style={{ letterSpacing: "0.14em" }}
-                              >
-                                {h}
-                              </th>
-                            ),
-                          )}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {installments.map((inst, i) => {
-                          const base = Number(inst.amount) || 0;
-                          // La etiqueta ya dice cuándo se paga ("50% Fase 1, al
-                          // aceptar"). Numerarla además como "Pago 1" hace que el
-                          // cliente cuente pagos en vez de leer el calendario.
-                          const label = inst.label.replace(/^\s*pago\s*\d+\s*[·:.-]\s*/i, "");
-                          return (
-                            <tr key={inst.id ?? i} className="border-b border-[var(--color-border)]">
-                              <td className="py-4 pr-4">
-                                <span className="font-body text-[15px] text-[var(--color-text)]">
-                                  {label}
-                                </span>
-                              </td>
-                              <td className="py-4 pl-3 text-right font-body text-[15px] text-[var(--color-text)] tabular-nums">
-                                {formatEUR(base, locale)}
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
+              {/* La cifra a tamaño de titular, con lo que se lleva al lado:
+                  así el precio nunca se lee solo. */}
+              <Reveal delay={0.1}>
+                <ProposalPrice
+                  baseSum={installments.length > 0 ? baseSum : Number(proposal.total) || 0}
+                  taxRate={IVA}
+                  entregables={highlights.map((h) => h.title)}
+                />
+              </Reveal>
 
-                  {/* Añadidos opcionales antes del total: al marcarlos, la
-                      cifra de abajo se mueve sola. */}
-                  <ProposalExtras />
+              <ProposalExtras />
 
-                  {/* Total del proyecto — barra carmín (estilo PDF) */}
-                  <ProposalTotalBar baseSum={baseSum} taxRate={IVA} />
-                  <p className="font-body text-[13px] leading-[1.55] text-[var(--color-text)]/75 mt-4 max-w-[620px]">
+              {installments.length > 0 && (
+                <div className="mt-14">
+                  <Reveal>
+                    <EditorialLabel>{`// ${t("plan_label")}`}</EditorialLabel>
+                  </Reveal>
+                  <Reveal delay={0.08}>
+                    <MixedHeadline
+                      className="text-[28px] md:text-[36px] mt-4 mb-7"
+                      parts={[
+                        { text: t("plan_title_1") },
+                        { text: t("plan_title_accent"), accent: true },
+                        { text: t("plan_title_2") },
+                      ]}
+                    />
+                  </Reveal>
+                  <Reveal delay={0.1}>
+                    <ProposalPaymentPlan installments={installments} />
+                  </Reveal>
+                  <p className="font-body text-[13px] leading-[1.55] text-[var(--color-text)]/75 mt-6 max-w-[620px]">
                     {t("pay_today")}
                   </p>
                   <p className="font-body text-[12px] text-[var(--color-text-muted)]/80 mt-2">
                     {t("plan_note")}
                   </p>
-                </Reveal>
-              ) : (
-                <Reveal delay={0.1}>
-                  <div>
-                    <p
-                      className="font-body uppercase text-[11px] text-[var(--color-text-muted)]"
-                      style={{ letterSpacing: "0.18em" }}
-                    >
-                      {t("total")}
-                    </p>
-                    <p className="font-display text-[52px] md:text-[68px] leading-none text-[var(--color-accent)] tabular-nums mt-2">
-                      {formatEUR(proposal.total, locale)}
-                    </p>
-                    <p className="font-body text-[12px] text-[var(--color-text-muted)]/80 mt-2">
-                      {t("total_note")}
-                    </p>
-                  </div>
-                </Reveal>
+                </div>
               )}
+
 
               {/* Mantenimiento — se ve ANTES de aceptar, no en la 4ª factura */}
               {maintenance ? (
