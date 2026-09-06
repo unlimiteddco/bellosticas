@@ -44,6 +44,14 @@ export type ProposalData = {
   highlights?: Highlight[] | null;
   /** Alcance fase a fase. */
   phases?: Phase[] | null;
+  /** Punto de partida — de las notas, nunca inventado. */
+  context?: ProposalContext | null;
+  /** Hoy vs con la nueva web. */
+  contrast?: ProposalContrast | null;
+  /** Lo que aporta el cliente y lo que se presupuesta aparte. */
+  scope?: ProposalScope | null;
+  /** Preguntas propias de esta propuesta; si faltan, salen las de siempre. */
+  faqs?: ProposalFaq[] | null;
 };
 
 /** Plan de mantenimiento asignado a esta propuesta (uno solo, nunca un menú). */
@@ -76,6 +84,27 @@ export type ProposalExtra = {
   recommended: boolean;
 };
 
+/** Punto de partida: dónde está hoy y qué tiene que demostrar la web. */
+export type ProposalContext = {
+  intro: string;
+  proofs?: string[] | null;
+};
+
+/** El antes y el después, enfrentados. */
+export type ProposalContrast = {
+  today: string[];
+  after: string[];
+};
+
+/** Qué aporta el cliente y qué queda fuera del precio. */
+export type ProposalScope = {
+  provides: string[];
+  excluded: string[];
+  note?: string | null;
+};
+
+export type ProposalFaq = { q: string; a: string };
+
 export type ProposalPayload = {
   ok: boolean;
   proposal: ProposalData;
@@ -86,6 +115,179 @@ export type ProposalPayload = {
   prefill?: ProposalPrefill | null;
   extras?: ProposalExtra[] | null;
   selectedExtras?: { id: string; label: string; price: string }[] | null;
+};
+
+const DEMO_PROPOSAL: ProposalPayload = {
+  ok: true,
+  expired: false,
+  prefill: {
+    contactName: "Gráficas Imagen",
+    contactEmail: "info@graficasimagen.es",
+    phone: "876 286 986",
+  },
+  maintenance: {
+    id: "profesional",
+    nombre: "Profesional",
+    mensual: 89,
+    anual: 960,
+    ahorro: 108,
+    incluye: [
+      "Servidor, dominio y SSL",
+      "Actualizaciones de seguridad",
+      "Copias de seguridad diarias",
+      "Monitorización de caída",
+      "Soporte por email (24 h laborables)",
+      "1 h/mes de cambios incluida",
+      "Entorno de pruebas",
+      "Informe mensual",
+    ],
+    nota: "La web recibe archivos y datos de empleados de vuestros clientes, y los formularios son un canal comercial activo: necesita vigilancia de entregabilidad, copias y actualizaciones continuas. El primer mes va incluido en el proyecto.",
+  },
+  extras: [
+    {
+      id: "11111111-1111-1111-1111-111111111111",
+      label: "Portal de cliente",
+      description: "Acceso privado por empresa, con sus precios y repedido en dos clics.",
+      details:
+        "Cada empresa entra con su acceso y ve su catálogo con los precios que tenéis pactados con ella, los artes que ya aprobó y su histórico de pedidos. Repetir un pedido pasa de diez mensajes a dos clics.\n\nEs la ampliación natural de esta web: tiene sentido cuando el volumen de cuentas grandes lo justifique, no antes.",
+      price: "1400",
+      recommended: false,
+    },
+    {
+      id: "22222222-2222-2222-2222-222222222222",
+      label: "Aprobación de artes online",
+      description: "El cliente aprueba el diseño final con fecha registrada.",
+      details:
+        "Le mandáis un enlace, ve el arte final y lo aprueba o pide cambios ahí mismo. Queda registrado quién aprobó y cuándo.\n\nSirve para lo de siempre: cuando alguien dice que el logo iba en otra posición, hay una aprobación con fecha en vez de una conversación de WhatsApp.",
+      price: "600",
+      recommended: false,
+    },
+    {
+      id: "33333333-3333-3333-3333-333333333333",
+      label: "Landings por sector",
+      description: "Una página por sector para posicionar y para campañas.",
+      details:
+        "Una página propia para hostelería, otra para industria, otra para sanidad. Cada una habla el idioma de ese sector y compite por sus búsquedas en Google.\n\nAdemás son el destino natural si algún día hacéis campañas: mandar tráfico a la home convierte mucho peor que mandarlo a la página de su sector.",
+      price: "450",
+      recommended: true,
+    },
+  ],
+  proposal: {
+    title:
+      "El sitio que convierte a Gráficas Imagen en el proveedor de uniformidad de las empresas de Aragón",
+    clientName: "Gráficas Imagen",
+    serviceType: "web_corporativa",
+    transformation:
+      "Que pedir uniformidad a Gráficas Imagen sea tan fácil que una empresa de 40 empleados no se plantee llamar a otro.",
+    timeline: "5 semanas desde que entregáis marca, textos y fotos",
+    total: "1500",
+    status: "sent",
+    expiresAt: "2026-09-21T23:59:59.000Z",
+    context: {
+      intro:
+        "graficasimagen.es está hoy vacío: una instalación de WordPress sin contenido. La marca nueva ya está lista y anunciándose en redes, así que este es el momento de construir la web de la etapa nueva, no de parchear la anterior.",
+      proofs: [
+        "Que Gráficas Imagen es un proveedor de uniformidad, no una imprenta que además hace ropa",
+        "Que pedir para 40 empleados es un proceso ordenado, no diez mensajes y un Excel de tallas",
+        "Que la marca nueva es la de una empresa con la que se firma un contrato anual",
+      ],
+    },
+    contrast: {
+      today: [
+        "El dominio, vacío mientras la marca nueva ya se anuncia",
+        "Los pedidos se piden por WhatsApp, con logos en JPG",
+        "Las tallas se recogen en un Excel que va y viene",
+        "Nada transmite el nivel que busca una empresa de 40 empleados",
+      ],
+      after: [
+        "Una web que presenta la ropa laboral como el servicio principal",
+        "Un configurador que recoge la petición completa y ordenada",
+        "Cada empleado pone su talla desde un enlace, sin registrarse",
+        "La tabla de tallas descargable en Excel, lista para producir",
+      ],
+    },
+    scope: {
+      provides: [
+        "Manual de marca nuevo y logotipo en vectorial",
+        "Textos de los servicios y fotos de trabajos realizados",
+        "Listado de prendas, sectores y técnicas de marcaje",
+        "Correo donde deben llegar las peticiones",
+        "Accesos al dominio y al hosting actual",
+      ],
+      excluded: [
+        "Tienda online y pago con tarjeta",
+        "Cálculo automático de precios en el configurador",
+        "Gestión de stock o enlace con vuestro programa de facturación",
+        "Redacción de textos comerciales y traducciones",
+        "Fotografía y vídeo de producto",
+        "Campañas de Google Ads y gestión de redes",
+      ],
+      note: "El plazo empieza a contar desde que está entregado todo lo de la izquierda, no desde la firma. Nada de la derecha condiciona el proyecto: se presupuesta aparte solo si algún día hace falta.",
+    },
+    faqs: [
+      {
+        q: "¿El configurador enseña nuestros precios a la competencia?",
+        a: "No. No muestra ninguna tarifa: recoge la petición completa y os la entrega ordenada para que presupuestéis vosotros como hacéis ahora, pero sin diez mensajes de ida y vuelta.",
+      },
+      {
+        q: "Nuestra web actual está vacía, ¿perdemos algo al empezar de cero?",
+        a: "No hay contenido que perder. El dominio y las cuentas de correo siguen funcionando igual durante todo el proceso.",
+      },
+      {
+        q: "¿Y si dentro de unos meses queremos que nuestros clientes repitan pedido solos?",
+        a: "Está previsto. El portal de cliente es la ampliación natural de esta web y se presupuesta aparte cuando el volumen lo justifique.",
+      },
+    ],
+    highlights: [
+      {
+        title: "Ropa laboral primero",
+        description: "La página principal del servicio con el que queréis crecer, por sectores.",
+      },
+      {
+        title: "Peticiones ordenadas",
+        description: "Prenda, cantidad, marcaje y logo llegan estructurados a vuestro correo.",
+      },
+      {
+        title: "Tallas sin perseguir",
+        description: "Cada empleado pone la suya desde un enlace; vosotros la descargáis en Excel.",
+      },
+      {
+        title: "Logos que sirven",
+        description: "Avisa solo si el archivo no es vectorial o no tiene resolución.",
+      },
+    ],
+    phases: [
+      {
+        name: "Web corporativa",
+        items: [
+          "6 páginas con la identidad nueva",
+          "Ropa laboral por sectores",
+          "Fichas de trabajos realizados",
+          "Que os encuentren en Google",
+          "Contacto y WhatsApp directo",
+        ],
+      },
+      {
+        name: "Configurador y recogida de tallas",
+        items: [
+          "Petición guiada en 4 pasos",
+          "Aviso si el logo no sirve",
+          "Resumen ordenado por email",
+          "Enlace de tallas para la plantilla",
+          "Descarga en Excel",
+        ],
+      },
+    ],
+  },
+  items: [
+    { description: "Web corporativa nueva", quantity: 1, unitPrice: "900" },
+    { description: "Configurador de petición de ropa laboral", quantity: 1, unitPrice: "400" },
+    { description: "Recogida de tallas por empleado", quantity: 1, unitPrice: "200" },
+  ],
+  installments: [
+    { label: "Al aceptar la propuesta", amount: "750", dueRule: "on_accept", dueDate: null },
+    { label: "A la entrega", amount: "750", dueRule: "on_delivery", dueDate: null },
+  ],
 };
 
 export async function fetchProposal(token: string): Promise<ProposalPayload | null> {
@@ -160,86 +362,3 @@ export function lineTotal(item: ProposalItem): number {
   const p = typeof item.unitPrice === "string" ? parseFloat(item.unitPrice) : item.unitPrice;
   return (Number.isFinite(q) ? q : 0) * (Number.isFinite(p) ? p : 0);
 }
-
-const DEMO_PROPOSAL: ProposalPayload = {
-  ok: true,
-  expired: false,
-  prefill: { contactName: "Hugo Gotten", contactEmail: "hugo@gottengym.es", phone: "600 123 456" },
-  extras: [
-    {
-      id: "11111111-1111-1111-1111-111111111111",
-      label: "Diseño de packaging",
-      description: "Etiquetas y cajas listas para imprenta, con tu identidad.",
-      details:
-        "Diseñamos las etiquetas y las cajas con tu identidad y te las entregamos en los formatos que pide tu imprenta, con sangrado y perfiles de color listos. Tú solo los mandas a producción: no hay que rehacer nada ni pagar pruebas de más porque el archivo venga mal.",
-      price: "450",
-      recommended: true,
-    },
-    {
-      id: "22222222-2222-2222-2222-222222222222",
-      label: "Catálogo descargable",
-      description: "Tu catálogo en PDF, actualizable por ti desde el panel.",
-      price: "300",
-      recommended: false,
-    },
-    {
-      id: "33333333-3333-3333-3333-333333333333",
-      label: "Formulario de presupuesto",
-      description: "Pide medidas y tirada, y te llega ya calculado.",
-      details:
-        "Un formulario donde el cliente elige material, medidas y tirada, y el precio se calcula solo con tus tarifas. Puedes compartir el enlace con tu equipo para que cada uno lo use desde su móvil. Dejas de pasar la mañana respondiendo «¿cuánto me costaría…?» por WhatsApp.",
-      price: "250",
-      recommended: false,
-    },
-  ],
-  maintenance: {
-    id: "profesional",
-    nombre: "Profesional",
-    mensual: 89,
-    anual: 960,
-    ahorro: 108,
-    incluye: [
-      "Servidor, dominio y SSL",
-      "Actualizaciones de seguridad",
-      "Copias de seguridad diarias",
-      "Monitorización de caída",
-      "Soporte por email (24 h laborables)",
-      "1 h/mes de cambios",
-      "Entorno de pruebas",
-      "Informe mensual",
-    ],
-    nota: null,
-  },
-  proposal: {
-    title: "Tienda online a medida para Gotten Gym",
-    clientName: "Hugo",
-    serviceType: "tienda_online",
-    transformation:
-      "Convertir las visitas en socios: una tienda rápida, con pasarela de pago y panel propio para gestionar planes sin depender de nadie.",
-    timeline: "Entrega en 3–4 semanas desde el anticipo",
-    total: "4200.00",
-    status: "sent",
-    expiresAt: "2026-06-24T00:00:00.000Z",
-    highlights: [
-      { title: "Tienda profesional", description: "Catálogo, carrito y pasarela de pago lista para vender desde el primer día." },
-      { title: "Panel propio", description: "Gestiona productos, pedidos y planes sin depender de nadie ni de plantillas." },
-      { title: "Rápida y optimizada", description: "Construida en Next.js: máxima velocidad, SEO y experiencia impecable en móvil." },
-      { title: "Pagos y socios", description: "Cobro automático de cuotas y alta de socios integrados en la propia web." },
-    ],
-    phases: [
-      { name: "Fase 1 · Diseño y tienda", tags: ["DISEÑO", "DESARROLLO"], items: ["Identidad visual y sistema de diseño", "Maquetación de las páginas clave", "Catálogo de productos y fichas", "Carrito y checkout con pasarela de pago"] },
-      { name: "Fase 2 · Panel y socios", tags: ["BACKOFFICE", "ACCESOS"], items: ["Panel de administración a medida", "Gestión de planes y cuotas", "Alta y área privada de socios", "Notificaciones por email"] },
-      { name: "Fase 3 · Lanzamiento", tags: ["PRUEBAS", "FORMACIÓN"], items: ["Pruebas y control de calidad", "Puesta en producción", "Formación de uso del panel", "30 días de soporte incluido"] },
-    ],
-  },
-  items: [
-    { id: "1", description: "Diseño a medida (UX/UI) y sistema visual", quantity: "1", unitPrice: "1400.00" },
-    { id: "2", description: "Desarrollo del e-commerce (Next.js + pasarela de pago)", quantity: "1", unitPrice: "1900.00" },
-    { id: "3", description: "Panel de administración de planes y socios", quantity: "1", unitPrice: "600.00" },
-    { id: "4", description: "Puesta en producción + formación", quantity: "1", unitPrice: "300.00" },
-  ],
-  installments: [
-    { id: "a", label: "Anticipo (50%)", amount: "2100.00", dueRule: "on_accept", dueDate: null },
-    { id: "b", label: "Entrega (50%)", amount: "2100.00", dueRule: "on_delivery", dueDate: null },
-  ],
-};

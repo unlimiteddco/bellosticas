@@ -149,7 +149,20 @@
     "price_closed": "Fixed price for the complete project. No open-ended items and no licences renewing every year.",
     "price_you_get": "What you get",
     "plan_plus_vat": "+ VAT",
-    "nav_metodo": "How we work"
+    "nav_metodo": "How we work",
+    "context_label": "Starting point",
+    "context_proofs": "What the new site has to prove",
+    "objective_label": "Objective",
+    "contrast_today": "Today",
+    "contrast_after": "With the new site",
+    "scope_label": "Scope",
+    "scope_title_1": "What you provide and what's quoted ",
+    "scope_title_accent": "separately",
+    "scope_title_2": ".",
+    "scope_provides": "You provide",
+    "scope_excluded": "Quoted separately, if needed",
+    "nav_partida": "Starting point",
+    "nav_alcance": "Scope"
   },
   "nav": {
     "work": "Work",

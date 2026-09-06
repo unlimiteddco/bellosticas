@@ -17,6 +17,9 @@ import { ProposalExtrasProvider } from "@/components/sections/proposal/ProposalE
 import { ProposalPrice } from "@/components/sections/proposal/ProposalPrice";
 import { ProposalPaymentPlan } from "@/components/sections/proposal/ProposalPaymentPlan";
 import { ProposalMethod } from "@/components/sections/proposal/ProposalMethod";
+import { ProposalContext } from "@/components/sections/proposal/ProposalContext";
+import { ProposalContrast } from "@/components/sections/proposal/ProposalContrast";
+import { ProposalScope } from "@/components/sections/proposal/ProposalScope";
 import { ProposalPreloader } from "@/components/sections/proposal/ProposalPreloader";
 import { ProposalMobileCta } from "@/components/sections/proposal/ProposalMobileCta";
 import { fetchProposal, formatEUR, formatEURPrecio, lineTotal } from "@/lib/proposals";
@@ -61,6 +64,10 @@ export default async function ProposalPage({
 
   const { proposal, items, installments, expired, maintenance, prefill } = data;
   const extras = data.extras ?? [];
+  const contexto = proposal.context ?? null;
+  const contraste = proposal.contrast ?? null;
+  const alcance = proposal.scope ?? null;
+  const faqs = proposal.faqs ?? [];
   const accepted = proposal.status === "accepted";
   const unavailable = expired || proposal.status === "rejected" || proposal.status === "expired";
   const serviceKey =
@@ -82,9 +89,11 @@ export default async function ProposalPage({
       : null;
 
   const navSections = [
+    ...(contexto ? [{ id: "partida", label: t("nav_partida") }] : []),
     { id: "incluye", label: t("nav_incluye") },
     { id: "metodo", label: t("nav_metodo") },
     { id: "inversion", label: t("nav_inversion") },
+    ...(alcance ? [{ id: "alcance", label: t("nav_alcance") }] : []),
     { id: "aceptar", label: t("nav_empezar") },
   ];
 
@@ -165,6 +174,29 @@ export default async function ProposalPage({
           </aside>
 
           <div className="lg:col-span-9 flex flex-col gap-16 lg:gap-20">
+            {/* ── Punto de partida: su negocio antes que el nuestro ── */}
+            {contexto && (
+              <ProposalContext
+                data={contexto}
+                label={t("context_label")}
+                proofsLabel={t("context_proofs")}
+              />
+            )}
+
+            {/* ── Hoy vs con la nueva web ── */}
+            {contraste && (
+              <section className="scroll-mt-28">
+                <Reveal>
+                  <EditorialLabel>{`// ${t("objective_label")}`}</EditorialLabel>
+                </Reveal>
+                <ProposalContrast
+                  data={contraste}
+                  todayLabel={t("contrast_today")}
+                  afterLabel={t("contrast_after")}
+                />
+              </section>
+            )}
+
             {/* ── Qué incluye ── */}
             <section id="incluye" className="scroll-mt-28">
               <Reveal>
@@ -390,11 +422,20 @@ export default async function ProposalPage({
                   >
                     {t("faq_label")}
                   </p>
+                  {/* Las preguntas propias de esta propuesta ganan a las
+                      genéricas: una duda concreta suya vale más que cuatro
+                      respuestas de plantilla. */}
                   <div className="mt-3 divide-y divide-[var(--color-border)]">
-                    {(["q1", "q2", "q3", "q4"] as const).map((k) => (
-                      <details key={k} className="group py-3.5">
+                    {(faqs.length > 0
+                      ? faqs
+                      : (["q1", "q2", "q3", "q4"] as const).map((k) => ({
+                          q: t(`faq_${k}`),
+                          a: t(`faq_${k}_a`),
+                        }))
+                    ).map((f, i) => (
+                      <details key={i} className="group py-3.5">
                         <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-body text-[15px] text-[var(--color-text)]">
-                          {t(`faq_${k}`)}
+                          {f.q}
                           <span
                             aria-hidden
                             className="shrink-0 text-[var(--color-text-muted)] text-[18px] leading-none transition-transform duration-200 group-open:rotate-45"
@@ -403,7 +444,7 @@ export default async function ProposalPage({
                           </span>
                         </summary>
                         <p className="font-body text-[14px] text-[var(--color-text-muted)] leading-[1.6] mt-2 max-w-[640px]">
-                          {t(`faq_${k}_a`)}
+                          {f.a}
                         </p>
                       </details>
                     ))}
@@ -411,6 +452,19 @@ export default async function ProposalPage({
                 </div>
               </Reveal>
             </section>
+
+            {/* ── Alcance: qué aporta él y qué no entra ── */}
+            {alcance && (
+              <ProposalScope
+                data={alcance}
+                label={t("scope_label")}
+                title1={t("scope_title_1")}
+                titleAccent={t("scope_title_accent")}
+                title2={t("scope_title_2")}
+                providesLabel={t("scope_provides")}
+                excludedLabel={t("scope_excluded")}
+              />
+            )}
 
             {/* ── Empezar (formulario) ── */}
             <section id="aceptar" className="scroll-mt-28">

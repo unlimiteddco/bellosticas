@@ -149,7 +149,20 @@
     "price_closed": "Precio cerrado por el proyecto completo. Sin partidas abiertas ni licencias que se renueven cada año.",
     "price_you_get": "Lo que te llevas",
     "plan_plus_vat": "+ IVA",
-    "nav_metodo": "Cómo se trabaja"
+    "nav_metodo": "Cómo se trabaja",
+    "context_label": "Punto de partida",
+    "context_proofs": "Lo que la nueva web tiene que demostrar",
+    "objective_label": "Objetivo",
+    "contrast_today": "Hoy",
+    "contrast_after": "Con la nueva web",
+    "scope_label": "Alcance",
+    "scope_title_1": "Lo que aportas tú y lo que se presupuesta ",
+    "scope_title_accent": "aparte",
+    "scope_title_2": ".",
+    "scope_provides": "Lo aportas tú",
+    "scope_excluded": "Se presupuesta aparte, si hace falta",
+    "nav_partida": "Punto de partida",
+    "nav_alcance": "Alcance"
   },
   "nav": {
     "work": "Trabajos",
