@@ -4,23 +4,19 @@ import { GoogleG, Star } from "@/components/ui/GoogleReviewBadge";
  * Prueba social en el menú lateral: acompaña al cliente durante toda la
  * lectura, incluida la parte del precio.
  *
- * Dos señales distintas a propósito: la valoración de Google la escribieron
- * otros (no la controlo yo), y el número de proyectos dice que esto no es el
- * primero. A una empresa grande le importa más lo segundo.
+ * Solo la valoración de Google: la escribieron otros, es verificable y no
+ * hace falta defenderla. Una cifra propia ("+70 proyectos") se lee como
+ * relleno y encima invita a que te la pregunten.
  */
 export function ProposalTrust({
-  projectsCount,
-  projectsLabel,
   ratingValue,
   ratingLabel,
 }: {
-  projectsCount: string;
-  projectsLabel: string;
   ratingValue: string;
   ratingLabel: string;
 }) {
   return (
-    <div className="mt-6 pt-6 border-t border-[var(--color-text)]/12 flex flex-col gap-5">
+    <div className="mt-6 pt-6 border-t border-[var(--color-text)]/12">
       <div className="flex items-center gap-2.5">
         <GoogleG size={20} />
         <div className="min-w-0">
@@ -38,15 +34,6 @@ export function ProposalTrust({
             {ratingLabel}
           </span>
         </div>
-      </div>
-
-      <div>
-        <span className="block font-display text-[26px] leading-none text-[var(--color-text)] tabular-nums">
-          {projectsCount}
-        </span>
-        <span className="block font-body text-[11px] leading-tight text-[var(--color-text-muted)] mt-1.5">
-          {projectsLabel}
-        </span>
       </div>
     </div>
   );

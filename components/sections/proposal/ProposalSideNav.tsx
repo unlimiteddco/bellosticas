@@ -28,12 +28,7 @@ export function ProposalSideNav({
   unavailable: boolean;
   acceptedLabel: string;
   /** Prueba social: acompaña toda la lectura, también la del precio. */
-  trust?: {
-    projectsCount: string;
-    projectsLabel: string;
-    ratingValue: string;
-    ratingLabel: string;
-  } | null;
+  trust?: { ratingValue: string; ratingLabel: string } | null;
 }) {
   const [active, setActive] = useState(sections[0]?.id ?? "");
 

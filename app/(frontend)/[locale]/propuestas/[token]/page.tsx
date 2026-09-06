@@ -153,8 +153,6 @@ export default async function ProposalPage({
               unavailable={unavailable}
               acceptedLabel={t("status_accepted")}
               trust={{
-                projectsCount: t("trust_projects_count"),
-                projectsLabel: t("trust_projects_label"),
                 ratingValue: t("trust_rating_value"),
                 ratingLabel: t("trust_rating_label"),
               }}
