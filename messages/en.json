@@ -128,7 +128,10 @@
     "extras_intro": "The scope above already covers what we discussed. These are pieces you can add now — tick them and the total updates.",
     "extras_recommended": "Recommended",
     "extras_more": "Learn more",
-    "extras_close": "Close"
+    "extras_close": "Close",
+    "welcome_hello": "Hello, {name}.",
+    "welcome_hello_generic": "Welcome.",
+    "welcome_sub": "Your proposal is ready"
   },
   "nav": {
     "work": "Work",

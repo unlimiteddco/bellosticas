@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
@@ -10,6 +11,10 @@ const SESSION_KEY = "bs:preloader-shown";
 const TOTAL_DURATION = 700;
 
 export function Preloader() {
+  // Las propuestas tienen su propio recibimiento, con el nombre del cliente.
+  // Dos preloaders encadenados serían dos esperas seguidas.
+  const pathname = usePathname();
+  const esPropuesta = pathname?.includes("/propuestas/") ?? false;
   const t = useTranslations("preloader");
   const phrases = (t.raw("phrases") as string[]) ?? [];
   const location = t("location");
@@ -22,7 +27,7 @@ export function Preloader() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(SESSION_KEY)) {
+    if (esPropuesta || sessionStorage.getItem(SESSION_KEY)) {
       setVisible(false);
       return;
     }
@@ -65,7 +70,7 @@ export function Preloader() {
       clearInterval(timeTimer);
       document.body.removeAttribute("aria-busy");
     };
-  }, [phrases.length]);
+  }, [phrases.length, esPropuesta]);
 
   return (
     <AnimatePresence>

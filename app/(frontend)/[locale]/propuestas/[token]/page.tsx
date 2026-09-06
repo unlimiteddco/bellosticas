@@ -15,6 +15,7 @@ import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav"
 import { ProposalExtras } from "@/components/sections/proposal/ProposalExtras";
 import { ProposalExtrasProvider } from "@/components/sections/proposal/ProposalExtrasContext";
 import { ProposalTotalBar } from "@/components/sections/proposal/ProposalTotalBar";
+import { ProposalPreloader } from "@/components/sections/proposal/ProposalPreloader";
 import { ProposalMobileCta } from "@/components/sections/proposal/ProposalMobileCta";
 import { fetchProposal, formatEUR, formatEURPrecio, lineTotal } from "@/lib/proposals";
 
@@ -88,6 +89,9 @@ export default async function ProposalPage({
 
   return (
     <ProposalExtrasProvider extras={extras}>
+      {/* Recibimiento con su nombre antes de que vea nada */}
+      {!unavailable && <ProposalPreloader clientName={proposal.clientName} />}
+
       <article className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-12 pt-[150px] pb-[104px] lg:pb-20">
         {/* ── Hero — a ancho completo, sin tarjeta ── */}
         <header className="flex flex-col gap-6 max-w-[920px] mb-14 lg:mb-20">
