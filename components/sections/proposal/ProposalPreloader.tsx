@@ -37,8 +37,15 @@ export function ProposalPreloader({ clientName }: { clientName?: string | null }
 
     document.body.style.overflow = "hidden";
     document.body.setAttribute("aria-busy", "true");
+    // La cabecera se esconde: flotando sobre el telón rompe el momento.
+    document.documentElement.setAttribute("data-proposal-welcome", "");
 
-    const abrir = setTimeout(() => setFase("abriendo"), ESPERA);
+    const abrir = setTimeout(() => {
+      setFase("abriendo");
+      // Se devuelve aquí, no al final: así entra fundiéndose mientras el
+      // telón se separa, en vez de aparecer de golpe sobre la propuesta.
+      document.documentElement.removeAttribute("data-proposal-welcome");
+    }, ESPERA);
     const salir = setTimeout(() => {
       sessionStorage.setItem(clave, "1");
       setFase("fuera");
@@ -49,6 +56,7 @@ export function ProposalPreloader({ clientName }: { clientName?: string | null }
       clearTimeout(salir);
       document.body.style.overflow = "";
       document.body.removeAttribute("aria-busy");
+      document.documentElement.removeAttribute("data-proposal-welcome");
     };
   }, [reduced]);
 
@@ -57,6 +65,7 @@ export function ProposalPreloader({ clientName }: { clientName?: string | null }
     if (fase === "fuera") {
       document.body.style.overflow = "";
       document.body.removeAttribute("aria-busy");
+      document.documentElement.removeAttribute("data-proposal-welcome");
     }
   }, [fase]);
 

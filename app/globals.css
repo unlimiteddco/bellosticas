@@ -249,3 +249,16 @@ body::after {
     animation: none;
   }
 }
+
+/* ── Recibimiento de la propuesta ──
+   Mientras dura el saludo, la cabecera no compite: aparecería flotando sobre
+   el telón negro y rompería el momento. Al abrirse, entra con un fundido en
+   vez de aparecer de golpe. */
+html[data-proposal-welcome] header {
+  /* !important a propósito: la cabecera se anima con framer-motion, que
+     escribe la opacidad en el atributo style. Sin esto, el estilo en línea
+     gana a la regla y la cabecera seguiría viéndose sobre el telón. */
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.45s ease-out;
+}
