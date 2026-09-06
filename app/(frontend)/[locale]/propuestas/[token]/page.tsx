@@ -214,27 +214,14 @@ export default async function ProposalPage({
               </Reveal>
               {highlights.length > 0 || phases.length > 0 ? (
                 <>
-                  {/* Piezas de la solución (rejilla cualitativa) */}
-                  {highlights.length > 0 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
-                      {highlights.map((h, i) => (
-                        <Reveal key={i} delay={Math.min(i * 0.06, 0.3)}>
-                          <div className="h-full rounded-2xl border border-[var(--color-border)] p-6 transition-[border-color,transform] duration-[350ms] hover:border-[var(--color-text)] hover:-translate-y-1">
-                            <h3 className="font-display text-[20px] md:text-[21px] text-[var(--color-text)]">
-                              {h.title}
-                            </h3>
-                            <p className="font-body text-[14px] leading-[1.6] text-[var(--color-text-muted)] mt-2">
-                              {h.description}
-                            </p>
-                          </div>
-                        </Reveal>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Fase a fase */}
+                  {/* Las tarjetas de titulares se han ido: repetían con otras
+                      palabras lo que el contraste de arriba ya había dicho, y
+                      "Ropa laboral primero" es un eslogan, no un entregable.
+                      Lo que convence aquí es el detalle: qué se hace en cada
+                      fase y en cuánto tiempo. Los titulares siguen sirviendo
+                      junto al precio, como "lo que te llevas". */}
                   {phases.length > 0 && (
-                    <div className="mt-12">
+                    <div>
                       <p
                         className="font-body uppercase text-[11px] text-[var(--color-text-muted)] mb-6"
                         style={{ letterSpacing: "0.18em" }}
@@ -257,6 +244,14 @@ export default async function ProposalPage({
                                   )}
                                   {ph.name}
                                 </h3>
+                                {ph.duration && (
+                                  <span
+                                    className="font-body uppercase text-[10px] text-[var(--color-text-muted)]"
+                                    style={{ letterSpacing: "0.16em" }}
+                                  >
+                                    {ph.duration}
+                                  </span>
+                                )}
                               </div>
                               <ul className="flex flex-col gap-2.5">
                                 {ph.items.map((it, j) => (

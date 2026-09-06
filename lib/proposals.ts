@@ -27,7 +27,13 @@ export type Installment = {
 };
 
 export type Highlight = { title: string; description: string };
-export type Phase = { name: string; tags?: string[]; items: string[] };
+export type Phase = {
+  name: string;
+  tags?: string[];
+  /** "3 semanas" — la duración es lo que convierte una lista en un plan. */
+  duration?: string | null;
+  items: string[];
+};
 
 export type ProposalData = {
   title: string;
@@ -258,23 +264,35 @@ const DEMO_PROPOSAL: ProposalPayload = {
     ],
     phases: [
       {
-        name: "Web corporativa",
+        name: "Web corporativa nueva",
+        duration: "3 semanas",
         items: [
-          "6 páginas con la identidad nueva",
-          "Ropa laboral por sectores",
-          "Fichas de trabajos realizados",
-          "Que os encuentren en Google",
-          "Contacto y WhatsApp directo",
+          "Seis páginas con vuestra identidad nueva: inicio, ropa laboral, imprenta y papelería, rotulación, merchandising y contacto",
+          "La página de ropa laboral montada como servicio principal, con sus sectores: hostelería, industria, sanidad, limpieza y alimentación",
+          "Fichas de trabajos realizados con las fotos que aportéis",
+          "Que os encuentren en Google: velocidad, estructura y metadatos por página",
+          "Formulario de contacto y enlace directo a WhatsApp",
+          "Desarrollo propio, sin WordPress ni plugins de pago que la frenan y se rompen entre sí",
         ],
       },
       {
-        name: "Configurador y recogida de tallas",
+        name: "Configurador de petición de ropa laboral",
+        duration: "incluido en las 2 semanas",
         items: [
-          "Petición guiada en 4 pasos",
-          "Aviso si el logo no sirve",
-          "Resumen ordenado por email",
-          "Enlace de tallas para la plantilla",
-          "Descarga en Excel",
+          "Cuatro pasos guiados: prenda, cantidad y sectores, técnica de marcaje y posiciones del logo",
+          "Vinilo, serigrafía, bordado o transfer, con la subida del archivo",
+          "Aviso automático si el logo no es vectorial o se queda corto de resolución",
+          "El resumen os llega por email ordenado y listo para presupuestar",
+          "Sin mostrar tarifas: los precios los ponéis vosotros, como ahora",
+        ],
+      },
+      {
+        name: "Recogida de tallas por empleado",
+        duration: "incluido en las 2 semanas",
+        items: [
+          "Un enlace por pedido que el responsable reparte a su plantilla",
+          "Cada empleado pone nombre, puesto, prenda y talla, sin registrarse",
+          "Vosotros veis la tabla completa y la descargáis en Excel o CSV",
         ],
       },
     ],
