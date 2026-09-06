@@ -72,6 +72,11 @@ export function Preloader() {
     };
   }, [phrases.length, esPropuesta]);
 
+  // En las propuestas no se renderiza NADA: ocultarlo con una animación deja
+  // un parpadeo, y el cliente vería dos esperas encadenadas antes de su
+  // documento. Va después de los hooks para no romper su orden.
+  if (esPropuesta) return null;
+
   return (
     <AnimatePresence>
       {visible && (

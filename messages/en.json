@@ -129,9 +129,9 @@
     "extras_recommended": "Recommended",
     "extras_more": "Learn more",
     "extras_close": "Close",
-    "welcome_hello": "Hello, {name}.",
-    "welcome_hello_generic": "Welcome.",
-    "welcome_sub": "Your proposal is ready"
+    "welcome_eyebrow": "Proposal prepared for",
+    "welcome_eyebrow_generic": "Your proposal is ready",
+    "welcome_studio": "Bellostas Studio · Huesca"
   },
   "nav": {
     "work": "Work",
