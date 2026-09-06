@@ -10,7 +10,7 @@ import { MixedHeadline } from "@/components/ui/MixedHeadline";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
-import { ProposalAcceptForm } from "@/components/sections/proposal/ProposalAcceptForm";
+import { ProposalWizard } from "@/components/sections/proposal/ProposalWizard";
 import { ProposalSideNav } from "@/components/sections/proposal/ProposalSideNav";
 import { ProposalExtras } from "@/components/sections/proposal/ProposalExtras";
 import { ProposalExtrasProvider } from "@/components/sections/proposal/ProposalExtrasContext";
@@ -505,26 +505,6 @@ export default async function ProposalPage({
                     {t("accept_sub")}
                   </p>
 
-                  {/* Qué pasa al aceptar — desactiva el miedo al botón */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                    {([1, 2, 3] as const).map((n) => (
-                      <div
-                        key={n}
-                        className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-2)]/50 p-4"
-                      >
-                        <span className="font-display italic text-[20px] text-[var(--color-accent)]">
-                          0{n}
-                        </span>
-                        <p className="font-body text-[14px] font-medium text-[var(--color-text)] mt-1.5">
-                          {t(`step${n}_title`)}
-                        </p>
-                        <p className="font-body text-[12.5px] text-[var(--color-text-muted)] leading-[1.5] mt-1">
-                          {t(`step${n}_body`)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
                   {/* La persona detrás — boutique de verdad */}
                   <div className="flex items-center gap-4 mb-8">
                     <Image
@@ -544,7 +524,13 @@ export default async function ProposalPage({
                     </div>
                   </div>
 
-                  <ProposalAcceptForm token={token} prefill={prefill} />
+                  <ProposalWizard
+                    token={token}
+                    prefill={prefill}
+                    totalBase={installments.length > 0 ? baseSum : Number(proposal.total) || 0}
+                    taxRate={IVA}
+                    firstInstallmentLabel={installments[0]?.label ?? null}
+                  />
                 </Reveal>
               )}
             </section>
