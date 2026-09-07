@@ -27,6 +27,11 @@ type AcceptResponse = {
   portalLoginUrl?: string;
 };
 
+/** IBAN en grupos de cuatro: así se copia sin equivocarse. */
+function iban(v: string) {
+  return v.replace(/\s+/g, "").replace(/(.{4})/g, "$1 ").trim();
+}
+
 function eur(n: number, locale: string) {
   return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
     style: "currency",
@@ -136,6 +141,19 @@ export function ProposalWizard({
     }
   };
 
+  /* Cada paso empieza arriba. Al firmar, la página se quedaba donde estaba
+     —a la altura de los testimonios— y los datos del pago quedaban fuera de
+     pantalla: justo lo único que tiene que leer en ese momento. */
+  const cajaRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (paso === 1) return;
+    const el = cajaRef.current;
+    if (!el) return;
+    const lenis = (window as unknown as { __lenis?: { scrollTo: (t: Element, o?: { offset?: number }) => void } }).__lenis;
+    if (lenis) lenis.scrollTo(el, { offset: -110 });
+    else el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [paso]);
+
   // El contrato se pide al llegar al paso 2: sale del mismo sitio que el PDF.
   useEffect(() => {
     if (paso !== 2 || contrato) return;
@@ -185,7 +203,7 @@ export function ProposalWizard({
   ];
 
   return (
-    <div id="aceptar-wizard">
+    <div id="aceptar-wizard" ref={cajaRef}>
       {/* Recorrido a la vista: saber cuánto queda es la mitad de terminarlo. */}
       <nav
         aria-label={t("wizard_nav")}
@@ -403,28 +421,26 @@ export function ProposalWizard({
               <Check size={22} className="text-[var(--color-accent)]" strokeWidth={2.5} />
             </span>
             <h3 className="mt-5 font-display text-[28px] md:text-[34px] leading-tight text-[var(--color-text)]">
-              {t("success.title")}
+              {t("done_title")}
             </h3>
-            <p className="mt-2 font-body text-[15px] leading-[1.55] text-[var(--color-text-muted)] max-w-[520px]">
-              {t("success.body")}
+            <p className="mt-2 font-body text-[16px] leading-[1.6] text-[var(--color-text)]/85 max-w-[540px]">
+              {t("done_body")}
             </p>
 
             {resultado?.invoice && (
               <div className="mt-7 rounded-2xl border border-[var(--color-border)] p-6">
-                <p className="font-body text-[14px] text-[var(--color-text)]">
-                  {(resultado.invoice.installmentsCount ?? 2) === 1
-                    ? t("success.reserve_note_single")
-                    : t("success.reserve_note")}
+                <p className="font-body text-[15px] leading-[1.55] text-[var(--color-text)]">
+                  {t("done_payment_note")}
                 </p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-3">
                   <Dato label={t("success.invoice_label")} value={resultado.invoice.number} />
                   <Dato label={t("success.amount_label")} value={eur(resultado.invoice.total, locale)} />
                   {resultado.invoice.iban && (
-                    <Dato label={t("success.iban_label")} value={resultado.invoice.iban} />
+                    <Dato label={t("success.iban_label")} value={iban(resultado.invoice.iban)} />
                   )}
                 </div>
-                <p className="mt-5 inline-flex items-center gap-2 font-body text-[13px] text-[var(--color-text-muted)]">
-                  <Landmark size={15} /> {t("plan_note")}
+                <p className="mt-5 inline-flex items-start gap-2 font-body text-[13px] leading-[1.55] text-[var(--color-text-muted)]">
+                  <Landmark size={15} className="shrink-0 mt-0.5" /> {t("done_transfer_hint")}
                 </p>
               </div>
             )}

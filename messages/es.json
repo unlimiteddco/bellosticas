@@ -194,7 +194,11 @@
     "wizard_sign_expand": "Ver más grande",
     "wizard_sign_draw": "Dibujar",
     "wizard_sign_type": "Escribir",
-    "wizard_sign_type_hint": "Escribe tu nombre completo"
+    "wizard_sign_type_hint": "Escribe tu nombre completo",
+    "done_title": "Contrato firmado. Empezamos.",
+    "done_body": "Ya está todo en orden. Te hemos enviado tu copia del contrato por email, junto con el acceso a tu portal.",
+    "done_payment_note": "Solo queda el primer pago: es lo que reserva tu sitio en el calendario y pone el proyecto en marcha.",
+    "done_transfer_hint": "Transferencia bancaria con el nombre del proyecto como concepto. En cuanto la veamos te escribimos para pedirte los materiales y arrancar."
   },
   "nav": {
     "work": "Trabajos",

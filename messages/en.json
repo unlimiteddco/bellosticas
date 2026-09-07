@@ -194,7 +194,11 @@
     "wizard_sign_expand": "View larger",
     "wizard_sign_draw": "Draw",
     "wizard_sign_type": "Type",
-    "wizard_sign_type_hint": "Type your full name"
+    "wizard_sign_type_hint": "Type your full name",
+    "done_title": "Contract signed. Let's begin.",
+    "done_body": "Everything's in order. We've emailed you your copy of the contract along with access to your portal.",
+    "done_payment_note": "Only the first payment left: it's what books your slot in the calendar and gets the project moving.",
+    "done_transfer_hint": "Bank transfer with the project name as the reference. As soon as we see it we'll write asking for the materials so we can start."
   },
   "nav": {
     "work": "Work",
