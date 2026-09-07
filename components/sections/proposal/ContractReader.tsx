@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
-import { useState } from "react";
 
 export type Clausula = { titulo: string; parrafos: string[] };
 
@@ -30,6 +30,11 @@ export function ContractReader({
   closeLabel: string;
 }) {
   const [ampliado, setAmpliado] = useState(false);
+  // El modal se monta en <body>: dentro del asistente vive bajo un motion.div,
+  // y una transformación crea su propio contexto de apilamiento — el z-index
+  // deja de competir con la cabecera y el botón de cerrar queda debajo.
+  const [montado, setMontado] = useState(false);
+  useEffect(() => setMontado(true), []);
 
   useEffect(() => {
     if (!ampliado) return;
@@ -84,16 +89,16 @@ export function ContractReader({
         </button>
       </div>
 
-      {ampliado && (
+      {ampliado && montado && createPortal(
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[70] bg-[var(--color-bg)] overflow-y-auto"
+          className="fixed inset-0 z-[100] bg-[var(--color-bg)] overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label={titulo}
         >
-          <div className="sticky top-0 flex justify-end p-4 bg-[var(--color-bg)]/95 backdrop-blur">
+          <div className="sticky top-0 z-10 flex justify-end p-4 pt-[max(16px,env(safe-area-inset-top))] bg-[var(--color-bg)]/95 backdrop-blur border-b border-[var(--color-border)]">
             <button
               type="button"
               onClick={() => setAmpliado(false)}
@@ -105,7 +110,8 @@ export function ContractReader({
           <div className="px-6 pb-24">
             <Texto />
           </div>
-        </motion.div>
+        </motion.div>,
+        document.body,
       )}
     </>
   );
