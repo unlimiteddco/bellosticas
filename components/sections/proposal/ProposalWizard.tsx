@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Landmark, Loader2, PenLine } from "lucide-react";
+import { Check, FileText, Landmark, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import type { ProposalPrefill } from "@/lib/proposals";
 import { useProposalExtras } from "./ProposalExtrasContext";
+import { SignaturePad } from "./SignaturePad";
+import { ContractReader } from "./ContractReader";
 
 type Paso = 1 | 2 | 3;
 
@@ -65,11 +67,16 @@ export function ProposalWizard({
   const [enviando, setEnviando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [resultado, setResultado] = useState<AcceptResponse | null>(null);
-  const [firmaUrl, setFirmaUrl] = useState<string | null>(null);
   const [firmado, setFirmado] = useState(false);
-  const [abrioFirma, setAbrioFirma] = useState(false);
-  const [comprobando, setComprobando] = useState(false);
-  const [sinFirmar, setSinFirmar] = useState(false);
+  const [rubrica, setRubrica] = useState<string | null>(null);
+  const [firmanteNombre, setFirmanteNombre] = useState(prefill?.contactName ?? "");
+  const [firmando, setFirmando] = useState(false);
+  const [errorFirma, setErrorFirma] = useState<string | null>(null);
+  const [contrato, setContrato] = useState<{
+    title: string;
+    date: string;
+    clauses: { titulo: string; parrafos: string[] }[];
+  } | null>(null);
 
   const [fiscalName, setFiscalName] = useState(prefill?.fiscalName ?? "");
   const [vatNumber, setVatNumber] = useState(prefill?.vatNumber ?? "");
@@ -119,21 +126,9 @@ export function ProposalWizard({
       }
       setResultado(data);
 
-      // El contrato se prepara con los datos que acaba de confirmar.
-      const c = await fetch(`/api/propuestas/${encodeURIComponent(token)}/contrato`, {
-        method: "POST",
-      })
-        .then((r) => r.json())
-        .catch(() => null);
-
-      if (c?.available && c.signingUrl) {
-        setFirmaUrl(c.signingUrl);
-        setFirmado(Boolean(c.alreadySigned));
-        setPaso(2);
-      } else {
-        // Sin contrato configurado no se finge una firma: directo al pago.
-        setPaso(3);
-      }
+      // La firma es siempre el paso siguiente: el contrato se genera aquí
+      // mismo con lo que acaba de contratar.
+      setPaso(2);
     } catch (err) {
       setError(err instanceof Error ? err.message : "network");
     } finally {
@@ -141,28 +136,45 @@ export function ProposalWizard({
     }
   };
 
+  // El contrato se pide al llegar al paso 2: sale del mismo sitio que el PDF.
+  useEffect(() => {
+    if (paso !== 2 || contrato) return;
+    fetch(`/api/propuestas/${encodeURIComponent(token)}/contrato/texto`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (d?.available && Array.isArray(d.clauses)) setContrato(d);
+      })
+      .catch(() => {});
+  }, [paso, contrato, token]);
+
   /**
-   * Comprueba la firma preguntándole a DocuSeal.
+   * Firma el contrato.
    *
-   * No basta con que el cliente diga que ha firmado: eso dejaría arrancar un
-   * proyecto sin contrato. La respuesta la da DocuSeal, no el clic.
+   * La rúbrica viaja como PNG; la IP y el navegador los añade el servidor, no
+   * el navegador: un dato que envía el propio firmante no prueba nada.
    */
-  const comprobarFirma = async () => {
-    setComprobando(true);
-    setSinFirmar(false);
+  const firmar = async () => {
+    if (!rubrica || firmando) return;
+    setFirmando(true);
+    setErrorFirma(null);
     try {
-      const r = await fetch(`/api/propuestas/${encodeURIComponent(token)}/contrato`);
+      const r = await fetch(`/api/propuestas/${encodeURIComponent(token)}/firmar`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ signature: rubrica, signer_name: firmanteNombre.trim() }),
+      });
       const d = await r.json().catch(() => null);
-      if (d?.signed) {
-        setFirmado(true);
-        // La factura no existía al aceptar: se emite al firmar y llega aquí.
-        if (d.invoice) setResultado((r) => ({ ...(r ?? { ok: true }), invoice: d.invoice }));
-        setPaso(3);
-      } else {
-        setSinFirmar(true);
+      if (!r.ok || !d?.signed) {
+        setErrorFirma(d?.error ?? t("wizard_sign_error"));
+        return;
       }
+      setFirmado(true);
+      if (d.invoice) setResultado((x) => ({ ...(x ?? { ok: true }), invoice: d.invoice }));
+      setPaso(3);
+    } catch {
+      setErrorFirma(t("wizard_sign_error"));
     } finally {
-      setComprobando(false);
+      setFirmando(false);
     }
   };
 
@@ -303,55 +315,78 @@ export function ProposalWizard({
               {t("wizard_sign_sub")}
             </p>
 
-            {firmaUrl && (
-              <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-7 md:p-9">
-                <p className="font-body text-[15px] leading-[1.6] text-[var(--color-text)] max-w-[560px]">
-                  {t("wizard_sign_open_note")}
+            <div className="mt-6 rounded-2xl border border-[var(--color-border)] p-6 md:p-8">
+              {contrato ? (
+                <ContractReader
+                  clausulas={contrato.clauses}
+                  titulo={contrato.title}
+                  fecha={contrato.date}
+                  expandLabel={t("wizard_sign_expand")}
+                  closeLabel={t("extras_close")}
+                />
+              ) : (
+                <p className="font-body text-[14px] text-[var(--color-text-muted)]">
+                  {t("sending")}
                 </p>
-                <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <a
-                    href={firmaUrl}
-                    target="_blank"
-                    rel="noopener"
-                    onClick={() => setAbrioFirma(true)}
-                    className="inline-flex items-center gap-2 rounded-full bg-[var(--color-text)] px-6 py-3.5 font-body text-[15px] font-medium text-white transition-colors hover:bg-[var(--color-accent)]"
-                  >
-                    <PenLine size={16} />
-                    {t("wizard_sign_open")}
-                  </a>
-                  {abrioFirma && !firmado && (
-                    <button
-                      type="button"
-                      onClick={comprobarFirma}
-                      disabled={comprobando}
-                      className="inline-flex items-center gap-2 font-body text-[14px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors disabled:opacity-60"
-                    >
-                      {comprobando ? (
-                        <Loader2 size={15} className="animate-spin" />
-                      ) : (
-                        <Check size={15} />
-                      )}
-                      {t("wizard_sign_check")}
-                    </button>
-                  )}
-                </div>
-                {sinFirmar && (
-                  <p className="mt-4 font-body text-[13px] text-[var(--color-accent)]">
-                    {t("wizard_sign_pending")}
-                  </p>
-                )}
+              )}
+
+              <a
+                href={`/api/propuestas/${encodeURIComponent(token)}/contrato/pdf`}
+                target="_blank"
+                rel="noopener"
+                className="mt-4 inline-flex items-center gap-2 font-body text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+              >
+                <FileText size={14} />
+                {t("wizard_sign_read")}
+              </a>
+
+              <p className="mt-6 font-body uppercase text-[10px] text-[var(--color-text-muted)]" style={{ letterSpacing: "0.2em" }}>
+                {t("wizard_sign_your")}
+              </p>
+              <div className="mt-3">
+                <SignaturePad
+                  onChange={setRubrica}
+                  clearLabel={t("wizard_sign_clear")}
+                  hint={t("wizard_sign_hint")}
+                  drawLabel={t("wizard_sign_draw")}
+                  typeLabel={t("wizard_sign_type")}
+                  typePlaceholder={t("wizard_sign_type_hint")}
+                  typedName={firmanteNombre}
+                />
               </div>
-            )}
+
+              <div className="mt-5 max-w-[380px]">
+                <Campo
+                  label={t("wizard_sign_name")}
+                  value={firmanteNombre}
+                  onChange={setFirmanteNombre}
+                  required
+                />
+              </div>
+
+              <p className="mt-5 font-body text-[12px] leading-[1.6] text-[var(--color-text-muted)] max-w-[560px]">
+                {t("wizard_sign_evidence")}
+              </p>
+
+              {errorFirma && (
+                <p className="mt-4 font-body text-[14px] text-[var(--color-accent)]">{errorFirma}</p>
+              )}
+            </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <PrimaryButton onClick={() => setPaso(3)}>
-                {firmado ? t("wizard_cta_pay") : t("wizard_cta_pay_later")}
+              <PrimaryButton
+                onClick={firmar}
+                disabled={firmando || !rubrica || firmanteNombre.trim().length < 3}
+                aria-busy={firmando}
+              >
+                {firmando ? (
+                  <span className="inline-flex items-center gap-2">
+                    <Loader2 size={15} className="animate-spin" /> {t("sending")}
+                  </span>
+                ) : (
+                  t("wizard_cta_signnow")
+                )}
               </PrimaryButton>
-              {firmado && (
-                <span className="inline-flex items-center gap-2 font-body text-[13px] text-[var(--color-accent)]">
-                  <Check size={15} /> {t("wizard_signed")}
-                </span>
-              )}
             </div>
           </motion.div>
         )}

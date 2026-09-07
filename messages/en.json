@@ -182,7 +182,19 @@
     "wizard_sign_open_note": "The contract opens in a new tab. Read it, sign it and come back here to finish.",
     "wizard_sign_open": "Read and sign the contract",
     "wizard_sign_check": "I've signed it",
-    "wizard_sign_pending": "We can't see your signature yet. If you've just signed, wait a few seconds and press again."
+    "wizard_sign_pending": "We can't see your signature yet. If you've just signed, wait a few seconds and press again.",
+    "wizard_sign_read": "Read the full contract (PDF)",
+    "wizard_sign_your": "Your signature",
+    "wizard_sign_hint": "Draw your signature with the mouse or your finger",
+    "wizard_sign_clear": "Clear",
+    "wizard_sign_name": "Full name of the signatory",
+    "wizard_sign_evidence": "Signing records your name, the date and time, your IP address and your browser, and computes a fingerprint of the document so any change can be detected. You'll receive the signed contract by email. Electronic signature under Regulation (EU) 910/2014.",
+    "wizard_cta_signnow": "Sign the contract",
+    "wizard_sign_error": "We couldn't sign it. Try again or write to us.",
+    "wizard_sign_expand": "View larger",
+    "wizard_sign_draw": "Draw",
+    "wizard_sign_type": "Type",
+    "wizard_sign_type_hint": "Type your full name"
   },
   "nav": {
     "work": "Work",

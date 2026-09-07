@@ -182,7 +182,19 @@
     "wizard_sign_open_note": "El contrato se abre en una pestaña nueva. Léelo, fírmalo y vuelve aquí para terminar.",
     "wizard_sign_open": "Leer y firmar el contrato",
     "wizard_sign_check": "Ya lo he firmado",
-    "wizard_sign_pending": "Todavía no nos consta la firma. Si acabas de firmar, espera unos segundos y vuelve a pulsar."
+    "wizard_sign_pending": "Todavía no nos consta la firma. Si acabas de firmar, espera unos segundos y vuelve a pulsar.",
+    "wizard_sign_read": "Leer el contrato completo (PDF)",
+    "wizard_sign_your": "Tu firma",
+    "wizard_sign_hint": "Dibuja tu firma con el ratón o el dedo",
+    "wizard_sign_clear": "Borrar",
+    "wizard_sign_name": "Nombre y apellidos de quien firma",
+    "wizard_sign_evidence": "Al firmar se registran tu nombre, la fecha y hora, tu dirección IP y tu navegador, y se calcula una huella del documento para poder comprobar que no cambia. Recibirás el contrato firmado por email. Firma electrónica conforme al Reglamento (UE) 910/2014.",
+    "wizard_cta_signnow": "Firmar el contrato",
+    "wizard_sign_error": "No se pudo firmar. Inténtalo de nuevo o escríbenos.",
+    "wizard_sign_expand": "Ver más grande",
+    "wizard_sign_draw": "Dibujar",
+    "wizard_sign_type": "Escribir",
+    "wizard_sign_type_hint": "Escribe tu nombre completo"
   },
   "nav": {
     "work": "Trabajos",
