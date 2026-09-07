@@ -67,6 +67,9 @@ export function ProposalWizard({
   const [resultado, setResultado] = useState<AcceptResponse | null>(null);
   const [firmaUrl, setFirmaUrl] = useState<string | null>(null);
   const [firmado, setFirmado] = useState(false);
+  const [abrioFirma, setAbrioFirma] = useState(false);
+  const [comprobando, setComprobando] = useState(false);
+  const [sinFirmar, setSinFirmar] = useState(false);
 
   const [fiscalName, setFiscalName] = useState(prefill?.fiscalName ?? "");
   const [vatNumber, setVatNumber] = useState(prefill?.vatNumber ?? "");
@@ -138,21 +141,28 @@ export function ProposalWizard({
     }
   };
 
-  /* DocuSeal avisa por postMessage cuando el documento queda firmado. */
-  useEffect(() => {
-    if (paso !== 2) return;
-    const onMsg = (ev: MessageEvent) => {
-      const tipo =
-        typeof ev.data === "string"
-          ? ev.data
-          : ((ev.data as { type?: string } | null)?.type ?? "");
-      if (typeof tipo === "string" && /completed|form\.completed|signed/i.test(tipo)) {
+  /**
+   * Comprueba la firma preguntándole a DocuSeal.
+   *
+   * No basta con que el cliente diga que ha firmado: eso dejaría arrancar un
+   * proyecto sin contrato. La respuesta la da DocuSeal, no el clic.
+   */
+  const comprobarFirma = async () => {
+    setComprobando(true);
+    setSinFirmar(false);
+    try {
+      const r = await fetch(`/api/propuestas/${encodeURIComponent(token)}/contrato`);
+      const d = await r.json().catch(() => null);
+      if (d?.signed) {
         setFirmado(true);
+        setPaso(3);
+      } else {
+        setSinFirmar(true);
       }
-    };
-    window.addEventListener("message", onMsg);
-    return () => window.removeEventListener("message", onMsg);
-  }, [paso]);
+    } finally {
+      setComprobando(false);
+    }
+  };
 
   const pasos = [
     { n: 1 as Paso, label: t("wizard_step_data") },
@@ -292,13 +302,42 @@ export function ProposalWizard({
             </p>
 
             {firmaUrl && (
-              <div className="mt-6 rounded-2xl border border-[var(--color-border)] overflow-hidden bg-[var(--color-surface-2)]">
-                <iframe
-                  src={firmaUrl}
-                  title={t("wizard_sign_title")}
-                  className="w-full h-[620px] border-0"
-                  allow="camera"
-                />
+              <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-7 md:p-9">
+                <p className="font-body text-[15px] leading-[1.6] text-[var(--color-text)] max-w-[560px]">
+                  {t("wizard_sign_open_note")}
+                </p>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <a
+                    href={firmaUrl}
+                    target="_blank"
+                    rel="noopener"
+                    onClick={() => setAbrioFirma(true)}
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--color-text)] px-6 py-3.5 font-body text-[15px] font-medium text-white transition-colors hover:bg-[var(--color-accent)]"
+                  >
+                    <PenLine size={16} />
+                    {t("wizard_sign_open")}
+                  </a>
+                  {abrioFirma && !firmado && (
+                    <button
+                      type="button"
+                      onClick={comprobarFirma}
+                      disabled={comprobando}
+                      className="inline-flex items-center gap-2 font-body text-[14px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors disabled:opacity-60"
+                    >
+                      {comprobando ? (
+                        <Loader2 size={15} className="animate-spin" />
+                      ) : (
+                        <Check size={15} />
+                      )}
+                      {t("wizard_sign_check")}
+                    </button>
+                  )}
+                </div>
+                {sinFirmar && (
+                  <p className="mt-4 font-body text-[13px] text-[var(--color-accent)]">
+                    {t("wizard_sign_pending")}
+                  </p>
+                )}
               </div>
             )}
 

@@ -175,10 +175,14 @@
     "wizard_after_signing": "After signing",
     "wizard_cta_sign": "Continue to signing",
     "wizard_sign_title": "Read and sign the contract.",
-    "wizard_sign_sub": "No small print. Legally valid digital signature: date, time and IP are recorded, and you get a copy of the signed PDF by email. Nothing to print.",
+    "wizard_sign_sub": "No small print. Legally valid digital signature: date, time and IP are recorded, and you get a copy of the signed PDF by email.",
     "wizard_signed": "Contract signed",
     "wizard_cta_pay": "Continue to payment",
-    "wizard_cta_pay_later": "Sign later and see payment"
+    "wizard_cta_pay_later": "Sign later and see payment",
+    "wizard_sign_open_note": "The contract opens in a new tab. Read it, sign it and come back here to finish.",
+    "wizard_sign_open": "Read and sign the contract",
+    "wizard_sign_check": "I've signed it",
+    "wizard_sign_pending": "We can't see your signature yet. If you've just signed, wait a few seconds and press again."
   },
   "nav": {
     "work": "Work",

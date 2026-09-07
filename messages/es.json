@@ -175,10 +175,14 @@
     "wizard_after_signing": "Después de firmar",
     "wizard_cta_sign": "Continuar a la firma",
     "wizard_sign_title": "Lee y firma el contrato.",
-    "wizard_sign_sub": "Sin letra pequeña. Firma digital con validez legal: se registran fecha, hora e IP, y recibes copia del PDF firmado por email. No hay que imprimir nada.",
+    "wizard_sign_sub": "Sin letra pequeña. Firma digital con validez legal: se registran fecha, hora e IP, y recibes copia del PDF firmado por email.",
     "wizard_signed": "Contrato firmado",
     "wizard_cta_pay": "Continuar al pago",
-    "wizard_cta_pay_later": "Firmar más tarde y ver el pago"
+    "wizard_cta_pay_later": "Firmar más tarde y ver el pago",
+    "wizard_sign_open_note": "El contrato se abre en una pestaña nueva. Léelo, fírmalo y vuelve aquí para terminar.",
+    "wizard_sign_open": "Leer y firmar el contrato",
+    "wizard_sign_check": "Ya lo he firmado",
+    "wizard_sign_pending": "Todavía no nos consta la firma. Si acabas de firmar, espera unos segundos y vuelve a pulsar."
   },
   "nav": {
     "work": "Trabajos",
