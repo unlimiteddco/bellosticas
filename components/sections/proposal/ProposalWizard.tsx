@@ -155,6 +155,8 @@ export function ProposalWizard({
       const d = await r.json().catch(() => null);
       if (d?.signed) {
         setFirmado(true);
+        // La factura no existía al aceptar: se emite al firmar y llega aquí.
+        if (d.invoice) setResultado((r) => ({ ...(r ?? { ok: true }), invoice: d.invoice }));
         setPaso(3);
       } else {
         setSinFirmar(true);
