@@ -8,13 +8,15 @@ import { locales } from "@/i18n";
 import { cn } from "@/lib/utils";
 
 type Props = {
-  /** "inline" → ES / EN text (light surfaces). "toggle" → segmented pill (dark surfaces). */
+  /** "inline" → ES / EN text (light surfaces). "toggle" → segmented pill. */
   variant?: "inline" | "toggle";
+  /** Sobre qué fondo se pinta el "toggle". Por defecto, oscuro (el pie). */
+  tone?: "dark" | "light";
   /** Called after switching — handy to close a mobile menu. */
   onSwitch?: () => void;
 };
 
-export function LocaleSwitcher({ variant = "inline", onSwitch }: Props = {}) {
+export function LocaleSwitcher({ variant = "inline", tone = "dark", onSwitch }: Props = {}) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -40,9 +42,13 @@ export function LocaleSwitcher({ variant = "inline", onSwitch }: Props = {}) {
   };
 
   if (variant === "toggle") {
+    const claro = tone === "light";
     return (
       <div
-        className="inline-flex items-center rounded-full border border-[var(--color-bg)]/25 p-1"
+        className={cn(
+          "inline-flex items-center rounded-full border p-1",
+          claro ? "border-[var(--color-border)]" : "border-[var(--color-bg)]/25",
+        )}
         aria-label="Language switcher"
       >
         {locales.map((l) => (
@@ -54,8 +60,12 @@ export function LocaleSwitcher({ variant = "inline", onSwitch }: Props = {}) {
             className={cn(
               "px-4 h-8 rounded-full font-body text-[13px] font-medium uppercase transition-colors duration-200",
               l === locale
-                ? "bg-[var(--color-bg)] text-[var(--color-text)]"
-                : "text-[var(--color-bg)]/60 hover:text-[var(--color-bg)]",
+                ? claro
+                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                  : "bg-[var(--color-bg)] text-[var(--color-text)]"
+                : claro
+                  ? "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                  : "text-[var(--color-bg)]/60 hover:text-[var(--color-bg)]",
             )}
             style={{ letterSpacing: "0.08em" }}
           >

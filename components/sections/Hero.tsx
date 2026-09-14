@@ -102,8 +102,10 @@ export function Hero() {
   const emphasis = t("headline_emphasis");
   const line2post = t("headline_line2_post");
 
+  /* En móvil el hero no llena la pantalla entera: se deja asomar el carrusel
+     de logos para que se vea que hay algo más abajo. */
   return (
-    <section className="relative min-h-screen max-h-[900px] overflow-hidden">
+    <section className="relative min-h-[82svh] md:min-h-screen max-h-[900px] overflow-hidden">
       <HeroToolsBackdrop />
 
       {/* Cream veil — lifts the centred copy off the 3D globe while leaving it
@@ -117,7 +119,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 min-h-screen max-h-[900px] max-w-[1280px] mx-auto px-6 lg:px-12 pt-[120px] pb-[150px] flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 min-h-[82svh] md:min-h-screen max-h-[900px] max-w-[1280px] mx-auto px-6 lg:px-12 pt-[104px] md:pt-[120px] pb-[84px] md:pb-[150px] flex flex-col items-center justify-center text-center">
         <div className="flex flex-col items-center gap-7 w-full">
           <div
             ref={labelRef}

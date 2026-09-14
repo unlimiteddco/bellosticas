@@ -13,6 +13,7 @@ import {
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { services } from "@/lib/services";
+import { AnimatedLogo } from "@/components/ui/AnimatedLogo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 interface MobileMenuProps {
@@ -21,11 +22,11 @@ interface MobileMenuProps {
 }
 
 const ITEMS = [
-  { key: "work", href: "/work", n: "01" },
-  { key: "services", href: "/#services", n: "02" },
-  { key: "studio", href: "/studio", n: "03" },
-  { key: "love", href: "/love", n: "04" },
-  { key: "contact", href: "/contact", n: "05" },
+  { key: "work", href: "/work" },
+  { key: "services", href: "/#services" },
+  { key: "studio", href: "/studio" },
+  { key: "love", href: "/love" },
+  { key: "contact", href: "/contact" },
 ] as const;
 
 const containerVariants = {
@@ -73,33 +74,33 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-[var(--color-text)]/25 backdrop-blur-sm"
             onClick={onClose}
             aria-hidden
           />
 
-          {/* Panel — minimal: fondo plano de marca, sin patrón ni adornos */}
+          {/* Panel — mismo papel que la barra de escritorio: fondo claro, un
+              solo filo y nada de adornos. Sin rayas entre enlaces: el aire
+              separa mejor que una línea. */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed top-0 right-0 z-[101] h-full w-full max-w-[460px] flex flex-col overflow-hidden bg-[var(--color-text)] text-[var(--color-bg)]"
+            className="fixed top-0 right-0 z-[101] h-full w-full max-w-[460px] flex flex-col overflow-hidden bg-[var(--color-bg)] text-[var(--color-text)] border-l border-[var(--color-border)]"
             role="dialog"
             aria-modal="true"
             aria-label={t("menuLabel")}
           >
-            {/* Header */}
+            {/* Header: la marca donde antes iba la etiqueta "// MENU" */}
             <header className="relative z-10 flex items-center justify-between px-7 pt-7">
-              <motion.span
+              <motion.div
                 initial={{ opacity: 0, y: -6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="font-body uppercase text-[11px] text-[var(--color-bg)]/70"
-                style={{ letterSpacing: "0.18em" }}
               >
-                {t("menuLabel")}
-              </motion.span>
+                <AnimatedLogo height={19} asLink={false} />
+              </motion.div>
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -107,7 +108,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 type="button"
                 onClick={onClose}
                 aria-label={t("closeMenu")}
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-bg)]/20 text-[var(--color-bg)] hover:bg-[var(--color-bg)]/10 transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-text)] transition-colors"
               >
                 <X size={18} />
               </motion.button>
@@ -119,8 +120,13 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="relative z-10 flex-1 flex flex-col justify-center gap-0.5 px-7 overflow-y-auto"
+              className="relative z-10 flex-1 flex flex-col px-7 pt-10 pb-6 overflow-y-auto"
             >
+              {/* mb-auto: los enlaces arrancan arriba y el aire sobrante se
+                  junta abajo. Centrados quedaban flotando en medio de dos
+                  huecos. Y al crecer el desplegable, esto deja desplazarse sin
+                  que el primer enlace se corte contra el borde. */}
+              <div className="mb-auto w-full flex flex-col gap-1">
               {ITEMS.map((item) =>
                 item.key === "services" ? (
                   /* Servicios — desplegable con los 6 servicios */
@@ -129,37 +135,23 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                       type="button"
                       onClick={() => setServicesOpen((v) => !v)}
                       aria-expanded={servicesOpen}
-                      className="group w-full flex items-baseline gap-4 py-2.5 border-b border-[var(--color-bg)]/10 transition-colors text-left"
+                      className="group -mx-2 w-[calc(100%+1rem)] flex items-center px-2 py-3 rounded-xl text-left active:bg-[var(--color-text)]/[0.04] transition-colors"
                     >
                       <span
-                        className="font-body uppercase text-[11px] text-[var(--color-bg)]/40 tabular-nums shrink-0"
-                        style={{ letterSpacing: "0.18em" }}
+                        className={`flex items-center gap-2 font-body text-[34px] leading-none tracking-tight transition-colors ${
+                          servicesOpen ? "text-[var(--color-accent)]" : "text-[var(--color-text)]"
+                        }`}
                       >
-                        {item.n}
-                      </span>
-                      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                        <span
-                          className={`flex items-center gap-2 font-display text-[26px] leading-none transition-colors ${
-                            servicesOpen ? "text-[var(--color-accent)]" : "text-[var(--color-bg)]"
+                        {t(item.key)}
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform duration-300 ${
+                            servicesOpen
+                              ? "rotate-180 text-[var(--color-accent)]"
+                              : "text-[var(--color-text-muted)]"
                           }`}
-                        >
-                          {t(item.key)}
-                          <ChevronDown
-                            size={17}
-                            className={`transition-transform duration-300 ${
-                              servicesOpen
-                                ? "rotate-180 text-[var(--color-accent)]"
-                                : "text-[var(--color-bg)]/40"
-                            }`}
-                          />
-                        </span>
-                        <span
-                          className="font-body text-[11px] text-[var(--color-bg)]/55 uppercase mt-1"
-                          style={{ letterSpacing: "0.12em" }}
-                        >
-                          {t(`${item.key}Sub`)}
-                        </span>
-                      </div>
+                        />
+                      </span>
                     </button>
 
                     {/* Colapso con CSS grid-rows: fiable sin JS por frame */}
@@ -171,70 +163,63 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                       }}
                     >
                       <div className="min-h-0 overflow-hidden">
-                        <div className="pl-9 py-2 border-b border-[var(--color-bg)]/10">
-                            {services.map((s) => (
-                              <Link
-                                key={s.slug}
-                                href={`/services/${s.slug}`}
-                                onClick={onClose}
-                                className="group flex items-center gap-3 py-2"
-                              >
-                                <span
-                                  className="font-mono text-[10px] text-[var(--color-accent)]/80 shrink-0"
-                                  style={{ letterSpacing: "0.08em" }}
-                                >
-                                  {s.number}
-                                </span>
-                                <span className="font-body text-[15px] text-[var(--color-bg)]/85 group-hover:text-[var(--color-accent)] transition-colors">
-                                  {ts(`items.${s.titleKey}.title`)}
-                                </span>
-                              </Link>
-                            ))}
+                        <div className="pl-1 pb-2">
+                          {/* Celdas anchas: el dedo acierta en toda la fila,
+                              no solo sobre las letras. */}
+                          {services.map((s) => (
                             <Link
-                              href="/#services"
+                              key={s.slug}
+                              href={`/services/${s.slug}`}
                               onClick={onClose}
-                              className="inline-flex items-center gap-1.5 py-2 font-body text-[12px] uppercase text-[var(--color-bg)]/50 hover:text-[var(--color-accent)] transition-colors"
-                              style={{ letterSpacing: "0.14em" }}
+                              className="group -mx-2 flex items-center gap-3 min-h-[52px] px-3 py-2 rounded-xl hover:bg-[var(--color-text)]/[0.04] active:bg-[var(--color-text)]/[0.07] transition-colors"
                             >
-                              {t("mm.viewAll")}
-                              <ArrowUpRight size={12} />
+                              <span
+                                className="font-mono text-[10px] text-[var(--color-accent)]/70 shrink-0 w-5"
+                                style={{ letterSpacing: "0.08em" }}
+                              >
+                                {s.number}
+                              </span>
+                              <span className="font-body text-[16px] leading-tight text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">
+                                {ts(`items.${s.titleKey}.title`)}
+                              </span>
+                              <ArrowUpRight
+                                size={15}
+                                className="ml-auto shrink-0 text-[var(--color-text-muted)]/50 group-hover:text-[var(--color-accent)] transition-colors"
+                              />
                             </Link>
-                          </div>
+                          ))}
+                          <Link
+                            href="/#services"
+                            onClick={onClose}
+                            className="group -mx-2 flex items-center gap-1.5 min-h-[48px] px-3 rounded-xl font-body text-[12px] uppercase text-[var(--color-text-muted)] hover:bg-[var(--color-text)]/[0.04] hover:text-[var(--color-accent)] transition-colors"
+                            style={{ letterSpacing: "0.14em" }}
+                          >
+                            {t("mm.viewAll")}
+                            <ArrowUpRight size={12} />
+                          </Link>
                         </div>
                       </div>
+                    </div>
                   </motion.div>
                 ) : (
                   <motion.div key={item.key} variants={itemVariants}>
                     <Link
                       href={item.href}
                       onClick={onClose}
-                      className="group flex items-baseline gap-4 py-2.5 border-b border-[var(--color-bg)]/10 transition-colors"
+                      className="group -mx-2 flex items-center px-2 py-3 rounded-xl active:bg-[var(--color-text)]/[0.04] transition-colors"
                     >
-                      <span
-                        className="font-body uppercase text-[11px] text-[var(--color-bg)]/40 tabular-nums shrink-0"
-                        style={{ letterSpacing: "0.18em" }}
-                      >
-                        {item.n}
+                      <span className="flex items-center gap-2 font-body text-[34px] leading-none tracking-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)]">
+                        {t(item.key)}
+                        <ArrowUpRight
+                          size={17}
+                          className="text-[var(--color-text-muted)] -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all duration-300"
+                        />
                       </span>
-                      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                        <span className="flex items-center gap-2 font-display text-[26px] leading-none text-[var(--color-bg)] transition-colors group-hover:text-[var(--color-accent)]">
-                          {t(item.key)}
-                          <ArrowUpRight
-                            size={16}
-                            className="text-[var(--color-bg)]/30 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all duration-300"
-                          />
-                        </span>
-                        <span
-                          className="font-body text-[11px] text-[var(--color-bg)]/55 uppercase mt-1"
-                          style={{ letterSpacing: "0.12em" }}
-                        >
-                          {t(`${item.key}Sub`)}
-                        </span>
-                      </div>
                     </Link>
                   </motion.div>
                 ),
               )}
+              </div>
             </motion.nav>
 
             {/* Footer block */}
@@ -242,12 +227,12 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="relative z-10 flex flex-col gap-3 px-7 pb-8 pt-5 border-t border-[var(--color-bg)]/10"
+              className="relative z-10 flex flex-col gap-3 px-7 pb-8 pt-5"
             >
               <Link
                 href="/intro"
                 onClick={onClose}
-                className="flex items-center justify-center gap-2.5 h-12 rounded-full bg-[var(--color-bg)] text-[var(--color-text)] text-[14px] font-medium hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] transition-colors"
+                className="flex items-center justify-center gap-2.5 h-12 rounded-full bg-[var(--color-text)] text-[var(--color-bg)] text-[14px] font-medium hover:bg-[var(--color-accent)] transition-colors"
               >
                 <Video size={17} />
                 {t("bookVideo")}
@@ -263,14 +248,14 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                     { source: "mobile-menu" },
                   )
                 }
-                className="flex items-center justify-center gap-2.5 h-12 rounded-full border border-[#25D366]/50 text-[var(--color-bg)] text-[14px] font-medium hover:bg-[#25D366]/15 transition-colors"
+                className="flex items-center justify-center gap-2.5 h-12 rounded-full border border-[#25D366]/60 text-[var(--color-text)] text-[14px] font-medium hover:bg-[#25D366]/10 transition-colors"
               >
                 <MessageCircle size={16} className="text-[#25D366]" />
                 WhatsApp
               </a>
               <a
                 href="tel:+34624010424"
-                className="flex items-center justify-center gap-2.5 h-12 rounded-full border border-[var(--color-bg)]/30 text-[var(--color-bg)] text-[14px] font-medium hover:bg-[var(--color-bg)]/10 transition-colors"
+                className="flex items-center justify-center gap-2.5 h-12 rounded-full border border-[var(--color-border)] text-[var(--color-text)] text-[14px] font-medium hover:border-[var(--color-text)] transition-colors"
               >
                 <Phone size={16} />
                 {t("callPhone")}
@@ -279,11 +264,11 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               <div className="flex items-center justify-between gap-4 mt-2">
                 <a
                   href="mailto:info@bellostas.studio"
-                  className="font-body text-[13px] text-[var(--color-bg)]/70 hover:text-[var(--color-accent)] transition-colors truncate"
+                  className="font-body text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors truncate"
                 >
                   info@bellostas.studio
                 </a>
-                <LocaleSwitcher variant="toggle" onSwitch={onClose} />
+                <LocaleSwitcher variant="toggle" tone="light" onSwitch={onClose} />
               </div>
             </motion.footer>
           </motion.aside>

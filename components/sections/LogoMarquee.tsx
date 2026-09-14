@@ -14,14 +14,14 @@ const BASE_HEIGHT = 56; // px (was h-14)
 const CLIENTS: Logo[] = [
   { name: "Social11", src: "/client-logos/logo-social11-footer.svg", scale: 0.78 },
   { name: "FADA", src: "/client-logos/fada-web.svg" },
-  { name: "Como me lo como", src: "/client-logos/comomelocomo.svg" },
+  { name: "GottenGym", src: "/client-logos/gottengym.svg", scale: 0.72 },
   {
     name: "Embroidery Download",
     src: "/client-logos/embroideydownload.svg",
     scale: 1.3,
   },
   { name: "Teleadhesivo", src: "/client-logos/logo-teleadhesivo-tablet.svg" },
-  { name: "Noal Design", src: "/client-logos/noal-design-hero-1.svg", scale: 1.2 },
+  { name: "Noal Design", src: "/client-logos/noal-design-hero-1.svg", scale: 1.35 },
 ];
 
 export function LogoMarquee() {
@@ -29,8 +29,8 @@ export function LogoMarquee() {
   const items = [...CLIENTS, ...CLIENTS];
 
   return (
-    <section className="relative z-10 border-t border-b border-[var(--color-border)] py-12 overflow-hidden">
-      <Reveal className="px-6 lg:px-12 mb-6">
+    <section className="relative z-10 border-t border-b border-[var(--color-border)] py-8 md:py-12 overflow-hidden">
+      <Reveal className="px-6 lg:px-12 mb-4 md:mb-6">
         <EditorialLabel>// TRUSTED BY</EditorialLabel>
       </Reveal>
 
