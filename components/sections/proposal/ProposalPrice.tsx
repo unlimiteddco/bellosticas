@@ -2,15 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useProposalExtras } from "./ProposalExtrasContext";
-
-function eur(n: number, locale: string, conCentimos = false) {
-  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: conCentimos || !Number.isInteger(n) ? 2 : 0,
-    maximumFractionDigits: 2,
-  }).format(Number.isFinite(n) ? n : 0);
-}
+import { eur } from "@/lib/eur";
 
 /**
  * La cifra, a tamaño de titular.

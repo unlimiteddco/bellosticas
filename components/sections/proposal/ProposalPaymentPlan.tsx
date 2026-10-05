@@ -2,15 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import type { Installment } from "@/lib/proposals";
-
-function eur(n: number, locale: string) {
-  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
-    maximumFractionDigits: 2,
-  }).format(Number.isFinite(n) ? n : 0);
-}
+import { eur } from "@/lib/eur";
 
 /**
  * Plan de cobro en tarjetas.

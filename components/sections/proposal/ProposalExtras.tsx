@@ -6,15 +6,7 @@ import { Check, Info, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { ProposalExtra } from "@/lib/proposals";
 import { useProposalExtras } from "./ProposalExtrasContext";
-
-function eur(n: number, locale: string) {
-  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
-    maximumFractionDigits: 2,
-  }).format(Number.isFinite(n) ? n : 0);
-}
+import { eur } from "@/lib/eur";
 
 /** Popup de "ver más". Cierra con Escape y con clic fuera, y bloquea el scroll. */
 function DetalleModal({

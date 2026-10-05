@@ -1,3 +1,4 @@
+import { eur } from "@/lib/eur";
 /**
  * Cliente server-side de propuestas: lee la propuesta del CRM por token con el
  * shared secret (server-to-server, el secret NUNCA llega al cliente).
@@ -356,27 +357,18 @@ export async function fetchProposal(token: string): Promise<ProposalPayload | nu
   return data;
 }
 
+/** Importe con céntimos siempre: líneas de presupuesto y de factura. */
 export function formatEUR(amount: string | number, locale: string): string {
-  const n = typeof amount === "string" ? parseFloat(amount) : amount;
-  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
-    style: "currency",
-    currency: "EUR",
-  }).format(Number.isFinite(n) ? n : 0);
+  return eur(amount, locale, true);
 }
 
 /**
- * Igual que `formatEUR`, pero sin céntimos cuando el importe es redondo.
+ * Sin céntimos cuando el importe es redondo.
  * Los precios de mantenimiento son titulares ("89 €/mes"), no líneas de
  * factura: los ",00" ensucian la lectura.
  */
 export function formatEURPrecio(amount: number, locale: string): string {
-  const entero = Number.isInteger(amount);
-  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: entero ? 0 : 2,
-    maximumFractionDigits: 2,
-  }).format(Number.isFinite(amount) ? amount : 0);
+  return eur(amount, locale);
 }
 
 export function lineTotal(item: ProposalItem): number {

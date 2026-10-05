@@ -9,6 +9,7 @@ import type { ProposalPrefill } from "@/lib/proposals";
 import { useProposalExtras } from "./ProposalExtrasContext";
 import { SignaturePad } from "./SignaturePad";
 import { ContractReader } from "./ContractReader";
+import { eur } from "@/lib/eur";
 
 type Paso = 1 | 2 | 3;
 
@@ -30,13 +31,6 @@ type AcceptResponse = {
 /** IBAN en grupos de cuatro: así se copia sin equivocarse. */
 function iban(v: string) {
   return v.replace(/\s+/g, "").replace(/(.{4})/g, "$1 ").trim();
-}
-
-function eur(n: number, locale: string) {
-  return new Intl.NumberFormat(locale === "en" ? "en-IE" : "es-ES", {
-    style: "currency",
-    currency: "EUR",
-  }).format(Number.isFinite(n) ? n : 0);
 }
 
 /**
@@ -107,6 +101,12 @@ export function ProposalWizard({
      no se esconde: lo va a leer en el contrato del paso siguiente, y que
      apareciera allí una cifra que aquí no estaba sería peor.
 
+     En BASE, con el «+ IVA» al lado, igual que el bloque de inversión: la
+     página no puede decir «5.000 €» arriba y «6.050 €» abajo y esperar que
+     el cliente haga la cuenta justo antes de firmar. Sus clientes son
+     empresas y piensan en base; 2.500 se reconoce al instante como la mitad
+     de 5.000. Lo que va a transferir, con IVA, va debajo en pequeño.
+
      El primer pago es el mismo que el CRM factura al aceptar: el plazo «al
      aceptar» o, si no hay ninguno, el primero. Y no cambia con los extras:
      el CRM los suma siempre al ÚLTIMO plazo, para que la reserva sea una
@@ -114,8 +114,8 @@ export function ProposalWizard({
      incluidos: ese plazo es a la vez el primero y el último. */
   const primero = installments.find((i) => i.dueRule === "on_accept") ?? installments[0] ?? null;
   const enPlazos = installments.length > 1 && !!primero;
-  const primerPago = enPlazos ? primero.amount * (1 + taxRate) : conIva;
-  const resto = Math.max(0, conIva - primerPago);
+  const primerPagoBase = enPlazos ? primero.amount : base;
+  const restoBase = Math.max(0, base - primerPagoBase);
   const otros = enPlazos ? installments.filter((i) => i !== primero) : [];
 
   /* Paso 1 → aceptar y preparar el contrato. */
@@ -312,22 +312,30 @@ export function ProposalWizard({
                   <Dato
                     destacado
                     label={t("wizard_first_payment")}
-                    value={eur(primerPago, locale)}
-                    sub={`${primero.label} · ${t("wizard_vat_included")}`}
+                    value={eur(primerPagoBase, locale)}
+                    sufijo={t("wizard_plus_vat")}
+                    sub={`${primero.label} · ${t("wizard_with_vat", { amount: eur(primerPagoBase * (1 + taxRate), locale) })}`}
                   />
                   <Dato
                     label={t("wizard_total_project")}
-                    value={eur(conIva, locale)}
+                    value={eur(base, locale)}
+                    sufijo={t("wizard_plus_vat")}
                     sub={
                       otros.length === 1
-                        ? t("wizard_rest_one", { amount: eur(resto, locale), label: otros[0].label })
-                        : t("wizard_rest_many", { amount: eur(resto, locale), count: otros.length })
+                        ? t("wizard_rest_one", { amount: eur(restoBase, locale), label: otros[0].label })
+                        : t("wizard_rest_many", { amount: eur(restoBase, locale), count: otros.length })
                     }
                   />
                 </>
               ) : (
                 <>
-                  <Dato destacado label={t("wizard_total_vat")} value={eur(conIva, locale)} />
+                  <Dato
+                    destacado
+                    label={t("wizard_total_project")}
+                    value={eur(base, locale)}
+                    sufijo={t("wizard_plus_vat")}
+                    sub={t("wizard_with_vat", { amount: eur(conIva, locale) })}
+                  />
                   <Dato
                     label={primero ? t("wizard_single_payment") : t("wizard_first_payment")}
                     value={primero?.label ?? t("wizard_after_signing")}
@@ -475,7 +483,7 @@ export function ProposalWizard({
                 </p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-3">
                   <Dato label={t("success.invoice_label")} value={resultado.invoice.number} />
-                  <Dato label={t("success.amount_label")} value={eur(resultado.invoice.total, locale)} />
+                  <Dato label={t("success.amount_label")} value={eur(resultado.invoice.total, locale, true)} />
                   {resultado.invoice.iban && (
                     <Dato label={t("success.iban_label")} value={iban(resultado.invoice.iban)} />
                   )}
@@ -541,11 +549,14 @@ function Campo({
 function Dato({
   label,
   value,
+  sufijo,
   sub,
   destacado = false,
 }: {
   label: string;
   value: string;
+  /** «+ IVA»: va pegado a la cifra, pero en pequeño y apagado. */
+  sufijo?: string;
   sub?: string;
   /** La cifra a la que tiene que ir el ojo: una por caja. */
   destacado?: boolean;
@@ -564,6 +575,9 @@ function Dato({
         }`}
       >
         {value}
+        {sufijo && (
+          <span className="ml-1.5 font-body text-[13px] text-[var(--color-text-muted)] whitespace-nowrap">{sufijo}</span>
+        )}
       </span>
       {sub && (
         <span className="block mt-1 font-body text-[13px] leading-snug text-[var(--color-text-muted)]">{sub}</span>
