@@ -56,13 +56,14 @@ export function ProposalWizard({
   prefill,
   totalBase,
   taxRate,
-  firstInstallmentLabel,
+  installments = [],
 }: {
   token: string;
   prefill?: ProposalPrefill | null;
   totalBase: number;
   taxRate: number;
-  firstInstallmentLabel?: string | null;
+  /** El plan de cobro, con los importes SIN IVA. */
+  installments?: { label: string; amount: number; dueRule: string }[];
 }) {
   const t = useTranslations("proposalPage");
   const locale = useLocale();
@@ -98,6 +99,24 @@ export function ProposalWizard({
 
   const base = totalBase + (extrasCtx?.extrasBase ?? 0);
   const conIva = base * (1 + taxRate);
+
+  /* Lo que paga AHORA, no lo que cuesta todo.
+     Con el plan en varios plazos, justo antes de firmar la cifra que le
+     importa es la primera: ver el total entero ahí frena, cuando ya lo ha
+     visto y aceptado más arriba. El total se queda al lado, en pequeño —
+     no se esconde: lo va a leer en el contrato del paso siguiente, y que
+     apareciera allí una cifra que aquí no estaba sería peor.
+
+     El primer pago es el mismo que el CRM factura al aceptar: el plazo «al
+     aceptar» o, si no hay ninguno, el primero. Y no cambia con los extras:
+     el CRM los suma siempre al ÚLTIMO plazo, para que la reserva sea una
+     cifra pactada. Por eso con un único plazo sí se enseña el total, extras
+     incluidos: ese plazo es a la vez el primero y el último. */
+  const primero = installments.find((i) => i.dueRule === "on_accept") ?? installments[0] ?? null;
+  const enPlazos = installments.length > 1 && !!primero;
+  const primerPago = enPlazos ? primero.amount * (1 + taxRate) : conIva;
+  const resto = Math.max(0, conIva - primerPago);
+  const otros = enPlazos ? installments.filter((i) => i !== primero) : [];
 
   /* Paso 1 → aceptar y preparar el contrato. */
   const continuarAFirma = async (e: React.FormEvent) => {
@@ -287,12 +306,34 @@ export function ProposalWizard({
             )}
 
             {/* Qué contrata y qué paga, a la vista antes de comprometerse. */}
-            <div className="mt-2 grid gap-4 sm:grid-cols-2 rounded-2xl border border-[var(--color-border)] p-5">
-              <Dato label={t("wizard_total_vat")} value={eur(conIva, locale)} />
-              <Dato
-                label={t("wizard_first_payment")}
-                value={firstInstallmentLabel ?? t("wizard_after_signing")}
-              />
+            <div className="mt-2 grid gap-5 sm:grid-cols-2 rounded-2xl border border-[var(--color-border)] p-5">
+              {enPlazos ? (
+                <>
+                  <Dato
+                    destacado
+                    label={t("wizard_first_payment")}
+                    value={eur(primerPago, locale)}
+                    sub={`${primero.label} · ${t("wizard_vat_included")}`}
+                  />
+                  <Dato
+                    label={t("wizard_total_project")}
+                    value={eur(conIva, locale)}
+                    sub={
+                      otros.length === 1
+                        ? t("wizard_rest_one", { amount: eur(resto, locale), label: otros[0].label })
+                        : t("wizard_rest_many", { amount: eur(resto, locale), count: otros.length })
+                    }
+                  />
+                </>
+              ) : (
+                <>
+                  <Dato destacado label={t("wizard_total_vat")} value={eur(conIva, locale)} />
+                  <Dato
+                    label={primero ? t("wizard_single_payment") : t("wizard_first_payment")}
+                    value={primero?.label ?? t("wizard_after_signing")}
+                  />
+                </>
+              )}
             </div>
 
             {error && (
@@ -497,7 +538,18 @@ function Campo({
   );
 }
 
-function Dato({ label, value }: { label: string; value: string }) {
+function Dato({
+  label,
+  value,
+  sub,
+  destacado = false,
+}: {
+  label: string;
+  value: string;
+  sub?: string;
+  /** La cifra a la que tiene que ir el ojo: una por caja. */
+  destacado?: boolean;
+}) {
   return (
     <div>
       <span
@@ -506,9 +558,16 @@ function Dato({ label, value }: { label: string; value: string }) {
       >
         {label}
       </span>
-      <span className="block mt-1 font-body text-[16px] text-[var(--color-text)] tabular-nums">
+      <span
+        className={`block mt-1 font-body tabular-nums ${
+          destacado ? "text-[24px] leading-tight text-[var(--color-text)]" : "text-[16px] text-[var(--color-text)]"
+        }`}
+      >
         {value}
       </span>
+      {sub && (
+        <span className="block mt-1 font-body text-[13px] leading-snug text-[var(--color-text-muted)]">{sub}</span>
+      )}
     </div>
   );
 }

@@ -529,7 +529,11 @@ export default async function ProposalPage({
                     prefill={prefill}
                     totalBase={installments.length > 0 ? baseSum : Number(proposal.total) || 0}
                     taxRate={IVA}
-                    firstInstallmentLabel={installments[0]?.label ?? null}
+                    installments={installments.map((i) => ({
+                      label: i.label,
+                      amount: Number(i.amount) || 0,
+                      dueRule: i.dueRule,
+                    }))}
                   />
                 </Reveal>
               )}
