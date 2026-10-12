@@ -27,6 +27,35 @@ const VIDEO_ASSETS: Record<string, TestimonialMedia> = {
   t3: TESTIMONIAL_MEDIA.themis,
 };
 
+/**
+ * Las caras, solo de quien tenemos foto de verdad. Quien no la tiene se queda
+ * con sus iniciales: una cara inventada junto a un nombre real sería atribuirle
+ * a esa persona un rostro que no es el suyo.
+ */
+const CARAS: Record<string, string> = {
+  t1: "/caras/javier-flores-face.png",
+  t2: "/caras/adela-face.png",
+  t3: "/caras/themis-face.png",
+  // La foto que ya estaba en la carpeta para la reseña de TeleAdhesivo.
+  t6: "/caras/cara-teleadhesivo.jpg",
+};
+
+function Cara({ item, size }: { item: Item; size: number }) {
+  const src = CARAS[item.key];
+  if (!src) return <InitialsAvatar name={item.name} size={size} />;
+  return (
+    <img
+      src={src}
+      alt={item.name}
+      width={size}
+      height={size}
+      loading="lazy"
+      className="rounded-full object-cover shrink-0"
+      style={{ width: size, height: size }}
+    />
+  );
+}
+
 function RoleLine({
   role,
   company,
@@ -69,7 +98,7 @@ function TestimonialCard({
       className={`flex flex-col gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-shadow duration-300 hover:shadow-[0_12px_30px_-15px_rgba(29,29,27,0.18)] ${className}`}
     >
       <header className="flex items-center gap-3">
-        <InitialsAvatar name={item.name} size={40} />
+        <Cara item={item} size={40} />
         <div className="flex flex-col leading-tight min-w-0">
           <span className="font-body text-[14px] font-semibold text-[var(--color-text)]">
             {item.name}
@@ -119,18 +148,21 @@ function VideoCard({
       <img
         src={posterSrc}
         alt={item.name}
-        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
+        // En el móvil la tarjeta es cuadrada y la foto vertical: centrada, cortaba
+        // la cabeza. Se encuadra hacia arriba para que entre la cara.
+        className="absolute inset-0 w-full h-full object-cover object-[50%_14%] md:object-center transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
       />
 
-      {/* Top gradient + name pill */}
+      {/* Top gradient + name pill. En el móvil el nombre baja al pie de la
+          tarjeta: arriba tapaba justo la cara. */}
       <div
-        className="absolute inset-x-0 top-0 h-28 pointer-events-none"
+        className="absolute inset-x-0 top-0 h-28 pointer-events-none hidden md:block"
         style={{
           background: "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0))",
         }}
       />
-      <div className="absolute top-3 left-3 right-3 flex items-center gap-2.5 rounded-full bg-[var(--color-bg)]/95 backdrop-blur-md p-1.5 pr-3.5">
-        <InitialsAvatar name={item.name} size={30} />
+      <div className="absolute bottom-3 md:bottom-auto md:top-3 left-3 right-3 flex items-center gap-2.5 rounded-full bg-[var(--color-bg)]/95 backdrop-blur-md p-1.5 pr-3.5">
+        <Cara item={item} size={30} />
         <div className="flex flex-col leading-tight text-left min-w-0">
           <span className="font-body text-[13px] font-semibold text-[var(--color-text)] truncate">
             {item.name}
@@ -157,7 +189,7 @@ function VideoCard({
         }}
       />
       <span
-        className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-accent)] font-body uppercase text-[10px] font-medium text-[var(--color-bg)]"
+        className="absolute top-3 md:top-auto md:bottom-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-accent)] font-body uppercase text-[10px] font-medium text-[var(--color-bg)]"
         style={{ letterSpacing: "0.12em" }}
       >
         <Play size={9} fill="currentColor" />
@@ -216,7 +248,7 @@ export function ShortTestimonials() {
           badge={tv("badge")}
           watchAria={t("watchAria")}
           onPlay={() => openVideo(themis)}
-          className="aspect-[9/13] md:aspect-auto md:min-h-[440px] lg:min-h-0 lg:aspect-auto lg:col-start-2 lg:row-start-1 lg:row-span-2 order-1 md:order-1"
+          className="aspect-square md:aspect-auto md:min-h-[440px] lg:min-h-0 lg:aspect-auto lg:col-start-2 lg:row-start-1 lg:row-span-2 order-1 md:order-1"
         />
         <VideoCard
           item={javier}
@@ -224,7 +256,7 @@ export function ShortTestimonials() {
           badge={tv("badge")}
           watchAria={t("watchAria")}
           onPlay={() => openVideo(javier)}
-          className="aspect-[9/13] md:aspect-auto md:min-h-[440px] lg:min-h-0 lg:aspect-auto lg:col-start-3 lg:row-start-1 lg:row-span-2 order-4 md:order-2"
+          className="aspect-square md:aspect-auto md:min-h-[440px] lg:min-h-0 lg:aspect-auto lg:col-start-3 lg:row-start-1 lg:row-span-2 order-4 md:order-2"
         />
 
         {/* Left-side reviews (lg col 1) */}

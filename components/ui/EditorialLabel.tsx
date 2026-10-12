@@ -14,7 +14,8 @@ export function EditorialLabel({
   return (
     <Tag
       className={cn(
-        "font-body uppercase text-[11px] leading-none text-[var(--color-text-muted)]",
+        // Peso medio y un punto más: en regular a 11 px casi no se leían.
+        "font-body font-medium uppercase text-[12px] leading-none text-[var(--color-text)]/70",
         className,
       )}
       style={{ letterSpacing: "0.18em" }}

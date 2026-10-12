@@ -1,11 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
-import { PatternDivider } from "@/components/sections/PatternDivider";
 import { ShortTestimonials } from "@/components/sections/ShortTestimonials";
 import { Services } from "@/components/sections/Services";
-import { ProcessV2 } from "@/components/sections/ProcessV2";
-import { ClientPortal } from "@/components/sections/ClientPortal";
+import { ProcessBlock } from "@/components/sections/ProcessBlock";
 import { Work } from "@/components/sections/Work";
 import { Studio } from "@/components/sections/Studio";
 import { Numbers } from "@/components/sections/Numbers";
@@ -29,11 +27,12 @@ export default async function HomePage({
       <Hero />
       <LogoMarquee />
       <ShortTestimonials />
+      {/* Servicios y, enseguida, la prueba: los casos. El cómo se trabaja
+          (proceso y portal, en un solo bloque) va después de haber visto qué
+          se ha hecho. */}
       <Services />
-      <PatternDivider height={48} size="xs" />
-      <ProcessV2 />
-      <ClientPortal />
       <Work projects={projects} />
+      <ProcessBlock />
       <Studio />
       <Numbers />
       <FAQ />

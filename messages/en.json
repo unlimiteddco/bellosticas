@@ -231,12 +231,39 @@
     "mm": {
       "label": "// STUDIO SERVICES",
       "helpLabel": "// NOT SURE WHAT FITS?",
-      "helpText": "Tell us what you need and we'll tell you what fits — no commitment, in a 20-minute call.",
+      "helpText": "Tell us what you need and we'll tell you what fits — no commitment, in a 30-minute call.",
       "helpCta": "Book a call",
       "viewWork": "See case studies",
       "viewAll": "See all services",
-      "localLabel": "// WEB DESIGN IN ARAGÓN"
-    }
+      "localLabel": "// WEB DESIGN IN ARAGÓN",
+      "helpPerson": "Antonio Bellostas"
+    },
+    "process": "Process",
+    "clients": "Clients",
+    "wm": {
+      "pagesLabel": "// WORK",
+      "recentLabel": "// RECENT PROJECTS",
+      "featuredLabel": "// FEATURED CASE",
+      "viewAll": "See all work",
+      "work": {
+        "title": "Work",
+        "sub": "Recent cases and projects"
+      },
+      "process": {
+        "title": "Process",
+        "sub": "From idea to delivery, step by step"
+      },
+      "clients": {
+        "title": "Clients",
+        "sub": "Who trusts us and what they say"
+      }
+    },
+    "mobileCta": "Book a call"
+  },
+  "announcement": {
+    "badge": "NEW",
+    "text": "We launched FlyLead, our own SaaS",
+    "close": "Dismiss"
   },
   "marqueeDivider": {
     "tokens": [
@@ -370,163 +397,187 @@
     "footnote": "// BELLOSTAS MANIFEST · ONE LIFE. ONE SHOT."
   },
   "proceso": {
-    "metaTitle": "The process · Bellostas Studio",
-    "metaDescription": "How I work: AI used well to move faster, human judgment for what matters. From brief to launch in 4 phases.",
+    "metaTitle": "How we work · Bellostas Studio",
+    "metaDescription": "From the first call to the day the site goes live: what happens in each phase, how long it takes and what you get at the end of each one.",
     "hero": {
       "label": "// THE PROCESS",
-      "title_part1": "AI in the engine. ",
-      "title_emphasis": "Judgment",
-      "title_part2": " at the wheel.",
-      "sub": "I use AI to move faster without it showing in the quality. What the machine does well, it does. What truly matters — the architecture, the decisions, the judgment — I do."
-    },
-    "ai": {
-      "label": "// AI USED WELL",
-      "title_part1": "Speeds up the boring. ",
-      "title_emphasis": "Doesn't",
-      "title_part2": " decide what matters.",
-      "sub": "Full transparency on where AI comes in and where it doesn't. No smoke.",
-      "accelerates_label": "What AI speeds up",
-      "accelerates": [
-        "Research and competitor analysis",
-        "Fast exploration of options and wireframes",
-        "Boilerplate and repetitive code",
-        "Copy and content drafts",
-        "QA: catching bugs and edge cases"
-      ],
-      "human_label": "What I do (always)",
-      "human": [
-        "The business architecture and decisions",
-        "The design judgment and direction",
-        "The critical code and business logic",
-        "The strategy: what to build and why",
-        "The relationship with you, start to finish"
-      ],
-      "punch": "AI is a sharp tool. But tools don't have judgment. I do."
+      "title_part1": "How we work, ",
+      "title_emphasis": "step by step",
+      "title_part2": ".",
+      "sub": "From the first call to the day your site goes live. What happens at each point, how long it takes and what you have in hand when each part is done.",
+      "cta": "See the process"
     },
     "phases": {
-      "label": "// FROM BRIEF TO LAUNCH",
-      "title_part1": "Four phases. ",
-      "title_emphasis": "Zero surprises",
-      "title_part2": ".",
-      "sub": "You know exactly what happens, when, and what you get at each one.",
+      "label": "// THE PROJECT",
+      "title": "From the first meeting to the site going live.",
+      "sub": "We don't start coding until the design is approved, and nothing goes live until you've reviewed it.",
+      "outputsLabel": "What you get",
+      "note": "These timings are for a typical company website. Yours are written in your proposal.",
       "items": [
         {
           "n": "01",
-          "name": "Align + Map",
-          "timeline": "Week 1",
-          "body": "We start with the real problem, not the deliverable you asked for. I review product, goals, users, competitors and constraints before touching anything.",
+          "name": "Understand",
+          "when": "Week 1",
+          "body": "You fill in a questionnaire about your business — it saves itself, so you can do it in sittings — and we review your current site, your competitors and what you want to achieve. That gives us which pages are needed and in what order.",
           "outputs": [
-            "Project direction",
-            "UX audit",
-            "Flow mapping",
-            "Content architecture",
-            "Sprint plan",
-            "Success criteria"
+            "Site structure and page map",
+            "What content is needed and who provides it",
+            "Week-by-week work plan"
           ]
         },
         {
           "n": "02",
-          "name": "Design + Iterate",
-          "timeline": "Weeks 2-4",
-          "body": "AI-assisted exploration + fast iteration to see more options without dragging the project out. You pick the direction, I execute.",
+          "name": "Design",
+          "when": "Weeks 2 to 4",
+          "body": "We show you the design of the main pages before any code is written. You give feedback, we adjust and, once you approve it, we move on to building.",
           "outputs": [
-            "Creative direction",
-            "Wireframes",
-            "High-fidelity design",
-            "Product flows",
-            "Responsive layouts",
-            "Design system foundations"
+            "Design of the main pages",
+            "Mobile version",
+            "Colours, type and components"
           ]
         },
         {
           "n": "03",
-          "name": "Build + Connect",
-          "timeline": "Weeks 4-8",
-          "body": "This is where the design becomes real. Next.js, CMS, integrations and backend — custom code, not templates that break.",
+          "name": "Build",
+          "when": "Weeks 4 to 8",
+          "body": "We build the site to measure and connect whatever it needs: content manager, forms, payments or your CRM. You watch it come together on a test link.",
           "outputs": [
-            "Next.js build",
-            "Custom frontend",
-            "Component system",
-            "CMS and editing panel",
-            "Integrations and backend",
-            "Handoff prep"
+            "The site running on a test link",
+            "A manager to edit your own content",
+            "Integrations connected and tested"
           ]
         },
         {
           "n": "04",
-          "name": "Refine + Ship",
-          "timeline": "Week 8+",
-          "body": "The last 10% is where the work starts to feel expensive. That's the difference between something that works and something sharp.",
+          "name": "Review and publish",
+          "when": "Week 8 onwards",
+          "body": "We go through copy, mobile, speed and forms, fix whatever comes up and publish on your domain. The site is in your name, not ours.",
           "outputs": [
-            "Thorough QA",
-            "Copy tweaks",
-            "UI polish",
-            "Fine responsive",
-            "Animation and performance",
-            "Launch support"
+            "Full review before going live",
+            "Publishing on your domain",
+            "Support through the first days"
           ]
         }
+      ],
+      "alwaysLabel": "What stays the same in every phase",
+      "always": [
+        "Design approved first",
+        "A test link",
+        "One point of contact",
+        "All in your portal"
+      ],
+      "timelineLabel": "Typical timings"
+    },
+    "ai": {
+      "label": "// ARTIFICIAL INTELLIGENCE",
+      "title": "Where we use AI, and where we don't.",
+      "sub": "We use it every week, in the parts of the work that can go faster without changing the result. Here they are, one by one.",
+      "cards": [
+        {
+          "title": "Research",
+          "body": "Summarising your sector, your competitors and what you tell us in the questionnaire."
+        },
+        {
+          "title": "Structure and sketches",
+          "body": "Trying several ways of organising the site before designing any of them."
+        },
+        {
+          "title": "First drafts of copy",
+          "body": "A starting point that is then rewritten and reviewed line by line."
+        },
+        {
+          "title": "Repetitive code",
+          "body": "The mechanical parts of development, so the time goes to what is only yours."
+        },
+        {
+          "title": "Review",
+          "body": "Hunting bugs and edge cases before launch."
+        }
+      ],
+      "noLabel": "And we don't use it for",
+      "no": [
+        "Deciding what gets built and why",
+        "Design direction",
+        "The code your business depends on",
+        "Final copy",
+        "Talking to you"
       ]
     },
     "stack": {
-      "label": "// THE STACK",
-      "title_part1": "The ",
-      "title_emphasis": "tools",
-      "title_part2": ".",
-      "sub": "What I build with. Modern, fast, maintainable — nothing that depends on a plug-in that dies tomorrow.",
-      "tools": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Payload",
-        "Sanity",
-        "PostgreSQL",
-        "Tailwind",
-        "Framer Motion",
-        "n8n",
-        "OpenAI",
-        "Stripe",
-        "Vercel"
-      ]
-    },
-    "cerca": {
-      "label": "// HOW WE STAY CLOSE",
-      "title_part1": "I don't ",
-      "title_emphasis": "disappear",
-      "title_part2": " for two weeks.",
-      "sub": "The number-one anxiety of any project is not knowing what's going on. With me, you always do.",
-      "items": [
+      "label": "// TOOLS",
+      "title": "What we build with.",
+      "sub": "Current, widely used technology that any developer can maintain.",
+      "groups": [
         {
-          "n": "01",
-          "title": "Frequent updates",
-          "body": "Zero radio silence. You know where I am at all times."
+          "name": "Design and build",
+          "tools": [
+            "Figma",
+            "Astro",
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind"
+          ]
         },
         {
-          "n": "02",
-          "title": "Live client portal",
-          "body": "Phases with timestamps, deliverables and comms — without writing 'how's it going'."
+          "name": "Content and data",
+          "tools": [
+            "Payload",
+            "Sanity",
+            "PostgreSQL",
+            "Stripe"
+          ]
         },
         {
-          "n": "03",
-          "title": "Preview at every milestone",
-          "body": "You see the work as it progresses, not in a big final reveal."
+          "name": "AI and automation",
+          "tools": [
+            "Claude",
+            "OpenAI",
+            "n8n"
+          ]
         },
         {
-          "n": "04",
-          "title": "Documented decisions",
-          "body": "Why we did each thing, written down. Nothing gets lost along the way."
-        },
-        {
-          "n": "05",
-          "title": "A direct channel",
-          "body": "You talk to me, not an account manager or a ticket."
-        },
-        {
-          "n": "06",
-          "title": "Clean handoff",
-          "body": "Delivered under your account, documented and ready to maintain."
+          "name": "Code and hosting",
+          "tools": [
+            "GitHub",
+            "Vercel"
+          ]
         }
       ]
+    },
+    "steps": {
+      "label": "// HOW WE STAY CLOSE",
+      "title": "Six moments when we talk.",
+      "sub": "The rest of the time you don't need to ask: you see it in your portal.",
+      "stepLabel": "Step",
+      "items": [
+        {
+          "title": "A call",
+          "body": "Thirty minutes to see if we're a fit and what we'd do."
+        },
+        {
+          "title": "The proposal",
+          "body": "One page with scope, price and payment plan. You accept and sign right there."
+        },
+        {
+          "title": "The questionnaire",
+          "body": "You tell us about your business in writing. It saves itself, at your pace."
+        },
+        {
+          "title": "Design review",
+          "body": "We go through it together before any code is written."
+        },
+        {
+          "title": "The test link",
+          "body": "The site, working, for you to review before it goes live."
+        },
+        {
+          "title": "Delivery",
+          "body": "It's in your name, with documentation. Maintenance is optional."
+        }
+      ],
+      "imageAlt": "Bellostas Studio client portal",
+      "note": "You sign in to the portal with your email, no password."
     }
   },
   "hero": {
@@ -611,7 +662,7 @@
         "quote": "We called on a Monday asking for 'something simple'. By Friday we had staging up with a custom admin panel. No noise, everything shipped."
       },
       "t6": {
-        "name": "Sofía Bandrés",
+        "name": "Alejandro Soro",
         "role": "Marketing Lead",
         "company": "Teleadhesivo",
         "quote": "Migrated our store with 500K+ customers without losing a single sale. Flawless end to end."
@@ -650,10 +701,61 @@
         "title": "White-label for agencies",
         "description": "Your client, your brand. I develop in silence under NDA."
       }
+    },
+    "acc": {
+      "link": "See the service",
+      "open": "Open",
+      "close": "Close",
+      "brand": {
+        "title": "Brand identity",
+        "description": "The brand comes before the website. We design the full identity so the site, social and everything else look like they come from the same company.",
+        "bullets": [
+          "Logo and visual identity",
+          "Colours, type and graphic system",
+          "Brand guidelines",
+          "Applied to web and social"
+        ]
+      },
+      "bullets": {
+        "s01": [
+          "Custom design",
+          "Built in Next.js",
+          "Content manager",
+          "Technical SEO and speed"
+        ],
+        "s02": [
+          "Catalogue and stock",
+          "Payments with Stripe",
+          "Multiple languages",
+          "Connected to your tools"
+        ],
+        "s03": [
+          "SaaS and client panels",
+          "Dashboards",
+          "Learning platforms",
+          "From idea to production"
+        ],
+        "s04": [
+          "WhatsApp bots",
+          "AI lead qualification",
+          "Integrations between tools",
+          "Automatic reports"
+        ],
+        "s05": [
+          "From WordPress or WooCommerce",
+          "SEO and redirects intact",
+          "Data and content migrated"
+        ],
+        "s06": [
+          "Under NDA",
+          "Your brand in front of the client",
+          "Delivered on the channel we agree"
+        ]
+      }
     }
   },
   "process": {
-    "label": "// 02 — PROCESS",
+    "label": "// 03 — PROCESS",
     "title_part1": "Starting is ",
     "title_emphasis": "easy",
     "title_part2": ".",
@@ -672,9 +774,10 @@
       "d3": {
         "tag": "DAY 3",
         "title": "You start seeing work",
-        "description": "First designs in Slack or Notion in under 24h. Daily updates."
+        "description": "First designs in your client portal in under 24h. Daily updates."
       }
-    }
+    },
+    "swipe": "Swipe"
   },
   "clientPortal": {
     "label": "// THE DIFFERENTIATOR",
@@ -693,7 +796,7 @@
     }
   },
   "work": {
-    "label": "// 03 — SELECTED WORK",
+    "label": "// 02 — WORK",
     "title_part1": "Some ",
     "title_emphasis": "recent",
     "title_part2": " ones.",
@@ -713,7 +816,14 @@
       "p_pva": "WordPress to Next.js + Sanity migration for the Aragón Volunteering portal. 40% faster LCP, scalable to 100k monthly visits.",
       "p_fada": "Institutional site for the Aragonese Motorsport Federation. Race calendar, members and official communications.",
       "p_gotten": "Public site and custom admin panel to manage members, classes and bookings. Integrated with the gym access system.",
-      "p_embroidery": "Digital embroidery pattern e-commerce with download licensing. In progress. Medusa + Stripe + instant delivery."
+      "p_embroidery": "Digital embroidery pattern e-commerce with download licensing. In progress. Medusa + Stripe + instant delivery.",
+      "p_flylead": "Our own product: AI-powered management software, built per industry. One system for what today is scattered across the CRM, Excel, WhatsApp, email and calendars. Starting with real estate agencies.",
+      "p_partner": "New client. We can't say who just yet.",
+      "p_teleadhesivo": "Online shop for made-to-measure decorative vinyls and stickers, produced in their Huesca workshop since 2000. Over 11,500 designs, in the size and colour each customer picks.",
+      "p_borrell": "Website for an insurance brokerage in Lleida: it compares across insurers and lets you get a quote right on the page.",
+      "p_obrapartner": "Online shop for tiles, bathroom and building materials, with advice for building and renovation projects.",
+      "p_tajoh": "Branding, photography, video and web studio. Website under construction.",
+      "p_fabb": "Coming soon."
     }
   },
   "studio": {
@@ -976,28 +1086,30 @@
     }
   },
   "numbers": {
-    "label": "// THE NUMBERS",
-    "title_part1": "The numbers don't ",
-    "title_emphasis": "lie",
+    "label": "// RESULTS",
+    "title_part1": "Results, with a ",
+    "title_emphasis": "name",
     "title_part2": ".",
-    "sub": "Real results that back every project — because great design drives real growth.",
-    "items": {
-      "n1": {
-        "value": "17M+",
-        "label": "Impressions generated",
-        "desc": "Across the sites and campaigns we've shipped."
-      },
-      "n2": {
-        "value": "70+",
-        "label": "Projects delivered",
-        "desc": "Brands and agencies that trusted the studio."
-      },
-      "n3": {
-        "value": "100%",
-        "label": "On-time delivery",
-        "desc": "What we promise, we ship. No endless timelines."
-      }
-    }
+    "sub": "Figures from specific projects, each with the client next to it."
+  },
+  "clientsMap": {
+    "label": "// WHERE WE WORK",
+    "title_part1": "Made in Huesca. Clients in ",
+    "title_emphasis": "Aragón and beyond",
+    "title_part2": ".",
+    "sub": "Drag to explore, zoom in, and open each city to see who we work with.",
+    "studio": "Bellostas Studio",
+    "studio_note": "This is us",
+    "country": "Spain",
+    "local_link": "Web design in {city}",
+    "hint_mac": "Hold ⌘ and scroll to zoom the map",
+    "hint_other": "Hold Ctrl and scroll to zoom the map",
+    "legend": "Drag to move · {tecla} + scroll to zoom",
+    "legend_touch": "Two fingers to move and zoom",
+    "zoom_in": "Zoom in",
+    "zoom_out": "Zoom out",
+    "reset": "Back to the starting view",
+    "cluster": "{n} clients here: zoom in"
   },
   "faq": {
     "label": "// QUESTIONS",
@@ -1838,7 +1950,7 @@
           "quote": "Five years trying to get this e-commerce live with others. Antonio had it running in six weeks."
         },
         "t8": {
-          "name": "Sofía Bandrés",
+          "name": "Alejandro Soro",
           "role": "Marketing Lead",
           "company": "Teleadhesivo",
           "quote": "A pro, plain and simple. Doesn't know the word 'impossible'."
@@ -1862,9 +1974,9 @@
         {
           "metric": "100k",
           "label": "Scalable visits",
-          "client": "Voluntariado Aragón",
+          "client": "TeleAdhesivo",
           "description": "Stack ready for peaks without rewriting. Zero downtime in migration.",
-          "projectSlug": "voluntariado-aragon"
+          "projectSlug": "teleadhesivo"
         },
         {
           "metric": "1 wk",
@@ -2056,7 +2168,13 @@
       "sub": "A 30-minute call is enough to align scope, timeline and budget.",
       "button": "Let's talk"
     },
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "featuredSection": "// FEATURED CASES",
+    "allSection": "// ALL PROJECTS",
+    "col_project": "Project",
+    "col_client": "Client",
+    "col_type": "Type",
+    "col_year": "Year"
   },
   "introPage": {
     "metaTitle": "Book your call · Bellostas Studio",
@@ -2087,7 +2205,27 @@
         "role": "Coordinator · Voluntariado Aragón",
         "quote": "In the social sector it's hard to find someone who gets our essence, but Antonio nailed it on the first try. The site reflects who we are. We'll definitely work with him again."
       }
-    ]
+    ],
+    "host": {
+      "name": "Antonio Bellostas",
+      "note": "You talk to me directly"
+    },
+    "stepsLabel": "What happens on the call",
+    "steps": [
+      {
+        "title": "You tell me about your project",
+        "body": "What you need, by when and what you'd like to achieve."
+      },
+      {
+        "title": "I tell you what I'd do",
+        "body": "And, frankly, whether we're the right studio for it."
+      },
+      {
+        "title": "You get a proposal",
+        "body": "If it makes sense to continue, it arrives in writing with scope, price and timings."
+      }
+    ],
+    "lead": "Thirty minutes to see what you need, what we'd do and whether we're a fit."
   },
   "contactPage": {
     "label": "// CONTACT",
@@ -2773,5 +2911,8 @@
       "launchBadge": "Launch offer",
       "afterLaunch": "From month {month}: {price} €/month — SEO needs runway, so you can try it without betting big."
     }
+  },
+  "logos": {
+    "label": "// TRUSTED BY"
   }
 }

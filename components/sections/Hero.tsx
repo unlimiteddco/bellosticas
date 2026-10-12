@@ -55,42 +55,36 @@ export function Hero() {
   useEffect(() => {
     if (reduced) return;
 
+    // La primera visita de la sesión empieza con la pantalla de carga encima
+    // (0,7 s más su salida). Si la entrada arrancara ya, pasaría entera detrás
+    // de ella y no la vería nadie: se espera a que se haya ido.
+    let conCarga = false;
+    try {
+      conCarga = !sessionStorage.getItem("bs:preloader-shown");
+    } catch {
+      // Sin almacenamiento no hay forma de saberlo: se entra sin espera.
+    }
+
     const ctx = gsap.context(() => {
-      gsap.from(labelRef.current, {
-        opacity: 0,
-        y: 10,
-        duration: 0.5,
-        ease: "power2.out",
-        delay: 0.35,
-      });
+      // Una sola línea de tiempo, de arriba abajo: etiqueta, titular, texto,
+      // valoración y botones. Cada cosa empieza cuando la anterior ya se está
+      // asentando, no todas a la vez con retrasos sueltos.
+      const tl = gsap.timeline({ delay: conCarga ? 1.05 : 0.15, defaults: { ease: "power3.out" } });
+
+      tl.from(labelRef.current, { opacity: 0, y: 10, duration: 0.45 });
 
       const chars = headlineRef.current?.querySelectorAll("[data-char]");
       if (chars && chars.length) {
-        gsap.from(chars, {
-          y: 40,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.012,
-          ease: "power3.out",
-          delay: 0.45,
-        });
+        tl.from(chars, { y: 40, opacity: 0, duration: 0.6, stagger: 0.012 }, "-=0.2");
       }
 
-      gsap.from(subRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.55,
-        delay: 0.6,
-      });
-
-      gsap.from(ctasRef.current?.children ?? [], {
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        delay: 0.85,
-        stagger: 0.08,
-        clearProps: "opacity,transform",
-      });
+      tl.from(subRef.current, { opacity: 0, y: 18, duration: 0.5 }, "-=0.3")
+        .from(googleRef.current, { opacity: 0, y: 14, duration: 0.45 }, "-=0.25")
+        .from(
+          ctasRef.current?.children ?? [],
+          { opacity: 0, y: 16, duration: 0.45, stagger: 0.08, clearProps: "opacity,transform" },
+          "-=0.2",
+        );
     });
 
     return () => ctx.revert();

@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ProcesoHero } from "@/components/sections/proceso/ProcesoHero";
-import { ProcesoAISplit } from "@/components/sections/proceso/ProcesoAISplit";
-import { ProcesoPhases } from "@/components/sections/proceso/ProcesoPhases";
-import { ProcesoStack } from "@/components/sections/proceso/ProcesoStack";
-import { ProcesoCerca } from "@/components/sections/proceso/ProcesoCerca";
+import { ProcesoContent } from "@/components/sections/proceso/ProcesoContent";
 import { CTAFinal } from "@/components/sections/CTAFinal";
 import { Footer } from "@/components/layout/Footer";
 
@@ -31,11 +27,7 @@ export default async function ProcesoPage({
 
   return (
     <>
-      <ProcesoHero />
-      <ProcesoAISplit />
-      <ProcesoPhases />
-      <ProcesoStack />
-      <ProcesoCerca />
+      <ProcesoContent />
       <CTAFinal />
       <Footer />
     </>

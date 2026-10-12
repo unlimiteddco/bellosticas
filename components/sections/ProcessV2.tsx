@@ -30,7 +30,7 @@ export function ProcessV2() {
 
   return (
     <section className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 py-16 lg:py-24">
-      <Reveal className="flex flex-col items-center gap-6 mb-20 text-center">
+      <Reveal className="flex flex-col items-center gap-6 mb-12 lg:mb-20 text-center">
         <EditorialLabel>{t("label")}</EditorialLabel>
         <MixedHeadline
           className="text-[44px] md:text-[64px]"
@@ -45,18 +45,23 @@ export function ProcessV2() {
         </p>
       </Reveal>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+      {/* En el móvil van en fila y se deslizan con el dedo: apilados eran tres
+          pantallas de scroll. El siguiente asoma por la derecha para que se
+          vea que hay más. En escritorio, las tres columnas de siempre. */}
+      <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-pl-6 -mx-6 px-6 lg:mx-0 lg:px-0 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {days.map((d, i) => (
-          <ProcessV2Card
-            key={d.day}
-            index={i}
-            day={d.day}
-            tag={d.tag}
-            title={d.title}
-            description={d.description}
-          />
+          <div key={d.day} className="w-[72%] sm:w-[52%] lg:w-auto shrink-0 snap-start">
+            <ProcessV2Card index={i} day={d.day} tag={d.tag} title={d.title} description={d.description} />
+          </div>
         ))}
       </div>
+      {/* Solo en el móvil: que quede dicho que hay más a la derecha. */}
+      <p
+        className="lg:hidden mt-5 flex items-center justify-center gap-2 font-mono uppercase text-[10.5px] text-[var(--color-text-muted)]"
+        style={{ letterSpacing: "0.14em" }}
+      >
+        {t("swipe")} <span aria-hidden>→</span>
+      </p>
     </section>
   );
 }

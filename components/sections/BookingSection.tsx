@@ -8,13 +8,18 @@ import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { MixedHeadline } from "@/components/ui/MixedHeadline";
 import { buildCalAttribution } from "@/lib/tracking";
 
-type Props = { centered?: boolean; hideHeader?: boolean };
+type Props = {
+  centered?: boolean;
+  hideHeader?: boolean;
+  /** Sin márgenes ni ancho propios: para meter el calendario dentro de una columna. */
+  bare?: boolean;
+};
 
 const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK ?? "bellostas/30min";
 const CAL_NAMESPACE = process.env.NEXT_PUBLIC_CAL_NAMESPACE ?? "30min";
 const CAL_ORIGIN = process.env.NEXT_PUBLIC_CAL_ORIGIN ?? "https://cal.eu";
 
-export function BookingSection({ centered = false, hideHeader = false }: Props) {
+export function BookingSection({ centered = false, hideHeader = false, bare = false }: Props) {
   const t = useTranslations("contactPage.booking");
 
   // Read tracking identity AFTER mount so server/client render the same markup
@@ -64,7 +69,7 @@ export function BookingSection({ centered = false, hideHeader = false }: Props) 
 
   return (
     <section
-      className={`relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 py-16 lg:py-24 ${
+      className={`relative z-10 ${bare ? "" : "max-w-[1280px] mx-auto px-6 lg:px-12 py-16 lg:py-24"} ${
         centered ? "flex flex-col items-center" : ""
       }`}
     >

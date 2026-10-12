@@ -28,6 +28,105 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  // Producto propio: no es un encargo, es nuestro. Va primero mientras sea novedad.
+  {
+    slug: "flylead",
+    name: "FlyLead",
+    category: "Producto propio · SaaS",
+    year: 2026,
+    client: "Bellostas Studio",
+    stack: ["Astro"],
+    liveUrl: "https://flylead.es",
+    color: "#14161A",
+    descriptionKey: "p_flylead",
+    logo: "/clientes/flylead-logo.svg",
+    // La portada es la textura de marca: es lo que sale al pasar por la
+    // tarjeta. Dentro de la ficha van las dos fotos, una al lado de la otra.
+    cover: "/clientes/flylead-textura.jpg",
+    gallery: [
+      { src: "/clientes/flylead-agencia.jpg", alt: "FlyLead Real Estate en el portátil de una agencia inmobiliaria" },
+      { src: "/clientes/flylead-valla.jpg", alt: "Valla de FlyLead: «Tu negocio, conectado. Tu equipo, un paso por delante.»" },
+    ],
+  },
+  // Cliente bajo confidencialidad: se anuncia sin nombre. Cuando se pueda
+  // decir quién es, se cambia el nombre, se le pone logo y se quita comingSoon.
+  {
+    slug: "partner-google",
+    name: "El mayor partner de Google en España",
+    category: "Nuevo cliente",
+    year: 2026,
+    client: "Confidencial",
+    stack: [],
+    color: "#16181D",
+    descriptionKey: "p_partner",
+    comingSoon: true,
+  },
+  {
+    slug: "teleadhesivo",
+    name: "TeleAdhesivo",
+    category: "E-commerce · Vinilos a medida",
+    year: 2026,
+    client: "Banner Imagen",
+    stack: [],
+    liveUrl: "https://www.teleadhesivo.com",
+    color: "#1B2A2F",
+    descriptionKey: "p_teleadhesivo",
+    cover: "/clientes/teleadhesivo-cover.png",
+  },
+  {
+    slug: "borrell-pinol",
+    name: "Borrell & Piñol",
+    category: "Web · Correduría de seguros",
+    year: 2026,
+    client: "Borrell & Piñol Associats",
+    stack: ["WordPress"],
+    liveUrl: "https://www.borrellpinyol.com",
+    color: "#14233A",
+    descriptionKey: "p_borrell",
+    // Capturas de su web en producción: la portada para la tarjeta y dos
+    // secciones para la ficha.
+    cover: "/clientes/borrell-portada.webp",
+    gallery: [
+      { src: "/clientes/borrell-nosotros.webp", alt: "Borrell & Piñol — sección «Sobre nosotros»" },
+      { src: "/clientes/borrell-productos.webp", alt: "Borrell & Piñol — seguros por producto" },
+    ],
+  },
+  {
+    slug: "obra-partner",
+    name: "Obra Partner",
+    category: "E-commerce · Azulejos y construcción",
+    year: 2026,
+    client: "Obra Partner Azulejos",
+    stack: ["WordPress", "WooCommerce"],
+    liveUrl: "https://obrapartner.es",
+    color: "#3A2A1C",
+    descriptionKey: "p_obrapartner",
+  },
+  // Sin web publicada todavía: se anuncian, y la ficha llegará con el lanzamiento.
+  {
+    slug: "tajoh-guapo",
+    name: "Tajoh Guapo",
+    category: "Web · Estudio creativo",
+    year: 2026,
+    client: "Tajoh Guapo Studio",
+    stack: [],
+    color: "#2B2B2B",
+    descriptionKey: "p_tajoh",
+    comingSoon: true,
+  },
+  {
+    slug: "fabb-brand",
+    name: "FABB Brand",
+    category: "Web",
+    year: 2026,
+    client: "FABB Brand",
+    stack: [],
+    color: "#33202A",
+    descriptionKey: "p_fabb",
+    comingSoon: true,
+  },
+  // PENDIENTE — Lacía (agencia de packaging, Madrid): hecho pero aún no se
+  // puede publicar. No añadir aquí ni en el gestor hasta que Antonio lo diga.
   {
     slug: "seolatte",
     name: "SeoLatte",

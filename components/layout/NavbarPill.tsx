@@ -12,12 +12,13 @@ import { AnimatedLogo } from "@/components/ui/AnimatedLogo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
+import { WorkMegaMenu, type TrabajoMenu } from "./WorkMegaMenu";
 
 /**
  * Floating glassy pill navbar. Alternative to /components/layout/Navbar.tsx (classic style).
  * Both coexist — switch via `NAVBAR_VARIANT` constant in `app/[locale]/layout.tsx`.
  */
-export function NavbarPill() {
+export function NavbarPill({ trabajos = [] }: { trabajos?: TrabajoMenu[] }) {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -44,11 +45,12 @@ export function NavbarPill() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Servicios primero: es lo que se vende. «Love» ya no va suelto: vive
+  // dentro de Trabajos como «Clientes», junto al proceso.
   const links = [
-    { key: "work", href: "/work" },
     { key: "services", href: "/#services" },
+    { key: "work", href: "/work" },
     { key: "studio", href: "/studio" },
-    { key: "love", href: "/love" },
     { key: "contact", href: "/contact" },
   ] as const;
 
@@ -58,7 +60,9 @@ export function NavbarPill() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        className="fixed top-4 left-0 right-0 z-50 px-4 lg:px-8 pointer-events-none"
+        className="fixed left-0 right-0 z-50 px-4 lg:px-8 pointer-events-none"
+        // Debajo de la barra de novedades mientras se ve; en su sitio cuando no.
+        style={{ top: "calc(1rem + var(--aviso-h, 0px))" }}
       >
         <div className="max-w-[1280px] mx-auto pointer-events-auto">
           <div
@@ -90,7 +94,9 @@ export function NavbarPill() {
           y: hidden ? -120 : 0,
         }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        className="fixed top-4 left-0 right-0 z-50 px-4 lg:px-8 pointer-events-none"
+        className="fixed left-0 right-0 z-50 px-4 lg:px-8 pointer-events-none"
+        // Debajo de la barra de novedades mientras se ve; en su sitio cuando no.
+        style={{ top: "calc(1rem + var(--aviso-h, 0px))" }}
       >
         <div ref={megaPanelHost} className="relative max-w-[1280px] mx-auto pointer-events-auto">
           <div
@@ -121,6 +127,8 @@ export function NavbarPill() {
               {links.map((l) =>
                 l.key === "services" ? (
                   <ServicesMegaMenu key={l.key} panelHost={megaPanelHost} />
+                ) : l.key === "work" ? (
+                  <WorkMegaMenu key={l.key} panelHost={megaPanelHost} trabajos={trabajos} />
                 ) : (
                   <Link
                     key={l.key}

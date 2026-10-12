@@ -156,7 +156,11 @@ export function WorkModal({ project, onClose }: Props) {
             {project.description}
           </p>
 
-          {project.cover ? (
+          {/* La portada solo va en grande si es la única imagen. Con galería,
+              la portada es lo que se ve en la tarjeta y dentro mandan las
+              fotos, de dos en dos: una imagen a todo el ancho detrás de otra
+              convertía la ficha en un pasillo de capturas. */}
+          {project.cover && !hasGallery ? (
             <div
               className="relative w-full rounded-2xl overflow-hidden"
               style={{ backgroundColor: project.color }}

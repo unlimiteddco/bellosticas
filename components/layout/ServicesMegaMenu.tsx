@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { services } from "@/lib/services";
-import { AsteriskIcon } from "@/components/ui/AsteriskIcon";
 
 const CLOSE_DELAY_MS = 160;
 
@@ -142,37 +141,45 @@ export function ServicesMegaMenu({
                   </div>
                 </div>
 
-                {/* ── Help / CTA column ── */}
-                <div className="col-span-4 border-l border-[var(--color-border)] bg-[var(--color-surface-2)]/60 p-6 lg:p-7 flex flex-col">
-                  <span
-                    className="font-body uppercase text-[10px] text-[var(--color-text-muted)]"
-                    style={{ letterSpacing: "0.18em" }}
-                  >
-                    {t("mm.helpLabel")}
-                  </span>
-                  <p className="font-body text-[14px] leading-[1.55] text-[var(--color-text)] mt-3">
-                    {t("mm.helpText")}
-                  </p>
-                  <Link
-                    href="/intro"
-                    onClick={() => setOpen(false)}
-                    className="mt-4 inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-[var(--color-text)] text-[var(--color-bg)] font-body text-[13px] font-medium hover:bg-[var(--color-accent)] transition-colors self-start"
-                  >
-                    {t("mm.helpCta")}
-                    <ArrowRight size={14} />
-                  </Link>
-                  <Link
-                    href="/work"
-                    onClick={() => setOpen(false)}
-                    className="mt-3 inline-flex items-center gap-1.5 font-body text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors self-start"
-                  >
-                    {t("mm.viewWork")}
-                    <ArrowUpRight size={13} />
-                  </Link>
-
-                  {/* Brand mark, quietly */}
-                  <div className="mt-auto pt-6 flex justify-end" aria-hidden>
-                    <AsteriskIcon className="w-8 h-8 text-[var(--color-accent)]/25" />
+                {/* ── Columna de ayuda ──
+                    Con una foto de quien coge la llamada: un estudio pequeño
+                    se elige por la persona, y aquí es donde se decide llamar. */}
+                <div className="relative col-span-4 border-l border-[var(--color-border)] overflow-hidden bg-[var(--color-text)] flex flex-col justify-end p-6 lg:p-7 min-h-[330px]">
+                  {/* La foto del estudio a sangre. La persona y la pantalla quedan
+                      en la mitad de arriba; el texto va abajo, sobre un velo que
+                      cubre la silla y el suelo. */}
+                  <img
+                    src="/images/estudio-espaldas.webp"
+                    alt={t("mm.helpPerson")}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    style={{ objectPosition: "44% 30%" }}
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(to bottom, rgba(29,29,27,0) 30%, rgba(29,29,27,0.55) 52%, rgba(29,29,27,0.92) 76%, rgba(29,29,27,0.97) 100%)" }}
+                  />
+                  <div className="relative flex flex-col">
+                    <span
+                      className="font-body uppercase text-[10px] text-[var(--color-bg)]/70"
+                      style={{ letterSpacing: "0.18em" }}
+                    >
+                      {t("mm.helpLabel")}
+                    </span>
+                    <p className="font-body text-[14px] leading-[1.5] text-[var(--color-bg)] mt-2.5">
+                      {t("mm.helpText")}
+                    </p>
+                    <div className="mt-4 flex flex-col items-start gap-3">
+                      <Link
+                        href="/intro"
+                        onClick={() => setOpen(false)}
+                        className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-[var(--color-bg)] text-[var(--color-text)] font-body text-[13px] font-medium hover:bg-[var(--color-accent)] hover:text-[var(--color-white)] transition-colors"
+                      >
+                        {t("mm.helpCta")}
+                        <ArrowRight size={14} />
+                      </Link>
+                      <span className="font-body text-[12px] text-[var(--color-bg)]/65">{t("mm.helpPerson")}</span>
+                    </div>
                   </div>
                 </div>
               </div>

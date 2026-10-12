@@ -21,11 +21,15 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
+// Mismo orden que la barra de escritorio. Allí Proceso y Clientes van dentro
+// del desplegable de Trabajos; aquí, sueltos: en el teléfono un segundo
+// desplegable es un toque más para llegar a tres enlaces.
 const ITEMS = [
-  { key: "work", href: "/work" },
   { key: "services", href: "/#services" },
+  { key: "work", href: "/work" },
+  { key: "process", href: "/proceso" },
+  { key: "clients", href: "/love" },
   { key: "studio", href: "/studio" },
-  { key: "love", href: "/love" },
   { key: "contact", href: "/contact" },
 ] as const;
 

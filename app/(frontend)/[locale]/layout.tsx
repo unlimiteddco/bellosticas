@@ -12,11 +12,14 @@ import { TrackingBootstrap } from "@/components/effects/TrackingBootstrap";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { NavbarPill } from "@/components/layout/NavbarPill";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { MobileCTA } from "@/components/layout/MobileCTA";
 import { CookieProvider } from "@/components/cookies/CookieProvider";
 import { CookieBanner } from "@/components/cookies/CookieBanner";
 import { AnalyticsLoader } from "@/components/cookies/AnalyticsLoader";
 import { VideoTestimonialWidget } from "@/components/floating/VideoTestimonialWidget";
 import { TESTIMONIAL_MEDIA } from "@/lib/testimonial-media";
+import { getProjects } from "@/lib/cms/projects";
 
 /**
  * Toggle navbar style. Both components live side-by-side so reverting is one word.
@@ -190,6 +193,18 @@ export default async function LocaleLayout({
 
   const messages = await getMessages({ locale: effectiveLocale });
 
+  // El desplegable de «Trabajos» enseña los proyectos recientes. Solo baja al
+  // navegador lo que el menú pinta, no la ficha entera de cada proyecto.
+  const trabajosMenu = (await getProjects(effectiveLocale)).map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    category: p.category,
+    color: p.color,
+    cover: p.cover,
+    logo: p.logo,
+    comingSoon: p.comingSoon,
+  }));
+
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -233,12 +248,14 @@ export default async function LocaleLayout({
         <MotionProvider>
           <Preloader />
           <SmoothScroll>
-            {NAVBAR_VARIANT === "pill" ? <NavbarPill /> : <Navbar />}
+            <AnnouncementBar locale={effectiveLocale} />
+            {NAVBAR_VARIANT === "pill" ? <NavbarPill trabajos={trabajosMenu} /> : <Navbar />}
             <main id="top" className="relative z-[2]">
               <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
             </main>
           </SmoothScroll>
         </MotionProvider>
+        <MobileCTA />
         <CookieBanner />
         <AnalyticsLoader />
         {/* Floating video testimonial — only shows on pages that include a

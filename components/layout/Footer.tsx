@@ -69,7 +69,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* ── Columna izquierda: marca + contacto + IA ── */}
           <div className="flex flex-col gap-6 lg:col-span-4 lg:pr-10">
-            <Logo variant="white-red" height={45} />
+            <Logo variant="white-red" height={27} />
             <p className="font-body text-[13px] leading-[1.6] text-[var(--color-bg)]/70 max-w-[280px]">
               {t("tagline")}
             </p>

@@ -1,37 +1,43 @@
+import { useTranslations } from "next-intl";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Logo = {
   name: string;
   src: string;
-  /** Per-logo scale factor to balance visual weight. Default = 1 */
-  scale?: number;
+  /** Altura en px a la que se pinta. Ver la nota de abajo. */
+  h: number;
 };
 
-// Base height for the marquee. Per-logo `scale` adjusts each individually.
-const BASE_HEIGHT = 56; // px (was h-14)
-
+/*
+ * Los logos no pesan lo mismo a la vista aunque midan lo mismo: uno ancho y
+ * fino parece más pequeño que uno compacto y negro. La altura de cada uno
+ * está ajustada para que ocupen un área parecida —los anchos, más bajos; los
+ * compactos, más altos— y los de trazo grueso un poco menos.
+ *
+ * Los archivos están recortados a su dibujo (sin aire dentro del propio SVG):
+ * así la separación entre logos es la del `gap` y es igual entre todos. Antes
+ * varios traían márgenes internos distintos y los huecos salían desiguales.
+ * Al añadir un logo: recortar su viewBox al dibujo y elegir su altura aquí.
+ */
 const CLIENTS: Logo[] = [
-  { name: "Social11", src: "/client-logos/logo-social11-footer.svg", scale: 0.78 },
-  { name: "FADA", src: "/client-logos/fada-web.svg" },
-  { name: "GottenGym", src: "/client-logos/gottengym.svg", scale: 0.72 },
-  {
-    name: "Embroidery Download",
-    src: "/client-logos/embroideydownload.svg",
-    scale: 1.3,
-  },
-  { name: "Teleadhesivo", src: "/client-logos/logo-teleadhesivo-tablet.svg" },
-  { name: "Noal Design", src: "/client-logos/noal-design-hero-1.svg", scale: 1.35 },
+  { name: "Social11", src: "/client-logos/logo-social11-footer.svg", h: 30 },
+  { name: "FADA", src: "/client-logos/fada-web.svg", h: 40 },
+  { name: "GottenGym", src: "/client-logos/gottengym.svg", h: 27 },
+  { name: "Embroidery Download", src: "/client-logos/embroideydownload.svg", h: 25 },
+  { name: "Teleadhesivo", src: "/client-logos/logo-teleadhesivo-tablet.svg", h: 42 },
+  { name: "Noal Design", src: "/client-logos/noal-design-hero-1.svg", h: 37 },
 ];
 
 export function LogoMarquee() {
+  const t = useTranslations("logos");
   // Duplicate the array so the marquee loops seamlessly
   const items = [...CLIENTS, ...CLIENTS];
 
   return (
     <section className="relative z-10 border-t border-b border-[var(--color-border)] py-8 md:py-12 overflow-hidden">
       <Reveal className="px-6 lg:px-12 mb-4 md:mb-6">
-        <EditorialLabel>// TRUSTED BY</EditorialLabel>
+        <EditorialLabel>{t("label")}</EditorialLabel>
       </Reveal>
 
       <div
@@ -43,25 +49,18 @@ export function LogoMarquee() {
             "linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%)",
         }}
       >
-        <div className="bs-marquee-track flex items-center gap-14 lg:gap-16 whitespace-nowrap py-2">
-          {items.map((logo, i) => {
-            const h = Math.round(BASE_HEIGHT * (logo.scale ?? 1));
-            return (
-              <div
-                key={`${logo.name}-${i}`}
-                className="bs-logo-cell flex items-center justify-center shrink-0"
-                style={{ height: BASE_HEIGHT }}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="block w-auto max-w-[260px] object-contain"
-                  style={{ height: h }}
-                  draggable={false}
-                />
-              </div>
-            );
-          })}
+        <div className="bs-marquee-track flex items-center gap-[72px] lg:gap-[96px] pr-[72px] lg:pr-[96px] whitespace-nowrap py-2">
+          {items.map((logo, i) => (
+            <div key={`${logo.name}-${i}`} className="bs-logo-cell flex h-14 items-center justify-center shrink-0">
+              <img
+                src={logo.src}
+                alt={logo.name}
+                className="block w-auto object-contain grayscale opacity-60 transition-[filter,opacity] duration-300 hover:grayscale-0 hover:opacity-100"
+                style={{ height: logo.h }}
+                draggable={false}
+              />
+            </div>
+          ))}
         </div>
       </div>
 

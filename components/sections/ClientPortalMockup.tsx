@@ -41,14 +41,15 @@ export function ClientPortalMockup() {
       />
 
       <figure className="relative m-0">
-        <div className="rounded-2xl overflow-hidden border border-[var(--color-text)]/15 bg-[#0F0E0C] shadow-[0_40px_80px_-32px_rgba(29,29,27,0.45)]">
-          {/* Barra de ventana: sitúa la captura como una app, sin recargar */}
-          <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#141311] border-b border-white/[0.06]">
-            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+        <div className="rounded-2xl overflow-hidden border border-[var(--color-text)]/15 bg-[var(--color-bg)] shadow-[0_40px_80px_-32px_rgba(29,29,27,0.45)]">
+          {/* Barra de ventana: sitúa la captura como una app, sin recargar.
+              En claro, como el portal: cuando era oscuro la barra también lo era. */}
+          <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[var(--color-surface-2)] border-b border-[var(--color-border)]">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-text)]/15" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-text)]/15" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-text)]/15" />
             <span
-              className="ml-3 font-mono text-[10px] text-white/35"
+              className="ml-3 font-mono text-[10px] text-[var(--color-text-muted)]"
               style={{ letterSpacing: "0.08em" }}
             >
               portal.bellostas.studio
@@ -59,8 +60,8 @@ export function ClientPortalMockup() {
           <img
             src="/images/portal-cliente.webp"
             alt={t("alt")}
-            width={1600}
-            height={906}
+            width={1920}
+            height={1087}
             loading="lazy"
             decoding="async"
             className="block w-full h-auto"

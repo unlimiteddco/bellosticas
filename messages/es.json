@@ -231,12 +231,39 @@
     "mm": {
       "label": "// SERVICIOS DEL ESTUDIO",
       "helpLabel": "// ¿NO LO TIENES CLARO?",
-      "helpText": "Cuéntanos qué necesitas y te decimos qué encaja — sin compromiso y en una llamada de 20 minutos.",
+      "helpText": "Cuéntanos qué necesitas y te decimos qué encaja — sin compromiso y en una llamada de 30 minutos.",
       "helpCta": "Agenda una llamada",
       "viewWork": "Ver casos de éxito",
       "viewAll": "Ver todos los servicios",
-      "localLabel": "// DISEÑO WEB EN ARAGÓN"
-    }
+      "localLabel": "// DISEÑO WEB EN ARAGÓN",
+      "helpPerson": "Antonio Bellostas"
+    },
+    "process": "Proceso",
+    "clients": "Clientes",
+    "wm": {
+      "pagesLabel": "// TRABAJOS",
+      "recentLabel": "// PROYECTOS RECIENTES",
+      "featuredLabel": "// CASO DESTACADO",
+      "viewAll": "Ver todos los trabajos",
+      "work": {
+        "title": "Trabajos",
+        "sub": "Casos y proyectos recientes"
+      },
+      "process": {
+        "title": "Proceso",
+        "sub": "De la idea a la entrega, paso a paso"
+      },
+      "clients": {
+        "title": "Clientes",
+        "sub": "Quién confía en nosotros y qué dice"
+      }
+    },
+    "mobileCta": "Agenda una llamada"
+  },
+  "announcement": {
+    "badge": "NUEVO",
+    "text": "Lanzamos FlyLead, nuestro propio SaaS",
+    "close": "Cerrar aviso"
   },
   "marqueeDivider": {
     "tokens": [
@@ -370,163 +397,187 @@
     "footnote": "// BELLOSTAS MANIFEST · ONE LIFE. ONE SHOT."
   },
   "proceso": {
-    "metaTitle": "El proceso · Bellostas Studio",
-    "metaDescription": "Cómo trabajo: IA bien usada para ir más rápido, criterio humano para lo que importa. Del brief al launch en 4 fases.",
+    "metaTitle": "Cómo trabajamos · Bellostas Studio",
+    "metaDescription": "Desde la primera llamada hasta que la web está publicada: qué pasa en cada fase, cuánto dura y qué recibes al terminar cada una.",
     "hero": {
       "label": "// EL PROCESO",
-      "title_part1": "IA en el motor. ",
-      "title_emphasis": "Criterio",
-      "title_part2": " en el volante.",
-      "sub": "Uso IA para ir más rápido sin que se note en la calidad. Lo que la máquina hace bien, lo hace. Lo que importa de verdad — la arquitectura, las decisiones, el criterio — lo hago yo."
-    },
-    "ai": {
-      "label": "// IA BIEN USADA",
-      "title_part1": "Acelera lo aburrido. ",
-      "title_emphasis": "No",
-      "title_part2": " decide lo importante.",
-      "sub": "Transparencia total sobre dónde entra la IA y dónde no. Sin humo.",
-      "accelerates_label": "Lo que acelera la IA",
-      "accelerates": [
-        "Research y análisis de competencia",
-        "Exploración rápida de opciones y wireframes",
-        "Boilerplate y código repetitivo",
-        "Borradores de copy y contenido",
-        "QA: detectar bugs y casos límite"
-      ],
-      "human_label": "Lo que hago yo (siempre)",
-      "human": [
-        "La arquitectura de negocio y las decisiones",
-        "El criterio de diseño y la dirección",
-        "El código crítico y la lógica de negocio",
-        "La estrategia: qué construir y por qué",
-        "La relación contigo, de principio a fin"
-      ],
-      "punch": "La IA es una herramienta afilada. Pero las herramientas no tienen criterio. Yo sí."
+      "title_part1": "Cómo trabajamos, ",
+      "title_emphasis": "paso a paso",
+      "title_part2": ".",
+      "sub": "Desde la primera llamada hasta que la web está publicada. Qué pasa en cada momento, cuánto dura y qué tienes tú en la mano al terminar cada parte.",
+      "cta": "Ver el proceso"
     },
     "phases": {
-      "label": "// DEL BRIEF AL LAUNCH",
-      "title_part1": "Cuatro fases. ",
-      "title_emphasis": "Cero sorpresas",
-      "title_part2": ".",
-      "sub": "Sabes exactamente qué pasa, cuándo, y qué recibes en cada una.",
+      "label": "// EL PROYECTO",
+      "title": "De la primera reunión a la web publicada.",
+      "sub": "No se empieza a programar hasta que el diseño está aprobado, ni se publica hasta que lo has revisado tú.",
+      "outputsLabel": "Lo que recibes",
+      "note": "Los plazos son los de una web corporativa tipo. Los de tu proyecto van escritos en tu propuesta.",
       "items": [
         {
           "n": "01",
-          "name": "Alinear + Mapear",
-          "timeline": "Semana 1",
-          "body": "Empezamos por el problema real, no por el entregable que pides. Reviso producto, objetivos, usuarios, competencia y restricciones antes de tocar nada.",
+          "name": "Entender",
+          "when": "Semana 1",
+          "body": "Rellenas un cuestionario sobre tu negocio —se guarda solo, puedes hacerlo a ratos— y revisamos tu web actual, tu competencia y lo que quieres conseguir. De aquí sale qué páginas hacen falta y en qué orden se hacen.",
           "outputs": [
-            "Dirección del proyecto",
-            "Auditoría UX",
-            "Mapa de flujos",
-            "Arquitectura de contenido",
-            "Plan de sprints",
-            "Criterios de éxito"
+            "Estructura de la web y mapa de páginas",
+            "Qué contenido hace falta y quién lo pone",
+            "Plan de trabajo por semanas"
           ]
         },
         {
           "n": "02",
-          "name": "Diseñar + Iterar",
-          "timeline": "Semanas 2-4",
-          "body": "Exploración asistida por IA + iteración rápida para ver más opciones sin alargar el proyecto. Tú decides la dirección, yo ejecuto.",
+          "name": "Diseñar",
+          "when": "Semanas 2 a 4",
+          "body": "Te enseñamos el diseño de las páginas principales antes de programar nada. Opinas, ajustamos y, cuando lo das por bueno, pasamos a construir.",
           "outputs": [
-            "Dirección creativa",
-            "Wireframes",
-            "Diseño alta fidelidad",
-            "Flujos de producto",
-            "Layouts responsive",
-            "Bases del design system"
+            "Diseño de las páginas principales",
+            "Versión de móvil",
+            "Colores, tipografías y componentes"
           ]
         },
         {
           "n": "03",
-          "name": "Construir + Conectar",
-          "timeline": "Semanas 4-8",
-          "body": "Aquí el diseño se vuelve real. Next.js, CMS, integraciones y backend — código a medida, no plantillas que se rompen.",
+          "name": "Construir",
+          "when": "Semanas 4 a 8",
+          "body": "Programamos la web a medida y conectamos lo que necesite: gestor de contenidos, formularios, pagos o tu CRM. La vas viendo en un enlace de pruebas mientras avanza.",
           "outputs": [
-            "Build en Next.js",
-            "Frontend a medida",
-            "Sistema de componentes",
-            "CMS y panel de edición",
-            "Integraciones y backend",
-            "Preparación de entrega"
+            "La web funcionando en un enlace de pruebas",
+            "Gestor para que edites tus contenidos",
+            "Integraciones conectadas y probadas"
           ]
         },
         {
           "n": "04",
-          "name": "Pulir + Lanzar",
-          "timeline": "Semana 8+",
-          "body": "El último 10% es donde el trabajo empieza a notarse caro. Aquí está la diferencia entre algo que funciona y algo afilado.",
+          "name": "Revisar y publicar",
+          "when": "Semana 8 en adelante",
+          "body": "Repasamos textos, móvil, velocidad y formularios, corregimos lo que salga y publicamos en tu dominio. La web queda a tu nombre, no al nuestro.",
           "outputs": [
-            "QA exhaustivo",
-            "Ajustes de copy",
-            "Pulido de UI",
-            "Responsive fino",
-            "Animación y performance",
-            "Soporte de lanzamiento"
+            "Revisión completa antes de publicar",
+            "Publicación en tu dominio",
+            "Acompañamiento los primeros días"
           ]
         }
+      ],
+      "alwaysLabel": "Lo que no cambia en ninguna fase",
+      "always": [
+        "Diseño aprobado primero",
+        "Enlace de pruebas",
+        "Un solo contacto",
+        "Todo en tu portal"
+      ],
+      "timelineLabel": "Plazos habituales"
+    },
+    "ai": {
+      "label": "// INTELIGENCIA ARTIFICIAL",
+      "title": "Dónde usamos la IA, y dónde no.",
+      "sub": "La usamos cada semana, en las partes del trabajo que pueden ir más rápido sin cambiar el resultado. Estas son, una por una.",
+      "cards": [
+        {
+          "title": "Investigación",
+          "body": "Resumir tu sector, a tu competencia y lo que nos cuentas en el cuestionario."
+        },
+        {
+          "title": "Estructura y bocetos",
+          "body": "Probar varias formas de ordenar la web antes de diseñar ninguna."
+        },
+        {
+          "title": "Primeros borradores de texto",
+          "body": "Un punto de partida que después se reescribe y se revisa línea a línea."
+        },
+        {
+          "title": "Código repetitivo",
+          "body": "Las partes mecánicas del desarrollo, para dedicar el tiempo a lo que es solo tuyo."
+        },
+        {
+          "title": "Revisión",
+          "body": "Buscar fallos y casos raros antes de publicar."
+        }
+      ],
+      "noLabel": "Y no la usamos para",
+      "no": [
+        "Decidir qué se construye y por qué",
+        "La dirección del diseño",
+        "El código del que depende tu negocio",
+        "Los textos finales",
+        "Hablar contigo"
       ]
     },
     "stack": {
-      "label": "// EL STACK",
-      "title_part1": "Las ",
-      "title_emphasis": "herramientas",
-      "title_part2": ".",
-      "sub": "Lo que uso para construir. Moderno, rápido, mantenible — nada que dependa de un plug-in que muere mañana.",
-      "tools": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Payload",
-        "Sanity",
-        "PostgreSQL",
-        "Tailwind",
-        "Framer Motion",
-        "n8n",
-        "OpenAI",
-        "Stripe",
-        "Vercel"
-      ]
-    },
-    "cerca": {
-      "label": "// CÓMO NOS MANTENEMOS CERCA",
-      "title_part1": "No ",
-      "title_emphasis": "desaparezco",
-      "title_part2": " dos semanas.",
-      "sub": "La ansiedad nº1 de un proyecto es no saber qué está pasando. Conmigo, siempre lo sabes.",
-      "items": [
+      "label": "// HERRAMIENTAS",
+      "title": "Con qué construimos.",
+      "sub": "Tecnología actual y extendida, que cualquier desarrollador puede mantener.",
+      "groups": [
         {
-          "n": "01",
-          "title": "Updates frecuentes",
-          "body": "Cero radio silence. Sabes dónde estoy en todo momento."
+          "name": "Diseño y construcción",
+          "tools": [
+            "Figma",
+            "Astro",
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind"
+          ]
         },
         {
-          "n": "02",
-          "title": "Portal de cliente en vivo",
-          "body": "Fases con timestamps, entregables y comms — sin tener que escribir 'cómo va'."
+          "name": "Contenido y datos",
+          "tools": [
+            "Payload",
+            "Sanity",
+            "PostgreSQL",
+            "Stripe"
+          ]
         },
         {
-          "n": "03",
-          "title": "Preview en cada hito",
-          "body": "Ves el trabajo a medida que avanza, no en un gran reveal final."
+          "name": "IA y automatización",
+          "tools": [
+            "Claude",
+            "OpenAI",
+            "n8n"
+          ]
         },
         {
-          "n": "04",
-          "title": "Decisiones documentadas",
-          "body": "Por qué hicimos cada cosa, escrito. Nada se pierde por el camino."
-        },
-        {
-          "n": "05",
-          "title": "Un canal directo",
-          "body": "Hablas conmigo, no con un account manager ni un ticket."
-        },
-        {
-          "n": "06",
-          "title": "Cierre limpio",
-          "body": "Entrega bajo tu cuenta, documentado y listo para mantener."
+          "name": "Código y despliegue",
+          "tools": [
+            "GitHub",
+            "Vercel"
+          ]
         }
       ]
+    },
+    "steps": {
+      "label": "// CÓMO ESTAMOS CERCA",
+      "title": "Seis momentos en los que hablamos.",
+      "sub": "El resto del tiempo no hace falta que preguntes: lo ves en tu portal.",
+      "stepLabel": "Paso",
+      "items": [
+        {
+          "title": "Una llamada",
+          "body": "Treinta minutos para ver si encajamos y qué haríamos."
+        },
+        {
+          "title": "La propuesta",
+          "body": "Una página con el alcance, el precio y el plan de pagos. Se acepta y se firma ahí mismo."
+        },
+        {
+          "title": "El cuestionario",
+          "body": "Nos cuentas tu negocio por escrito. Se guarda solo, a tu ritmo."
+        },
+        {
+          "title": "Revisión del diseño",
+          "body": "Lo vemos juntos antes de programar nada."
+        },
+        {
+          "title": "El enlace de pruebas",
+          "body": "La web, funcionando, para que la revises antes de publicarla."
+        },
+        {
+          "title": "La entrega",
+          "body": "Queda a tu nombre y documentada. El mantenimiento es opcional."
+        }
+      ],
+      "imageAlt": "Portal de cliente de Bellostas Studio",
+      "note": "Se entra al portal con tu correo, sin contraseña."
     }
   },
   "hero": {
@@ -611,7 +662,7 @@
         "quote": "Llamamos un lunes pidiendo 'algo simple'. El viernes teníamos staging con panel admin a medida. Cero ruido, todo entregado."
       },
       "t6": {
-        "name": "Sofía Bandrés",
+        "name": "Alejandro Soro",
         "role": "Marketing Lead",
         "company": "Teleadhesivo",
         "quote": "Migró nuestra tienda con +500K clientes sin perder una sola venta. Impecable de principio a fin."
@@ -650,10 +701,61 @@
         "title": "White-label para agencias",
         "description": "Tu cliente, tu marca. Yo desarrollo en silencio bajo NDA."
       }
+    },
+    "acc": {
+      "link": "Ver el servicio",
+      "open": "Abrir",
+      "close": "Cerrar",
+      "brand": {
+        "title": "Identidad de marca",
+        "description": "Antes de la web va la marca. Diseñamos la identidad completa para que la web, las redes y todo lo demás parezcan hechos por la misma empresa.",
+        "bullets": [
+          "Logotipo e identidad visual",
+          "Colores, tipografías y sistema gráfico",
+          "Manual de marca",
+          "Aplicación en web y redes"
+        ]
+      },
+      "bullets": {
+        "s01": [
+          "Diseño a medida",
+          "Desarrollo en Next.js",
+          "Gestor de contenidos",
+          "SEO técnico y velocidad"
+        ],
+        "s02": [
+          "Catálogo y stock",
+          "Pagos con Stripe",
+          "Varios idiomas",
+          "Conectada con tus herramientas"
+        ],
+        "s03": [
+          "SaaS y paneles de cliente",
+          "Dashboards",
+          "Plataformas de formación",
+          "De la idea a producción"
+        ],
+        "s04": [
+          "Bots de WhatsApp",
+          "Calificación de leads con IA",
+          "Integraciones entre herramientas",
+          "Informes automáticos"
+        ],
+        "s05": [
+          "Desde WordPress o WooCommerce",
+          "SEO y redirecciones intactos",
+          "Datos y contenidos migrados"
+        ],
+        "s06": [
+          "Bajo NDA",
+          "Tu marca delante del cliente",
+          "Entrega en el canal que pactemos"
+        ]
+      }
     }
   },
   "process": {
-    "label": "// 02 — PROCESO",
+    "label": "// 03 — PROCESO",
     "title_part1": "Empezar es ",
     "title_emphasis": "fácil",
     "title_part2": ".",
@@ -672,9 +774,10 @@
       "d3": {
         "tag": "DAY 3",
         "title": "Empiezas a ver trabajo",
-        "description": "Primeros diseños en Slack o Notion en menos de 24h. Updates diarios."
+        "description": "Primeros diseños en tu portal de cliente en menos de 24h. Updates diarios."
       }
-    }
+    },
+    "swipe": "Desliza"
   },
   "clientPortal": {
     "label": "// EL DIFERENCIADOR",
@@ -693,7 +796,7 @@
     }
   },
   "work": {
-    "label": "// 03 — TRABAJOS",
+    "label": "// 02 — TRABAJOS",
     "title_part1": "Algunos de los ",
     "title_emphasis": "últimos",
     "title_part2": ".",
@@ -713,7 +816,14 @@
       "p_pva": "Migración de WordPress a Next.js + Sanity para el portal de Voluntariado de Aragón. 40% más rápido en LCP, escalable a 100k visitas/mes.",
       "p_fada": "Sitio institucional de la Federación Aragonesa de Automovilismo. Calendario de competiciones, federados y comunicaciones oficiales.",
       "p_gotten": "Sitio público y panel admin custom para gestionar miembros, clases y reservas. Integración con sistema de acceso al gimnasio.",
-      "p_embroidery": "E-commerce de patrones de bordado digital con licencias por descarga. En proceso. Medusa + Stripe + entrega instantánea."
+      "p_embroidery": "E-commerce de patrones de bordado digital con licencias por descarga. En proceso. Medusa + Stripe + entrega instantánea.",
+      "p_flylead": "Nuestro propio producto: software de gestión con IA, hecho por sectores. Reúne en un solo sistema lo que hoy está repartido entre el CRM, Excel, WhatsApp, el correo y los calendarios. Empezamos por inmobiliarias.",
+      "p_partner": "Nuevo cliente. Todavía no podemos decir quién.",
+      "p_teleadhesivo": "Tienda online de vinilos decorativos y pegatinas a medida, fabricados en su taller de Huesca desde el año 2000. Más de 11.500 diseños, en el tamaño y el color que elija cada cliente.",
+      "p_borrell": "Web de una correduría de seguros de Lleida: compara entre compañías y deja calcular el seguro desde la propia página.",
+      "p_obrapartner": "Tienda online de azulejos, baño y materiales de construcción, con asesoramiento para obras y reformas.",
+      "p_tajoh": "Estudio de branding, fotografía, vídeo y web. Web en construcción.",
+      "p_fabb": "Próximamente."
     }
   },
   "studio": {
@@ -976,28 +1086,30 @@
     }
   },
   "numbers": {
-    "label": "// LOS NÚMEROS",
-    "title_part1": "Los números no ",
-    "title_emphasis": "mienten",
+    "label": "// RESULTADOS",
+    "title_part1": "Resultados, con ",
+    "title_emphasis": "nombre",
     "title_part2": ".",
-    "sub": "Resultados reales que respaldan cada proyecto — porque el buen diseño impulsa crecimiento de verdad.",
-    "items": {
-      "n1": {
-        "value": "17M+",
-        "label": "Impresiones generadas",
-        "desc": "En las webs y campañas que hemos lanzado."
-      },
-      "n2": {
-        "value": "70+",
-        "label": "Proyectos entregados",
-        "desc": "Marcas y agencias que han confiado en el estudio."
-      },
-      "n3": {
-        "value": "100%",
-        "label": "Entregas a tiempo",
-        "desc": "Lo prometido, entregado. Sin plazos eternos."
-      }
-    }
+    "sub": "Cifras de proyectos concretos, cada una con el cliente al lado."
+  },
+  "clientsMap": {
+    "label": "// DÓNDE TRABAJAMOS",
+    "title_part1": "Hecho en Huesca. Clientes en ",
+    "title_emphasis": "Aragón y fuera",
+    "title_part2": ".",
+    "sub": "Arrastra para moverte, acércate y abre cada ciudad para ver con quién trabajamos.",
+    "studio": "Bellostas Studio",
+    "studio_note": "Aquí estamos",
+    "country": "España",
+    "local_link": "Diseño web en {city}",
+    "hint_mac": "Mantén ⌘ y desplaza para acercar el mapa",
+    "hint_other": "Mantén Ctrl y desplaza para acercar el mapa",
+    "legend": "Arrastra para mover · {tecla} + scroll para acercar",
+    "legend_touch": "Dos dedos para mover y acercar",
+    "zoom_in": "Acercar",
+    "zoom_out": "Alejar",
+    "reset": "Volver a la vista inicial",
+    "cluster": "{n} clientes aquí: acercar"
   },
   "faq": {
     "label": "// PREGUNTAS",
@@ -1838,7 +1950,7 @@
           "quote": "Cinco años intentando levantar este e-commerce con otros. Antonio lo tenía vivo en seis semanas."
         },
         "t8": {
-          "name": "Sofía Bandrés",
+          "name": "Alejandro Soro",
           "role": "Marketing Lead",
           "company": "Teleadhesivo",
           "quote": "Profesional como pocos. No conoce el 'no se puede'."
@@ -1862,9 +1974,9 @@
         {
           "metric": "100k",
           "label": "Visitas escalables",
-          "client": "Voluntariado Aragón",
+          "client": "TeleAdhesivo",
           "description": "Stack listo para picos sin reescribir nada. Cero downtime en migración.",
-          "projectSlug": "voluntariado-aragon"
+          "projectSlug": "teleadhesivo"
         },
         {
           "metric": "1 sem.",
@@ -2056,7 +2168,13 @@
       "sub": "30 minutos de llamada bastan para alinear scope, plazos y presupuesto.",
       "button": "Hablamos"
     },
-    "comingSoon": "Próximamente"
+    "comingSoon": "Próximamente",
+    "featuredSection": "// CASOS DESTACADOS",
+    "allSection": "// TODOS LOS PROYECTOS",
+    "col_project": "Proyecto",
+    "col_client": "Cliente",
+    "col_type": "Tipo",
+    "col_year": "Año"
   },
   "introPage": {
     "metaTitle": "Reserva tu llamada · Bellostas Studio",
@@ -2087,7 +2205,27 @@
         "role": "Coordinadora · Voluntariado Aragón",
         "quote": "Desde las entidades sociales cuesta encontrar a alguien que entienda nuestra esencia, pero Antonio lo hizo a la primera. La web refleja quiénes somos. Sin duda repetiremos."
       }
-    ]
+    ],
+    "host": {
+      "name": "Antonio Bellostas",
+      "note": "Hablas conmigo directamente"
+    },
+    "stepsLabel": "Qué pasa en la llamada",
+    "steps": [
+      {
+        "title": "Me cuentas tu proyecto",
+        "body": "Qué necesitas, para cuándo y qué te gustaría conseguir."
+      },
+      {
+        "title": "Te digo qué haría",
+        "body": "Y, con franqueza, si somos el estudio adecuado para hacerlo."
+      },
+      {
+        "title": "Recibes una propuesta",
+        "body": "Si tiene sentido seguir, te llega por escrito con alcance, precio y plazos."
+      }
+    ],
+    "lead": "Treinta minutos para ver qué necesitas, qué haríamos y si encajamos."
   },
   "contactPage": {
     "label": "// CONTACTO",
@@ -2773,5 +2911,8 @@
       "launchBadge": "Oferta de lanzamiento",
       "afterLaunch": "A partir del mes {month}: {price} €/mes — el SEO necesita rodaje, y así lo pruebas sin apostar fuerte."
     }
+  },
+  "logos": {
+    "label": "// CONFÍAN EN NOSOTROS"
   }
 }

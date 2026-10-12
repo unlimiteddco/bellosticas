@@ -1,4 +1,4 @@
-import { Crimson_Text } from "next/font/google";
+import { Crimson_Text, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "../globals.css";
 
@@ -51,13 +51,22 @@ const crimson = Crimson_Text({
   variable: "--font-crimson",
 });
 
+// La mono es para los DATOS: años, plazos, cifras, estados, etiquetas. Los
+// titulares siguen siendo de Helvena y Crimson.
+const mono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-geist-mono",
+});
+
 export default function FrontendLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${helvena.variable} ${crimson.variable}`}>
+    <html lang="es" className={`${helvena.variable} ${crimson.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );

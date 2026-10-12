@@ -14,6 +14,7 @@
 
   --font-display: var(--font-crimson), Georgia, serif;
   --font-body: var(--font-helvena), system-ui, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 *,

@@ -30,6 +30,10 @@ export function WorkCard({
   // Imagen del hover: la cover o, si el proyecto no tiene, la primera de la galería.
   const hoverImage = project.cover ?? project.gallery?.[0]?.src;
   const hasCover = Boolean(hoverImage) && !comingSoon;
+  const nombreLargo = project.name.length > 22;
+  // Próximamente, sin logo y con una frase por nombre: es un cliente que se
+  // anuncia sin decir quién es. Ahí la frase ES el mensaje y tiene que leerse.
+  const anuncio = comingSoon && nombreLargo && !hasLogo;
   const logoScale = project.logoScale ?? 100;
   // Base max-width of the logo within the card, scaled per-project.
   const logoMaxW = (featured ? 32 : 55) * (logoScale / 100);
@@ -46,7 +50,10 @@ export function WorkCard({
     <div
       className={`relative ${
         featured ? "aspect-[21/9]" : "aspect-[16/10]"
-      } rounded-2xl overflow-hidden flex items-center justify-center transition-shadow duration-500 ${
+      } rounded-2xl overflow-hidden flex items-center justify-center ${
+        // El anuncio sin nombre: la frase arriba y la etiqueta debajo, no al lado.
+        anuncio ? "flex-col gap-5" : ""
+      } transition-shadow duration-500 ${
         comingSoon ? "" : "group-hover:shadow-[0_30px_60px_-30px_rgba(29,29,27,0.3)]"
       }`}
       style={{ backgroundColor: project.color }}
@@ -86,10 +93,12 @@ export function WorkCard({
         </div>
       ) : (
         <span
-          className={`font-display italic ${
-            featured ? "text-[72px] md:text-[96px]" : "text-[40px]"
+          // Un nombre largo (un cliente que se anuncia sin decir quién es) va
+          // más pequeño y centrado, para que parta en dos líneas dentro de la card.
+          className={`font-display italic text-center px-8 leading-[1.1] ${
+            featured ? "text-[72px] md:text-[96px]" : nombreLargo ? "text-[26px] md:text-[32px]" : "text-[40px]"
           } text-[var(--color-bg)]/80 transition-transform duration-500 ${
-            comingSoon ? "opacity-25" : "group-hover:scale-[1.02]"
+            anuncio ? "opacity-70" : comingSoon ? "opacity-25" : "group-hover:scale-[1.02]"
           }`}
         >
           {project.name}
@@ -152,14 +161,18 @@ export function WorkCard({
   const meta = (
     <div className="flex items-center justify-between gap-4 mt-0.5">
       <span
-        className={`font-body text-[17px] md:text-[18px] font-medium tracking-tight text-[var(--color-text)] shrink-0 ${
+        className={`font-body text-[17px] md:text-[18px] font-medium tracking-tight text-[var(--color-text)] ${
+          nombreLargo ? "min-w-0" : "shrink-0"
+        } ${
           comingSoon ? "" : "group-hover:text-[var(--color-accent)]"
         } transition-colors`}
       >
         {project.name}
       </span>
       <span
-        className="font-body uppercase text-[12px] md:text-[12.5px] text-right truncate min-w-0"
+        className={`font-body uppercase text-[12px] md:text-[12.5px] text-right ${
+          nombreLargo ? "shrink-0" : "truncate min-w-0"
+        }`}
         style={{ letterSpacing: "0.13em" }}
       >
         {comingSoon ? (

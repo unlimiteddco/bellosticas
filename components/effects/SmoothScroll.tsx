@@ -20,7 +20,9 @@ export function SmoothScroll({ children, enabled = true }: SmoothScrollProps) {
     if (!enabled || reduced) return;
 
     const lenis = new Lenis({
-      lerp: 0.08,
+      // Cuánto se acerca el scroll a su destino en cada fotograma. Más alto,
+      // más directo: 0.08 se notaba perezoso; 0.11 sigue siendo suave.
+      lerp: 0.11,
       smoothWheel: true,
     });
     lenisRef.current = lenis;
