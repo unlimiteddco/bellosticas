@@ -20,6 +20,9 @@ export type TrabajoMenu = {
   comingSoon?: boolean;
 };
 
+/** Los proyectos de la columna «recientes», por slug y en este orden. */
+const RECIENTES = ["noal-design", "fada", "voluntariado-aragon", "teleadhesivo"];
+
 /** Proyectos cuyo hueco de «caso destacado» lleva un vídeo en vez de su portada. */
 const VIDEO_DESTACADO: Record<string, string> = {
   flylead: "/videos/marca.mp4",
@@ -72,11 +75,15 @@ export function WorkMegaMenu({
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // El destacado es el primero con imagen; los recientes, los cuatro primeros
-  // que ya se pueden enseñar. El orden lo manda el gestor de contenidos.
+  // El destacado es el primero con imagen. Los recientes los elige Antonio a
+  // mano (RECIENTES): no son los cuatro primeros del gestor, sino los casos que
+  // quiere tener a un clic. Si alguno no llega, se completa con los siguientes.
   const visibles = trabajos.filter((p) => !p.comingSoon);
   const destacado = visibles.find((p) => p.cover) ?? visibles[0];
-  const recientes = visibles.slice(0, 4);
+  const elegidos = RECIENTES.map((slug) => visibles.find((p) => p.slug === slug)).filter(
+    (p): p is (typeof visibles)[number] => Boolean(p),
+  );
+  const recientes = [...elegidos, ...visibles.filter((p) => !elegidos.includes(p))].slice(0, 4);
   const etiqueta = "block font-body uppercase text-[10px] text-[var(--color-text-muted)] mb-4 pl-3";
 
   const panel = (

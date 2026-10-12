@@ -1,7 +1,6 @@
 "use client";
 
 import { Fragment, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import { EditorialLabel } from "@/components/ui/EditorialLabel";
@@ -148,22 +147,16 @@ export function Hero() {
             {t("sub")}
           </p>
 
-          <motion.div
-            ref={googleRef}
-            initial={reduced ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: reduced ? 0 : 1.75,
-              ease: [0.4, 0, 0.2, 1],
-            }}
-          >
+          {/* Un div normal: esta entrada la lleva la línea de tiempo de GSAP. Con
+              una animación propia encima, las dos escribían la opacidad y en la
+              primera visita de la sesión ganaba GSAP con un 0: se quedaba oculta. */}
+          <div ref={googleRef}>
             <GoogleReviewBadge
               text={t("googleRatingText")}
               ctaText={t("googleRatingCta")}
               href="https://www.google.com/search?q=bellostas+studio+huesca"
             />
-          </motion.div>
+          </div>
 
           <div
             ref={ctasRef}

@@ -46,6 +46,8 @@ export const projects: Project[] = [
     gallery: [
       { src: "/clientes/flylead-agencia.jpg", alt: "FlyLead Real Estate en el portátil de una agencia inmobiliaria" },
       { src: "/clientes/flylead-valla.jpg", alt: "Valla de FlyLead: «Tu negocio, conectado. Tu equipo, un paso por delante.»" },
+      { src: "/clientes/flylead-crm.webp", alt: "El panel de leads del CRM de FlyLead Real Estate" },
+      { src: "/clientes/flylead-web.webp", alt: "Portada de flylead.es" },
     ],
   },
   // Cliente bajo confidencialidad: se anuncia sin nombre. Cuando se pueda
@@ -71,7 +73,9 @@ export const projects: Project[] = [
     liveUrl: "https://www.teleadhesivo.com",
     color: "#1B2A2F",
     descriptionKey: "p_teleadhesivo",
-    cover: "/clientes/teleadhesivo-cover.png",
+    logo: "/clientes/teleadhesivo-logo.svg",
+    // Un fotograma del recorrido grabado de la tienda (el mismo vídeo de la home).
+    cover: "/clientes/teleadhesivo-portada.webp",
   },
   {
     slug: "borrell-pinol",
@@ -83,6 +87,7 @@ export const projects: Project[] = [
     liveUrl: "https://www.borrellpinyol.com",
     color: "#14233A",
     descriptionKey: "p_borrell",
+    logo: "/clientes/borrell-logo.svg",
     // Capturas de su web en producción: la portada para la tarjeta y dos
     // secciones para la ficha.
     cover: "/clientes/borrell-portada.webp",
@@ -101,6 +106,13 @@ export const projects: Project[] = [
     liveUrl: "https://obrapartner.es",
     color: "#3A2A1C",
     descriptionKey: "p_obrapartner",
+    logo: "/clientes/obrapartner-logo.svg",
+    // Capturas de su tienda: la portada, una categoría y una ficha de producto.
+    cover: "/clientes/obrapartner-portada.webp",
+    gallery: [
+      { src: "/clientes/obrapartner-categoria.webp", alt: "Obra Partner — categoría de azulejos imitación madera" },
+      { src: "/clientes/obrapartner-producto.webp", alt: "Obra Partner — ficha de producto" },
+    ],
   },
   // Sin web publicada todavía: se anuncian, y la ficha llegará con el lanzamiento.
   {
