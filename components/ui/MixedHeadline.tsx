@@ -23,7 +23,7 @@ export function MixedHeadline({ parts, className = "", dark = false, as: Tag = "
   const baseStyles = "tracking-tight leading-[1.05]";
   const normalColor = dark ? "text-[var(--color-bg)]" : "text-[var(--color-text)]";
 
-  const renderPart = (part: HeadlinePart, i: number) => (
+  const renderPart = (part: HeadlinePart, i: number, cola?: string) => (
     <motion.span
       key={i}
       initial={{ opacity: 0, y: 20, scale: part.accent ? 0.95 : 1 }}
@@ -42,23 +42,33 @@ export function MixedHeadline({ parts, className = "", dark = false, as: Tag = "
       }
     >
       {part.text}
+      {cola && (
+        <span className={`font-body font-medium not-italic ${normalColor}`}>{cola}</span>
+      )}
     </motion.span>
   );
 
-  // Los trozos con acento son inline-block (para animar la escala), lo que abre
-  // una oportunidad de salto justo después. Si la siguiente parte es solo
-  // puntuación, se agrupan en un nowrap para que el punto no quede huérfano.
+  // Los trozos con acento son inline-block (para animar la escala), y detrás
+  // de un inline-block hay una oportunidad de salto: si lo siguiente es solo
+  // puntuación, el punto puede caer solo en otra línea. Envolverlos en un
+  // nowrap bastaba en Chrome pero no en Safari de iPhone, así que la puntuación
+  // se mete DENTRO del bloque del acento: entre una letra y su punto, sin
+  // frontera de bloque por medio, ningún navegador parte la línea.
   const nodes: React.ReactNode[] = [];
   for (let i = 0; i < parts.length; i++) {
     const current = parts[i];
     const next = parts[i + 1];
     if (next && isPunctOnly(next.text) && !isPunctOnly(current.text)) {
-      nodes.push(
-        <span key={`g${i}`} className="whitespace-nowrap">
-          {renderPart(current, i)}
-          {renderPart(next, i + 1)}
-        </span>,
-      );
+      if (current.accent) {
+        nodes.push(renderPart(current, i, next.text.trim()));
+      } else {
+        nodes.push(
+          <span key={`g${i}`} className="whitespace-nowrap">
+            {renderPart(current, i)}
+            {renderPart(next, i + 1)}
+          </span>,
+        );
+      }
       i++;
     } else {
       nodes.push(renderPart(current, i));
