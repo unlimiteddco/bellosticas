@@ -32,7 +32,7 @@ const VIDEO_ASSETS: Record<string, TestimonialMedia> = {
  * con sus iniciales: una cara inventada junto a un nombre real sería atribuirle
  * a esa persona un rostro que no es el suyo.
  */
-const CARAS: Record<string, string> = {
+export const CARAS: Record<string, string> = {
   t1: "/caras/javier-flores-face.png",
   t2: "/caras/adela-face.png",
   t3: "/caras/themis-face.png",

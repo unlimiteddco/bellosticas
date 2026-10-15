@@ -205,6 +205,11 @@ export default async function LocaleLayout({
     comingSoon: p.comingSoon,
   }));
 
+  // La V2 (/v2, /en/v2) trae su propia cabecera, footer y scroll nativo: aquí
+  // no se pinta nada de la cromática de la web actual, solo los proveedores.
+  const ruta = (await headers()).get("x-pathname") ?? "/";
+  const esV2 = /^(\/en)?\/v2(\/|$)/.test(ruta);
+
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -246,24 +251,32 @@ export default async function LocaleLayout({
         <HtmlLangSync locale={effectiveLocale} />
         <TrackingBootstrap />
         <MotionProvider>
-          <Preloader />
-          <SmoothScroll>
-            <AnnouncementBar locale={effectiveLocale} />
-            {NAVBAR_VARIANT === "pill" ? <NavbarPill trabajos={trabajosMenu} /> : <Navbar />}
-            <main id="top" className="relative z-[2]">
-              <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
-            </main>
-          </SmoothScroll>
+          {esV2 ? (
+            <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
+          ) : (
+            <>
+              <Preloader />
+              <SmoothScroll>
+                <AnnouncementBar locale={effectiveLocale} />
+                {NAVBAR_VARIANT === "pill" ? <NavbarPill trabajos={trabajosMenu} /> : <Navbar />}
+                <main id="top" className="relative z-[2]">
+                  <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
+                </main>
+              </SmoothScroll>
+            </>
+          )}
         </MotionProvider>
-        <MobileCTA />
+        {!esV2 && <MobileCTA />}
         <CookieBanner />
         <AnalyticsLoader />
         {/* Floating video testimonial — only shows on pages that include a
             [data-video-trigger] element (home, work, service pages). */}
-        <VideoTestimonialWidget
-          videoSrc={TESTIMONIAL_MEDIA.themis.video}
-          posterSrc={TESTIMONIAL_MEDIA.themis.poster}
-        />
+        {!esV2 && (
+          <VideoTestimonialWidget
+            videoSrc={TESTIMONIAL_MEDIA.themis.video}
+            posterSrc={TESTIMONIAL_MEDIA.themis.poster}
+          />
+        )}
       </CookieProvider>
 
       {/* JSON-LD lives in the body — crawlers parse it from anywhere in the document. */}

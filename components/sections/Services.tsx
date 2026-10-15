@@ -24,7 +24,7 @@ import { services } from "@/lib/services";
  */
 
 /** La pieza visual de cada servicio. Un vídeo o una imagen que ya está en la web. */
-const MEDIA: Record<string, { video?: string; img?: string }> = {
+export const MEDIA: Record<string, { video?: string; img?: string }> = {
   marca: { video: "/videos/marca.mp4" },
   // Recorridos grabados de dos webs reales: un despacho y una tienda.
   s01: { video: "/videos/web-corporativa.mp4" },

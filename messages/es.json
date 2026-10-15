@@ -2914,5 +2914,34 @@
   },
   "logos": {
     "label": "// CONFÍAN EN NOSOTROS"
+  },
+  "v2": {
+    "navLabel": "Navegación principal",
+    "themeDark": "Cambiar a tema oscuro",
+    "themeLight": "Cambiar a tema claro",
+    "soundOn": "Activar sonidos",
+    "soundOff": "Silenciar sonidos",
+    "mm": {
+      "design": "Diseño y web",
+      "product": "Producto y sistemas",
+      "noFeatured": "Pronto, un caso destacado.",
+      "local": {
+        "huesca": "Huesca",
+        "zaragoza": "Zaragoza",
+        "teruel": "Teruel"
+      }
+    },
+    "nowPlaying": "Ahora",
+    "viewCase": "Ver caso",
+    "reelAria": "Casos recientes",
+    "readCase": "Ver el caso",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "testimonialsTitle": "Palabra de cliente.",
+    "faqAsk": "¿No encuentras tu respuesta?",
+    "faqAskSub": "Llamada de 30 minutos, sin compromiso.",
+    "moreLabel": "Más que webs",
+    "heroLabel": "Aceptando 2 proyectos más para el {q}",
+    "since": "Desde 2022 en Huesca"
   }
 }

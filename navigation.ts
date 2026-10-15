@@ -36,6 +36,8 @@ export const routing = defineRouting({
     "/cookies": "/cookies",
     "/privacidad": "/privacidad",
     "/preview": "/preview",
+    // La V2 de la web, oculta (noindex) mientras se compara con la actual.
+    "/v2": "/v2",
     "/diseno-web-zaragoza": "/diseno-web-zaragoza",
     "/diseno-web-huesca": "/diseno-web-huesca",
     "/diseno-web-teruel": "/diseno-web-teruel",

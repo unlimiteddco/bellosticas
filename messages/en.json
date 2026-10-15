@@ -2914,5 +2914,34 @@
   },
   "logos": {
     "label": "// TRUSTED BY"
+  },
+  "v2": {
+    "navLabel": "Main navigation",
+    "themeDark": "Switch to dark theme",
+    "themeLight": "Switch to light theme",
+    "soundOn": "Turn sounds on",
+    "soundOff": "Mute sounds",
+    "mm": {
+      "design": "Design & web",
+      "product": "Product & systems",
+      "noFeatured": "A featured case is coming soon.",
+      "local": {
+        "huesca": "Huesca",
+        "zaragoza": "Zaragoza",
+        "teruel": "Teruel"
+      }
+    },
+    "nowPlaying": "Now",
+    "viewCase": "View case",
+    "reelAria": "Recent cases",
+    "readCase": "Read the case",
+    "prev": "Previous",
+    "next": "Next",
+    "testimonialsTitle": "In our clients' words.",
+    "faqAsk": "Can't find your answer?",
+    "faqAskSub": "A 30-minute call, no strings attached.",
+    "moreLabel": "More than websites",
+    "heroLabel": "Taking on 2 more projects for {q}",
+    "since": "Since 2022, from Huesca"
   }
 }

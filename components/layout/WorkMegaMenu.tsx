@@ -21,10 +21,10 @@ export type TrabajoMenu = {
 };
 
 /** Los proyectos de la columna «recientes», por slug y en este orden. */
-const RECIENTES = ["noal-design", "fada", "voluntariado-aragon", "teleadhesivo"];
+export const RECIENTES = ["noal-design", "fada", "voluntariado-aragon", "teleadhesivo"];
 
 /** Proyectos cuyo hueco de «caso destacado» lleva un vídeo en vez de su portada. */
-const VIDEO_DESTACADO: Record<string, string> = {
+export const VIDEO_DESTACADO: Record<string, string> = {
   flylead: "/videos/marca.mp4",
 };
 

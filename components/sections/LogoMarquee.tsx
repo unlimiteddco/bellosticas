@@ -20,7 +20,7 @@ type Logo = {
  * varios traían márgenes internos distintos y los huecos salían desiguales.
  * Al añadir un logo: recortar su viewBox al dibujo y elegir su altura aquí.
  */
-const CLIENTS: Logo[] = [
+export const CLIENTS: Logo[] = [
   { name: "Social11", src: "/client-logos/logo-social11-footer.svg", h: 30 },
   { name: "FADA", src: "/client-logos/fada-web.svg", h: 40 },
   { name: "GottenGym", src: "/client-logos/gottengym.svg", h: 27 },

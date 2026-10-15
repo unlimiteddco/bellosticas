@@ -1,0 +1,459 @@
+/*
+ * V2 de la web: sistema de diseño con líneas finas, dos temas y entradas
+ * suaves. Todo va dentro de `.v2` para no tocar la web actual.
+ *
+ * Colores: los de siempre (blanco cálido, negro, el rojo) y su versión
+ * oscura. El tema lo pone un script en línea antes de pintar (ver
+ * components/v2/V2Root.tsx), así no hay destello del tema equivocado.
+ */
+
+/* Todo en la capa «components»: así las utilidades de Tailwind (hidden,
+   sm:inline-flex, márgenes…) siguen ganando cuando se combinan con estas
+   clases. Sin capa, estas reglas pisaban a Tailwind (p. ej. .v2-btn mostraba
+   un botón marcado como hidden en el móvil). */
+@layer components {
+
+
+.v2 {
+  --v2-bg: #fdfdfb;
+  --v2-bg-2: #f6f4f0;
+  --v2-text: #1d1d1b;
+  --v2-muted: #6b6b68;
+  --v2-faint: #9a9893;
+  --v2-line: #e5e2dc;
+  --v2-line-strong: #d3cec5;
+  --v2-hover: #f0ede7;
+  --v2-accent: #c2263a;
+  --v2-accent-text: #ffffff;
+  --v2-band: #121211;
+  --v2-band-text: #f4f2ee;
+  --v2-band-line: #2a2927;
+  --v2-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --v2-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --v2-max: 1280px;
+  --v2-pad: 24px;
+
+  background: var(--v2-bg);
+  color: var(--v2-text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  transition: background-color 0.35s var(--v2-ease), color 0.35s var(--v2-ease);
+}
+
+/* En el móvil no hay líneas laterales: el contenedor va a sangre y cada
+   sección pone su propio margen (px-6), como DesignMe. Si no, el margen se
+   sumaba dos veces y el texto quedaba muy metido. */
+@media (max-width: 767px) {
+  .v2 {
+    --v2-pad: 0px;
+  }
+}
+@media (min-width: 1024px) {
+  .v2 {
+    --v2-pad: 40px;
+  }
+}
+
+.v2[data-theme="dark"] {
+  --v2-bg: #111110;
+  --v2-bg-2: #171715;
+  --v2-text: #f4f2ee;
+  --v2-muted: #a19e98;
+  --v2-faint: #6e6c68;
+  --v2-line: #262523;
+  --v2-line-strong: #383633;
+  --v2-hover: #1e1d1b;
+  --v2-accent: #e0364c;
+  --v2-band: #0a0a09;
+  --v2-band-line: #232220;
+}
+
+/* Qué logo se ve según el tema. */
+.v2 .v2-solo-oscuro {
+  display: none;
+}
+.v2[data-theme="dark"] .v2-solo-oscuro {
+  display: inline-block;
+}
+.v2[data-theme="dark"] .v2-solo-claro {
+  display: none;
+}
+
+/* ── Contenedor con las dos líneas verticales que recorren la página ── */
+.v2-frame {
+  position: relative;
+  max-width: calc(var(--v2-max) + var(--v2-pad) * 2);
+  margin: 0 auto;
+  padding: 0 var(--v2-pad);
+}
+.v2-rail {
+  position: relative;
+  border-left: 1px solid var(--v2-line);
+  border-right: 1px solid var(--v2-line);
+}
+@media (max-width: 767px) {
+  .v2-rail {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+/* Separador de sección a todo el ancho. */
+.v2-sep {
+  height: 1px;
+  background: var(--v2-line);
+}
+
+/* Etiqueta en mono mayúsculas («// SERVICIOS»). */
+.v2-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--v2-muted);
+}
+
+/* Botones. Esquinas casi rectas: el estilo de líneas pide aristas. */
+.v2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 21px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s var(--v2-ease), color 0.2s var(--v2-ease), border-color 0.2s var(--v2-ease), transform 0.2s var(--v2-ease);
+  white-space: nowrap;
+}
+.v2-btn:active {
+  transform: translateY(1px);
+}
+.v2-btn--primary {
+  background: var(--v2-accent);
+  color: var(--v2-accent-text);
+}
+.v2-btn--primary:hover {
+  filter: brightness(1.08);
+}
+.v2-btn--ghost {
+  background: var(--v2-hover);
+  color: var(--v2-text);
+}
+.v2-btn--ghost:hover {
+  background: var(--v2-line);
+}
+.v2-btn--sm {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+/* Enlace con subrayado que crece. */
+.v2-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.v2-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.35s var(--v2-ease);
+}
+.v2-link:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+/* ── Entradas al hacer scroll ──
+   Solo se esconde lo que tiene data-reveal y solo cuando hay JS (.v2-js, que
+   pone el script en línea). Si el sistema no llega a arrancar en 2,5 s, todo
+   se muestra igualmente: nunca queda contenido invisible. */
+.v2-js [data-reveal]:not(.is-in) {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.v2-js [data-reveal].is-in {
+  animation: v2-rv 0.75s var(--v2-ease-out) var(--rv-d, 0ms) both;
+}
+.v2-js [data-reveal="fade"]:not(.is-in) {
+  transform: none;
+}
+.v2-js [data-reveal="fade"].is-in {
+  animation-name: v2-fade;
+}
+@keyframes v2-rv {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes v2-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Líneas que se dibujan al aparecer. */
+.v2-js [data-draw] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.1s var(--v2-ease-out) var(--rv-d, 0ms);
+}
+.v2-js [data-draw="y"] {
+  transform: scaleY(0);
+  transform-origin: center top;
+}
+.v2-js [data-draw].is-in {
+  transform: none;
+}
+
+.v2-js:not([data-reveal-ready]) [data-reveal]:not(.is-in) {
+  animation: v2-fade 0.4s ease 2.5s both;
+}
+.v2-js:not([data-reveal-ready]) [data-draw] {
+  animation: v2-draw-failsafe 0s 2.5s forwards;
+}
+@keyframes v2-draw-failsafe {
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-js [data-reveal]:not(.is-in),
+  .v2-js [data-draw] {
+    opacity: 1;
+    transform: none;
+  }
+  .v2-js [data-reveal].is-in {
+    animation: none;
+  }
+}
+
+/* ── Cabecera ── */
+.v2-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--v2-bg) 92%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--v2-line);
+  transition: background-color 0.3s var(--v2-ease), border-color 0.3s var(--v2-ease);
+}
+
+/* La píldora que sigue al ratón por la navegación. */
+.v2-pill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 32px;
+  width: var(--pill-w, 0px);
+  transform: translate(var(--pill-x, 0px), -50%);
+  border-radius: 6px;
+  background: var(--v2-hover);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.32s var(--v2-ease), width 0.32s var(--v2-ease), opacity 0.2s var(--v2-ease);
+}
+.v2-pill.is-visible {
+  opacity: 1;
+}
+.v2-pill.is-placing {
+  transition: opacity 0.2s var(--v2-ease);
+}
+
+/* El «+» del enlace con menú: gira a «×» cuando está abierto. */
+.v2-plus {
+  display: inline-block;
+  transition: transform 0.35s var(--v2-ease);
+}
+[aria-expanded="true"] > .v2-plus {
+  transform: rotate(45deg);
+}
+
+/* ── Megamenú ── */
+.v2-mm {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: var(--mm-h, 0px);
+  overflow: hidden;
+  transition: height var(--mm-dur, 450ms) var(--v2-ease);
+  pointer-events: none;
+}
+.v2-mm.is-open {
+  pointer-events: auto;
+}
+.v2-mm-box {
+  border: 1px solid var(--v2-line);
+  border-top: 0;
+  background: var(--v2-bg);
+  box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.18);
+}
+.v2-mm-panel {
+  position: absolute;
+  inset: 0 0 auto 0;
+  opacity: 0;
+  transform: translate(var(--mm-x, 0px), var(--mm-y, -8px));
+  transition: opacity var(--mm-dur, 450ms) var(--v2-ease), transform var(--mm-dur, 450ms) var(--v2-ease);
+  pointer-events: none;
+}
+.v2-mm-panel.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.v2-mm-panel.no-anim {
+  transition: none;
+}
+
+/* Velo bajo el megamenú. */
+.v2-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgb(10 10 9 / 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--v2-ease);
+}
+.v2-veil.is-on {
+  opacity: 1;
+}
+
+/* Icono en caja de cada enlace del megamenú. */
+.v2-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--v2-line);
+  border-radius: 6px;
+  color: var(--v2-muted);
+  transition: color 0.2s var(--v2-ease), border-color 0.2s var(--v2-ease), background-color 0.2s var(--v2-ease);
+  flex-shrink: 0;
+}
+.v2-mm-link:hover .v2-ico,
+.v2-mm-link:focus-visible .v2-ico {
+  color: var(--v2-accent);
+  border-color: var(--v2-line-strong);
+  background: var(--v2-bg);
+}
+.v2-mm-link:hover,
+.v2-mm-link:focus-visible {
+  background: var(--v2-hover);
+}
+
+/* ── Acordeones (<details>) ── */
+.v2 details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.v2 details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ── Carrusel de logos: se frena al pasar el ratón ── */
+.v2-ticker {
+  display: flex;
+  width: max-content;
+  animation: v2-ticker 40s linear infinite;
+}
+@keyframes v2-ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-ticker {
+    animation: none;
+  }
+}
+
+/* Foco visible y coherente. */
+.v2 :focus-visible {
+  outline: 2px solid var(--v2-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Barras de progreso del reproductor de casos. */
+.v2-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--v2-text);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.v2-progress.is-active > span {
+  animation: v2-progress var(--dur, 6s) linear forwards;
+}
+.v2-progress.is-done > span {
+  transform: scaleX(1);
+}
+@keyframes v2-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* La cabecera sobre una banda oscura toma sus colores. */
+.v2-header[data-tone="dark"] {
+  --v2-bg: var(--v2-band);
+  --v2-text: var(--v2-band-text);
+  --v2-muted: #a19e98;
+  --v2-line: var(--v2-band-line);
+  --v2-hover: #1e1d1b;
+  color: var(--v2-text);
+}
+.v2-header[data-tone="dark"] .v2-solo-claro {
+  display: none;
+}
+.v2-header[data-tone="dark"] .v2-solo-oscuro {
+  display: inline-block;
+}
+
+/* Entrada del hero al cargar: CSS puro, siempre termina (no depende de JS). */
+.v2-hero-in {
+  animation: v2-rv 0.8s var(--v2-ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-hero-in {
+    animation: none;
+  }
+}
+}
+
+/* El fondo de la página (lo que asoma al estirar el scroll) sigue al tema,
+   sin tocar <html> desde JS (eso descuadraba la hidratación de React). */
+html:has(#v2-root),
+html:has(#v2-root) body {
+  background: #fdfdfb;
+}
+html:has(#v2-root[data-theme="dark"]),
+html:has(#v2-root[data-theme="dark"]) body {
+  background: #111110;
+  color-scheme: dark;
+}
