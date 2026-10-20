@@ -25,7 +25,8 @@ export function Logo({
     wordmark: "/logos/bellostas-wordmark.svg",
     black: "/logos/logo-black.svg",
     "white-red": "/logos/logo-white-red.svg",
-    "blanco-rojo": "/logos/logo-blanco-rojo.svg",
+    // ?v=2: se le añadió la «l» que faltaba; así nadie se queda con la vieja en caché.
+    "blanco-rojo": "/logos/logo-blanco-rojo.svg?v=2",
   }[variant];
 
   const width = Math.round(height * aspectRatios[variant]);
@@ -37,6 +38,9 @@ export function Logo({
       height={height}
       width={width}
       priority={priority}
+      // Son SVG: no hay nada que optimizar, y así se sirven directos (sin la
+      // caché de /_next/image, que seguía dando el dibujo viejo tras cambiarlo).
+      unoptimized
       className={className}
     />
   );
