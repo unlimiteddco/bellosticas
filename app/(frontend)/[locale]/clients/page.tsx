@@ -99,7 +99,7 @@ export default async function ClientesV2({ params }: { params: Promise<{ locale:
             {t("hero.sub")}
           </p>
           <div className="v2-hero-in flex flex-col items-center gap-5" style={{ animationDelay: "240ms" }}>
-            <ProofRow locale={locale} className="justify-center" />
+            <ProofRow locale={locale} centro />
             <a href={google} target="_blank" rel="noopener" className="v2-link text-[var(--v2-muted)] hover:text-[var(--v2-text)]">
               {t("hero.googleCta")} <ArrowUpRight size={14} className="text-[var(--v2-accent)]" />
             </a>

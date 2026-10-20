@@ -110,7 +110,7 @@ export async function ServicioHero({ locale, ns, ancla = "proceso" }: { locale: 
             {t("note")}
           </span>
         )}
-        <ProofRow locale={locale} className="v2-hero-in mt-4 justify-center" style={{ animationDelay: "320ms" }} />
+        <ProofRow locale={locale} centro className="v2-hero-in mt-4" style={{ animationDelay: "320ms" }} />
       </div>
     </section>
   );

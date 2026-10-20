@@ -51,7 +51,7 @@ export default async function TrabajosV2({ params }: { params: Promise<{ locale:
           >
             {t("sub")}
           </p>
-          <ProofRow locale={locale} className="v2-hero-in mt-2 justify-center" style={{ animationDelay: "240ms" }} />
+          <ProofRow locale={locale} centro className="v2-hero-in mt-2" style={{ animationDelay: "240ms" }} />
         </div>
         <div className="v2-hero-in" style={{ animationDelay: "300ms" }}>
           <RejillaTrabajos proyectos={proyectos} videos={VIDEO_CASO} />

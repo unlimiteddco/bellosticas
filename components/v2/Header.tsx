@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/navigation";
 import { Grip, Plus, X } from "lucide-react";
-import { AsteriskIcon } from "@/components/ui/AsteriskIcon";
 import { Logo } from "@/components/ui/Logo";
 import type { TrabajoMenu } from "@/components/layout/WorkMegaMenu";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
@@ -246,15 +245,13 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
         <div className="v2-frame">
           <div className="relative flex h-[60px] items-center justify-between gap-6 px-5 md:px-0">
             <Link href="/" className="flex items-center shrink-0" aria-label="Bellostas Studio">
-              {/* En el móvil, solo el símbolo: deja sitio a sonido, tema y menú. */}
-              <AsteriskIcon className="h-7 w-7 text-[var(--v2-accent)] sm:hidden" />
-              <span className="hidden sm:inline">
-                <span className="v2-solo-claro">
-                  <Logo variant="black" height={20} priority />
-                </span>
-                <span className="v2-solo-oscuro">
-                  <Logo variant="blanco-rojo" height={20} priority />
-                </span>
+              {/* El logo completo también en móvil, algo más bajo para dejar
+                  sitio a sonido, tema y menú. */}
+              <span className="v2-solo-claro">
+                <Logo variant="black" height={20} priority className="h-[18px] w-auto sm:h-5" />
+              </span>
+              <span className="v2-solo-oscuro">
+                <Logo variant="blanco-rojo" height={20} priority className="h-[18px] w-auto sm:h-5" />
               </span>
             </Link>
 
