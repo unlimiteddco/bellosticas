@@ -106,13 +106,18 @@ export function TarjetaTrabajo({
       <span className="block p-2.5">
         <span className="relative block aspect-[4/3] overflow-hidden rounded-[5px]" style={{ backgroundColor: p.color }}>
           <Medio p={p} video={video} />
+          {/* «Próximamente» va sobre la imagen: en la fila del nombre no
+              cabía junto a un nombre largo en móvil. */}
+          {proximamente && (
+            <span className="absolute left-3 top-3 bg-white px-1.5 py-[1px] font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-black">
+              {proximamente}
+            </span>
+          )}
         </span>
       </span>
       <span className="flex items-center gap-2 border-b border-[var(--v2-line)] px-4 py-3">
-        <span className="truncate text-[14.5px] font-medium">{p.name}</span>
-        {proximamente ? (
-          <span className="v2-tag">{proximamente}</span>
-        ) : (
+        <span className={`min-w-0 text-[14.5px] font-medium ${proximamente ? "leading-[1.3]" : "truncate"}`}>{p.name}</span>
+        {!proximamente && (
           etiqueta && (
             <span className="shrink-0 rounded-[4px] bg-[var(--v2-hover)] px-2 py-0.5 text-[12px] text-[var(--v2-muted)]">
               {etiqueta}
@@ -194,6 +199,8 @@ function Medio({ p, video }: { p: ResolvedProject; video?: string }) {
     );
   }
   return (
-    <span className="absolute inset-0 flex items-center justify-center text-[22px] font-medium text-white/85">{p.name}</span>
+    <span className="absolute inset-0 flex items-center justify-center text-balance px-8 text-center text-[22px] font-medium leading-[1.2] text-white/85">
+      {p.name}
+    </span>
   );
 }
