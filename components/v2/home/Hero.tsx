@@ -28,10 +28,12 @@ export async function Hero({ locale, casos }: { locale: string; casos: CasoReel[
           </span>
           {/* Dos líneas en escritorio («Diseño y desarrollo web / que hace crecer
               tu marca.»), algo por debajo del resto de portadas para que
-              quepan junto al vídeo también en inglés. */}
-          <h1 className="v2-hero-in v2-h1 lg:text-[clamp(44px,4.9vw,66px)]" style={{ animationDelay: "80ms" }}>
-            <span className="block lg:whitespace-nowrap">{th("line1")}</span>
-            <span className="block lg:whitespace-nowrap">
+              quepan junto al vídeo también en inglés. En móvil el texto corre
+              seguido y queda en tres («Diseño y desarrollo / web que hace /
+              crecer tu marca.»). */}
+          <h1 className="v2-hero-in v2-h1 max-[359px]:text-[30px] lg:text-[clamp(44px,4.9vw,66px)]" style={{ animationDelay: "80ms" }}>
+            <span className="sm:block lg:whitespace-nowrap">{th("line1")} </span>
+            <span className="sm:block lg:whitespace-nowrap">
               {th("line2_pre")}
               <span className="whitespace-nowrap">
                 <em className="font-display italic font-semibold text-[var(--v2-accent)]">{th("line2_em")}</em>
