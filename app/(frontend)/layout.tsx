@@ -1,6 +1,10 @@
 import { Crimson_Text, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "../globals.css";
+// La hoja de la V2 va aquí y no en V2Root: la importan a la vez la 404 y las
+// páginas de la V2, y en desarrollo esa doble carga hacía que el navegador la
+// soltara. Todo lo de dentro va bajo .v2 / #v2-root, así que a la V1 no le afecta.
+import "../v2.css";
 
 /**
  * Frontend root layout — owns <html> and <body> for the public website.

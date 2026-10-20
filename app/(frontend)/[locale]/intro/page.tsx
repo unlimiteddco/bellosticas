@@ -22,10 +22,15 @@ export async function generateMetadata({
 
 export default async function IntroPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ interes?: string | string[] }>;
 }) {
   const { locale } = await params;
+  // Lo que miró en Precios («Web corporativa · Avanzada»): va a las notas de la reserva.
+  const crudo = (await searchParams).interes;
+  const interes = (Array.isArray(crudo) ? crudo[0] : crudo)?.replace(/\s+/g, " ").trim().slice(0, 120);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "introPage" });
   const points = t.raw("points") as string[];
@@ -53,7 +58,7 @@ export default async function IntroPage({
       </section>
 
       <section className="relative z-10 max-w-[1080px] mx-auto px-6 lg:px-12 pb-16 lg:pb-20">
-        <BookingSection hideHeader bare />
+        <BookingSection hideHeader bare nota={interes ? t("interesNota", { interes }) : undefined} />
       </section>
 
       <section className="relative z-10 max-w-[1080px] mx-auto px-6 lg:px-12 pb-16 lg:pb-24">

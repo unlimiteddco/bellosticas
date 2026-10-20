@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { AI_ASSISTANTS } from "@/components/layout/ai-assistants";
+import { sinBarras } from "@/lib/v2/texto";
 
 type Destino = React.ComponentProps<typeof Link>["href"];
 
@@ -19,23 +20,25 @@ export async function FooterV2({ locale }: { locale: string }) {
     {
       titulo: t("servicesHeading"),
       enlaces: [
-        { nombre: t("servicesLinks.web"), href: "/services/desarrollo-web" },
-        { nombre: t("servicesLinks.ecommerce"), href: "/services/ecommerce" },
-        { nombre: t("servicesLinks.apps"), href: "/services/aplicaciones-web" },
-        { nombre: t("servicesLinks.autom"), href: "/services/automatizaciones" },
-        { nombre: t("servicesLinks.migr"), href: "/services/migraciones" },
-        { nombre: t("servicesLinks.whitelabel"), href: "/services/white-label" },
+        { nombre: t("servicesLinks.web"), href: "/v2/services/desarrollo-web" },
+        { nombre: t("servicesLinks.ecommerce"), href: "/v2/services/ecommerce" },
+        { nombre: t("servicesLinks.seo"), href: "/v2/services/seo-aeo" },
+        { nombre: t("servicesLinks.apps"), href: "/v2/services/aplicaciones-web" },
+        { nombre: t("servicesLinks.autom"), href: "/v2/services/automatizaciones" },
+        { nombre: t("servicesLinks.migr"), href: "/v2/services/migraciones" },
+        { nombre: t("servicesLinks.whitelabel"), href: "/v2/services/white-label" },
       ],
     },
     {
       titulo: t("studioHeading"),
       enlaces: [
-        { nombre: t("links.work"), href: "/work" },
-        { nombre: t("links.studio"), href: "/studio" },
-        { nombre: t("links.proceso"), href: "/proceso" },
-        { nombre: t("links.blog"), href: "/blog" },
-        { nombre: t("links.love"), href: "/love" },
-        { nombre: t("links.contact"), href: "/contact" },
+        { nombre: t("links.work"), href: "/v2/work" },
+        { nombre: t("links.studio"), href: "/v2/studio" },
+        { nombre: t("links.proceso"), href: "/v2/proceso" },
+        { nombre: t("links.pricing"), href: "/v2/pricing" },
+        { nombre: t("links.blog"), href: "/v2/blog" },
+        { nombre: t("links.love"), href: "/v2/clients" },
+        { nombre: t("links.contact"), href: "/v2/contact" },
         { nombre: t("links.portal"), href: "https://portal.bellostas.studio", externo: true as const },
       ],
     },
@@ -44,7 +47,6 @@ export async function FooterV2({ locale }: { locale: string }) {
           {
             titulo: t("seoHeading"),
             enlaces: [
-              { nombre: t("localLinks.seoLocal"), href: "/seo-local" as Destino },
               { nombre: t("localLinks.huesca"), href: "/diseno-web-huesca" as Destino },
               { nombre: t("localLinks.zaragoza"), href: "/diseno-web-zaragoza" as Destino },
               { nombre: t("localLinks.teruel"), href: "/diseno-web-teruel" as Destino },
@@ -57,9 +59,9 @@ export async function FooterV2({ locale }: { locale: string }) {
       enlaces: [
         { nombre: t("links.linkedin"), href: "https://www.linkedin.com/in/antonio-bellostas/", externo: true as const },
         { nombre: t("links.instagram"), href: "https://www.instagram.com/bellostas.studio/", externo: true as const },
-        { nombre: t("links.legal"), href: "/legal" },
-        { nombre: t("links.privacy"), href: "/privacidad" },
-        { nombre: t("links.cookies"), href: "/cookies" },
+        { nombre: t("links.legal"), href: "/v2/legal" },
+        { nombre: t("links.privacy"), href: "/v2/privacidad" },
+        { nombre: t("links.cookies"), href: "/v2/cookies" },
       ],
     },
   ];
@@ -71,7 +73,7 @@ export async function FooterV2({ locale }: { locale: string }) {
       <div className="v2-frame">
         <div className="grid grid-cols-1 border-x border-[var(--v2-band-line)] lg:grid-cols-12">
           <div className="flex flex-col gap-6 border-b border-[var(--v2-band-line)] p-6 md:p-10 lg:col-span-4 lg:border-b-0 lg:border-r">
-            <Logo variant="white-red" height={20} />
+            <Logo variant="blanco-rojo" height={20} />
             <p className="max-w-[300px] text-[13.5px] leading-[1.6] text-white/60">{t("tagline")}</p>
             <div className="flex flex-col gap-1 text-[13.5px] text-white/60">
               <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/45">{t("hqHeading")}</span>
@@ -130,7 +132,7 @@ export async function FooterV2({ locale }: { locale: string }) {
         <div className="v2-frame">
           <div className="flex flex-wrap items-center justify-between gap-3 border-x border-[var(--v2-band-line)] px-6 py-4 font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/45 md:px-10">
             <span>© {year} Bellostas Studio</span>
-            <span>{t("bottomRight")}</span>
+            <span>{sinBarras(t("bottomRight"))}</span>
           </div>
         </div>
       </div>

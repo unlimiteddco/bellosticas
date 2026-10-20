@@ -47,7 +47,7 @@ export function LogoCells() {
     <section className="v2-frame">
       <div className="v2-rail border-t border-[var(--v2-line)]">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--v2-line)] px-6 py-3 md:px-10">
-          <span className="v2-label">{t("label")}</span>
+          <span className="v2-label">{t("label").replace(/^\/\/\s*/, "")}</span>
         </div>
         <div className="relative overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)" }}>
           <div ref={pista} className="v2-ticker">

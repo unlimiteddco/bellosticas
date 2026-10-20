@@ -34,9 +34,13 @@ const BUDGET_KEYS: Budget[] = [
   "not_sure",
 ];
 
-type Props = { hideHeader?: boolean };
+type Props = {
+  hideHeader?: boolean;
+  /** «v2»: el botón de enviar con el estilo de la V2 (esquinas casi rectas, rojo). */
+  boton?: "v1" | "v2";
+};
 
-export function ContactForm({ hideHeader = false }: Props) {
+export function ContactForm({ hideHeader = false, boton = "v1" }: Props) {
   const t = useTranslations("contact");
   const locale = useLocale() as "es" | "en";
   const budgetLabels = t.raw("budgetOptions") as Record<Budget, string>;
@@ -230,7 +234,9 @@ export function ContactForm({ hideHeader = false }: Props) {
                   }`}
                   style={{
                     backgroundColor: active ? "var(--color-text)" : "transparent",
-                    color: active ? "#FFFFFF" : "var(--color-text)",
+                    // El fondo del texto, no blanco fijo: en la V2 oscura el chip
+                    // activo es claro y el blanco no se leería.
+                    color: active ? "var(--color-bg)" : "var(--color-text)",
                   }}
                 >
                   {t(`services.options.${s}`)}
@@ -295,16 +301,23 @@ export function ContactForm({ hideHeader = false }: Props) {
         </div>
 
         <div className="flex items-center gap-4 mt-2 flex-wrap">
-          <PrimaryButton>
-            {status === "sending" ? (
-              <span className="inline-flex items-center gap-2">
-                <Loader2 size={14} className="animate-spin" />
-                {t("sending")}
-              </span>
-            ) : (
-              t("submit")
-            )}
-          </PrimaryButton>
+          {boton === "v2" ? (
+            <button type="submit" className="v2-btn v2-btn--primary" disabled={status === "sending"}>
+              {status === "sending" && <Loader2 size={14} className="animate-spin" />}
+              {status === "sending" ? t("sending") : t("submit")}
+            </button>
+          ) : (
+            <PrimaryButton>
+              {status === "sending" ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 size={14} className="animate-spin" />
+                  {t("sending")}
+                </span>
+              ) : (
+                t("submit")
+              )}
+            </PrimaryButton>
+          )}
 
           <AnimatePresence>
             {status === "sent" && (

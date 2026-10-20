@@ -26,18 +26,38 @@ export const SEGMENTS = [
   { value: "sin_negocio", label: "Todavía no tengo negocio" },
 ] as const;
 
-const inputClass =
-  "mt-2 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3.5 font-body text-[16px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-[var(--color-accent)] transition-colors";
+/** Las clases de cada versión: la de siempre y la de la V2 (/v2/g/[slug]). */
+const ESTILOS = {
+  v1: {
+    input:
+      "mt-2 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3.5 font-body text-[16px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-[var(--color-accent)] transition-colors",
+    tarjeta: "rounded-2xl border border-[var(--color-border)] bg-white",
+    boton:
+      "mt-4 w-full rounded-xl bg-[var(--color-accent)] px-6 py-4 font-body font-semibold text-[16px] text-white transition-opacity hover:opacity-90 disabled:opacity-60",
+    titulo: "font-display text-[24px] leading-[1.15]",
+  },
+  v2: {
+    input:
+      "mt-2 w-full rounded-[6px] border border-[var(--v2-line)] bg-[var(--v2-bg)] px-4 py-3.5 text-[16px] text-[var(--v2-text)] placeholder:text-[var(--v2-faint)] focus:outline-none focus:border-[var(--v2-text)] transition-colors",
+    tarjeta: "v2-card",
+    boton: "v2-btn v2-btn--primary mt-4 h-[52px] w-full text-[16px] disabled:opacity-60",
+    titulo: "text-[24px] font-medium leading-[1.15] tracking-[-0.02em]",
+  },
+} as const;
 
 export function LeadMagnetForm({
   slug,
   type,
   ctaLabel,
+  variante = "v1",
 }: {
   slug: string;
   type: string;
   ctaLabel: string;
+  variante?: keyof typeof ESTILOS;
 }) {
+  const e = ESTILOS[variante];
+  const inputClass = e.input;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [segment, setSegment] = useState("");
@@ -96,14 +116,14 @@ export function LeadMagnetForm({
 
   if (state === "done") {
     return (
-      <div className="rounded-2xl border border-[var(--color-border)] bg-white px-6 py-8 text-center">
+      <div className={`${e.tarjeta} px-6 py-8 text-center`}>
         <span
           className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-[22px] font-bold"
           aria-hidden
         >
           ✓
         </span>
-        <p className="mt-4 font-display text-[24px] leading-[1.15] text-[var(--color-text)]">
+        <p className={`mt-4 ${e.titulo} text-[var(--color-text)]`}>
           ¡Hecho, {name.trim().split(/\s+/)[0]}! Revisa tu correo
         </p>
         <p className="mt-2 font-body text-[14.5px] leading-[1.6] text-[var(--color-text-muted)]">
@@ -117,7 +137,7 @@ export function LeadMagnetForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-[var(--color-border)] bg-white px-5 py-6">
+    <form onSubmit={handleSubmit} className={`${e.tarjeta} px-5 py-6`}>
       <div>
         <label htmlFor="lm-name" className="block font-body text-[14px] font-medium text-[var(--color-text)]">
           Tu nombre
@@ -203,7 +223,7 @@ export function LeadMagnetForm({
       <button
         type="submit"
         disabled={state === "sending"}
-        className="mt-4 w-full rounded-xl bg-[var(--color-accent)] px-6 py-4 font-body font-semibold text-[16px] text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+        className={e.boton}
       >
         {state === "sending" ? "Enviando…" : ctaLabel}
       </button>

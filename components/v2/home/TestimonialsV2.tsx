@@ -41,9 +41,9 @@ export function TestimonialsV2() {
         <div className="flex flex-wrap items-end justify-between gap-6 px-6 py-16 md:px-10 lg:py-20">
           <div className="flex flex-col gap-4">
             <span className="v2-label" data-reveal>
-              {t("label")}
+              {t("label").replace(/^\/\/\s*/, "")}
             </span>
-            <h2 className="max-w-[560px] text-[34px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[48px]" data-reveal>
+            <h2 className="max-w-[560px] v2-h2" data-reveal>
               {tv("testimonialsTitle")}
             </h2>
           </div>

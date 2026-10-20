@@ -7,6 +7,7 @@ import { Link } from "@/navigation";
 import { services } from "@/lib/services";
 import { MEDIA } from "@/components/sections/Services";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { sinBarras } from "@/lib/v2/texto";
 
 type Destino = React.ComponentProps<typeof Link>["href"];
 
@@ -16,6 +17,16 @@ type Destino = React.ComponentProps<typeof Link>["href"];
  * cambia la forma. Uno abierto a la vez; el alto se anima con la rejilla
  * 0fr → 1fr, que no necesita medir nada.
  */
+// Los servicios que ya tienen su página en la V2; el resto, a la de siempre.
+const V2: Record<string, Destino> = {
+  "desarrollo-web": "/v2/services/desarrollo-web",
+  ecommerce: "/v2/services/ecommerce",
+  "aplicaciones-web": "/v2/services/aplicaciones-web",
+  automatizaciones: "/v2/services/automatizaciones",
+  migraciones: "/v2/services/migraciones",
+  "white-label": "/v2/services/white-label",
+};
+
 export function ServicesV2() {
   const t = useTranslations("services");
   const [abierto, setAbierto] = useState(0);
@@ -26,14 +37,16 @@ export function ServicesV2() {
       titulo: t("acc.brand.title"),
       descripcion: t("acc.brand.description"),
       puntos: t.raw("acc.brand.bullets") as string[],
-      href: null as Destino | null,
+      // La única con página propia en la V2 (de momento solo existe aquí).
+      href: "/v2/services/brand-identity" as Destino | null,
     },
     ...services.map((s) => ({
       clave: s.titleKey as string,
       titulo: t(`items.${s.titleKey}.title`),
       descripcion: t(`items.${s.titleKey}.description`),
       puntos: t.raw(`acc.bullets.${s.titleKey}`) as string[],
-      href: (s.hasPage ? `/services/${s.slug}` : null) as Destino | null,
+      // Las que ya tienen página en la V2 llevan a ella; el resto, a la de siempre.
+      href: (V2[s.slug] ?? (s.hasPage ? `/services/${s.slug}` : null)) as Destino | null,
     })),
   ];
 
@@ -43,9 +56,9 @@ export function ServicesV2() {
         <span aria-hidden data-draw className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-[var(--v2-line)]" />
         <div className="mx-auto flex max-w-[720px] flex-col items-center gap-5 px-6 py-20 text-center lg:py-24">
           <span className="v2-label" data-reveal>
-            {t("label")}
+            {sinBarras(t("label"))}
           </span>
-          <h2 className="text-[38px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[56px]" data-reveal>
+          <h2 className="v2-h2" data-reveal>
             {t("title_part1")}
             <em className="font-display italic font-semibold text-[var(--v2-accent)]">{t("title_emphasis")}</em>
             {t("title_part2")}

@@ -68,6 +68,29 @@
   --v2-band-line: #232220;
 }
 
+/* Banda negra para intercalar entre secciones claras (en los dos temas). Lo
+   de dentro usa las mismas variables, aquí con valores oscuros, así que
+   pestañas, líneas y botones se adaptan sin tocarlos. */
+.v2 .v2-oscuro {
+  --v2-bg: #121211;
+  --v2-bg-2: #1a1a18;
+  --v2-text: #f4f2ee;
+  --v2-muted: #a19e98;
+  --v2-faint: #6e6c68;
+  --v2-line: #2a2927;
+  --v2-line-strong: #3a3835;
+  --v2-hover: #1c1c1a;
+  --v2-accent: #e0364c;
+  background: var(--v2-bg);
+  color: var(--v2-text);
+}
+.v2[data-theme="dark"] .v2-oscuro {
+  --v2-bg: #0a0a09;
+  --v2-bg-2: #121211;
+  --v2-hover: #161615;
+  --v2-line: #232220;
+}
+
 /* Qué logo se ve según el tema. */
 .v2 .v2-solo-oscuro {
   display: none;
@@ -113,6 +136,88 @@
   color: var(--v2-muted);
 }
 
+/* Componentes de la V1 que se reutilizan en la V2 (el formulario de contacto):
+   sus colores salen de las variables de la V1, así que aquí apuntan a las de
+   la V2 y siguen al tema claro u oscuro. */
+.v2-legado {
+  --color-bg: var(--v2-bg);
+  --color-text: var(--v2-text);
+  --color-text-muted: var(--v2-muted);
+  --color-border: var(--v2-line);
+  --color-accent: var(--v2-accent);
+}
+
+/* Etiqueta («Nuevo», «Recomendado», «Para crecer»…): la misma de la barra de
+   aviso de arriba. En claro, negra con letra clara; en las bandas negras se
+   invierte sola (los tokens cambian). --inv, sobre una fila ya invertida. */
+.v2-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--v2-text);
+  color: var(--v2-bg);
+}
+.v2-tag--inv {
+  background: var(--v2-bg);
+  color: var(--v2-text);
+}
+
+/* Título de sección: el mismo tamaño en toda la V2 (antes había de 48 a 64 px).
+   Solo el de la banda final va más grande, a propósito. */
+.v2-h2 {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+@media (min-width: 768px) {
+  .v2-h2 {
+    font-size: 48px;
+  }
+}
+
+/* Titulares principales (h1). Dos tamaños para toda la V2:
+   - .v2-h1: la portada de cada página (home, estudio, servicios, precios…).
+   - .v2-h1--doc: titulares largos de un documento (artículo, caso,
+     propuesta, recurso, 404), que ocupan varias líneas. */
+.v2-h1 {
+  font-size: clamp(34px, 9.4vw, 46px);
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+}
+@media (min-width: 640px) {
+  .v2-h1 {
+    font-size: 60px;
+  }
+}
+@media (min-width: 1280px) {
+  .v2-h1 {
+    font-size: 72px;
+  }
+}
+.v2-h1.v2-h1--doc {
+  font-size: clamp(30px, 8.4vw, 38px);
+  line-height: 1.06;
+}
+@media (min-width: 640px) {
+  .v2-h1.v2-h1--doc {
+    font-size: 48px;
+  }
+}
+@media (min-width: 1280px) {
+  .v2-h1.v2-h1--doc {
+    font-size: 58px;
+  }
+}
+
 /* Botones. Esquinas casi rectas: el estilo de líneas pide aristas. */
 .v2-btn {
   display: inline-flex;
@@ -124,18 +229,39 @@
   border-radius: 6px;
   font-size: 15px;
   font-weight: 500;
-  transition: background-color 0.2s var(--v2-ease), color 0.2s var(--v2-ease), border-color 0.2s var(--v2-ease), transform 0.2s var(--v2-ease);
+  transition: color 0.2s var(--v2-ease), border-color 0.2s var(--v2-ease), transform 0.2s var(--v2-ease);
   white-space: nowrap;
 }
+/* Al pasar el ratón: el fondo se oscurece suave, el botón sube 1 px con una
+   sombra de su color y la flecha del final se adelanta. Al pulsar, se hunde.
+   Sencillo y fluido a propósito (el texto que rueda mareaba). */
+.v2-btn--primary,
+.v2-btn--ghost {
+  transition:
+    background-color 0.35s var(--v2-ease-out),
+    box-shadow 0.35s var(--v2-ease-out),
+    transform 0.35s var(--v2-ease-out);
+}
+.v2-btn:hover {
+  transform: translateY(-1px);
+}
 .v2-btn:active {
-  transform: translateY(1px);
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.12s;
+}
+.v2-btn > svg:last-child {
+  transition: transform 0.35s var(--v2-ease-out);
+}
+.v2-btn:hover > svg:last-child {
+  transform: translateX(3px);
 }
 .v2-btn--primary {
   background: var(--v2-accent);
   color: var(--v2-accent-text);
 }
 .v2-btn--primary:hover {
-  filter: brightness(1.08);
+  background: color-mix(in srgb, var(--v2-accent) 88%, #000);
+  box-shadow: 0 8px 20px -10px color-mix(in srgb, var(--v2-accent) 75%, transparent);
 }
 .v2-btn--ghost {
   background: var(--v2-hover);
@@ -143,6 +269,13 @@
 }
 .v2-btn--ghost:hover {
   background: var(--v2-line);
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-btn:hover,
+  .v2-btn:active,
+  .v2-btn:hover > svg:last-child {
+    transform: none;
+  }
 }
 .v2-btn--sm {
   height: 34px;
@@ -355,15 +488,57 @@
   transition: color 0.2s var(--v2-ease), border-color 0.2s var(--v2-ease), background-color 0.2s var(--v2-ease);
   flex-shrink: 0;
 }
+/* Fila del megamenú al pasar el ratón (como DesignMe): la fila entera se
+   tiñe de borde a borde de la columna, la caja del icono se rellena del color
+   del texto y aparece una flecha a la derecha. */
 .v2-mm-link:hover .v2-ico,
 .v2-mm-link:focus-visible .v2-ico {
-  color: var(--v2-accent);
-  border-color: var(--v2-line-strong);
-  background: var(--v2-bg);
+  color: var(--v2-bg);
+  border-color: var(--v2-text);
+  background: var(--v2-text);
 }
 .v2-mm-link:hover,
 .v2-mm-link:focus-visible {
   background: var(--v2-hover);
+}
+.v2-mm-flecha {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--v2-text);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s var(--v2-ease), transform 0.3s var(--v2-ease-out);
+}
+/* Icono en caja algo mayor, para las rejillas de las páginas. */
+.v2-ico--lg {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+/* Celdas de rejilla y tarjetas de «servicios relacionados»: el mismo gesto
+   que el megamenú (la caja del icono se rellena del color del texto). */
+.v2-celda:hover .v2-ico {
+  color: var(--v2-bg);
+  border-color: var(--v2-text);
+  background: var(--v2-text);
+}
+.v2-rel:hover,
+.v2-rel:focus-visible {
+  background: var(--v2-hover);
+  border-color: var(--v2-line-strong);
+}
+.v2-rel:hover .v2-ico,
+.v2-rel:focus-visible .v2-ico {
+  color: var(--v2-bg);
+  border-color: var(--v2-text);
+  background: var(--v2-text);
+}
+.v2-mm-link:hover .v2-mm-flecha,
+.v2-mm-link:focus-visible .v2-mm-flecha,
+.v2-rel:hover .v2-mm-flecha,
+.v2-rel:focus-visible .v2-mm-flecha {
+  opacity: 1;
+  transform: none;
 }
 
 /* ── Acordeones (<details>) ── */
@@ -435,6 +610,20 @@
   display: inline-block;
 }
 
+/* Tarjeta suelta: el bloque básico de las secciones. Las líneas con mesura:
+   cada pieza con su borde y un hueco entre ellas, no celdas pegadas que
+   comparten línea (eso, solo en la franja de logos y en las listas). */
+.v2-card {
+  border: 1px solid var(--v2-line);
+  border-radius: 8px;
+  background: var(--v2-bg);
+  transition: border-color 0.25s var(--v2-ease), background-color 0.25s var(--v2-ease);
+}
+a.v2-card:hover,
+.v2-card--link:hover {
+  border-color: var(--v2-line-strong);
+}
+
 /* Entrada del hero al cargar: CSS puro, siempre termina (no depende de JS). */
 .v2-hero-in {
   animation: v2-rv 0.8s var(--v2-ease-out) both;
@@ -456,4 +645,74 @@ html:has(#v2-root[data-theme="dark"]),
 html:has(#v2-root[data-theme="dark"]) body {
   background: #111110;
   color-scheme: dark;
+}
+
+/* ── Bordes homogéneos en lo que la V2 hereda de la V1 ──
+   Fuera de capa a propósito: así ganan a las utilidades de Tailwind
+   (rounded-full, rounded-md…) sin tocar los componentes de la V1. Campos,
+   chips y botones con la misma esquina que los botones de la V2. */
+.v2-legado :is(input, textarea, select, button) {
+  border-radius: 6px;
+}
+
+
+
+
+/* 404: el asterisco que hace de cero gira despacio y el cursor de la consola parpadea. */
+@keyframes v2-giro {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes v2-parpadeo {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+.v2-giro {
+  animation: v2-giro 18s linear infinite;
+}
+.v2-cursor {
+  animation: v2-parpadeo 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-giro,
+  .v2-cursor {
+    animation: none;
+  }
+}
+
+/* ── Propuestas en la V2 (/v2/propuestas/[token]) ──
+   Reutilizan los componentes de la propuesta de siempre (firma, pagos,
+   extras), que pintan con las variables y las esquinas de la V1. Aquí las
+   variables apuntan a las de la V2 (así siguen al tema oscuro) y las esquinas
+   y los titulares se igualan a los de la V2, sin tocar la propuesta de la V1. */
+.v2-propuesta {
+  --color-bg: var(--v2-bg);
+  --color-surface: var(--v2-bg);
+  --color-surface-2: var(--v2-bg-2);
+  --color-text: var(--v2-text);
+  --color-text-muted: var(--v2-muted);
+  --color-border: var(--v2-line);
+  --color-accent: var(--v2-accent);
+}
+.v2-propuesta .rounded-2xl,
+.v2-propuesta .rounded-t-2xl {
+  border-radius: 8px;
+}
+.v2-propuesta .rounded-xl {
+  border-radius: 6px;
+}
+.v2-propuesta :is(a, button).rounded-full {
+  border-radius: 6px;
+}
+.v2-propuesta .font-display:not(.italic) {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }

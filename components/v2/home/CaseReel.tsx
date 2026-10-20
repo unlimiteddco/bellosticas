@@ -49,7 +49,7 @@ export function CaseReel({ casos }: { casos: CasoReel[] }) {
       aria-label={t("reelAria")}
     >
       <Link
-        href={{ pathname: "/work", query: { caso: c.slug } }}
+        href={{ pathname: "/v2/work/[slug]", params: { slug: c.slug } }}
         className="group relative block aspect-[16/11] overflow-hidden border border-[var(--v2-line)]"
         style={{ backgroundColor: c.color }}
         onClick={() => sonarClic("select")}
@@ -86,7 +86,7 @@ export function CaseReel({ casos }: { casos: CasoReel[] }) {
           <span className="text-[13px] text-[var(--v2-muted)]">{c.etiquetas}</span>
         </div>
         <Link
-          href={{ pathname: "/work", query: { caso: c.slug } }}
+          href={{ pathname: "/v2/work/[slug]", params: { slug: c.slug } }}
           className="v2-link shrink-0 text-[13px]"
           onClick={() => sonarClic("select")}
         >

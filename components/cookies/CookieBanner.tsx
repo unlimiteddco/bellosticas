@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Cookie } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useCookieConsent } from "./CookieProvider";
@@ -24,6 +25,8 @@ const SHOW_DELAY_MS = 1800;
 export function CookieBanner() {
   const t = useTranslations("cookieBanner");
   const locale = useLocale();
+  // La V2 trae su propio aviso y panel (components/v2/CookiesV2).
+  const esV2 = /^(\/en)?\/v2(\/|$)/.test(usePathname() ?? "");
   const { hasDecided, ready, modalOpen, openModal, acceptAll, rejectAll } =
     useCookieConsent();
 
@@ -39,6 +42,8 @@ export function CookieBanner() {
     return () => clearTimeout(t);
   }, [ready, hasDecided]);
 
+  if (esV2) return null;
+
   // Render nothing until we've checked localStorage (avoids SSR/CSR flicker)
   // OR if the user has already decided. The modal can still be opened from
   // elsewhere (e.g. the cookies page button) — it lives at the bottom.
@@ -52,6 +57,7 @@ export function CookieBanner() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            data-cookie-banner
             className="fixed z-[80] bottom-4 left-4 right-4 sm:right-auto sm:max-w-[420px] rounded-2xl bg-[var(--color-text)] text-[var(--color-bg)] shadow-[0_30px_60px_-20px_rgba(29,29,27,0.45)] border border-white/5"
             role="dialog"
             aria-live="polite"

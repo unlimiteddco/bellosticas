@@ -17,16 +17,19 @@ export function ProposalContext({
   data,
   label,
   proofsLabel,
+  v2 = false,
 }: {
   data: Ctx;
   label: string;
   proofsLabel: string;
+  /** En la propuesta de la V2: la etiqueta con su estilo y sin «//». */
+  v2?: boolean;
 }) {
   const proofs = data.proofs ?? [];
   return (
     <section id="partida" className="scroll-mt-28">
       <Reveal>
-        <EditorialLabel>{`// ${label}`}</EditorialLabel>
+        {v2 ? <span className="v2-label">{label}</span> : <EditorialLabel>{`// ${label}`}</EditorialLabel>}
       </Reveal>
       <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
         <Reveal delay={0.08}>

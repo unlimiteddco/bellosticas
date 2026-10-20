@@ -4,22 +4,24 @@ import {
   ArrowRight,
   ArrowRightLeft,
   ArrowUpRight,
+  ChartColumn,
   Heart,
   LayoutDashboard,
   LayoutGrid,
   Layers,
   type LucideIcon,
-  MapPin,
   Monitor,
   PenTool,
   Route,
+  Search,
   ShoppingBag,
   Workflow,
 } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/navigation";
 import { RECIENTES, VIDEO_DESTACADO, type TrabajoMenu } from "@/components/layout/WorkMegaMenu";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { sinBarras } from "@/lib/v2/texto";
 
 type Destino = React.ComponentProps<typeof Link>["href"];
 
@@ -42,7 +44,7 @@ function EnlaceMM({
   return (
     <Link
       href={href}
-      className="v2-mm-link group flex items-center gap-3 rounded-md px-2.5 py-2 transition-colors"
+      className="v2-mm-link group flex items-center gap-3 px-5 py-2.5 transition-colors"
       onPointerEnter={(e) => e.pointerType === "mouse" && sonarHover(i + 2)}
       onClick={() => {
         sonarClic("select", i + 2);
@@ -56,6 +58,7 @@ function EnlaceMM({
         <span className="text-[14px] font-medium text-[var(--v2-text)]">{titulo}</span>
         {sub && <span className="truncate text-[12.5px] text-[var(--v2-muted)]">{sub}</span>}
       </span>
+      <ArrowRight size={15} className="v2-mm-flecha" aria-hidden />
     </Link>
   );
 }
@@ -64,7 +67,8 @@ function Columna({ etiqueta, children, borde = true }: { etiqueta: string; child
   return (
     <div className={`flex flex-col ${borde ? "border-r border-[var(--v2-line)]" : ""}`}>
       <div className="v2-label border-b border-[var(--v2-line)] px-5 py-3">{etiqueta}</div>
-      <div className="flex flex-col gap-0.5 p-2.5">{children}</div>
+      {/* Sin margen lateral: la fila al pasar el ratón se tiñe de borde a borde. */}
+      <div className="flex flex-col py-2">{children}</div>
     </div>
   );
 }
@@ -76,10 +80,16 @@ function FilaInferior({ children }: { children: React.ReactNode }) {
 }
 
 function Acceso({ href, children, alElegir, i }: { href: Destino; children: React.ReactNode; alElegir: () => void; i: number }) {
+  // La página en la que ya estás se queda marcada, como al pasar el ratón.
+  const pathname = usePathname();
+  const activo = typeof href === "string" && (pathname === href || pathname.startsWith(`${href}-`));
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[13px] text-[var(--v2-muted)] transition-colors hover:bg-[var(--v2-hover)] hover:text-[var(--v2-text)]"
+      aria-current={activo ? "page" : undefined}
+      className={`group/acceso inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors hover:bg-[var(--v2-hover)] hover:text-[var(--v2-text)] ${
+        activo ? "bg-[var(--v2-hover)] text-[var(--v2-text)]" : "text-[var(--v2-muted)]"
+      }`}
       onPointerEnter={(e) => e.pointerType === "mouse" && sonarHover(i + 10)}
       onClick={() => {
         sonarClic("select", i + 10);
@@ -97,18 +107,19 @@ export function PanelServicios({ alElegir }: { alElegir: () => void }) {
   const t = useTranslations("nav");
   const ts = useTranslations("services");
   const tv = useTranslations("v2");
-  const locale = useLocale();
+  const tv2 = useTranslations("v2Servicios");
 
   const diseno = [
-    { href: { pathname: "/v2", hash: "servicios" } as Destino, icono: PenTool, titulo: ts("acc.brand.title") },
-    { href: "/services/desarrollo-web" as Destino, icono: Monitor, titulo: ts("items.s01.title") },
-    { href: "/services/ecommerce" as Destino, icono: ShoppingBag, titulo: ts("items.s02.title") },
+    { href: "/v2/services/brand-identity" as Destino, icono: PenTool, titulo: ts("acc.brand.title") },
+    { href: "/v2/services/desarrollo-web" as Destino, icono: Monitor, titulo: ts("items.s01.title") },
+    { href: "/v2/services/ecommerce" as Destino, icono: ShoppingBag, titulo: ts("items.s02.title") },
+    { href: "/v2/services/seo-aeo" as Destino, icono: Search, titulo: tv2("seo") },
   ];
   const producto = [
-    { href: "/services/aplicaciones-web" as Destino, icono: LayoutDashboard, titulo: ts("items.s03.title") },
-    { href: "/services/automatizaciones" as Destino, icono: Workflow, titulo: ts("items.s04.title") },
-    { href: "/services/migraciones" as Destino, icono: ArrowRightLeft, titulo: ts("items.s05.title") },
-    { href: "/services/white-label" as Destino, icono: Layers, titulo: ts("items.s06.title") },
+    { href: "/v2/services/aplicaciones-web" as Destino, icono: LayoutDashboard, titulo: ts("items.s03.title") },
+    { href: "/v2/services/automatizaciones" as Destino, icono: Workflow, titulo: ts("items.s04.title") },
+    { href: "/v2/services/migraciones" as Destino, icono: ArrowRightLeft, titulo: ts("items.s05.title") },
+    { href: "/v2/services/white-label" as Destino, icono: Layers, titulo: ts("items.s06.title") },
   ];
 
   return (
@@ -135,11 +146,11 @@ export function PanelServicios({ alElegir }: { alElegir: () => void }) {
           />
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
           <div className="relative flex flex-col gap-3">
-            <span className="v2-label !text-white/70">{t("mm.helpLabel")}</span>
+            <span className="v2-label !text-white/70">{sinBarras(t("mm.helpLabel"))}</span>
             <p className="text-[14px] leading-[1.45] text-white/90">{t("mm.helpText")}</p>
             <div className="flex items-center gap-3">
               <Link
-                href="/intro"
+                href="/v2/intro"
                 className="v2-btn v2-btn--primary v2-btn--sm"
                 onClick={() => {
                   sonarClic("select");
@@ -154,24 +165,19 @@ export function PanelServicios({ alElegir }: { alElegir: () => void }) {
         </div>
       </div>
       <FilaInferior>
-        <Acceso href={{ pathname: "/v2", hash: "servicios" }} alElegir={alElegir} i={0}>
+        <Acceso href="/v2/services" alElegir={alElegir} i={0}>
           <LayoutGrid size={13} strokeWidth={1.75} /> {t("mm.viewAll")} <ArrowRight size={12} />
         </Acceso>
-        <Acceso href="/proceso" alElegir={alElegir} i={1}>
+        <Acceso href="/v2/pricing" alElegir={alElegir} i={1}>
+          {/* Icono en caja negra solo estando en Precios. */}
+          <span className="-ml-0.5 inline-flex h-5 w-5 items-center justify-center rounded-[4px] group-aria-[current=page]/acceso:bg-[var(--v2-text)] group-aria-[current=page]/acceso:text-[var(--v2-bg)]">
+            <ChartColumn size={12} strokeWidth={1.9} />
+          </span>
+          {t("pricing")}
+        </Acceso>
+        <Acceso href="/v2/proceso" alElegir={alElegir} i={2}>
           <Route size={13} strokeWidth={1.75} /> {t("wm.process.title")}
         </Acceso>
-        {locale === "es" && (
-          <>
-            <Acceso href="/seo-local" alElegir={alElegir} i={2}>
-              <MapPin size={13} strokeWidth={1.75} /> SEO local
-            </Acceso>
-            {(["huesca", "zaragoza", "teruel"] as const).map((c, i) => (
-              <Acceso key={c} href={`/diseno-web-${c}`} alElegir={alElegir} i={3 + i}>
-                {tv(`mm.local.${c}`)}
-              </Acceso>
-            ))}
-          </>
-        )}
       </FilaInferior>
     </>
   );
@@ -192,25 +198,25 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
   const video = destacado ? VIDEO_DESTACADO[destacado.slug] : undefined;
 
   const paginas = [
-    { href: "/work" as Destino, icono: LayoutGrid, titulo: t("wm.work.title"), sub: t("wm.work.sub") },
-    { href: "/proceso" as Destino, icono: Route, titulo: t("wm.process.title"), sub: t("wm.process.sub") },
-    { href: "/love" as Destino, icono: Heart, titulo: t("wm.clients.title"), sub: t("wm.clients.sub") },
+    { href: "/v2/work" as Destino, icono: LayoutGrid, titulo: t("wm.work.title"), sub: t("wm.work.sub") },
+    { href: "/v2/proceso" as Destino, icono: Route, titulo: t("wm.process.title"), sub: t("wm.process.sub") },
+    { href: "/v2/clients" as Destino, icono: Heart, titulo: t("wm.clients.title"), sub: t("wm.clients.sub") },
   ];
 
   return (
     <div className="grid grid-cols-3">
-      <Columna etiqueta={t("wm.pagesLabel")}>
+      <Columna etiqueta={sinBarras(t("wm.pagesLabel"))}>
         {paginas.map((l, i) => (
           <EnlaceMM key={l.titulo} {...l} i={i} alElegir={alElegir} />
         ))}
       </Columna>
 
-      <Columna etiqueta={t("wm.recentLabel")}>
+      <Columna etiqueta={sinBarras(t("wm.recentLabel"))}>
         {recientes.map((p, i) => (
           <Link
             key={p.slug}
-            href={{ pathname: "/work", query: { caso: p.slug } }}
-            className="v2-mm-link flex items-center gap-3 rounded-md px-2.5 py-2 transition-colors"
+            href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }}
+            className="v2-mm-link flex items-center gap-3 px-5 py-2.5 transition-colors"
             onPointerEnter={(e) => e.pointerType === "mouse" && sonarHover(i + 5)}
             onClick={() => {
               sonarClic("select", i + 5);
@@ -231,15 +237,16 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
               <span className="text-[14px] font-medium text-[var(--v2-text)]">{p.name}</span>
               <span className="truncate text-[12.5px] text-[var(--v2-muted)]">{p.category}</span>
             </span>
+            <ArrowRight size={15} className="v2-mm-flecha" aria-hidden />
           </Link>
         ))}
       </Columna>
 
       <div className="flex flex-col">
-        <div className="v2-label border-b border-[var(--v2-line)] px-5 py-3">{t("wm.featuredLabel")}</div>
+        <div className="v2-label border-b border-[var(--v2-line)] px-5 py-3">{sinBarras(t("wm.featuredLabel"))}</div>
         {destacado ? (
           <Link
-            href={{ pathname: "/work", query: { caso: destacado.slug } }}
+            href={{ pathname: "/v2/work/[slug]", params: { slug: destacado.slug } }}
             className="group flex flex-1 flex-col"
             onClick={() => {
               sonarClic("select");

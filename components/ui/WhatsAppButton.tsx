@@ -43,7 +43,8 @@ type Props = {
   message?: string;
   /** Where the click came from — sent to GA4 (e.g. "navbar", "contact", "zaragoza"). */
   source: string;
-  variant?: "button" | "icon";
+  /** «v2»: botón secundario de la V2 (mismas medidas que los demás de esa web). */
+  variant?: "button" | "icon" | "v2";
   label?: string;
   className?: string;
 };
@@ -67,6 +68,17 @@ export function WhatsAppButton({
       { source },
     );
   };
+
+  if (variant === "v2") {
+    return (
+      <a href={href} target="_blank" rel="noopener" onClick={track} className={`v2-btn v2-btn--ghost ${className}`}>
+        <span className="text-[#25D366]">
+          <WhatsAppGlyph size={16} />
+        </span>
+        {finalLabel}
+      </a>
+    );
+  }
 
   if (variant === "icon") {
     return (

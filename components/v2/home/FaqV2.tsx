@@ -4,12 +4,17 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { sinBarras } from "@/lib/v2/texto";
 
 const PREGUNTAS = ["q1", "q2", "q3", "q4", "q5", "q6"];
 
-/** FAQ: título y llamada a la izquierda, preguntas en acordeón con líneas a la derecha. */
-export function FaqV2() {
-  const t = useTranslations("faq");
+/**
+ * FAQ: título y llamada a la izquierda, preguntas en acordeón con líneas a la
+ * derecha. Por defecto las de la home («faq»); una página de servicio pasa su
+ * propio espacio de textos con la misma forma (label, title_*, items.qN).
+ */
+export function FaqV2({ ns = "faq" }: { ns?: string }) {
+  const t = useTranslations(ns);
   const tv = useTranslations("v2");
   const tn = useTranslations("nav");
   const [abierta, setAbierta] = useState<string | null>("q1");
@@ -20,18 +25,21 @@ export function FaqV2() {
         <span aria-hidden data-draw className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-[var(--v2-line)]" />
         <div className="flex flex-col gap-5 border-b border-[var(--v2-line)] p-6 md:p-10 lg:col-span-5 lg:border-b-0 lg:border-r lg:p-14">
           <span className="v2-label" data-reveal>
-            {t("label")}
+            {sinBarras(t("label"))}
           </span>
-          <h2 className="text-[34px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[48px]" data-reveal>
-            {t("title_part1")}
-            <em className="font-display italic font-semibold text-[var(--v2-accent)]">{t("title_emphasis")}</em>
-            {t("title_part2")}
+          <h2 className="v2-h2" data-reveal>
+            {/* La parte en cursiva, siempre en su propia línea: «Dudas sobre / tu web.» */}
+            <span className="block">{t("title_part1").trim()}</span>
+            <span className="block">
+              <em className="font-display italic font-semibold text-[var(--v2-accent)]">{t("title_emphasis")}</em>
+              {t("title_part2")}
+            </span>
           </h2>
           <div className="mt-4 flex flex-col gap-3 lg:mt-auto" data-reveal>
             <p className="text-[15px] text-[var(--v2-muted)]">
               {tv("faqAsk")} {tv("faqAskSub")}
             </p>
-            <Link href="/intro" className="v2-btn v2-btn--primary self-start" onClick={() => sonarClic("select")}>
+            <Link href="/v2/intro" className="v2-btn v2-btn--primary self-start" onClick={() => sonarClic("select")}>
               {tn("cta")}
             </Link>
           </div>

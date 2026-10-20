@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { TOOL_LOGOS } from "@/lib/tool-logos";
+import { sinBarras } from "@/lib/v2/texto";
 
 type Grupo = { name: string; tools: string[] };
 
@@ -21,7 +22,7 @@ export async function CardsPair({ locale }: { locale: string }) {
         {/* Portal de cliente */}
         <article className="flex flex-col border-b border-[var(--v2-line)] md:border-b-0 md:border-r" data-reveal>
           <div className="flex flex-col gap-4 p-6 md:p-10">
-            <span className="v2-label">{tp("label")}</span>
+            <span className="v2-label">{sinBarras(tp("label"))}</span>
             <h3 className="text-[28px] font-medium leading-[1.1] tracking-[-0.02em] md:text-[34px]">
               {tp("title_part1")}
               <em className="font-display italic font-semibold text-[var(--v2-accent)]">{tp("title_emphasis")}</em>
@@ -42,7 +43,7 @@ export async function CardsPair({ locale }: { locale: string }) {
         {/* Herramientas */}
         <article className="flex flex-col" data-reveal>
           <div className="flex flex-col gap-4 p-6 md:p-10">
-            <span className="v2-label">{ts("label")}</span>
+            <span className="v2-label">{sinBarras(ts("label"))}</span>
             <h3 className="text-[28px] font-medium leading-[1.1] tracking-[-0.02em] md:text-[34px]">{ts("title")}</h3>
             <p className="max-w-[460px] text-[15px] leading-[1.55] text-[var(--v2-muted)]">{ts("sub")}</p>
           </div>

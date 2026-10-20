@@ -13,13 +13,15 @@ type Props = {
   hideHeader?: boolean;
   /** Sin márgenes ni ancho propios: para meter el calendario dentro de una columna. */
   bare?: boolean;
+  /** Texto que llega ya escrito en las notas de la reserva (p. ej. lo que miró en Precios). */
+  nota?: string;
 };
 
 const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK ?? "bellostas/30min";
 const CAL_NAMESPACE = process.env.NEXT_PUBLIC_CAL_NAMESPACE ?? "30min";
 const CAL_ORIGIN = process.env.NEXT_PUBLIC_CAL_ORIGIN ?? "https://cal.eu";
 
-export function BookingSection({ centered = false, hideHeader = false, bare = false }: Props) {
+export function BookingSection({ centered = false, hideHeader = false, bare = false, nota }: Props) {
   const t = useTranslations("contactPage.booking");
 
   // Read tracking identity AFTER mount so server/client render the same markup
@@ -139,7 +141,12 @@ export function BookingSection({ centered = false, hideHeader = false, bare = fa
           config={{
             layout: "month_view",
             useSlotsViewOnSmallScreen: "true",
-            metadata: attribution,
+            // Cal solo guarda metadatos que llegan como `metadata[clave]`: un
+            // objeto entero acababa en la URL como «[object Object]».
+            ...Object.fromEntries(
+              Object.entries(nota ? { ...attribution, interes: nota } : attribution).map(([k, v]) => [`metadata[${k}]`, v]),
+            ),
+            ...(nota ? { notes: nota } : {}),
           }}
         />
       </motion.div>

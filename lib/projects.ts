@@ -195,7 +195,7 @@ export const projects: Project[] = [
   {
     slug: "embroidery-download",
     name: "EmbroideryDownload",
-    category: "E-commerce · In progress",
+    category: "E-commerce · Bordado digital",
     year: 2026,
     client: "Embroidery Download",
     stack: ["Next.js", "Medusa", "Stripe"],

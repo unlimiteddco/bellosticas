@@ -3,14 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/navigation";
-import { Grip, Plus } from "lucide-react";
+import { Grip, Plus, X } from "lucide-react";
 import { AsteriskIcon } from "@/components/ui/AsteriskIcon";
 import { Logo } from "@/components/ui/Logo";
 import type { TrabajoMenu } from "@/components/layout/WorkMegaMenu";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
 import { PanelServicios, PanelTrabajos } from "./MegaPanels";
 import { MobileMenu } from "./MobileMenu";
-import { SoundToggle, ThemeToggle } from "./Toggles";
+import { IdiomaToggle, SoundToggle, ThemeToggle } from "./Toggles";
 
 /*
  * La cabecera de la V2, con dos megamenús (Servicios y Trabajos).
@@ -39,13 +39,14 @@ const DESPLAZAMIENTO = 48;
 
 type Item =
   | { tipo: "menu"; clave: "services" | "work" }
-  | { tipo: "enlace"; clave: "studio" | "contact"; href: "/studio" | "/contact" };
+  | { tipo: "enlace"; clave: "studio" | "contact"; href: "/v2/studio" | "/v2/contact" };
 
 const ITEMS: Item[] = [
   { tipo: "menu", clave: "services" },
   { tipo: "menu", clave: "work" },
-  { tipo: "enlace", clave: "studio", href: "/studio" },
-  { tipo: "enlace", clave: "contact", href: "/contact" },
+  { tipo: "enlace", clave: "studio", href: "/v2/studio" },
+  // Contacto ya tiene su versión V2: desde la V2 se queda en la V2.
+  { tipo: "enlace", clave: "contact", href: "/v2/contact" },
 ];
 
 export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
@@ -55,6 +56,8 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
 
   const [abierto, setAbierto] = useState(-1);
   const [movilAbierto, setMovilAbierto] = useState(false);
+  // Dónde acaba la cabecera (con la barra de aviso encima, o no): ahí empieza el menú del móvil.
+  const [bajoCabecera, setBajoCabecera] = useState(60);
   const [tono, setTono] = useState<"claro" | "oscuro">("claro");
 
   const headerRef = useRef<HTMLElement>(null);
@@ -238,7 +241,7 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
       <header
         ref={headerRef}
         className="v2-header"
-        data-tone={tono === "oscuro" && abierto < 0 ? "dark" : undefined}
+        data-tone={tono === "oscuro" && abierto < 0 && !movilAbierto ? "dark" : undefined}
       >
         <div className="v2-frame">
           <div className="relative flex h-[60px] items-center justify-between gap-6 px-5 md:px-0">
@@ -250,7 +253,7 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
                   <Logo variant="black" height={20} priority />
                 </span>
                 <span className="v2-solo-oscuro">
-                  <Logo variant="white-red" height={20} priority />
+                  <Logo variant="blanco-rojo" height={20} priority />
                 </span>
               </span>
             </Link>
@@ -327,25 +330,50 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
               <div className="flex items-center gap-0.5">
                 <SoundToggle />
                 <ThemeToggle />
+                <span className="ml-1 hidden sm:inline-flex">
+                  <IdiomaToggle />
+                </span>
               </div>
               <Link
-                href="/intro"
+                href="/v2/intro"
                 className="v2-btn v2-btn--primary v2-btn--sm ml-2 hidden sm:inline-flex"
                 onClick={() => sonarClic("select")}
               >
                 {t("cta")}
               </Link>
+              {/* El mismo botón abre y cierra: la rejilla gira y se convierte en la X. */}
               <button
                 type="button"
-                className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-md lg:hidden hover:bg-[var(--v2-hover)]"
-                aria-label={t("openMenu")}
+                className="relative ml-1 inline-flex h-9 w-9 items-center justify-center rounded-md lg:hidden hover:bg-[var(--v2-hover)]"
+                aria-label={movilAbierto ? t("closeMenu") : t("openMenu")}
                 aria-expanded={movilAbierto}
+                aria-controls="v2-menu-movil"
                 onClick={() => {
+                  if (movilAbierto) {
+                    sonarClic("close");
+                    setMovilAbierto(false);
+                    return;
+                  }
+                  const fin = headerRef.current?.getBoundingClientRect().bottom;
+                  if (fin) setBajoCabecera(Math.max(0, Math.round(fin)));
                   sonarClic("open");
                   setMovilAbierto(true);
                 }}
               >
-                <Grip size={20} strokeWidth={1.75} />
+                <Grip
+                  size={20}
+                  strokeWidth={1.75}
+                  className={`absolute transition-[opacity,transform] duration-300 ease-[var(--v2-ease-out)] ${
+                    movilAbierto ? "rotate-90 scale-50 opacity-0" : "rotate-0 scale-100 opacity-100"
+                  }`}
+                />
+                <X
+                  size={20}
+                  strokeWidth={1.75}
+                  className={`absolute transition-[opacity,transform] duration-300 ease-[var(--v2-ease-out)] ${
+                    movilAbierto ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-50 opacity-0"
+                  }`}
+                />
               </button>
             </div>
           </div>
@@ -389,7 +417,7 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
 
       <div className={`v2-veil hidden lg:block ${abierto >= 0 ? "is-on" : ""}`} aria-hidden onClick={cerrar} />
 
-      <MobileMenu abierto={movilAbierto} alCerrar={() => setMovilAbierto(false)} trabajos={trabajos} />
+      <MobileMenu abierto={movilAbierto} alCerrar={() => setMovilAbierto(false)} trabajos={trabajos} arriba={bajoCabecera} />
 
       {/* Para leerlo en voz alta cuando se abre o cierra un menú. */}
       <span className="sr-only" aria-live="polite">

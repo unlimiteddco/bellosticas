@@ -258,7 +258,8 @@
         "sub": "Who trusts us and what they say"
       }
     },
-    "mobileCta": "Book a call"
+    "mobileCta": "Book a call",
+    "pricing": "Pricing"
   },
   "announcement": {
     "badge": "NEW",
@@ -816,7 +817,7 @@
       "p_pva": "WordPress to Next.js + Sanity migration for the Aragón Volunteering portal. 40% faster LCP, scalable to 100k monthly visits.",
       "p_fada": "Institutional site for the Aragonese Motorsport Federation. Race calendar, members and official communications.",
       "p_gotten": "Public site and custom admin panel to manage members, classes and bookings. Integrated with the gym access system.",
-      "p_embroidery": "Digital embroidery pattern e-commerce with download licensing. In progress. Medusa + Stripe + instant delivery.",
+      "p_embroidery": "E-commerce for digital embroidery patterns with download licences, custom-built with Medusa and Stripe, with instant delivery.",
       "p_flylead": "Our own product: AI-powered management software, built per industry. One system for what today is scattered across the CRM, Excel, WhatsApp, email and calendars. We did the full branding, the website design and the CRM design. Starting with real estate agencies.",
       "p_partner": "New client. We can't say who just yet.",
       "p_teleadhesivo": "Online shop for made-to-measure decorative vinyls and stickers, produced in their Huesca workshop since 2000. Over 11,500 designs, in the size and colour each customer picks.",
@@ -2225,7 +2226,8 @@
         "body": "If it makes sense to continue, it arrives in writing with scope, price and timings."
       }
     ],
-    "lead": "Thirty minutes to see what you need, what we'd do and whether we're a fit."
+    "lead": "Thirty minutes to see what you need, what we'd do and whether we're a fit.",
+    "interesNota": "I'm coming from the pricing page. I'm interested in: {interes}."
   },
   "contactPage": {
     "label": "// CONTACT",
@@ -2757,7 +2759,8 @@
       "instagram": "Instagram",
       "twitter": "Twitter / X",
       "github": "GitHub",
-      "careers": "Careers"
+      "careers": "Careers",
+      "pricing": "Pricing"
     },
     "localHeading": "// WEB DESIGN IN ARAGÓN",
     "localLinks": {
@@ -2784,7 +2787,8 @@
       "autom": "Automations & AI",
       "migr": "Migrations",
       "whitelabel": "White-label",
-      "all": "All services →"
+      "all": "All services →",
+      "seo": "SEO + AEO"
     },
     "askAiAria": "Ask about Bellostas Studio on"
   },
@@ -2942,6 +2946,4012 @@
     "faqAskSub": "A 30-minute call, no strings attached.",
     "moreLabel": "More than websites",
     "heroLabel": "Taking on 2 more projects for {q}",
-    "since": "Since 2022, from Huesca"
+    "since": "Since 2022, from Huesca",
+    "contactDirect": "Or directly",
+    "caso": {
+      "label": "Case",
+      "prev": "Previous case",
+      "next": "Next case",
+      "nextLabel": "Next case",
+      "ctaTitle": "Something like this for your brand?",
+      "ctaSub": "Tell me what you have in mind and within 24h I'll tell you how we'd do it.",
+      "ctaBtn": "Let's talk"
+    },
+    "idioma": "Language",
+    "idioma_es": "Español",
+    "idioma_en": "English",
+    "menuAyuda": "30 minutes to tell us about your project. You talk to Antonio, no strings attached."
+  },
+  "v2Brand": {
+    "metaTitle": "Brand identity · Bellostas Studio",
+    "metaDescription": "We design your brand strategy, logo, visual system and guidelines, and carry them into your website and social media.",
+    "hero": {
+      "label": "Brand identity",
+      "line1": "Brand identity",
+      "line2_pre": "built to ",
+      "line2_em": "grow",
+      "line2_post": ".",
+      "sub": "We design your brand strategy, logo, visual system and guidelines. One system, so your website, social media and everything else look like they come from the same company.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "How we work"
+    },
+    "caso": {
+      "label": "Featured case",
+      "title_part1": "Brands that get used, ",
+      "title_emphasis": "not just",
+      "title_part2": " presented.",
+      "sub": "This is how we take an identity from start to finish: from the first idea to the website, the product and the street.",
+      "heading": "FlyLead's brand, website and CRM on a single identity",
+      "cta": "View the case",
+      "headings": {
+        "flylead": "FlyLead's brand, website and CRM on a single identity",
+        "teleadhesivo": "A custom online store for a vinyl workshop in Huesca"
+      }
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "From the first call to a brand ",
+      "title_emphasis": "ready to use",
+      "title_part2": ".",
+      "sub": "First we understand the business; then we design. Every phase ends with something you can see and approve.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Discovery",
+          "text": "A session to understand the business, the customer and the competition before opening Figma. This is where we decide what the brand needs to say.",
+          "outputs": [
+            "Discovery session",
+            "Competitor review",
+            "Audience and positioning",
+            "Brand tone and personality"
+          ]
+        },
+        {
+          "title": "Direction",
+          "text": "Moodboards and creative routes to decide where the brand is going before drawing the logo. We pick a route instead of drawing blind.",
+          "outputs": [
+            "Moodboards",
+            "Creative routes",
+            "Colour and type references",
+            "The chosen direction"
+          ]
+        },
+        {
+          "title": "Identity",
+          "text": "We design the logo and visual system on the chosen route and refine it with you in rounds, always seeing it applied.",
+          "outputs": [
+            "Logo and its versions",
+            "Colour palette",
+            "Typefaces",
+            "Refinement rounds"
+          ]
+        },
+        {
+          "title": "System",
+          "text": "We turn the identity into rules: how to use it, how not to, and real examples, so anyone applies it the same way.",
+          "outputs": [
+            "Brand guidelines",
+            "Icons and graphic assets",
+            "Templates",
+            "Usage examples"
+          ]
+        },
+        {
+          "title": "Handoff",
+          "text": "You get every file and we see the brand applied where it will be seen most: your website and social media.",
+          "outputs": [
+            "Source files and exports",
+            "Website application",
+            "Social templates",
+            "Handoff session"
+          ]
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What's included",
+      "title_part1": "A complete brand system, ",
+      "title_emphasis": "not just a logo",
+      "title_part2": ".",
+      "sub": "Everything you'll use every week, from the website to your next presentation.",
+      "items": [
+        {
+          "title": "Strategy and positioning",
+          "text": "Audience, value proposition, tone and personality, agreed before any visual work starts."
+        },
+        {
+          "title": "Logo and visual identity",
+          "text": "Logo and its versions, symbol, colours, typefaces and the graphic language around them."
+        },
+        {
+          "title": "Brand guidelines",
+          "text": "The rules with real examples, so any designer, printer or agency uses the brand the same way."
+        },
+        {
+          "title": "Website application",
+          "text": "How the brand lives on your website: hero, buttons, photos and copy. And if you want, we build the website too."
+        },
+        {
+          "title": "Social and launch",
+          "text": "Templates for posts, ads and the launch of the new brand."
+        },
+        {
+          "title": "Stationery and decks",
+          "text": "Business cards, email signatures, sales decks and documents in the new identity."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Formats",
+      "title_part1": "Two ways to start, ",
+      "title_emphasis": "depending on what you need",
+      "title_part2": ".",
+      "sub": "Both end in a brand ready to use. The depth is what changes.",
+      "badge": "Most complete",
+      "cta": "Get a quote",
+      "note": "Fixed quote within 24h after a 30-minute call.",
+      "items": [
+        {
+          "title": "Essential brand",
+          "text": "For businesses that need a solid identity and want to launch soon.",
+          "points": [
+            "Discovery session",
+            "Logo and versions",
+            "Colours and typefaces",
+            "Basic brand guide",
+            "Website and social application",
+            "Source files and exports"
+          ]
+        },
+        {
+          "title": "Complete brand system",
+          "text": "For brands that are going to grow and need strategy, guidelines and assets for everything.",
+          "points": [
+            "Strategy and positioning",
+            "Several creative routes",
+            "Logo, symbol and graphic system",
+            "Full brand guidelines",
+            "Social, deck and stationery templates",
+            "Website application",
+            "Source files and documentation"
+          ]
+        }
+      ]
+    },
+    "porque": {
+      "label": "Why Bellostas",
+      "title_part1": "Brands that work ",
+      "title_emphasis": "beyond the moodboard",
+      "title_part2": ".",
+      "sub": "A brand doesn't live in a PDF: it has to hold up on your website, social media, a presentation and the next thing you make.",
+      "items": [
+        {
+          "title": "Designed for screens",
+          "text": "We design websites every day, so the brand is tested on screen before it's signed off."
+        },
+        {
+          "title": "The same studio builds the website",
+          "text": "Identity and website come from the same team: nothing gets lost between suppliers."
+        },
+        {
+          "title": "You talk to me",
+          "text": "No account managers or middlemen: you work directly with the person designing your brand."
+        },
+        {
+          "title": "AI to explore, judgement to decide",
+          "text": "We use AI to research and try more routes in less time. The decisions are ours, made with you."
+        },
+        {
+          "title": "A system you can keep up",
+          "text": "Rules, templates and examples so the 50th asset looks like the first one."
+        }
+      ]
+    },
+    "cifras": {
+      "label": "In numbers",
+      "items": [
+        {
+          "value": "5.0",
+          "text": "Rated on Google"
+        },
+        {
+          "value": "70+",
+          "text": "Projects delivered"
+        },
+        {
+          "value": "2022",
+          "text": "Designing from Huesca"
+        },
+        {
+          "value": "1",
+          "text": "Identity for FlyLead's brand, website and CRM"
+        }
+      ]
+    },
+    "relacionados": {
+      "label": "After the brand",
+      "title_part1": "What comes ",
+      "title_emphasis": "next",
+      "title_part2": "?",
+      "sub": "The new identity has to live somewhere. The same team can take it to your website, your store or your product.",
+      "cta": "Tell us the whole project"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "branding",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "What does a brand identity project include?",
+          "answer": "It depends on the format, but there's always discovery, a logo, colours, typefaces and a guide to use them. The complete system adds strategy, guidelines, templates and the website application."
+        },
+        "q2": {
+          "question": "Can you refresh my brand instead of starting from scratch?",
+          "answer": "Yes. Often the brand has something that works and is worth keeping. We start by reviewing what's there and decide together what stays and what changes."
+        },
+        "q3": {
+          "question": "How long does it take?",
+          "answer": "It depends on the scope and how fast reviews go. On the first call we give you a concrete timeline, with dates."
+        },
+        "q4": {
+          "question": "How much does it cost?",
+          "answer": "It depends on the format and scope. After a 30-minute call we send you a fixed quote within 24h, with no surprises later."
+        },
+        "q5": {
+          "question": "Do you also build the website with the new brand?",
+          "answer": "Yes, it's what we do most. Designing the brand and the website in the same studio makes everything fit from day one."
+        },
+        "q6": {
+          "question": "Do I keep the files?",
+          "answer": "Yes. We hand over the source files and every export: the brand is yours."
+        }
+      }
+    }
+  },
+  "v2Servicios": {
+    "marca": "Brand identity",
+    "s01": "Corporate websites",
+    "s02": "E-commerce",
+    "s03": "Web apps",
+    "s04": "Automations",
+    "s05": "Migrations",
+    "s06": "White label",
+    "marcaTexto": "Logo, colours, typefaces and guidelines, so everything looks like the same company.",
+    "seo": "SEO + AEO",
+    "seoTexto": "Get found on Google and cited by ChatGPT and other AI."
+  },
+  "v2Webs": {
+    "metaTitle": "Custom corporate websites · Bellostas Studio",
+    "metaDescription": "Fast corporate websites that are easy to manage and ready to rank on Google. Custom design and development with Astro or Next.js.",
+    "hero": {
+      "label": "Corporate websites",
+      "line1": "Corporate websites",
+      "line2_pre": "that ",
+      "line2_em": "convert",
+      "line2_post": ".",
+      "sub": "We design and build fast websites that are easy to manage and ready to rank on Google. We pick the technology that best fits your business; you just focus on the results.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "How we work"
+    },
+    "cifras": {
+      "label": "Timelines and guarantees",
+      "title_part1": "How long it ",
+      "title_emphasis": "takes",
+      "title_part2": " and what's included.",
+      "sub": "How we really work, not catalogue promises.",
+      "items": [
+        {
+          "value": "3–4 wk",
+          "text": "What a corporate website takes, from the first call to launch"
+        },
+        {
+          "value": "24h",
+          "text": "To get your fixed quote, after a 30-minute call"
+        },
+        {
+          "value": "30 days",
+          "text": "Of free support after launch"
+        },
+        {
+          "value": "5.0",
+          "text": "Rated on Google"
+        }
+      ]
+    },
+    "caso": {
+      "label": "Selected work",
+      "title_part1": "Websites that ",
+      "title_emphasis": "explain",
+      "title_part2": " and convince.",
+      "sub": "Real websites, and what the people who use them every day say.",
+      "cta": "View the case",
+      "headings": {
+        "fada": "The official website of the Aragon Motorsport Federation",
+        "voluntariado-aragon": "Aragon's volunteering portal, faster and easier to maintain"
+      }
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "From the first call to a website ",
+      "title_emphasis": "ready to launch",
+      "title_part2": ".",
+      "sub": "We think before we design, and we design with the build in mind. Every phase ends with something you can see and approve.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Discovery",
+          "text": "A call to understand the business, who you're talking to and what the website has to achieve. We review your current site and your competitors'.",
+          "outputs": [
+            "Discovery call",
+            "Current website review",
+            "Competitor review",
+            "Website goals"
+          ]
+        },
+        {
+          "title": "Structure",
+          "text": "We decide which pages are needed, what goes on each one and in what order. This is where the copy gets written.",
+          "outputs": [
+            "Sitemap",
+            "Structure of each page",
+            "Copy",
+            "Calls to action"
+          ]
+        },
+        {
+          "title": "Design",
+          "text": "We design the site with your brand, the homepage first and then the rest, and refine it with you in rounds.",
+          "outputs": [
+            "Homepage design",
+            "Design of the other pages",
+            "Mobile version",
+            "Refinement rounds"
+          ]
+        },
+        {
+          "title": "Development",
+          "text": "We build it with the technology that fits, Astro or Next.js, and connect it to the CMS so you can edit it yourself.",
+          "outputs": [
+            "Site on a staging environment",
+            "Content management",
+            "Forms and tracking",
+            "Speed and SEO review"
+          ]
+        },
+        {
+          "title": "Launch",
+          "text": "We publish it, redirect the old URLs if there was a site already and show you how to edit it. With 30 days of support included.",
+          "outputs": [
+            "Go live",
+            "Redirects",
+            "Editing walkthrough",
+            "30 days of support"
+          ]
+        }
+      ]
+    },
+    "checks": {
+      "label": "Before launch",
+      "title_part1": "What we check on every page ",
+      "title_emphasis": "before launch",
+      "title_part2": ".",
+      "sub": "A good-looking page can still be slow, hard to use or invisible to Google. We always check these.",
+      "items": [
+        {
+          "title": "Speed",
+          "text": "Properly sized images, video that loads only when in view and a speed test before going live."
+        },
+        {
+          "title": "Phone and tablet",
+          "text": "Every section designed for small screens, not squeezed down from the desktop version."
+        },
+        {
+          "title": "Technical SEO",
+          "text": "Clean URLs, one main heading per page, unique titles and descriptions, and structured data."
+        },
+        {
+          "title": "Redirects",
+          "text": "If there was a site already, every old URL is kept or sent to its new page, so you don't lose rankings."
+        },
+        {
+          "title": "Accessibility",
+          "text": "Enough contrast, alt text on images and forms that work with the keyboard."
+        },
+        {
+          "title": "Tracking",
+          "text": "Forms and calls tracked in Analytics, so you can see what the new site changes."
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What's included",
+      "title_part1": "A website that makes ",
+      "title_emphasis": "the next step",
+      "title_part2": " obvious.",
+      "sub": "Structure, copy, design and development, from the same team.",
+      "items": [
+        {
+          "title": "Structure and copy",
+          "text": "Which pages are needed and what each one says, written for your customer, not for you."
+        },
+        {
+          "title": "Custom design",
+          "text": "With your brand and no templates, designed mobile-first."
+        },
+        {
+          "title": "Custom development",
+          "text": "Fast, secure and free of plugins that break on update."
+        },
+        {
+          "title": "Content management",
+          "text": "You edit text, images and sections yourself, with no risk of breaking anything."
+        },
+        {
+          "title": "SEO from the start",
+          "text": "Structure, speed and data so Google understands it from day one."
+        },
+        {
+          "title": "Forms and tracking",
+          "text": "Leads reach you instantly and you know which page each one came from."
+        }
+      ]
+    },
+    "tecnologias": {
+      "label": "What we build with",
+      "title_part1": "Technology, ",
+      "title_emphasis": "made to fit",
+      "title_part2": ".",
+      "sub": "There's no single tool for everything. We pick the one that fits what your site has to do and how you'll maintain it.",
+      "cuandoLabel": "When",
+      "items": [
+        {
+          "name": "Astro",
+          "cuando": "Content websites",
+          "text": "For corporate and content sites that have to load instantly. It's what we built FlyLead's website with."
+        },
+        {
+          "name": "Next.js",
+          "cuando": "Websites that do things",
+          "text": "When the site needs a client area, bookings, search or integrations with your tools."
+        },
+        {
+          "name": "Payload",
+          "cuando": "To edit it yourself",
+          "text": "A CMS that lives inside your own site: edit text, images and pages with no per-user fees."
+        },
+        {
+          "name": "Sanity",
+          "cuando": "When several people edit",
+          "text": "A cloud CMS, handy when several people publish at once. FADA and Voluntariado Aragón use it."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Formats",
+      "title_part1": "Sized to ",
+      "title_emphasis": "what you need",
+      "title_part2": ".",
+      "sub": "Some projects need one page that converts; others need the whole site. We shape the scope around what has to launch.",
+      "badge": "Most complete",
+      "cta": "Get a quote",
+      "note": "Fixed quote within 24h after a 30-minute call.",
+      "items": [
+        {
+          "title": "Landing page",
+          "text": "To launch something new, run a campaign or test an idea.",
+          "points": [
+            "One page built to convert",
+            "Structure and copy",
+            "Custom design",
+            "Connected form",
+            "Analytics tracking",
+            "Ready for ads"
+          ]
+        },
+        {
+          "title": "Full corporate website",
+          "text": "For companies that need the whole site rebuilt around a clear message.",
+          "points": [
+            "Sitemap and structure",
+            "Copy for every page",
+            "Custom design for every page",
+            "Content management",
+            "Technical SEO and redirects",
+            "Blog or news if you need it",
+            "30 days of support"
+          ]
+        }
+      ]
+    },
+    "relacionados": {
+      "label": "And more",
+      "title_part1": "Need more than ",
+      "title_emphasis": "a website",
+      "title_part2": "?",
+      "sub": "Tell us what you're building and we'll shape the scope around what you need.",
+      "cta": "Tell us the whole project"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "your website",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "Why custom and not a template?",
+          "answer": "A custom site loads faster, scales better and doesn't depend on fragile plugins that break on update. We pick the right technology for each project (Next.js, Astro…); you just get a fast, secure, easy-to-maintain site."
+        },
+        "q2": {
+          "question": "Can I edit content without touching code?",
+          "answer": "Yes. We connect Sanity, Payload or Notion depending on the case. You get a visual panel to edit text, images and sections without risk of breaking anything."
+        },
+        "q3": {
+          "question": "How long does a custom site take?",
+          "answer": "Marketing sites: 3-4 weeks. SaaS or platforms with backend: 6-8 weeks. I send you a fixed timeline on the first call."
+        },
+        "q4": {
+          "question": "What hosting do you recommend?",
+          "answer": "We use Netcup or Hetzner (servers in Germany, EU): powerful, reliable and great value. For special cases we also deploy on Cloudflare or AWS."
+        },
+        "q5": {
+          "question": "Do you migrate from WordPress / Webflow?",
+          "answer": "Yes. We've migrated from WordPress to Next.js preserving URLs and SEO. Zero ranking loss, 40-60% speed gain."
+        }
+      }
+    }
+  },
+  "v2Proceso": {
+    "metaTitle": "How we work · Bellostas Studio",
+    "metaDescription": "From the first call to delivery: the phases of each service, what you get at each one and where we use AI.",
+    "hero": {
+      "label": "How we work",
+      "line1": "How we work,",
+      "line2_pre": "",
+      "line2_em": "step by step",
+      "line2_post": ".",
+      "sub": "From the first call to delivery. What happens in each phase, what you have in hand when each one ends and where AI helps us with the work.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "See the phases"
+    },
+    "momentos": {
+      "label": "How we stay close",
+      "title_part1": "Six moments ",
+      "title_emphasis": "when we talk",
+      "title_part2": ".",
+      "sub": "The rest of the time you don't need to ask: you see it in your portal.",
+      "items": [
+        {
+          "title": "A call",
+          "text": "Thirty minutes to see if we're a fit and what we'd do."
+        },
+        {
+          "title": "The proposal",
+          "text": "One page with scope, price and payment plan. You accept and sign right there."
+        },
+        {
+          "title": "The questionnaire",
+          "text": "You tell us about your business in writing. It saves itself, at your pace."
+        },
+        {
+          "title": "Design review",
+          "text": "We go through it together before any code is written."
+        },
+        {
+          "title": "The test link",
+          "text": "The site, working, for you to review before it goes live."
+        },
+        {
+          "title": "Delivery",
+          "text": "It's in your name, with documentation. Maintenance is optional."
+        }
+      ]
+    },
+    "servicios": {
+      "label": "The phases",
+      "title_part1": "Every service, ",
+      "title_emphasis": "its own process",
+      "title_part2": ".",
+      "sub": "Pick yours. Every phase ends with something you can see and approve before the next one starts.",
+      "outputsLabel": "What comes out of it",
+      "lista": [
+        {
+          "clave": "marca",
+          "nombre": "Brand",
+          "fuente": "v2Brand"
+        },
+        {
+          "clave": "webs",
+          "nombre": "Websites",
+          "fuente": "v2Webs"
+        },
+        {
+          "clave": "apps",
+          "nombre": "Web apps",
+          "steps": [
+            {
+              "title": "Audit",
+              "text": "We review the current process or product, who uses it, the competition and the data, and find where people get stuck.",
+              "outputs": [
+                "Audit",
+                "Competitor review",
+                "Usability issues",
+                "Priorities"
+              ]
+            },
+            {
+              "title": "Flows",
+              "text": "We map the main journeys, how screens relate, the navigation and the business logic.",
+              "outputs": [
+                "User flows",
+                "Screen map",
+                "Navigation"
+              ]
+            },
+            {
+              "title": "Wireframes",
+              "text": "Mid-fidelity screens to solve layout, hierarchy and states before polishing anything.",
+              "outputs": [
+                "Key screens",
+                "Dashboard structure",
+                "Empty and error states",
+                "Interaction notes"
+              ]
+            },
+            {
+              "title": "Interface and build",
+              "text": "We design the final screens and build it: database, access, integrations and logic, delivered on a test environment.",
+              "outputs": [
+                "Final screens",
+                "Components",
+                "App on staging",
+                "Integrations"
+              ]
+            },
+            {
+              "title": "Launch",
+              "text": "Testing, edge cases, performance, deployment and documentation for every screen.",
+              "outputs": [
+                "Full review",
+                "Fixes",
+                "Documentation",
+                "Launch"
+              ]
+            }
+          ]
+        },
+        {
+          "clave": "migraciones",
+          "nombre": "Migrations",
+          "steps": [
+            {
+              "title": "Inventory",
+              "text": "We crawl your site and list every URL before anything is designed.",
+              "outputs": [
+                "URL list",
+                "Grouped by page type"
+              ]
+            },
+            {
+              "title": "Same URLs",
+              "text": "Same paths and slugs. A URL only changes when it has its 301 redirect.",
+              "outputs": [
+                "Redirect map"
+              ]
+            },
+            {
+              "title": "Full export",
+              "text": "Content, the HTML of every page and every image and file on the old site.",
+              "outputs": [
+                "Full export",
+                "Reference HTML"
+              ]
+            },
+            {
+              "title": "Parity first",
+              "text": "The first version is a faithful copy: same pages, same copy, same SEO. Improvements come after.",
+              "outputs": [
+                "Approved parity version"
+              ]
+            },
+            {
+              "title": "SEO page by page",
+              "text": "Titles, descriptions, canonicals, share images and structured data checked one by one.",
+              "outputs": [
+                "SEO review",
+                "Clean sitemap"
+              ]
+            },
+            {
+              "title": "Launch and watch",
+              "text": "Redirects live on launch day and daily checks on rankings, errors and indexing.",
+              "outputs": [
+                "Daily monitoring",
+                "Fixes"
+              ]
+            }
+          ]
+        },
+        {
+          "clave": "seo",
+          "nombre": "SEO",
+          "steps": [
+            {
+              "title": "Audit",
+              "text": "Crawl, Search Console, structured data and how clearly each page answers, for AI assistants too.",
+              "outputs": [
+                "Technical audit",
+                "AI check",
+                "Prioritised fix list"
+              ]
+            },
+            {
+              "title": "Buyer questions",
+              "text": "The questions your customers ask Google and ChatGPT before buying, each with the page that should answer it.",
+              "outputs": [
+                "Question list",
+                "Question → page",
+                "Content gaps"
+              ]
+            },
+            {
+              "title": "Technical fixes",
+              "text": "On the site itself: titles, canonicals, sitemap, redirects, links, speed and structured data.",
+              "outputs": [
+                "Metadata",
+                "Redirects",
+                "Structured data"
+              ]
+            },
+            {
+              "title": "Answer-first pages",
+              "text": "Intros and headings that answer first, with specifics, and marked-up FAQs.",
+              "outputs": [
+                "Rewritten intros",
+                "Question headings",
+                "FAQs"
+              ]
+            },
+            {
+              "title": "Measure and repeat",
+              "text": "Every month: rankings and clicks, visits from AI and the same questions asked again.",
+              "outputs": [
+                "Monthly report",
+                "Next fixes"
+              ]
+            }
+          ]
+        },
+        {
+          "clave": "automatizaciones",
+          "nombre": "Automations",
+          "steps": [
+            {
+              "title": "Task map",
+              "text": "We list what your team does every week and pick what's worth automating, with who approves it.",
+              "outputs": [
+                "Task inventory",
+                "Chosen workflows",
+                "Owners"
+              ]
+            },
+            {
+              "title": "Foundations",
+              "text": "We tidy what the automation will use: data, templates, tone and examples.",
+              "outputs": [
+                "Data model",
+                "Tone guide",
+                "Examples"
+              ]
+            },
+            {
+              "title": "Connections",
+              "text": "We connect WhatsApp, your CRM, email and your data, with separate rights to read, draft and approve.",
+              "outputs": [
+                "Integrations",
+                "Permissions"
+              ]
+            },
+            {
+              "title": "Pilot",
+              "text": "We test it on real cases, review what it produces and fix what fails. It starts switched off until you've tried it.",
+              "outputs": [
+                "Tested workflows",
+                "Known limits",
+                "Before and after timings"
+              ]
+            },
+            {
+              "title": "Handover",
+              "text": "We train the people who use it, document every workflow and leave a plan for when something fails.",
+              "outputs": [
+                "Training",
+                "Workflow playbooks",
+                "Failure plan"
+              ]
+            }
+          ]
+        },
+        {
+          "clave": "video",
+          "nombre": "Video",
+          "steps": [
+            {
+              "title": "Story",
+              "text": "Your product, your audience, the goal and the message the video has to tell.",
+              "outputs": [
+                "Core message",
+                "References",
+                "Goals"
+              ]
+            },
+            {
+              "title": "Storyboard",
+              "text": "The idea turned into a simple story, with its scenes and pace.",
+              "outputs": [
+                "Script",
+                "Storyboard",
+                "Timings"
+              ]
+            },
+            {
+              "title": "Key frames",
+              "text": "We design the scenes to be animated as stills, and they're approved before anything moves.",
+              "outputs": [
+                "Key frames",
+                "Scenes"
+              ]
+            },
+            {
+              "title": "Animation",
+              "text": "Motion, transitions and camera. You review it in your portal with notes by the minute.",
+              "outputs": [
+                "First cut",
+                "Animated scenes"
+              ]
+            },
+            {
+              "title": "Delivery",
+              "text": "Sound, music, final pace and exports for web, social and sales.",
+              "outputs": [
+                "Final video",
+                "Versions per format"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ia": {
+      "label": "AI in our workflow",
+      "title_part1": "Where we use AI, ",
+      "title_emphasis": "and where we don't",
+      "title_part2": ".",
+      "sub": "It's part of how we work every week. It proposes and speeds things up; the decisions are ours, made with you.",
+      "items": [
+        {
+          "title": "Research",
+          "tool": "Claude",
+          "text": "Summarising your sector, your competitors and what you tell us in the questionnaire."
+        },
+        {
+          "title": "Visual exploration",
+          "tool": "Magnific · Nano Banana",
+          "text": "Trying more style routes and concepts in less time, before choosing one."
+        },
+        {
+          "title": "Structure and prototypes",
+          "tool": "Claude Design",
+          "text": "Organising the site several ways and prototyping the homepage before designing it."
+        },
+        {
+          "title": "First drafts of copy",
+          "tool": "Claude",
+          "text": "A starting point that is then rewritten and reviewed line by line."
+        },
+        {
+          "title": "Code",
+          "tool": "Claude Code",
+          "text": "The mechanical parts of development, so the time goes to what is only yours."
+        },
+        {
+          "title": "Review",
+          "tool": "Claude Code",
+          "text": "Hunting bugs, edge cases and speed issues before launch."
+        }
+      ],
+      "noLabel": "And we don't use it for",
+      "no": [
+        "Deciding what gets built and why",
+        "Design direction",
+        "Publishing anything unreviewed",
+        "Final copy",
+        "Talking to you"
+      ]
+    },
+    "siempre": {
+      "label": "On every project",
+      "title_part1": "What ",
+      "title_emphasis": "never changes",
+      "title_part2": ", in any phase.",
+      "items": [
+        {
+          "title": "Design approved first",
+          "text": "Nothing gets coded that you haven't seen and approved."
+        },
+        {
+          "title": "Three rounds of changes",
+          "text": "In every design phase, included in the price."
+        },
+        {
+          "title": "Test link",
+          "text": "You see your site working before it goes live."
+        },
+        {
+          "title": "One contact",
+          "text": "You always talk to the person building your project."
+        },
+        {
+          "title": "New work, in writing",
+          "text": "If you ask for something outside the scope, we quote it separately first."
+        },
+        {
+          "title": "Everything in your portal",
+          "text": "Phases, invoices, contracts and reviews, in one place."
+        }
+      ]
+    },
+    "portal": {
+      "label": "Your portal",
+      "title_part1": "Your whole project, ",
+      "title_emphasis": "in one place",
+      "title_part2": ".",
+      "sub": "You sign in with your email, no password.",
+      "items": [
+        "Which phase your project is in and what comes next",
+        "Your invoices and signed contracts",
+        "Videos to review, with notes by the minute",
+        "The welcome form, which saves itself"
+      ],
+      "imageAlt": "The Bellostas Studio client portal"
+    },
+    "stack": {
+      "label": "Tools",
+      "title_part1": "What we ",
+      "title_emphasis": "build with",
+      "title_part2": ".",
+      "sub": "Current, widely used technology that any developer can maintain."
+    }
+  },
+  "v2Precios": {
+    "metaTitle": "Pricing",
+    "metaDescription": "What it costs to work with Bellostas Studio: brand and website packages, and starting prices for every service. Fixed quote after a call. Prices exclude VAT.",
+    "hero": {
+      "label": "Pricing",
+      "line1": "Clear pricing",
+      "line2_pre": "for projects with ",
+      "line2_em": "ambition",
+      "line2_post": ".",
+      "sub": "Every project gets a fixed, tailored quote after a call. Here's where we start and what each price includes.",
+      "ctaPrimary": "Book a call",
+      "ctaSecondary": "See the packages"
+    },
+    "packs": {
+      "label": "Packages",
+      "title_part1": "Brand and website, ",
+      "title_emphasis": "in one go",
+      "title_part2": ".",
+      "sub": "For businesses that are starting out or renewing everything. One team, one timeline, and a brand designed for the web from day one.",
+      "estrella": "Most popular",
+      "sinIva": "excl. VAT",
+      "separado": "Separately",
+      "cta": "Let's talk about your project",
+      "items": [
+        {
+          "nombre": "Full brand + Landing page",
+          "texto": "To launch a new project with its own brand from day one.",
+          "precio": "€3,500",
+          "separado": "€3,800",
+          "incluye": [
+            "Full brand: strategy, identity and guidelines",
+            "Landing page with the new brand",
+            "Copy, form and analytics",
+            "One team and one timeline"
+          ]
+        },
+        {
+          "nombre": "Full brand + Website",
+          "texto": "For new or funded businesses that want to get it right from the start.",
+          "precio": "€5,500",
+          "separado": "€5,800",
+          "destacado": true,
+          "incluye": [
+            "Full brand: strategy, identity and guidelines",
+            "Essential corporate website with the new brand",
+            "CMS and technical SEO",
+            "One team and one timeline"
+          ]
+        }
+      ]
+    },
+    "servicios": {
+      "label": "Services",
+      "title_part1": "Each service, ",
+      "title_emphasis": "on its own",
+      "title_part2": ".",
+      "sub": "The starting price of each one, what it includes and how long it takes. Anything that pushes it up, we tell you before we start.",
+      "desde": "from",
+      "aPresupuesto": "Custom quote",
+      "plazo": "Typical timeline",
+      "grupos": [
+        {
+          "nombre": "Brand",
+          "texto": "Identity, system and content so your brand looks the same everywhere.",
+          "items": [
+            {
+              "nombre": "Essential brand",
+              "precio": "€1,400",
+              "texto": "The essentials to start on the right foot.",
+              "incluye": [
+                "Logo and its versions",
+                "Colours and typefaces",
+                "Basic usage guide"
+              ]
+            },
+            {
+              "nombre": "Full brand",
+              "precio": "€1,900",
+              "texto": "A complete brand system, not just a logo.",
+              "incluye": [
+                "Strategy and positioning",
+                "Logo and visual identity",
+                "Brand guidelines",
+                "Social media templates"
+              ]
+            },
+            {
+              "nombre": "Video and motion",
+              "precio": "On request",
+              "texto": "Short videos for your website, social media or a launch.",
+              "incluye": [
+                "Concept and script",
+                "Animation and editing",
+                "Cuts for web and social"
+              ],
+              "consultar": true
+            }
+          ]
+        },
+        {
+          "nombre": "Web",
+          "texto": "Custom design and development, no templates, with a CMS so you can edit it yourself.",
+          "items": [
+            {
+              "nombre": "Landing page",
+              "precio": "€1,900",
+              "texto": "A single page for one goal: a launch, a campaign, lead capture.",
+              "incluye": [
+                "Structure and copy",
+                "Custom design and development",
+                "Form and analytics"
+              ]
+            }
+          ],
+          "niveles": [
+            {
+              "nombre": "Corporate website",
+              "plazo": "3–4 weeks",
+              "columnas": [
+                {
+                  "nombre": "Essential",
+                  "precio": "€3,900"
+                },
+                {
+                  "nombre": "Advanced",
+                  "precio": "€5,500"
+                },
+                {
+                  "nombre": "Custom"
+                }
+              ],
+              "filas": [
+                {
+                  "nombre": "Pages",
+                  "valores": [
+                    "up to ~6",
+                    "up to ~12",
+                    "no limit"
+                  ]
+                },
+                {
+                  "nombre": "Languages",
+                  "valores": [
+                    "1",
+                    "2",
+                    "as many as needed"
+                  ]
+                },
+                {
+                  "nombre": "Custom design and development",
+                  "valores": [
+                    "✓",
+                    "✓",
+                    "✓"
+                  ]
+                },
+                {
+                  "nombre": "CMS and technical SEO",
+                  "valores": [
+                    "✓",
+                    "✓",
+                    "✓"
+                  ]
+                },
+                {
+                  "nombre": "Blog, advanced animation and integrations",
+                  "valores": [
+                    "—",
+                    "✓",
+                    "✓"
+                  ]
+                }
+              ],
+              "texto": "Your company website, designed and built from scratch, with a CMS so you can edit it yourself."
+            },
+            {
+              "nombre": "E-commerce",
+              "plazo": "2–6 weeks",
+              "columnas": [
+                {
+                  "nombre": "Essential",
+                  "precio": "€4,900"
+                },
+                {
+                  "nombre": "Advanced",
+                  "precio": "€6,900"
+                },
+                {
+                  "nombre": "Custom"
+                }
+              ],
+              "filas": [
+                {
+                  "nombre": "Store with its own design",
+                  "valores": [
+                    "✓",
+                    "✓",
+                    "✓"
+                  ]
+                },
+                {
+                  "nombre": "Payments, shipping and taxes set up",
+                  "valores": [
+                    "✓",
+                    "✓",
+                    "✓"
+                  ]
+                },
+                {
+                  "nombre": "Languages",
+                  "valores": [
+                    "1",
+                    "2",
+                    "as many as needed"
+                  ]
+                },
+                {
+                  "nombre": "Product migration and integrations",
+                  "valores": [
+                    "—",
+                    "✓",
+                    "✓"
+                  ]
+                },
+                {
+                  "nombre": "B2B and complex catalogues",
+                  "valores": [
+                    "—",
+                    "—",
+                    "✓"
+                  ]
+                }
+              ],
+              "texto": "Your online store with its own design, ready to sell from day one."
+            }
+          ]
+        },
+        {
+          "nombre": "Systems and AI",
+          "texto": "Custom tools, automations and platform moves without losing what you've earned.",
+          "items": [
+            {
+              "nombre": "Web app",
+              "precio": "€5,900",
+              "texto": "Portals, dashboards and internal tools. An MVP to validate or the full product.",
+              "incluye": [
+                "Product design",
+                "Users, permissions and admin panel",
+                "Deployed and documented"
+              ],
+              "plazo": "4–6 weeks (MVP)",
+              "desde": true
+            },
+            {
+              "nombre": "Automations",
+              "precio": "€1,200",
+              "texto": "What your team repeats every week, done on its own: leads, alerts, reports.",
+              "incluye": [
+                "Process analysis",
+                "Integration between your tools",
+                "AI where it adds value"
+              ],
+              "plazo": "1–2 weeks",
+              "desde": true
+            },
+            {
+              "nombre": "Migrations",
+              "precio": "€2,900",
+              "texto": "Change platforms without losing your Google rankings.",
+              "incluye": [
+                "SEO audit first",
+                "URL-to-URL redirects",
+                "Monitoring after launch"
+              ],
+              "plazo": "2–3 weeks (corporate site)",
+              "desde": true
+            }
+          ]
+        }
+      ]
+    },
+    "agencias": {
+      "label": "For agencies",
+      "title": "Are you an agency?",
+      "texto": "We work white-label, under NDA and with your name up front. Design and development for your clients, without it showing that we're a different team.",
+      "cta": "Let's talk"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "pricing",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "Why are some prices “from”?",
+          "answer": "Brand, website and e-commerce have defined levels, and the price you see is the price. Apps, automations and migrations vary a lot from case to case, so we give you the starting point. Either way, after a 30-minute call we send you a fixed quote within 24 hours, and that price doesn't change."
+        },
+        "q2": {
+          "question": "What if I go beyond what we agreed?",
+          "answer": "Reasonable tweaks are covered by each phase's review rounds. Anything new gets quoted before we do it, or billed at €50/h. We never charge you for anything you haven't approved."
+        },
+        "q3": {
+          "question": "Do I own the website and the brand?",
+          "answer": "Yes. Everything is in your name: domain, website, content and the brand files. No strings attached."
+        },
+        "q4": {
+          "question": "Is there a minimum commitment?",
+          "answer": "No. With projects you pay for the project and that's it. Subscriptions have no minimum term either: cancel anytime, and if you commit to a few months we give you a discount."
+        },
+        "q5": {
+          "question": "How do I pay?",
+          "answer": "In stages. We agree the payment plan with you in the proposal, depending on the project, and each payment comes with its invoice in your portal."
+        },
+        "q6": {
+          "question": "Do prices include VAT?",
+          "answer": "No. All prices on this page exclude VAT; the applicable VAT is added on the invoice."
+        }
+      }
+    },
+    "suscripciones": {
+      "grupos": [
+        {
+          "nombre": "Partner",
+          "items": [
+            {
+              "id": "partner",
+              "icono": "partner",
+              "nombre": "Creative partner",
+              "precio": "€2,900",
+              "sufijo": "/ month",
+              "texto": "Your design, marketing and web team, every month. What you used to split between agencies, freelancers and someone in-house, with one team that already knows your brand.",
+              "compromiso": {
+                "etiqueta": "6 months",
+                "precio": "€2,610",
+                "sufijo": "/ month",
+                "nota": "Commit to 6 months and save €1,740."
+              },
+              "funciona": [
+                {
+                  "titulo": "One active request at a time",
+                  "texto": "And an unlimited queue: as soon as one ships, the next one starts."
+                },
+                {
+                  "titulo": "Replies within 24–48 business hours",
+                  "texto": "Updates and previews as the work moves."
+                },
+                {
+                  "titulo": "One meeting a month",
+                  "texto": "To set priorities and review what's done."
+                },
+                {
+                  "titulo": "No minimum term",
+                  "texto": "Cancel anytime. Commit to a few months and we'll give you a discount."
+                }
+              ],
+              "incluye": [
+                "Graphic design and marketing assets",
+                "Stands, events and print",
+                "Web: changes, landing pages and improvements",
+                "Presentations and social templates",
+                "Premium website maintenance included"
+              ],
+              "porQue": {
+                "titulo": "Why a partner",
+                "texto": "A team that already knows your brand, how you work and has all your assets. No new agency to brief from scratch, no one to hire and train."
+              }
+            }
+          ]
+        },
+        {
+          "nombre": "Grow",
+          "items": [
+            {
+              "id": "seo-aeo",
+              "icono": "seo",
+              "nombre": "SEO + AEO",
+              "precio": "€900",
+              "sufijo": "/ month",
+              "desde": true,
+              "texto": "Get found on Google and recommended by AI (ChatGPT, Perplexity, Google's answers). Monthly work, with a report.",
+              "compromiso": {
+                "etiqueta": "6 months",
+                "precio": "€810",
+                "sufijo": "/ month",
+                "nota": "Commit to 6 months and save €540."
+              },
+              "funciona": [
+                {
+                  "titulo": "Audit to start",
+                  "texto": "Technical, content, and how AI tools cite you today."
+                },
+                {
+                  "titulo": "Work every month",
+                  "texto": "Content, technical improvements and structured data, by priority."
+                },
+                {
+                  "titulo": "Monthly report",
+                  "texto": "Rankings, traffic and AI mentions, in your portal."
+                },
+                {
+                  "titulo": "No minimum term",
+                  "texto": "SEO takes a few months to show; that's why commitment gets a discount."
+                }
+              ],
+              "incluye": [
+                "Technical and content SEO",
+                "Optimisation for AI answers (AEO)",
+                "Structured data and FAQs",
+                "Rankings and mentions tracking"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Care",
+          "items": [
+            {
+              "id": "mantenimiento",
+              "icono": "escudo",
+              "nombre": "Maintenance",
+              "precio": "€39",
+              "sufijo": "/ month",
+              "desde": true,
+              "texto": "Keep your site fast, secure and up to date, without having to think about it.",
+              "funciona": [
+                {
+                  "titulo": "No minimum term",
+                  "texto": "Month to month, or pay yearly and save."
+                },
+                {
+                  "titulo": "Anything outside the plan is quoted first",
+                  "texto": "You always approve it before we do it."
+                }
+              ],
+              "incluye": [],
+              "niveles": [
+                {
+                  "nombre": "Essential",
+                  "precio": "€39",
+                  "compromiso": {
+                    "etiqueta": "Yearly",
+                    "precio": "€420",
+                    "sufijo": "/ year",
+                    "nota": "Pay yearly and save €48."
+                  },
+                  "incluye": [
+                    "Server, domain and SSL",
+                    "Security updates",
+                    "Daily backups",
+                    "Downtime monitoring",
+                    "Email support (72 h)",
+                    "Quarterly report"
+                  ]
+                },
+                {
+                  "nombre": "Professional",
+                  "precio": "€89",
+                  "compromiso": {
+                    "etiqueta": "Yearly",
+                    "precio": "€960",
+                    "sufijo": "/ year",
+                    "nota": "Pay yearly and save €108."
+                  },
+                  "incluye": [
+                    "Everything in Essential",
+                    "Support within 24 business hours",
+                    "1 h of changes a month",
+                    "Staging environment",
+                    "Monthly report"
+                  ]
+                },
+                {
+                  "nombre": "Premium",
+                  "precio": "€189",
+                  "compromiso": {
+                    "etiqueta": "Yearly",
+                    "precio": "€2,040",
+                    "sufijo": "/ year",
+                    "nota": "Pay yearly and save €228."
+                  },
+                  "incluye": [
+                    "Everything in Professional",
+                    "Priority support, same day",
+                    "3 h of changes a month",
+                    "Payments and forms monitoring",
+                    "Integrations kept up to date (Stripe, APIs)",
+                    "Quarterly review call"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Hours",
+          "items": [
+            {
+              "id": "bolsa-horas",
+              "icono": "reloj",
+              "nombre": "25-hour pack",
+              "precio": "€1,250",
+              "texto": "For changes and one-off pieces without a fixed plan: design, web or marketing, at your pace.",
+              "funciona": [
+                {
+                  "titulo": "25 hours at €50/h",
+                  "texto": "For whatever you need, in the order you want."
+                },
+                {
+                  "titulo": "See what's used",
+                  "texto": "Hours used and remaining, in your portal."
+                }
+              ],
+              "incluye": [
+                "Design, web or marketing",
+                "Priority over ad-hoc hourly work",
+                "No monthly fee"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "v2PreciosB": {
+    "metaTitle": "Pricing (B)",
+    "tabs": {
+      "aria": "One-time projects or subscriptions",
+      "proyectos": "Projects",
+      "suscripciones": "Subscriptions",
+      "nuevo": "New"
+    },
+    "grupoPacks": "Packages",
+    "desde": "from",
+    "porProyecto": "/ project",
+    "sinIva": "excl. VAT",
+    "notaCerrado": "Fixed price, agreed on the call before anything starts.",
+    "notaDesde": "This is the starting point: you get the fixed price after the call.",
+    "separado": "Separately",
+    "cta": "Book a call",
+    "aPresupuesto": "Custom quote",
+    "comoFunciona": "How it works",
+    "plazoTitulo": "Typical timeline: {plazo}",
+    "plazoTexto": "From kickoff to launch, depending on the scope.",
+    "sinPlazoTitulo": "Fixed timeline on the first call",
+    "sinPlazoTexto": "With specific dates for each phase.",
+    "pagoTitulo": "A payment plan that fits",
+    "pagoTexto": "We agree it with you in the proposal, depending on the project.",
+    "revisionesTitulo": "Reviews in every phase",
+    "revisionesTexto": "Nothing goes live without your approval.",
+    "queIncluye": "What's included",
+    "agencia": {
+      "etiqueta": "For agencies",
+      "titulo": "Are you an agency?",
+      "texto": "We work white-label, under NDA and with your name up front.",
+      "cta": "Let's talk"
+    },
+    "siempre": {
+      "label": "No small print",
+      "title_part1": "What's ",
+      "title_emphasis": "always",
+      "title_part2": " included.",
+      "sub": "What people ask us before signing, answered up front.",
+      "items": [
+        {
+          "title": "Fixed quote in 24 h",
+          "text": "After a 30-minute call. And that price doesn't change."
+        },
+        {
+          "title": "Paid in stages",
+          "text": "The payment plan is agreed with you in the proposal, depending on the project."
+        },
+        {
+          "title": "Everything in your name",
+          "text": "Domain, website, content and brand files. No strings attached."
+        },
+        {
+          "title": "Your client portal",
+          "text": "Phases, invoices, contracts and reviews, all in one place."
+        },
+        {
+          "title": "You talk to who does the work",
+          "text": "No middlemen: the person designing and building your project is the one who answers you."
+        },
+        {
+          "title": "Confidentiality",
+          "text": "We sign an NDA before seeing anything private, if you need one."
+        }
+      ]
+    },
+    "notaConsultar": "It depends on whether it's a one-off video or recurring social content. We'll pin it down on the call.",
+    "heroSub": "A one-time project or a team every month. Pick one and see the price.",
+    "recomendado": "Recommended",
+    "mesAMes": "Month to month",
+    "sinPermanencia": "No minimum term: cancel anytime.",
+    "puenteTitulo": "And afterwards?",
+    "puenteTexto": "We stay with you on a monthly plan: the same team, already familiar with your brand.",
+    "puenteCta": "See subscriptions"
+  },
+  "v2Ecommerce": {
+    "metaTitle": "Custom online stores · Bellostas Studio",
+    "metaDescription": "Custom online stores, fast and with no platform fee per sale, built with Medusa or Payload and Next.js. And Shopify when you need to launch fast.",
+    "hero": {
+      "label": "E-commerce",
+      "line1": "Online stores",
+      "line2_pre": "that ",
+      "line2_em": "sell",
+      "line2_post": ".",
+      "sub": "Custom stores built with Medusa or Payload and Next.js: fast, yours, and with no platform fee on every sale. And Shopify, when you need to launch in weeks.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "How we work"
+    },
+    "cifras": {
+      "label": "Timelines and results",
+      "title_part1": "How long it ",
+      "title_emphasis": "takes",
+      "title_part2": " and what we've done.",
+      "sub": "Data from real projects, not catalogue promises.",
+      "items": [
+        {
+          "value": "0%",
+          "text": "Platform fee per sale on a custom store built with Medusa"
+        },
+        {
+          "value": "500K+",
+          "text": "Customers at TeleAdhesivo, the store we work with from Huesca"
+        },
+        {
+          "value": "24 h",
+          "text": "To get your fixed quote, after a 30-minute call"
+        },
+        {
+          "value": "5.0",
+          "text": "Google rating"
+        }
+      ]
+    },
+    "caso": {
+      "label": "Stores in production",
+      "title_part1": "Selling ",
+      "title_emphasis": "live",
+      "title_part2": ".",
+      "sub": "Real stores, with what the people who sell on them every day say.",
+      "cta": "See the case",
+      "headings": {
+        "teleadhesivo": "A store with over half a million customers, faster and easier to buy from",
+        "obra-partner": "Tiles and building materials, with a catalogue that makes sense at first glance",
+        "embroidery-download": "A store for embroidery patterns with instant download, custom-built with Medusa and Stripe"
+      }
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "From the first call to a store ",
+      "title_emphasis": "ready to sell",
+      "title_part2": ".",
+      "sub": "The business first (catalogue, margins and logistics), then the design. Every phase ends with something you can see and approve.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Discovery",
+          "text": "We learn what you sell, to whom, at what margins and how you ship. That's how we choose how to build it: custom with Medusa, or Shopify if it fits you better.",
+          "outputs": [
+            "Discovery call",
+            "Review of your current store",
+            "Platform choice",
+            "Sales goals"
+          ]
+        },
+        {
+          "title": "Structure",
+          "text": "We organise the catalogue and the buying journey: categories, filters, product pages and what customers need to see before paying.",
+          "outputs": [
+            "Category tree",
+            "Product page structure",
+            "Buying journey",
+            "Key copy"
+          ]
+        },
+        {
+          "title": "Design",
+          "text": "We design the home page, categories, product page and cart with your brand, mobile first, and refine it with you in rounds.",
+          "outputs": [
+            "Home and categories",
+            "Product page",
+            "Cart and checkout",
+            "Mobile version"
+          ]
+        },
+        {
+          "title": "Development",
+          "text": "We build the store in a staging environment: payments, shipping, taxes, emails and product upload.",
+          "outputs": [
+            "Store on staging",
+            "Payments, shipping and taxes",
+            "Order emails",
+            "Catalogue upload"
+          ]
+        },
+        {
+          "title": "Launch",
+          "text": "We run test orders, go live, redirect old URLs if you're coming from another store and show you how to run it.",
+          "outputs": [
+            "Test orders",
+            "Go-live",
+            "Redirects",
+            "Training to run it"
+          ]
+        }
+      ]
+    },
+    "checks": {
+      "label": "Before opening",
+      "title_part1": "What we check ",
+      "title_emphasis": "before the store opens",
+      "title_part2": ".",
+      "sub": "A beautiful store that loads slowly or fails at checkout doesn't sell. We always check this.",
+      "items": [
+        {
+          "title": "Speed",
+          "text": "Categories and product pages that load fast, with product images at the right size."
+        },
+        {
+          "title": "Buying on mobile",
+          "text": "From product to payment with your thumb, no extra steps or unnecessary fields."
+        },
+        {
+          "title": "Payments and shipping",
+          "text": "Real test orders with every payment method and every shipping rate."
+        },
+        {
+          "title": "Product SEO",
+          "text": "Clean URLs, unique titles and product structured data for Google."
+        },
+        {
+          "title": "Redirects",
+          "text": "If you're coming from another store, every old product and category leads to its new page."
+        },
+        {
+          "title": "Sales tracking",
+          "text": "Orders, carts and revenue tracked in Analytics, so you know what works."
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What's included",
+      "title_part1": "Everything your store ",
+      "title_emphasis": "needs",
+      "title_part2": ".",
+      "sub": "Catalogue, checkout, shipping and what happens after the purchase, from the same team.",
+      "items": [
+        {
+          "title": "Catalogue and product pages",
+          "text": "Categories, filters and product pages that answer questions before customers ask."
+        },
+        {
+          "title": "Custom design",
+          "text": "With your brand and no generic theme, designed mobile first."
+        },
+        {
+          "title": "Checkout",
+          "text": "Stripe payment gateway and a simple checkout, also for international customers."
+        },
+        {
+          "title": "Shipping and taxes",
+          "text": "Shipping rates and taxes set up for wherever you sell."
+        },
+        {
+          "title": "Automated emails",
+          "text": "Abandoned cart, post-purchase and newsletters with Klaviyo or Mailchimp, if you need them."
+        },
+        {
+          "title": "Easy to run",
+          "text": "Orders, products and stock from a clear dashboard, without depending on us."
+        }
+      ]
+    },
+    "tecnologias": {
+      "label": "What we build it with",
+      "title_part1": "Custom, ",
+      "title_emphasis": "and fast",
+      "title_part2": ".",
+      "sub": "Custom stores are our strength: yours, with no templates or platform fees. And when you need to be live in weeks, Shopify.",
+      "cuandoLabel": "When",
+      "items": [
+        {
+          "name": "Medusa",
+          "cuando": "The store engine",
+          "text": "Catalogue, orders, stock and Stripe payments, open source: no fee per sale and no platform limits. It's what we're building Embroidery Download with."
+        },
+        {
+          "name": "Payload",
+          "cuando": "Stores with lots of content",
+          "text": "Products, cart and Stripe payments in the same dashboard as your pages and blog. It's the CMS we already use on our sites."
+        },
+        {
+          "name": "Next.js",
+          "cuando": "Stores that do things",
+          "text": "The custom storefront when there's a customer area, B2B, configurators or lots of logic."
+        },
+        {
+          "name": "Shopify",
+          "cuando": "To launch fast",
+          "text": "When the way you sell fits its ecosystem and you want to be selling in weeks, with your own design."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Formats",
+      "title_part1": "Sized ",
+      "title_emphasis": "to your catalogue",
+      "title_part2": ".",
+      "sub": "A store to start selling, one to grow, or one built around your business.",
+      "badge": "To grow",
+      "cta": "Get a quote",
+      "precios": "See pricing",
+      "note": "Prices exclude VAT. Fixed quote within 24 h after a 30-minute call.",
+      "items": [
+        {
+          "title": "Essential",
+          "price": "€4,900",
+          "text": "To start selling with your own, well-built store.",
+          "points": [
+            "Store with its own design",
+            "Payments, shipping and taxes set up",
+            "One language",
+            "Initial catalogue upload",
+            "Training to run it"
+          ]
+        },
+        {
+          "title": "Advanced",
+          "price": "€6,900",
+          "destacado": true,
+          "text": "For stores with a bigger catalogue that need to connect to day-to-day operations.",
+          "points": [
+            "Everything in Essential",
+            "Two languages",
+            "Product migration from your current store",
+            "Integrations (ERP, shipping, invoicing)"
+          ]
+        },
+        {
+          "title": "Custom",
+          "price": "Custom quote",
+          "text": "For B2B, complex catalogues or your own business rules.",
+          "points": [
+            "Custom build with Medusa or Payload and Next.js",
+            "B2B, per-customer pricing and margins",
+            "As many languages as needed",
+            "Custom integrations"
+          ]
+        }
+      ],
+      "interes": "E-commerce"
+    },
+    "relacionados": {
+      "label": "And also",
+      "title_part1": "Need more than ",
+      "title_emphasis": "a store",
+      "title_part2": "?",
+      "sub": "Tell us what you're building and we'll fit the scope to what you need.",
+      "cta": "Tell us about the whole project"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "your store",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "Custom store or Shopify?",
+          "answer": "Custom stores with Medusa are our strength: it's yours, it's very fast and you don't pay the platform a fee on every sale. Shopify makes sense when the way you sell fits its ecosystem and you want to launch in weeks. We look at it with you on the first call."
+        },
+        "q2": {
+          "question": "How much does an online store cost?",
+          "answer": "Essential is €4,900 and Advanced is €6,900 (excl. VAT). A custom store, with a complex catalogue or B2B, is quoted separately. Always with a fixed quote before we start."
+        },
+        "q3": {
+          "question": "How long does it take?",
+          "answer": "A Shopify store: 2–3 weeks. A custom store: 6–10 weeks. A migration from another store: 4–6 weeks. You get a fixed timeline on the first call."
+        },
+        "q4": {
+          "question": "Will I lose SEO if I migrate?",
+          "answer": "Not if it's done right. We send every old URL to its new page with permanent redirects, keep titles and structured data, and watch Search Console for 30 days after launch."
+        },
+        "q5": {
+          "question": "Do you include email marketing?",
+          "answer": "Yes, if you need it. We connect Klaviyo or Mailchimp with abandoned cart, post-purchase and newsletter emails. If you already have a platform, we connect it to the store; if not, we help you choose."
+        },
+        "q6": {
+          "question": "Have you worked with big stores?",
+          "answer": "Yes. We work with TeleAdhesivo, a store founded in 2000 with over half a million customers, on technical SEO, shopping experience and conversion. We know what breaks at volume and what holds up."
+        }
+      }
+    }
+  },
+  "v2Trabajos": {
+    "metaTitle": "Work · Bellostas Studio",
+    "metaDescription": "Websites, online stores, brands and digital products for real companies: a recent selection of Bellostas Studio projects.",
+    "label": "Work",
+    "title_part1": "Selected ",
+    "title_emphasis": "work",
+    "title_part2": ".",
+    "sub": "Websites, online stores, brands and digital products. A recent selection, each with a real client behind it.",
+    "filtrosAria": "Filter by project type",
+    "filtros": {
+      "todos": "All",
+      "web": "Websites",
+      "ecommerce": "E-commerce",
+      "producto": "Product and SaaS"
+    },
+    "proximamente": "Coming soon",
+    "verCaso": "See the case"
+  },
+  "v2Casos": {
+    "label": "Case",
+    "volver": "All work",
+    "verWeb": "Visit the site",
+    "hablemos": "Let's talk about your project",
+    "verVideo": "Watch video",
+    "barra": {
+      "cliente": "Client",
+      "ano": "Year",
+      "llamada": "Book a call"
+    },
+    "secciones": {
+      "proyecto": "The project",
+      "reto": "The challenge",
+      "trabajo": "The work",
+      "resultado": "Results"
+    },
+    "datos": {
+      "cliente": "Client",
+      "sector": "Type",
+      "ano": "Year",
+      "tecnologia": "Technology",
+      "web": "Website",
+      "hicimos": "What we did"
+    },
+    "mas": {
+      "label": "Keep reading",
+      "title_part1": "More ",
+      "title_emphasis": "cases",
+      "title_part2": ".",
+      "siguiente": "Next case"
+    },
+    "casos": {
+      "teleadhesivo": {
+        "titular": "A store with over half a million customers, easier to buy from.",
+        "intro": "An online store for custom decorative vinyls and stickers, made in their Huesca workshop since 2000. We work with them on technical SEO, shopping experience and conversion.",
+        "cifras": [
+          {
+            "valor": "500K+",
+            "texto": "Customers since the store opened"
+          },
+          {
+            "valor": "11,500+",
+            "texto": "Designs, in whatever size and colour each customer picks"
+          },
+          {
+            "valor": "2000",
+            "texto": "The year it started selling from its Huesca workshop"
+          }
+        ],
+        "hicimos": [
+          "Technical SEO",
+          "Shopping experience",
+          "Conversion"
+        ]
+      },
+      "voluntariado-aragon": {
+        "titular": "Aragón's volunteering portal, faster and easier to maintain.",
+        "intro": "We migrated the Voluntariado de Aragón portal from WordPress to Next.js with Sanity: faster, easier for their team to maintain and ready to grow.",
+        "cifras": [
+          {
+            "valor": "40%",
+            "texto": "Faster to load the main content (LCP)"
+          },
+          {
+            "valor": "100K",
+            "texto": "Monthly visits it can handle with ease"
+          }
+        ],
+        "hicimos": [
+          "Migration from WordPress",
+          "Next.js development",
+          "Sanity CMS"
+        ]
+      },
+      "fada": {
+        "titular": "The official website of the Aragón Motorsport Federation.",
+        "intro": "The federation's institutional site: competition calendar, members and official announcements, with a CMS so their team can publish without depending on anyone.",
+        "hicimos": [
+          "Web design",
+          "Development",
+          "Sanity CMS"
+        ]
+      },
+      "flylead": {
+        "titular": "FlyLead: brand, website and product for our own SaaS.",
+        "intro": "Our own product: AI-powered management software, built by industry. It brings together what's now scattered across the CRM, Excel, WhatsApp, email and calendars. We're starting with real estate.",
+        "hicimos": [
+          "Full brand",
+          "Web design",
+          "CRM design"
+        ]
+      },
+      "embroidery-download": {
+        "titular": "A store for embroidery patterns with instant download, custom-built.",
+        "intro": "An e-commerce for digital embroidery patterns with download licences, custom-built with Medusa and Stripe: customers pay and download their pattern instantly.",
+        "cifras": [
+          {
+            "valor": "6 weeks",
+            "texto": "To get it selling, after five years of trying with others"
+          },
+          {
+            "valor": "0%",
+            "texto": "Platform fee on every sale"
+          }
+        ],
+        "hicimos": [
+          "Store design",
+          "Custom build with Medusa",
+          "Stripe payments",
+          "Instant download"
+        ]
+      }
+    },
+    "galeria": {
+      "antes": "Before",
+      "despues": "After"
+    }
+  },
+  "v2Estudio": {
+    "metaTitle": "The studio · Bellostas Studio",
+    "label": "The studio · Huesca, since 2022",
+    "ctaProceso": "How we work",
+    "videoAlt": "The Bellostas Studio office in Huesca",
+    "fotos": {
+      "mesa": "The studio desk",
+      "trabajando": "Antonio working in the studio",
+      "espaldas": "The studio, back to the window",
+      "cartel": "Putting up the studio sign",
+      "escritorio": "The studio desk, with a client site on screen",
+      "edicion": "Editing video in the studio",
+      "portatil": "The laptop with the Bellostas Studio logo",
+      "summit": "Antonio's badge at AI Summit Barcelona"
+    },
+    "summit": {
+      "etiqueta": "AI Summit Barcelona · Sep 2026",
+      "texto": "Keeping up with the AI we use every week: we were at AI Summit Barcelona."
+    },
+    "manifiesto": {
+      "01": "Why we exist",
+      "03": "How we think",
+      "02": "How we work",
+      "04": "Who we work with",
+      "05": "How we start"
+    }
+  },
+  "v2Cierre": {
+    "title_part1": "Let's build a brand ",
+    "title_emphasis": "that lasts",
+    "title_part2": ".",
+    "sub": "Brands and systems built for years, not for one campaign.",
+    "cta": "Book a call",
+    "ctaSecundario": "Or write to us"
+  },
+  "v2Apps": {
+    "metaTitle": "Custom web applications · Bellostas Studio",
+    "metaDescription": "Custom portals, dashboards, platforms and SaaS built with Next.js and PostgreSQL. Product design and development by one team, from €5,900.",
+    "hero": {
+      "label": "Web applications",
+      "line1": "From idea to production,",
+      "line2_pre": "",
+      "line2_em": "no shortcuts",
+      "line2_post": ".",
+      "sub": "Custom portals, dashboards, platforms and SaaS, on a foundation that holds up as you grow. Product design and development, by the same team.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "How we work"
+    },
+    "cifras": {
+      "label": "Timelines and guarantees",
+      "title_part1": "How long it ",
+      "title_emphasis": "takes",
+      "title_part2": " and what's included.",
+      "sub": "How we really work, not catalogue promises.",
+      "items": [
+        {
+          "value": "4–6 wks",
+          "text": "For a working MVP, from the first call to launch"
+        },
+        {
+          "value": "24 h",
+          "text": "To get your fixed quote, after a 30-minute call"
+        },
+        {
+          "value": "30 days",
+          "text": "Of free support after launch"
+        },
+        {
+          "value": "5.0",
+          "text": "Google rating"
+        }
+      ]
+    },
+    "caso": {
+      "label": "Apps in production",
+      "title_part1": "Built ",
+      "title_emphasis": "and running",
+      "title_part2": ".",
+      "sub": "Real applications, with what the people who use them every day say.",
+      "cta": "See the case",
+      "headings": {
+        "flylead": "FlyLead, our own SaaS: the brand, the website and the CRM design",
+        "gotten-gym": "Custom website and management panel for a gym: members, classes and bookings",
+        "primex-academy": "A course platform for a tennis academy, with progress tracking and payments"
+      }
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "From the idea to an application ",
+      "title_emphasis": "people use",
+      "title_part2": ".",
+      "sub": "First we understand how the people who'll use it work, then we design and build. Every phase ends with something you can see and approve.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Audit",
+          "text": "We review the current process or product, who uses it, the competition and the data, and find where people get stuck.",
+          "outputs": [
+            "Audit",
+            "Competitor review",
+            "Usability issues",
+            "Priorities"
+          ]
+        },
+        {
+          "title": "Flows",
+          "text": "We map the main journeys, how screens relate, the navigation and the business logic.",
+          "outputs": [
+            "User flows",
+            "Screen map",
+            "Navigation"
+          ]
+        },
+        {
+          "title": "Wireframes",
+          "text": "Mid-fidelity screens to solve layout, hierarchy and states before polishing anything.",
+          "outputs": [
+            "Key screens",
+            "Dashboard structure",
+            "Empty and error states",
+            "Interaction notes"
+          ]
+        },
+        {
+          "title": "Interface and build",
+          "text": "We design the final screens and build it: database, access, integrations and logic, delivered on a test environment.",
+          "outputs": [
+            "Final screens",
+            "Components",
+            "App on staging",
+            "Integrations"
+          ]
+        },
+        {
+          "title": "Launch",
+          "text": "Testing, edge cases, performance, deployment and documentation for every screen.",
+          "outputs": [
+            "Full review",
+            "Fixes",
+            "Documentation",
+            "Launch"
+          ]
+        }
+      ]
+    },
+    "checks": {
+      "label": "Before launch",
+      "title_part1": "What we check ",
+      "title_emphasis": "before launch",
+      "title_part2": ".",
+      "sub": "An application that fails in an edge case or loses data isn't forgiven. We always check this.",
+      "items": [
+        {
+          "title": "Performance",
+          "text": "Fast screens and queries with lots of data too, not just in the demo."
+        },
+        {
+          "title": "Access and permissions",
+          "text": "Everyone sees and edits only what they should, with clear roles."
+        },
+        {
+          "title": "Data and backups",
+          "text": "A database with backups and controlled changes."
+        },
+        {
+          "title": "Edge cases",
+          "text": "Empty states, errors and slow loads designed and tested."
+        },
+        {
+          "title": "Mobile and tablet",
+          "text": "Screens used outside the office, designed for mobile."
+        },
+        {
+          "title": "Tracking",
+          "text": "What people do in the app, measured to decide what to improve."
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What's included",
+      "title_part1": "Everything your application ",
+      "title_emphasis": "needs",
+      "title_part2": ".",
+      "sub": "From the first sketch to the app in production, by the same team.",
+      "items": [
+        {
+          "title": "Product design",
+          "text": "Flows, screens and business logic, solved before writing code."
+        },
+        {
+          "title": "Users and permissions",
+          "text": "Secure access, roles and, if needed, several companies in one app."
+        },
+        {
+          "title": "Admin panel",
+          "text": "To manage users, content and data without depending on us."
+        },
+        {
+          "title": "Payments and subscriptions",
+          "text": "One-off or subscription billing with Stripe, with invoices."
+        },
+        {
+          "title": "Integrations",
+          "text": "Connected to your tools: CRM, invoicing, calendar or whatever you use."
+        },
+        {
+          "title": "AI where it helps",
+          "text": "Summaries, classification or assistants inside the app, if they add value."
+        }
+      ]
+    },
+    "tecnologias": {
+      "label": "What we build it with",
+      "title_part1": "A foundation ",
+      "title_emphasis": "that holds up",
+      "title_part2": ".",
+      "sub": "We pick proven tools, so the app grows without a rewrite and you can maintain it.",
+      "cuandoLabel": "For",
+      "items": [
+        {
+          "name": "Next.js",
+          "cuando": "The application",
+          "text": "Fast screens and server logic in one project. What PrimeX and Gotten are built with."
+        },
+        {
+          "name": "PostgreSQL",
+          "cuando": "The data",
+          "text": "A predictable, secure database that holds up as users and reports grow."
+        },
+        {
+          "name": "Payload",
+          "cuando": "The admin panel",
+          "text": "An admin panel inside the app itself, with no per-user fees."
+        },
+        {
+          "name": "Stripe",
+          "cuando": "Billing",
+          "text": "One-off payments and subscriptions, with invoices and a customer portal."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Formats",
+      "title_part1": "Start small, ",
+      "title_emphasis": "grow",
+      "title_part2": " later.",
+      "sub": "An MVP to validate with real users, or the full product when you already know what you need.",
+      "badge": "To validate",
+      "cta": "Get a quote",
+      "precios": "See pricing",
+      "interes": "Web application",
+      "note": "Prices exclude VAT. Fixed quote within 24 h after a 30-minute call.",
+      "items": [
+        {
+          "title": "MVP",
+          "price": "€5,900",
+          "desde": true,
+          "destacado": true,
+          "text": "To validate the idea with real users in 4–6 weeks.",
+          "points": [
+            "Product design",
+            "Users and permissions",
+            "Admin panel",
+            "Deployed and documented"
+          ]
+        },
+        {
+          "title": "Full product",
+          "price": "Custom quote",
+          "text": "When you know what you need and want to build it right from the start.",
+          "points": [
+            "Everything in the MVP",
+            "Payments and subscriptions",
+            "Several companies in one app",
+            "Integrations with your tools",
+            "AI where it helps"
+          ]
+        }
+      ],
+      "desdeLabel": "from"
+    },
+    "relacionados": {
+      "label": "And also",
+      "title_part1": "Need more than ",
+      "title_emphasis": "an application",
+      "title_part2": "?",
+      "sub": "Tell us what you're building and we'll fit the scope to what you need.",
+      "cta": "Tell us about the whole project"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "your application",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "What kind of applications do you build?",
+          "answer": "Course platforms with payments (PrimeX Academy), custom management panels (Gotten Gym), client portals, internal tools and SaaS. If it runs in a browser, we build it."
+        },
+        "q2": {
+          "question": "How much does a custom application cost?",
+          "answer": "An MVP, from €5,900 (excl. VAT). A full product, with payments, several companies and integrations, is quoted by scope. Always with a fixed quote before we start."
+        },
+        "q3": {
+          "question": "How long does it take?",
+          "answer": "A working MVP, 4–6 weeks. A full product with access control, payments and an admin panel, 8–12 weeks. You get a fixed timeline on the first call."
+        },
+        "q4": {
+          "question": "Why PostgreSQL and not Firebase?",
+          "answer": "Because it's predictable, secure and doesn't lock you in. Firebase looks easy at first, but gets expensive fast and is hard to leave. Most business apps are relational (customers, orders, reports), and PostgreSQL is the right answer there."
+        },
+        "q5": {
+          "question": "How much does it cost to run?",
+          "answer": "Hosting for a mid-sized app is usually €50–200 a month. We leave everything set up, documented and in your name."
+        },
+        "q6": {
+          "question": "And after launch?",
+          "answer": "30 days of support are included. After that you can stay with us on a subscription (maintenance or Partner) or ask for one-off changes, quoted upfront or at €50/h."
+        }
+      }
+    }
+  },
+  "v2Automatizaciones": {
+    "metaTitle": "Automations and AI · Bellostas Studio",
+    "metaDescription": "We automate what your team repeats every week: WhatsApp bots, AI-qualified leads, reports and integrations between your tools. From €1,200.",
+    "hero": {
+      "label": "Automations",
+      "line1": "Processes that now",
+      "line2_pre": "",
+      "line2_em": "run themselves",
+      "line2_post": ".",
+      "sub": "What your team repeats every week, done on its own: leads, alerts, reports and data between your tools. With AI where it helps and your approval, always.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "How we work"
+    },
+    "cifras": {
+      "label": "Timelines and guarantees",
+      "title_part1": "How long it ",
+      "title_emphasis": "takes",
+      "title_part2": " and what's included.",
+      "sub": "How we really work, not catalogue promises.",
+      "items": [
+        {
+          "value": "1–2 wks",
+          "text": "For a simple automation to be up and running"
+        },
+        {
+          "value": "24 h",
+          "text": "To get your fixed quote, after a 30-minute call"
+        },
+        {
+          "value": "30 days",
+          "text": "Of free support after launch"
+        },
+        {
+          "value": "5.0",
+          "text": "Google rating"
+        }
+      ]
+    },
+    "caso": {
+      "label": "Up and running",
+      "title_part1": "Systems that ",
+      "title_emphasis": "already run themselves",
+      "title_part2": ".",
+      "sub": "A real product, used every day.",
+      "cta": "See the case",
+      "headings": {
+        "flylead": "FlyLead: one AI-powered system for what's now scattered across the CRM, WhatsApp, email and Excel"
+      }
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "From a repeated task to a workflow ",
+      "title_emphasis": "your team uses",
+      "title_part2": ".",
+      "sub": "We start with what eats most of your time, test it with real cases and leave it documented. Every phase ends with something you can see and approve.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Task map",
+          "text": "We list what your team does every week and pick what's worth automating, with who approves it.",
+          "outputs": [
+            "Task inventory",
+            "Chosen workflows",
+            "Owners"
+          ]
+        },
+        {
+          "title": "Foundations",
+          "text": "We tidy what the automation will use: data, templates, tone and examples.",
+          "outputs": [
+            "Data model",
+            "Tone guide",
+            "Examples"
+          ]
+        },
+        {
+          "title": "Connections",
+          "text": "We connect WhatsApp, your CRM, email and your data, with separate rights to read, draft and approve.",
+          "outputs": [
+            "Integrations",
+            "Permissions"
+          ]
+        },
+        {
+          "title": "Pilot",
+          "text": "We test it on real cases, review what it produces and fix what fails. It starts switched off until you've tried it.",
+          "outputs": [
+            "Tested workflows",
+            "Known limits",
+            "Before and after timings"
+          ]
+        },
+        {
+          "title": "Handover",
+          "text": "We train the people who use it, document every workflow and leave a plan for when something fails.",
+          "outputs": [
+            "Training",
+            "Workflow playbooks",
+            "Failure plan"
+          ]
+        }
+      ]
+    },
+    "checks": {
+      "label": "Before switching it on",
+      "title_part1": "Useful every week, ",
+      "title_emphasis": "not a demo",
+      "title_part2": ".",
+      "sub": "Most automations fail because of how they're set up, not the tool. We always take care of this.",
+      "items": [
+        {
+          "title": "Born switched off",
+          "text": "We test it with real cases and it doesn't go live until you approve it."
+        },
+        {
+          "title": "Your approval, always",
+          "text": "What matters (an email to a client, a data change) goes past you first."
+        },
+        {
+          "title": "Separate permissions",
+          "text": "Access only to what's agreed, with different rights to read, draft and approve."
+        },
+        {
+          "title": "Measured on real tasks",
+          "text": "Times before and after: we keep what saves time and drop what doesn't."
+        },
+        {
+          "title": "Failure plan",
+          "text": "Alerts if something breaks, and what to do when a tool changes."
+        },
+        {
+          "title": "Documented",
+          "text": "Every workflow explained, so your team understands it and runs it without us."
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What we automate",
+      "title_part1": "What your team ",
+      "title_emphasis": "stops doing",
+      "title_part2": " by hand.",
+      "sub": "If it repeats and follows a logic, it can be automated.",
+      "items": [
+        {
+          "title": "WhatsApp and chat bots",
+          "text": "They answer FAQs, collect details and hand over to the right person."
+        },
+        {
+          "title": "AI-qualified leads",
+          "text": "They read forms and emails, score each lead and send only the good ones to sales."
+        },
+        {
+          "title": "App integrations",
+          "text": "CRM, email, calendar, invoicing and Notion, with data flowing on its own."
+        },
+        {
+          "title": "Automated email",
+          "text": "Welcome, follow-up and reminder emails sent at the right time."
+        },
+        {
+          "title": "Self-building reports",
+          "text": "Each week's numbers, ready in your inbox without anyone putting them together."
+        },
+        {
+          "title": "Internal tools",
+          "text": "Small apps for your team that replace ten spreadsheets."
+        }
+      ]
+    },
+    "tecnologias": {
+      "label": "What we build them with",
+      "title_part1": "With the tools ",
+      "title_emphasis": "you already use",
+      "title_part2": ".",
+      "sub": "We connect what you already have instead of making you switch.",
+      "cuandoLabel": "For",
+      "items": [
+        {
+          "name": "n8n",
+          "cuando": "The engine",
+          "text": "The workflows that connect your tools, in a controlled environment you own."
+        },
+        {
+          "name": "Claude",
+          "cuando": "The AI",
+          "text": "It reads, summarises, classifies and drafts where it helps, always with your rules."
+        },
+        {
+          "name": "WhatsApp",
+          "cuando": "Where your customers are",
+          "text": "Bots and alerts in the channel your customers already use every day."
+        },
+        {
+          "name": "Notion",
+          "cuando": "Where your team works",
+          "text": "Tasks, reports and databases that fill themselves in."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Formats",
+      "title_part1": "Sized ",
+      "title_emphasis": "to your process",
+      "title_part2": ".",
+      "sub": "One automation to start, an AI workflow, or the full system for your operation.",
+      "badge": "To start",
+      "cta": "Get a quote",
+      "precios": "See pricing",
+      "interes": "Automations",
+      "desdeLabel": "from",
+      "note": "Prices exclude VAT. Fixed quote within 24 h after a 30-minute call.",
+      "items": [
+        {
+          "title": "Simple",
+          "price": "€1,200",
+          "desde": true,
+          "destacado": true,
+          "text": "One or two integrations, no AI. Running in 1–2 weeks.",
+          "points": [
+            "Task map",
+            "Connection between your tools",
+            "Tests with real cases",
+            "Documentation"
+          ]
+        },
+        {
+          "title": "With AI",
+          "price": "Custom quote",
+          "text": "Workflows that read, classify or draft. In 3–4 weeks.",
+          "points": [
+            "Everything in Simple",
+            "AI with your rules and tone",
+            "Your approval where it matters",
+            "Times before and after"
+          ]
+        },
+        {
+          "title": "Full system",
+          "price": "Custom quote",
+          "text": "Your operation connected end to end, with a dashboard. In 6–8 weeks.",
+          "points": [
+            "Several automations together",
+            "A dashboard to see what's happening",
+            "10+ integrations",
+            "Team training"
+          ]
+        }
+      ]
+    },
+    "relacionados": {
+      "label": "And also",
+      "title_part1": "Need more than ",
+      "title_emphasis": "automation",
+      "title_part2": "?",
+      "sub": "Tell us what you're building and we'll fit the scope to what you need.",
+      "cta": "Tell us about the whole project"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "automating",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "What can really be automated?",
+          "answer": "If it repeats and follows a logic, it can: collecting leads, answering FAQs, preparing reports, moving data between tools, AI qualification, internal alerts and follow-ups. If your team does it more than five times a week, there's a case."
+        },
+        "q2": {
+          "question": "Does it work in my industry?",
+          "answer": "Yes. The foundation (n8n, AI and connections to your tools) works for any industry; what changes is your business logic, and we work that out with you in the task map."
+        },
+        "q3": {
+          "question": "How much does it cost?",
+          "answer": "A simple automation, from €1,200 (excl. VAT). AI workflows and full systems are quoted by scope. Always with a fixed quote before we start."
+        },
+        "q4": {
+          "question": "How long does it take?",
+          "answer": "A simple automation, 1–2 weeks. An AI workflow, 3–4 weeks. A full system, 6–8 weeks. You get a fixed timeline on the first call."
+        },
+        "q5": {
+          "question": "What if a tool changes and it breaks?",
+          "answer": "It happens: tools change. 30 days of support are included and, after that, you can stay with us on maintenance or the Partner plan so everything keeps working and improving."
+        },
+        "q6": {
+          "question": "Do you need my passwords and access?",
+          "answer": "For many connections, yes. We use secure managers, access limited to what's agreed, and sign an NDA if you prefer. When we're done, everything stays in your accounts."
+        }
+      }
+    }
+  },
+  "v2Migraciones": {
+    "metaTitle": "Website migration and renewal without losing SEO · Bellostas Studio",
+    "metaDescription": "We migrate any website or online store to a modern foundation and renew it completely: new design, more speed and better rankings, without losing what you already have on Google.",
+    "hero": {
+      "label": "Migrations",
+      "line1": "Renew your website",
+      "line2_pre": "",
+      "line2_em": "without losing Google",
+      "line2_post": ".",
+      "sub": "We migrate any website or store to a modern foundation and renew it completely: new design, more speed and better rankings, without losing what you already have on Google.",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "How we work"
+    },
+    "cifras": {
+      "label": "Timelines and guarantees",
+      "title_part1": "How long it ",
+      "title_emphasis": "takes",
+      "title_part2": " and what protects you.",
+      "sub": "How we really work, not catalogue promises.",
+      "items": [
+        {
+          "value": "2–3 wks",
+          "text": "To migrate a corporate website"
+        },
+        {
+          "value": "1:1",
+          "text": "Every old URL, with its new page or its redirect"
+        },
+        {
+          "value": "5 min",
+          "text": "To roll back to the old site if anything's off on launch day"
+        },
+        {
+          "value": "5.0",
+          "text": "Google rating"
+        }
+      ]
+    },
+    "ganas": {
+      "label": "What you gain",
+      "title_part1": "A ",
+      "title_emphasis": "complete",
+      "title_part2": " renewal.",
+      "sub": "It's not moving to another platform: it's coming out with a better website in every way.",
+      "items": [
+        {
+          "title": "Renewed design",
+          "text": "A current website, with your brand and built to convert, not a copy of the old one."
+        },
+        {
+          "title": "Much faster",
+          "text": "Modern technology: pages that load instantly, on mobile too."
+        },
+        {
+          "title": "Better rankings",
+          "text": "Speed, clean code and SEO done right help you climb on Google and in AI answers."
+        },
+        {
+          "title": "Better experience",
+          "text": "Clearer journeys, so visitors find what they need and contact you or buy."
+        },
+        {
+          "title": "Easy to edit",
+          "text": "A comfortable CMS, with no plugins that break on update."
+        },
+        {
+          "title": "Nothing lost",
+          "text": "Same URLs, redirects and all your content, as the starting point."
+        }
+      ]
+    },
+    "antesDespues": {
+      "label": "Before and after",
+      "title_part1": "What a renewal ",
+      "title_emphasis": "changes",
+      "title_part2": ".",
+      "sub": "The Aragón Motorsport Federation website, before and after.",
+      "antes": "Before",
+      "despues": "After"
+    },
+    "caso": {
+      "label": "Migrations done",
+      "title_part1": "Moving house ",
+      "title_emphasis": "without losing anything",
+      "title_part2": ".",
+      "sub": "Real migrations, with what their clients say.",
+      "cta": "See the case",
+      "headings": {
+        "teleadhesivo": "A store with over half a million customers, migrated without losing a single sale",
+        "voluntariado-aragon": "Aragón's volunteering portal, from WordPress to Next.js and Sanity"
+      }
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "Lose nothing, ",
+      "title_emphasis": "gain everything",
+      "title_part2": ".",
+      "sub": "We secure what already works for you on Google and, on that foundation, renew the design and technology. Every phase ends with something you can see and approve.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Inventory",
+          "text": "We crawl your site and list every URL before anything is designed.",
+          "outputs": [
+            "URL list",
+            "Grouped by page type"
+          ]
+        },
+        {
+          "title": "Same URLs",
+          "text": "Same paths and slugs. A URL only changes when it has its 301 redirect.",
+          "outputs": [
+            "Redirect map"
+          ]
+        },
+        {
+          "title": "Full export",
+          "text": "Content, the HTML of every page and every image and file on the old site.",
+          "outputs": [
+            "Full export",
+            "Reference HTML"
+          ]
+        },
+        {
+          "title": "Renewal",
+          "text": "New design on a modern foundation, keeping the pages and copy that already rank.",
+          "outputs": [
+            "Renewed design",
+            "New technology",
+            "Content kept"
+          ]
+        },
+        {
+          "title": "SEO page by page",
+          "text": "Titles, descriptions, canonicals, share images and structured data checked one by one.",
+          "outputs": [
+            "SEO review",
+            "Clean sitemap"
+          ]
+        },
+        {
+          "title": "Launch and watch",
+          "text": "Redirects live on launch day and daily checks on rankings, errors and indexing.",
+          "outputs": [
+            "Daily monitoring",
+            "Fixes"
+          ]
+        }
+      ]
+    },
+    "checks": {
+      "label": "Launch day",
+      "title_part1": "What we watch ",
+      "title_emphasis": "on launch day",
+      "title_part2": ".",
+      "sub": "Migrations always break for the same reasons. That's why we always check this.",
+      "items": [
+        {
+          "title": "Redirects live",
+          "text": "Every old URL leads to its new page from the first minute."
+        },
+        {
+          "title": "Sitemap and Search Console",
+          "text": "The new sitemap sent to Google and the site watched daily."
+        },
+        {
+          "title": "Page-by-page SEO",
+          "text": "Titles, descriptions, canonicals and structured data, checked one by one."
+        },
+        {
+          "title": "Speed",
+          "text": "The new site, faster than the old one, measured before going live."
+        },
+        {
+          "title": "Rollback ready",
+          "text": "The old site, kept live on a subdomain for the first weeks just in case."
+        },
+        {
+          "title": "Weekday launches",
+          "text": "Tuesday or Wednesday, never a Friday: so we're on it the days after."
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What's included",
+      "title_part1": "Everything your site ",
+      "title_emphasis": "takes with it",
+      "title_part2": ".",
+      "sub": "From crawling your old site to monitoring after the switch.",
+      "items": [
+        {
+          "title": "SEO audit first",
+          "text": "We crawl your site, list its URLs and see what ranks today."
+        },
+        {
+          "title": "Redirect map",
+          "text": "Every old URL with its new destination, before designing anything."
+        },
+        {
+          "title": "Full content",
+          "text": "Pages, posts, products, users, images and files."
+        },
+        {
+          "title": "Full redesign",
+          "text": "A new design with your brand, built on what already works for you."
+        },
+        {
+          "title": "CMS",
+          "text": "Your team keeps editing as well as before, or better, without touching code."
+        },
+        {
+          "title": "Monitoring after",
+          "text": "Rankings, errors and indexing checked daily after launch."
+        }
+      ]
+    },
+    "tecnologias": {
+      "label": "Where we migrate to",
+      "title_part1": "From heavy ",
+      "title_emphasis": "to fast",
+      "title_part2": ".",
+      "sub": "We move off WordPress, Wix or Squarespace to a modern, fast foundation your team can edit.",
+      "cuandoLabel": "When",
+      "items": [
+        {
+          "name": "Next.js",
+          "cuando": "Sites that do things",
+          "text": "When there's a customer area, search or integrations. What we migrated Voluntariado Aragón to."
+        },
+        {
+          "name": "Astro",
+          "cuando": "Content sites",
+          "text": "For corporate sites and blogs that need to load instantly."
+        },
+        {
+          "name": "Payload",
+          "cuando": "To edit it yourself",
+          "text": "A CMS inside your own site, with no per-user fees."
+        },
+        {
+          "name": "Sanity",
+          "cuando": "If several people edit",
+          "text": "A cloud CMS, handy when several people publish at once."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Formats",
+      "title_part1": "Migrate ",
+      "title_emphasis": "or renew",
+      "title_part2": ".",
+      "sub": "The same site on a modern foundation, or a full renewal with a new design. And online stores of any size.",
+      "badge": "Most complete",
+      "cta": "Get a quote",
+      "precios": "See pricing",
+      "interes": "Migration",
+      "desdeLabel": "from",
+      "note": "Prices exclude VAT. Fixed quote after the initial audit.",
+      "items": [
+        {
+          "title": "Technical migration",
+          "price": "€2,900",
+          "desde": true,
+          "text": "Your site on a modern foundation: faster and better ranked. In 2–3 weeks.",
+          "points": [
+            "SEO audit first",
+            "Redirect map",
+            "Modern technology and CMS",
+            "Monitoring after launch"
+          ]
+        },
+        {
+          "title": "Full renewal",
+          "price": "€3,900",
+          "destacado": true,
+          "text": "Migration and redesign at once: a new website without losing anything you've earned.",
+          "points": [
+            "Everything in Technical migration",
+            "New design with your brand",
+            "Copy and journeys reviewed",
+            "Speed and SEO improvements"
+          ],
+          "desde": true
+        },
+        {
+          "title": "Online store",
+          "price": "Custom quote",
+          "text": "Products, customers and orders. In 4–8 weeks.",
+          "points": [
+            "Products and variants",
+            "Customers and orders",
+            "Product and category redirects",
+            "A switch without losing sales"
+          ]
+        }
+      ]
+    },
+    "relacionados": {
+      "label": "And also",
+      "title_part1": "Need more than ",
+      "title_emphasis": "a migration",
+      "title_part2": "?",
+      "sub": "Tell us what you're building and we'll fit the scope to what you need.",
+      "cta": "Tell us about the whole project"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "migrating",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "Will I lose my Google rankings?",
+          "answer": "Not if it's done right. We audit your site before touching anything, send every old URL to its new page with permanent redirects, keep titles and structured data, and watch Search Console for the weeks after the switch."
+        },
+        "q2": {
+          "question": "Do you just migrate, or renew the site too?",
+          "answer": "Both. You can move the same site to a modern foundation (faster and better ranked), or use the move to renew it completely: new design, reviewed copy and journeys and SEO improvements, without losing what you already have on Google. We look at it with you in the audit."
+        },
+        "q3": {
+          "question": "How much does a migration cost?",
+          "answer": "A technical migration of a corporate site, from €2,900, and a full renewal with a new design, from €3,900 (excl. VAT). Large blogs and stores are quoted after the initial audit, always with a fixed price before we start."
+        },
+        "q4": {
+          "question": "How long does it take?",
+          "answer": "A corporate site, 2–3 weeks. A blog or media site, 3–5 weeks. An online store, 4–8 weeks. And we always launch on a Tuesday or Wednesday, never a Friday."
+        },
+        "q5": {
+          "question": "What if something goes wrong on launch day?",
+          "answer": "Rollback is ready: if anything's off in the first hours, we go back to the old site in minutes by switching the DNS. That's why we keep the old site live on a subdomain for the first weeks."
+        },
+        "q6": {
+          "question": "Will my URLs stay the same?",
+          "answer": "Your call. If your current URLs work, we replicate them as they are. If they're badly structured, we improve them with permanent redirects and Google reassigns their value within a few weeks."
+        }
+      }
+    }
+  },
+  "v2WhiteLabel": {
+    "metaTitle": "White label for agencies · Bellostas Studio",
+    "metaDescription": "A boutique studio for agencies, under NDA: design and development of websites, stores and applications under your brand. Fixed timelines and no surprises on the invoice.",
+    "hero": {
+      "label": "For agencies · White label",
+      "line1": "Your client. Your brand.",
+      "line2_pre": "",
+      "line2_em": "Us, behind the scenes",
+      "line2_post": ".",
+      "sub": "A boutique studio for agencies, under NDA. You present; we design and build. Your client never knows we exist.",
+      "ctaPrimary": "Book a call",
+      "ctaSecondary": "How it works"
+    },
+    "cifras": {
+      "label": "The numbers that matter",
+      "items": [
+        {
+          "value": "100%",
+          "text": "Deadlines met"
+        },
+        {
+          "value": "€0",
+          "text": "Surprises on the invoice"
+        },
+        {
+          "value": "24 h",
+          "text": "To get the NDA signed"
+        },
+        {
+          "value": "48 h",
+          "text": "To get a fixed plan and price"
+        }
+      ]
+    },
+    "checks": {
+      "label": "How we handle it",
+      "title_part1": "Predictable where it ",
+      "title_emphasis": "matters",
+      "title_part2": ".",
+      "sub": "Three firm commitments so your agency can sell more without cracks inside.",
+      "items": [
+        {
+          "title": "Deadlines met, no asterisks",
+          "text": "A fixed timeline on the first call. If we commit to a date, that's the delivery."
+        },
+        {
+          "title": "Fixed costs",
+          "text": "A fixed quote when we sign: any drift is on us, not your margin."
+        },
+        {
+          "title": "Your client, your brand",
+          "text": "Our name nowhere in the code or presentations. NDA signed before we start."
+        }
+      ]
+    },
+    "comparativa": {
+      "label": "The alternative",
+      "title_part1": "Hire someone or ",
+      "title_emphasis": "work with us",
+      "title_part2": ".",
+      "sub": "What changes when you need someone senior tomorrow, not in six months.",
+      "colA": "Hire in-house",
+      "colB": "White label with us",
+      "filas": [
+        {
+          "k": "Time to production",
+          "a": "4–6 months",
+          "b": "3–4 weeks"
+        },
+        {
+          "k": "Cost",
+          "a": "Salary + social security",
+          "b": "Fixed per project"
+        },
+        {
+          "k": "Onboarding and training",
+          "a": "2–3 months of your team's time",
+          "b": "Ready from day one"
+        },
+        {
+          "k": "Holidays and leave",
+          "a": "30 days plus sick leave",
+          "b": "Always covered"
+        },
+        {
+          "k": "Software and licences",
+          "a": "On you",
+          "b": "Included"
+        },
+        {
+          "k": "If they leave",
+          "a": "You're left with no one",
+          "b": "Firm contract, no risk"
+        }
+      ]
+    },
+    "proceso": {
+      "label": "How we work with you",
+      "title_part1": "Five steps, ",
+      "title_emphasis": "zero friction",
+      "title_part2": ".",
+      "sub": "From NDA to delivery under your brand, with weekly progress and always reachable.",
+      "outputsLabel": "What you have at the end",
+      "steps": [
+        {
+          "title": "We sign the NDA",
+          "text": "Within 24 hours and before seeing anything from your client. We use yours or send ours.",
+          "outputs": [
+            "Signed NDA, yours or ours",
+            "Agreed working channel (Slack, Notion or email)",
+            "How we show up: with your email and signature",
+            "Access only to what's needed"
+          ]
+        },
+        {
+          "title": "You tell us the project",
+          "text": "A 30-minute call with your team: what the client asked for, what you've promised and by when.",
+          "outputs": [
+            "Client brief",
+            "Scope and deliverables",
+            "Risks and open questions",
+            "Who approves each phase"
+          ]
+        },
+        {
+          "title": "Plan and price",
+          "text": "Within 48 hours, fixed dates, phases and price, ready to present to your client as your own.",
+          "outputs": [
+            "Phased timeline",
+            "Fixed quote for your agency",
+            "Proposal under your brand, if you want it",
+            "Delivery milestones"
+          ]
+        },
+        {
+          "title": "We build with you",
+          "text": "Weekly progress in your channel and a staging environment you can show your client whenever you like.",
+          "outputs": [
+            "Weekly progress",
+            "Staging under your brand",
+            "Review rounds included",
+            "Always reachable"
+          ]
+        },
+        {
+          "title": "We hand everything over",
+          "text": "Website, code and documentation under your brand, ready to launch. If needed, we train your team or your client's.",
+          "outputs": [
+            "Project live",
+            "Code in your agency's or client's name",
+            "Documentation",
+            "Training and 30 days of support"
+          ]
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What we do for agencies",
+      "title_part1": "What your agency ",
+      "title_emphasis": "can sell",
+      "title_part2": " tomorrow.",
+      "sub": "The same work we do for our own clients, with your brand up front.",
+      "items": [
+        {
+          "title": "Custom websites",
+          "text": "Corporate and content sites, fast and with a CMS your client can edit."
+        },
+        {
+          "title": "Online stores",
+          "text": "Custom with Medusa or Payload, or on Shopify when speed matters."
+        },
+        {
+          "title": "Applications and SaaS",
+          "text": "Portals, dashboards and platforms for clients who need more than a website."
+        },
+        {
+          "title": "Migrations and renewals",
+          "text": "From WordPress, Wix or Squarespace to a modern foundation, without losing rankings."
+        },
+        {
+          "title": "Brand design and assets",
+          "text": "Identity, guidelines and marketing assets, delivered as your agency's work."
+        },
+        {
+          "title": "Automations and AI",
+          "text": "Workflows that save your clients hours, always with their approval."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "How to work together",
+      "title_part1": "One project ",
+      "title_emphasis": "or every month",
+      "title_part2": ".",
+      "sub": "Per project when something one-off comes up; a monthly plan when your agency has steady work.",
+      "badge": "Steady work",
+      "cta": "Let's talk",
+      "note": "Agency rates: we go through them with you on the call, under NDA.",
+      "items": [
+        {
+          "title": "Per project",
+          "text": "For one-off jobs, with a fixed quote and dates before we start.",
+          "points": [
+            "NDA from day one",
+            "Fixed quote",
+            "Delivered under your brand"
+          ]
+        },
+        {
+          "title": "Monthly plan",
+          "destacado": true,
+          "text": "For agencies with work every month: a team that already knows your clients.",
+          "points": [
+            "Everything in Per project",
+            "Priority in the calendar",
+            "Better rate for volume"
+          ]
+        }
+      ],
+      "interes": "White label"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "What we're ",
+      "title_emphasis": "always asked",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "How do you present the work to my client?",
+          "answer": "We don't: the voice in front of the client is yours. We deliver in whatever channel we agree (Slack, Notion or email), at your agency's pace."
+        },
+        "q2": {
+          "question": "Does your name appear anywhere?",
+          "answer": "No. Not in the code, the website or the change history if you ask. Your client is 100% yours."
+        },
+        "q3": {
+          "question": "Do you work per project or on a monthly plan?",
+          "answer": "Both. A monthly plan for agencies with steady work, with a better rate for volume, and fixed per-project for one-off jobs."
+        },
+        "q4": {
+          "question": "What if the client wants to meet the developer?",
+          "answer": "If you ask, we join the call as part of your team, with your agency's email and signature. If you'd rather be the face, we prepare whatever technical material you need."
+        },
+        "q5": {
+          "question": "Do you work with agencies outside Spain?",
+          "answer": "Yes, especially in European hours. In Spanish or English, no problem."
+        },
+        "q6": {
+          "question": "What projects fit best?",
+          "answer": "Custom websites, online stores, applications, migrations, brand and automations. If your client wants plain WordPress, we'll recommend someone who does it well."
+        }
+      }
+    },
+    "agencia": {
+      "label": "Straight from an agency",
+      "title_part1": "A 20-person agency ",
+      "title_emphasis": "delegates to us",
+      "title_part2": ".",
+      "texto": "Social11 is a marketing agency in Zaragoza, with years behind it and a team of around 20 people. When they delegate design and development, they do it with one studio: ours. Their CEO and founder tells you why.",
+      "datos": [
+        "Marketing agency · Zaragoza",
+        "Around 20 people",
+        "They delegate to one studio"
+      ],
+      "quote": "He got our product in one call. We'd been trying to explain it to other agencies for months without getting anywhere.",
+      "nombre": "Javier Flores",
+      "cargo": "CEO and founder",
+      "empresa": "Social11",
+      "cta": "Watch his testimonial",
+      "badge": "Video"
+    }
+  },
+  "v2ServiciosHub": {
+    "metaTitle": "Design and web development services",
+    "metaDescription": "Brand, websites, online stores, apps and automations. One studio, a fixed price and you talk to the people doing the work.",
+    "hero": {
+      "label": "Services",
+      "line1": "Brand, web and product.",
+      "line2_pre": "",
+      "line2_em": "One studio",
+      "line2_post": ".",
+      "sub": "We design your brand, build your website or store and create whatever your business needs next. Custom-made, at a fixed price, talking to the people doing the work.",
+      "ctaPrimary": "Book a call",
+      "ctaSecondary": "See the services"
+    },
+    "indice": {
+      "label": "Everything we do",
+      "pie": "Every project at a fixed price before we start.",
+      "precios": "See pricing"
+    },
+    "etiquetas": {
+      "servicios": "services",
+      "entregamos": "What we deliver",
+      "desde": "From",
+      "plazo": "Timeline",
+      "verServicio": "See the service",
+      "verPrecios": "See pricing",
+      "caso": "Case",
+      "agencia": "Agency rate, on request"
+    },
+    "grupos": {
+      "diseno": {
+        "nombre": "Design and web",
+        "texto": "How your company looks and how it shows up online: the brand, the website and the store."
+      },
+      "producto": {
+        "nombre": "Product and systems",
+        "texto": "Beyond a website: apps, automations and the move to a modern stack."
+      },
+      "despues": {
+        "nombre": "After launch",
+        "texto": "Keep growing with a team that already knows your brand: monthly design, search visibility, maintenance or work for your agency."
+      }
+    },
+    "servicios": {
+      "marca": {
+        "texto": "The full brand before the website, so everything you publish looks like it comes from the same company.",
+        "entregables": [
+          "Logo and its versions",
+          "Colours and typography",
+          "Graphic system",
+          "Brand guidelines",
+          "Applied to web and social",
+          "Source files and exports"
+        ]
+      },
+      "s01": {
+        "texto": "Your company website, custom-designed and built, with a CMS so you can edit it yourself.",
+        "entregables": [
+          "Custom design, no templates",
+          "Built with Next.js",
+          "Content management system",
+          "Technical SEO and speed",
+          "Forms and analytics",
+          "Training and 30 days of support"
+        ]
+      },
+      "s02": {
+        "texto": "Your online store with its own design, ready to sell from day one. Custom with Medusa or Payload, or on Shopify when speed matters.",
+        "entregables": [
+          "Store with its own design",
+          "Catalogue, stock and variants",
+          "Payments, shipping and taxes",
+          "Multiple languages",
+          "Connected to your tools",
+          "Product migration"
+        ]
+      },
+      "s03": {
+        "texto": "Portals, dashboards and internal tools. An MVP to validate the idea or the full product.",
+        "entregables": [
+          "Product design",
+          "Users, permissions and roles",
+          "Admin panel",
+          "Integrations and API",
+          "Payments and subscriptions",
+          "Deployed and documented"
+        ]
+      },
+      "s04": {
+        "texto": "Workflows that save you hours every week: WhatsApp bots, AI-qualified leads and integrations between your tools.",
+        "entregables": [
+          "WhatsApp bots",
+          "AI lead qualification",
+          "Integrations between tools",
+          "Automated reports",
+          "Documentation for every flow",
+          "Your approval at every step"
+        ]
+      },
+      "s05": {
+        "texto": "From WordPress, Wix or Squarespace to a modern stack: faster, better designed and without losing your Google rankings.",
+        "entregables": [
+          "Refreshed design",
+          "Modern, fast technology",
+          "Content and data migrated",
+          "SEO and redirects intact",
+          "Better mobile experience",
+          "Training on the new CMS"
+        ]
+      },
+      "s06": {
+        "texto": "We design and build for your agency, under NDA and with your brand in front. Your client never knows we exist.",
+        "entregables": [
+          "NDA within 24 h",
+          "Plan and price within 48 h",
+          "Weekly progress",
+          "Staging under your brand",
+          "Code in your agency's or client's name",
+          "Training and 30 days of support"
+        ]
+      },
+      "seo": {
+        "texto": "Get found on Google and cited by AI answers. Technical and content work every month, with a report.",
+        "entregables": [
+          "Technical and content audit",
+          "Technical SEO and speed",
+          "Content that answers",
+          "Structured data",
+          "Tracking on Google and in AI",
+          "Monthly report"
+        ]
+      }
+    },
+    "siempre": {
+      "label": "In every project",
+      "title_part1": "What doesn't change, ",
+      "title_emphasis": "whatever the brief",
+      "title_part2": ".",
+      "sub": "A brand, a store or an automation: the way we work is the same.",
+      "items": [
+        {
+          "title": "Fixed price",
+          "text": "You know what you'll pay before we start. No surprise hours or mid-project extras."
+        },
+        {
+          "title": "You talk to the maker",
+          "text": "No salespeople or middlemen: the person on the call is the one who designs and builds."
+        },
+        {
+          "title": "Custom, no templates",
+          "text": "Every project is designed from scratch for your business and your brand."
+        },
+        {
+          "title": "Fast and well ranked",
+          "text": "Technical SEO and speed as standard in everything we publish."
+        },
+        {
+          "title": "Everything in your name",
+          "text": "Domain, code, content and access. No strings attached."
+        },
+        {
+          "title": "30 days of support",
+          "text": "Included after launch. After that, maintenance only if you want it."
+        }
+      ]
+    },
+    "decidir": {
+      "label": "Still deciding?",
+      "title_part1": "Before you ",
+      "title_emphasis": "take the step",
+      "title_part2": ".",
+      "sub": "Everything that usually helps people decide, one click away.",
+      "items": {
+        "precios": {
+          "titulo": "Pricing",
+          "texto": "What each service costs and what it includes."
+        },
+        "proceso": {
+          "titulo": "How we work",
+          "texto": "The phases of a project, from the call to launch."
+        },
+        "trabajos": {
+          "titulo": "Work",
+          "texto": "Real projects and their results."
+        },
+        "clientes": {
+          "titulo": "Clients",
+          "texto": "What people who've worked with us say."
+        }
+      }
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions before ",
+      "title_emphasis": "choosing a service",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "I don't know which service I need. Where do I start?",
+          "answer": "With a 30-minute call. Tell us what you want to achieve and we'll tell you what makes sense, even if it's less than you expected."
+        },
+        "q2": {
+          "question": "Can you do the brand and the website together?",
+          "answer": "Yes, and that's when it works best: the website grows out of the brand and everything fits from the start. Our brand and web packs cost less than buying them separately."
+        },
+        "q3": {
+          "question": "Are the prices fixed?",
+          "answer": "Yes. Every service has a public starting price and, after the call, we give you a fixed quote. What we agree is what you pay."
+        },
+        "q4": {
+          "question": "How long does it take?",
+          "answer": "It depends on the service: an automation, 1–2 weeks; a corporate website, 3–4; an app, 4–6 weeks for the MVP. The phased timeline comes with the quote."
+        },
+        "q5": {
+          "question": "What happens after launch?",
+          "answer": "You get 30 days of support included. After that you can continue with maintenance, with the monthly Creative partner, or ask us for changes by the hour."
+        },
+        "q6": {
+          "question": "Do you work with companies outside Aragon?",
+          "answer": "Yes. We work remotely with companies across Spain and abroad, in Spanish or English."
+        }
+      }
+    }
+  },
+  "v2Blog": {
+    "metaTitle": "Blog · Bellostas Studio",
+    "metaDescription": "Studio notes on design, web development, SEO and how we build digital products from Huesca.",
+    "label": "Blog · Studio notes",
+    "entradas": "posts",
+    "todos": "All",
+    "destacado": "Featured",
+    "leer": "Read article",
+    "volver": "Blog",
+    "por": "By",
+    "min": "{n} min read",
+    "vacio": "No posts with this tag yet.",
+    "vacioTodo": "No posts published yet. Soon.",
+    "compartir": "Share",
+    "indice": "In this article",
+    "resumir": "Summarise with AI",
+    "copiar": "Copy link",
+    "copiado": "Copied",
+    "cta": {
+      "label": "Got a project in mind?",
+      "title": "Let's talk about your brand or website.",
+      "body": "We design and build custom, at a fixed price, talking to the people doing the work.",
+      "button": "Book a call"
+    },
+    "relacionados": {
+      "label": "Keep reading",
+      "title_part1": "More ",
+      "title_emphasis": "studio notes",
+      "title_part2": ".",
+      "todos": "See the whole blog"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "What people ",
+      "title_emphasis": "usually ask us",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "How much does it cost to work with Bellostas Studio?",
+          "answer": "It depends on the project, but always at a fixed price: a corporate website from €3,900, an online store from €4,900, an app from €5,900 and automations from €1,200. After a call we give you the final price, and it doesn't change."
+        },
+        "q2": {
+          "question": "Do you only design, or also build?",
+          "answer": "Both. We design and code custom, with no outsourcing and no handoff to another team, so what you see in the design is what ships. From brands, websites and stores to apps and AI automations."
+        },
+        "q3": {
+          "question": "What kind of businesses do you work with?",
+          "answer": "Businesses that live off their website: from the Government of Aragón and sports federations to gyms, renovators, clinics and shops. If your site needs to bring in clients and not just exist, we're a fit."
+        },
+        "q4": {
+          "question": "How long does a project take?",
+          "answer": "A corporate website, 3–4 weeks; an online store, 2 to 6; an app, 4–6 weeks for the MVP. Dates are fixed at signing, with a phased schedule."
+        },
+        "q5": {
+          "question": "What happens after launch?",
+          "answer": "You get 30 days of support included. After that you can continue with maintenance from €39/month, with the monthly Creative partner, or ask for one-off changes by the hour."
+        },
+        "q6": {
+          "question": "Can you write about a topic I'm interested in?",
+          "answer": "Send us the question. If it's useful to more people, it becomes an article; if it's about your project, it's better on a call."
+        }
+      }
+    },
+    "title_part1": "What we're ",
+    "title_emphasis": "learning",
+    "title_part2": ".",
+    "sub": "What we learn designing and building: pricing, SEO, technology and projects told from the inside."
+  },
+  "v2Legal": {
+    "otros": "Other legal texts",
+    "indice": "Contents",
+    "arriba": "Back to top",
+    "docs": {
+      "notice": "Who is behind this website and the terms of use.",
+      "privacy": "What data we process, why, and your rights.",
+      "cookies": "Which cookies we use and how to change them."
+    }
+  },
+  "v2SeoAeo": {
+    "metaTitle": "SEO and AEO: rank on Google and in AI answers",
+    "metaDescription": "Get found on Google and cited by ChatGPT, Gemini and Google's AI Mode. Technical and content SEO every month, with a report and no tricks.",
+    "hero": {
+      "label": "SEO + AEO · Google and AI answers",
+      "line1": "Get found on Google.",
+      "line2_pre": "And ",
+      "line2_em": "cited by AI",
+      "line2_post": ".",
+      "sub": "Rankings on Google and in the answers of ChatGPT, Gemini and Google's AI Mode. Monthly work, with a report, following what the search engines themselves ask for.",
+      "ctaPrimary": "Book a call",
+      "ctaSecondary": "How we work",
+      "note": "From €900/month · No minimum term"
+    },
+    "cambio": {
+      "label": "Why now",
+      "title_part1": "Search has changed. ",
+      "title_emphasis": "Your website should too",
+      "title_part2": ".",
+      "sub": "More and more questions are answered on the results page itself or in a chat. If your site isn't the source those answers cite, nobody sees you.",
+      "fuentesLabel": "Sources",
+      "items": [
+        {
+          "value": "8% vs 15%",
+          "text": "Google visits where people click a result when an AI summary appears, versus when it doesn't.",
+          "fuente": "Pew Research Center, July 2025 (US)",
+          "fid": [
+            "pew"
+          ]
+        },
+        {
+          "value": "−34.5%",
+          "text": "Fewer clicks on Google's first result when the search shows an AI summary.",
+          "fuente": "Ahrefs, April 2025 (300,000 searches)",
+          "fid": [
+            "ahrefs"
+          ]
+        },
+        {
+          "value": "800M",
+          "text": "People using ChatGPT every week, and its search already recommends websites with a link.",
+          "fuente": "OpenAI, October 2025",
+          "fid": [
+            "openai"
+          ]
+        },
+        {
+          "value": "2025",
+          "text": "The year Google's AI summaries (March) and AI Mode (October) arrived in Spain.",
+          "fuente": "Google (March 2025) and Xataka (October 2025)",
+          "fid": [
+            "google",
+            "xataka"
+          ]
+        }
+      ]
+    },
+    "fuentes": [
+      {
+        "id": "pew",
+        "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+        "nombre": "Pew Research Center · Google users are less likely to click on links when an AI summary appears (22/07/2025)"
+      },
+      {
+        "id": "ahrefs",
+        "url": "https://ahrefs.com/blog/ai-overviews-reduce-clicks/",
+        "nombre": "Ahrefs · AI Overviews reduce clicks by 34.5% (17/04/2025)"
+      },
+      {
+        "id": "openai",
+        "url": "https://techcrunch.com/2025/10/06/sam-altman-says-chatgpt-has-hit-800m-weekly-active-users/",
+        "nombre": "TechCrunch · Sam Altman says ChatGPT has hit 800M weekly active users (06/10/2025)"
+      },
+      {
+        "id": "google",
+        "url": "https://blog.google/feed/were-bringing-the-helpfulness-of-ai-overviews-to-more-countries-in-europe/",
+        "nombre": "Google · Bringing AI Overviews to more countries in Europe, including Spain (25/03/2025)"
+      },
+      {
+        "id": "xataka",
+        "url": "https://www.xataka.com/robotica-e-ia/google-lanza-espana-su-modo-ia-ello-nueva-forma-realizar-busquedas-web-asi-puedes-activarlo",
+        "nombre": "Xataka · Google launches AI Mode in Spain (October 2025)"
+      },
+      {
+        "id": "guia",
+        "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+        "nombre": "Google Search Central · Optimizing your website for generative AI features on Google Search"
+      }
+    ],
+    "diferencia": {
+      "label": "SEO and AEO",
+      "title_part1": "The same as always, ",
+      "title_emphasis": "with a new reader",
+      "title_part2": ".",
+      "sub": "Google is clear: optimising for its AI features means doing good SEO. What changes is that a machine now reads you too, summarises and chooses whom to cite.",
+      "seo": {
+        "titulo": "SEO",
+        "subtitulo": "Showing up in the results",
+        "puntos": [
+          "Google crawls and indexes your site",
+          "Your customer's words and searches",
+          "Speed and mobile experience",
+          "Links from sites that matter",
+          "Goal: the click"
+        ]
+      },
+      "aeo": {
+        "titulo": "AEO",
+        "subtitulo": "Being the source of the answer",
+        "puntos": [
+          "AI search engines can read you",
+          "Full questions, clear answers",
+          "Original content nobody else has",
+          "Your brand cited on trusted sites",
+          "Goal: being named and chosen"
+        ]
+      },
+      "comun": "What they share: a fast site, well built under the hood, with content that shows you know what you're talking about."
+    },
+    "proceso": {
+      "label": "How we work",
+      "title_part1": "Monthly work, ",
+      "title_emphasis": "not a report in a drawer",
+      "title_part2": ".",
+      "sub": "We start with an audit and, from there, every month we do what has the most impact. You always know what's been done and what's changed.",
+      "outputsLabel": "What comes out of it",
+      "steps": [
+        {
+          "title": "Audit",
+          "text": "We review the technical side, the content and the competition, and test what ChatGPT, Gemini, Perplexity and Google's AI Mode answer today when someone asks about what you do.",
+          "outputs": [
+            "Technical and content audit",
+            "How AI cites you today",
+            "Competitors that do show up",
+            "Priority list"
+          ]
+        },
+        {
+          "title": "Strategy",
+          "text": "We pick the searches and questions that bring real customers, not the ones with the most volume, and decide which pages to create or improve.",
+          "outputs": [
+            "Key searches and questions",
+            "Content map",
+            "Plan for the first months",
+            "Measurable goals"
+          ]
+        },
+        {
+          "title": "Technical foundation",
+          "text": "We get the site ready for Google and AI search engines to read properly: indexing, speed, structure, structured data and access for their crawlers.",
+          "outputs": [
+            "Indexing and crawling checked",
+            "Speed and Core Web Vitals",
+            "Structured data",
+            "Search Console and Bing Webmaster Tools"
+          ]
+        },
+        {
+          "title": "Content every month",
+          "text": "Pages and articles that truly answer what your customer asks, with your experience and your data. No mass-produced copy.",
+          "outputs": [
+            "Improved service pages",
+            "Articles and FAQs",
+            "Internal links",
+            "Google Business Profile up to date"
+          ]
+        },
+        {
+          "title": "Measurement and report",
+          "text": "Every month, a clear report: rankings, traffic, leads and which AI answers you appear in. Plus what we'll do next month.",
+          "outputs": [
+            "Rankings and traffic",
+            "Leads from search",
+            "Mentions in AI answers",
+            "Next month's plan"
+          ]
+        }
+      ]
+    },
+    "incluye": {
+      "label": "What's included",
+      "title_part1": "Everything it takes ",
+      "title_emphasis": "to get found",
+      "title_part2": ".",
+      "sub": "Every month, by priority. No bundles of hours you can't account for.",
+      "items": [
+        {
+          "title": "Technical SEO",
+          "text": "Indexing, speed, mobile, errors and redirects. The foundation everything else depends on."
+        },
+        {
+          "title": "Content that answers",
+          "text": "Pages and articles written for your customer, with real questions and clear answers an AI can cite."
+        },
+        {
+          "title": "Structured data",
+          "text": "Markup for your business, services, products, articles and FAQs, always matching what's on the page."
+        },
+        {
+          "title": "Google Business Profile",
+          "text": "Hours, services, photos and reviews up to date, to show up in Maps and in answers about your area."
+        },
+        {
+          "title": "AI tracking",
+          "text": "Every month we test the key questions in ChatGPT, Gemini, Perplexity and Google's AI Mode, and note who gets cited."
+        },
+        {
+          "title": "Monthly report",
+          "text": "What's been done, what's changed and what's next, explained without jargon in your client portal."
+        }
+      ]
+    },
+    "nohacemos": {
+      "label": "No smoke",
+      "title_part1": "What we ",
+      "title_emphasis": "won't",
+      "title_part2": " do.",
+      "sub": "SEO is full of tricks. These rules come from Google's own guidelines, and we take them seriously.",
+      "items": [
+        {
+          "title": "Promise you number one",
+          "text": "Nobody can guarantee the top spot on Google; Google says so itself. We promise work, method and measurable results."
+        },
+        {
+          "title": "Buy links or mentions",
+          "text": "Paid links and fake mentions break Google's rules and end up penalised. We go after the ones you earn."
+        },
+        {
+          "title": "Flood your site with mass content",
+          "text": "Publishing hundreds of AI-made pages for every search variation is scaled content abuse. Fewer, better pages win."
+        },
+        {
+          "title": "Sell you magic files",
+          "text": "Neither llms.txt nor special markup makes AI cite you; Google says it doesn't need them. A clear, useful site does."
+        }
+      ]
+    },
+    "formatos": {
+      "label": "Pricing",
+      "title_part1": "One monthly fee, ",
+      "title_emphasis": "no minimum term",
+      "title_part2": ".",
+      "sub": "SEO takes a few months to show. That's why committing for six months makes it cheaper.",
+      "badge": "Recommended",
+      "cta": "Book a call",
+      "precios": "See in pricing",
+      "interes": "SEO + AEO",
+      "desdeLabel": "from",
+      "note": "Prices exclude VAT. The final price depends on the size of your site and your market; we fix it after the audit.",
+      "items": [
+        {
+          "title": "Month to month",
+          "price": "€900/mo",
+          "desde": true,
+          "text": "Start and stop whenever you like.",
+          "points": [
+            "Audit to start",
+            "Technical and content work every month",
+            "Tracking on Google and in AI",
+            "Monthly report in your portal"
+          ]
+        },
+        {
+          "title": "Six months",
+          "price": "€810/mo",
+          "desde": true,
+          "destacado": true,
+          "text": "The same, 10% cheaper: you save €540 over six months.",
+          "points": [
+            "Everything in month to month",
+            "Time for the work to show",
+            "Six-month content plan",
+            "Mid-point goal review"
+          ],
+          "compromiso": true
+        }
+      ]
+    },
+    "relacionados": {
+      "label": "And also",
+      "title_part1": "If your website ",
+      "title_emphasis": "can't keep up",
+      "title_part2": "…",
+      "sub": "Sometimes SEO hits a slow or outdated site. Then the first step is to renew it, and we do it without losing rankings.",
+      "cta": "Tell us about your case"
+    },
+    "faq": {
+      "label": "Questions",
+      "title_part1": "Questions about ",
+      "title_emphasis": "SEO and AI",
+      "title_part2": ".",
+      "items": {
+        "q1": {
+          "question": "What is AEO?",
+          "answer": "Answer Engine Optimization: working on your site so AI search engines (ChatGPT, Gemini, Perplexity, Google's AI Mode and AI summaries) understand it, trust it and cite it in their answers. Google considers it part of SEO, and that's how we treat it."
+        },
+        "q2": {
+          "question": "How long until it shows?",
+          "answer": "A few months. Technical work shows sooner; content and authority, later. That's why we show you every month what's been done and what's moving, and reward a six-month commitment with a discount."
+        },
+        "q3": {
+          "question": "Do you guarantee I'll rank first?",
+          "answer": "No, and be wary of anyone who does: Google itself says nobody can guarantee the top spot. What we do guarantee is the monthly work, done with method and measured with data."
+        },
+        "q4": {
+          "question": "Do I need an llms.txt or something special for AI?",
+          "answer": "For Google, no: it says no special file or markup is needed. For ChatGPT there is one detail: letting its search crawler (OAI-SearchBot) in through robots.txt. We check it in the audit."
+        },
+        "q5": {
+          "question": "How do you know if AI cites me?",
+          "answer": "Every month we test your customers' questions in ChatGPT, Gemini, Perplexity and AI Mode, and note who appears. Traffic from Google's AI summaries also shows up in Search Console."
+        },
+        "q6": {
+          "question": "What if my website is old or slow?",
+          "answer": "We'll tell you in the audit. If the site is holding back your rankings, renewing it first is usually the best investment; we do it without losing the rankings you already have."
+        }
+      }
+    }
+  },
+  "v2Local": {
+    "common": {
+      "cta": "Book a call",
+      "interes": "Web design in {ciudad}",
+      "casosCta": "See all work",
+      "verCaso": "See case",
+      "relacionados": {
+        "label": "All services",
+        "title_part1": "Everything we do, ",
+        "title_emphasis": "one click away",
+        "title_part2": ".",
+        "sub": "Brand, website, store, apps and search visibility: the same level for a local business as for any other.",
+        "cta": "Tell us about your project"
+      },
+      "migas": "Web design in {ciudad}"
+    },
+    "zaragoza": {
+      "metaDescription": "Web design and development studio for businesses in Zaragoza, Spain. Custom websites from €3,900, online stores and web apps. Direct contact with the studio that designs and builds, fixed pricing, real cases in Aragón.",
+      "faq": {
+        "label": "// FAQ",
+        "title_part1": "Common ",
+        "title_emphasis": "questions",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "How much does a website cost in Zaragoza?",
+            "answer": "It depends on the scope. A custom corporate website starts at €3,900, an online store at €4,900, a web app at €5,900 and a process automation at €1,200. In every case we work with fixed pricing: you get the final price after a 30-minute call and it doesn't change later. If you need maintenance, we have plans from €39/month."
+          },
+          "q2": {
+            "question": "What does a website with your studio include?",
+            "answer": "A typical project includes a discovery phase to understand your business and goals, custom design — no generic templates — custom development, base SEO optimization so Google understands your site, a fast, mobile-ready website, training so you can manage your own content, and 30 days of post-launch support. All built so the site works to win clients, not just to exist online."
+          },
+          "q3": {
+            "question": "Do you work in person in Zaragoza?",
+            "answer": "Yes. The studio is in Huesca, under an hour from Zaragoza, and we travel for key meetings when the project calls for it. Day-to-day runs on video calls and a direct messaging channel, which is usually faster for everyone and lets you see progress in real time."
+          },
+          "q4": {
+            "question": "How long does it take to have the website ready?",
+            "answer": "Most corporate websites ship in 2 to 4 weeks from kickoff, with dates locked from signing. Larger projects — complex online stores or custom apps — take longer, but always with a clear phased schedule so you know what's delivered and when. We don't do never-ending, date-less projects."
+          },
+          "q5": {
+            "question": "Do you do local SEO to rank on Google in Zaragoza?",
+            "answer": "Yes. Every website ships with a solid technical SEO base: speed, correct structure, structured data, tags and sitemap. To rank for local searches like «web design Zaragoza» or «[your sector] in Zaragoza» we work on-page SEO, purchase-intent content, and help you optimize your Google Business Profile, which is what gets you onto the local map pack."
+          },
+          "q6": {
+            "question": "What sets a studio apart from a Zaragoza agency?",
+            "answer": "A boutique studio works with few clients at a time, so your project doesn't pass through five hands or get subcontracted out. You always deal with the same people, with our own design and development judgement, and a fixed price with no surprises. You get the closeness of working with someone local and the technical level of a studio that has worked for the Government of Aragón and sports federations."
+          }
+        }
+      }
+    },
+    "huesca": {
+      "metaDescription": "Web design and development studio in Huesca, Spain. Custom websites from €3,900, online stores and web apps for local businesses. In-person treatment, fixed pricing and post-launch support.",
+      "faq": {
+        "label": "// FAQ",
+        "title_part1": "Common ",
+        "title_emphasis": "questions",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Can we meet in person in Huesca?",
+            "answer": "Of course — that's one of the perks of hiring a local studio. We do the first meeting wherever suits you, in person. Project follow-up usually runs on video calls and WhatsApp to save you time, but for the important milestones we can always meet face to face."
+          },
+          "q2": {
+            "question": "How much does a website cost in Huesca?",
+            "answer": "A custom corporate website starts at €3,900, an online store at €4,900 and a web app at €5,900. Automations start at €1,200. We work with fixed pricing from the start and offer optional maintenance from €39/month. You get the final price after a short call, no commitment."
+          },
+          "q3": {
+            "question": "What kind of websites do you build?",
+            "answer": "Corporate and service websites, online stores, custom platforms, web apps and booking systems. From a local Huesca business's website to platforms for institutions like the Government of Aragón. If your project needs something custom and well built, it's a fit for the studio."
+          },
+          "q4": {
+            "question": "Do you work with small businesses or only institutions?",
+            "answer": "Both. We've worked for the Government of Aragón and the Aragonese Motorsport Federation, but also for gyms, shops, firms and family businesses across the province. The process and the budget adapt to the project size; no business is «too small»."
+          },
+          "q5": {
+            "question": "What happens after the website launches?",
+            "answer": "We include 30 days of free post-launch support. After that you can take a maintenance plan from €39/month — for updates, backups and small changes — or request one-off changes by the hour. Your site isn't left orphaned the day after it goes live."
+          },
+          "q6": {
+            "question": "Do you help rank the business on Google in Huesca?",
+            "answer": "Yes. Every website ships technically optimized for SEO and we work on ranking for local searches across Huesca and the province. We also guide you to fine-tune your Google Business Profile and get reviews, which is key to showing up on the map when someone searches for your service in the area."
+          }
+        }
+      }
+    },
+    "teruel": {
+      "metaDescription": "Yes, web design for Teruel too. Aragonese studio: custom websites from €3,900, online stores and web apps for Teruel businesses. Close treatment, fixed pricing and phased delivery.",
+      "faq": {
+        "label": "// FAQ",
+        "title_part1": "Common ",
+        "title_emphasis": "questions",
+        "title_part2": ".",
+        "items": {
+          "q1": {
+            "question": "Do you work with businesses in Teruel?",
+            "answer": "Yes, and gladly. The process works just as well remotely: video calls, a direct channel and phased deliveries you watch progress every few days on a private link. And for the key milestones, Teruel isn't that far from our studio in Huesca."
+          },
+          "q2": {
+            "question": "How much does a website cost in Teruel?",
+            "answer": "The same as anywhere else, with no distance surcharge: a custom corporate website from €3,900, an online store from €4,900, a web app from €5,900 and automations from €1,200. Fixed price after a 30-minute call and optional maintenance from €39/month."
+          },
+          "q3": {
+            "question": "Which Teruel sectors are the best fit?",
+            "answer": "Rural tourism, agri-food, industry, hospitality, professional services… Any business whose website should bring bookings, orders or clients, and not just exist. If you're not sure you're a fit, message us on WhatsApp and we'll tell you straight, no commitment."
+          },
+          "q4": {
+            "question": "Does remote work lose quality?",
+            "answer": "No. Most of our clients work this way. You see real progress every few days on a private link, instead of a two-month «trust me». The result is measured the same either way: in clients and sales arriving through the website."
+          },
+          "q5": {
+            "question": "Do you also do SEO to show up on Google in Teruel?",
+            "answer": "Yes. Every website ships with a technical SEO base and we work on ranking for local searches across Teruel and the province, where there's also very little competition. We help you optimize your Google Business Profile to appear on the map, which in smaller areas is where a big share of the visits is won."
+          },
+          "q6": {
+            "question": "What does the website price include?",
+            "answer": "Custom design, development, a fast, mobile-ready site, base SEO optimization, training so you manage your own content, and 30 days of post-launch support. No hidden costs: the budget is fixed and what we agree is what you pay."
+          }
+        }
+      }
+    }
+  },
+  "v2NotFound": {
+    "label": "Error 404",
+    "consola": "not found",
+    "title_part1": "This page ",
+    "title_emphasis": "doesn't exist",
+    "title_part2": ".",
+    "sub": "The address may be mistyped, the page may have moved, or it was never published. These paths do work:",
+    "caminos": {
+      "inicio": {
+        "titulo": "Home",
+        "texto": "Back to the start."
+      },
+      "servicios": {
+        "titulo": "Services",
+        "texto": "Brand, websites, stores, apps and SEO."
+      },
+      "trabajos": {
+        "titulo": "Work",
+        "texto": "Real projects and their results."
+      },
+      "llamada": {
+        "titulo": "Book a call",
+        "texto": "30 minutes to tell us about your project."
+      }
+    },
+    "pie": "Looking for something specific?",
+    "pieEnlace": "Write to us and we'll send it over."
+  },
+  "v2Hero": {
+    "line1": "Web design & development",
+    "line2_pre": "that ",
+    "line2_em": "grows",
+    "line2_post": " your brand.",
+    "sub": "Design, development and artificial intelligence with a team that knows your business. We solve what you need now and stay by your side to build what comes next."
   }
 }

@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
+import { useParams } from "next/navigation";
 import { Moon, Sun, Volume2, VolumeX } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "@/navigation";
+import { locales } from "@/i18n";
 import { alCambiarSonido, activarSonido, sonarClic, sonarTema, sonidoActivo } from "@/lib/v2/ui-sound";
 
 const base =
@@ -70,5 +73,54 @@ export function SoundToggle() {
     >
       {activo ? <Volume2 size={16} strokeWidth={1.75} /> : <VolumeX size={16} strokeWidth={1.75} />}
     </button>
+  );
+}
+
+/**
+ * ES · EN. Cambia de idioma manteniendo la página (next-intl traduce la
+ * dirección: /v2/trabajos/fada ↔ /en/v2/work/fada). `grande`: el del menú del
+ * móvil, con más superficie para el dedo.
+ */
+export function IdiomaToggle({ grande = false, alCambiar }: { grande?: boolean; alCambiar?: () => void }) {
+  const t = useTranslations("v2");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const params = useParams();
+  const [, startTransition] = useTransition();
+
+  const ir = (destino: (typeof locales)[number]) => {
+    if (destino === locale) return;
+    sonarClic("select");
+    alCambiar?.();
+    startTransition(() => {
+      // @ts-expect-error -- params es un Record suelto; next-intl lo acepta.
+      router.replace({ pathname, params }, { locale: destino });
+    });
+  };
+
+  return (
+    <div role="group" aria-label={t("idioma")} className={`inline-flex items-center ${grande ? "gap-1" : ""}`}>
+      {locales.map((l) => {
+        const on = l === locale;
+        return (
+          <button
+            key={l}
+            type="button"
+            onClick={() => ir(l)}
+            aria-current={on ? "true" : undefined}
+            lang={l}
+            title={t(`idioma_${l}`)}
+            className={`inline-flex items-center justify-center rounded-md font-mono uppercase tracking-[0.06em] transition-colors ${
+              grande ? "h-10 px-3 text-[13px]" : "h-9 px-1.5 text-[11.5px]"
+            } ${on ? "text-[var(--v2-text)]" : "text-[var(--v2-faint)] hover:bg-[var(--v2-hover)] hover:text-[var(--v2-text)]"} ${
+              on && grande ? "bg-[var(--v2-hover)]" : ""
+            }`}
+          >
+            {l}
+          </button>
+        );
+      })}
+    </div>
   );
 }

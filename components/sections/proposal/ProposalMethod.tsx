@@ -14,14 +14,14 @@ import { getTranslations } from "next-intl/server";
  * Panel oscuro: la alternancia claro/oscuro es lo que da sensación de ir
  * pasando páginas en vez de bajar por una lista.
  */
-export async function ProposalMethod({ locale }: { locale: string }) {
+export async function ProposalMethod({ locale, v2 = false }: { locale: string; v2?: boolean }) {
   const t = await getTranslations({ locale, namespace: "proposalPage.method" });
   const reglas = ["r1", "r2", "r3"] as const;
 
   return (
     <section id="metodo" className="scroll-mt-28">
       <Reveal>
-        <EditorialLabel>{`// ${t("label")}`}</EditorialLabel>
+        {v2 ? <span className="v2-label">{t("label")}</span> : <EditorialLabel>{`// ${t("label")}`}</EditorialLabel>}
       </Reveal>
       <Reveal delay={0.08}>
         <MixedHeadline

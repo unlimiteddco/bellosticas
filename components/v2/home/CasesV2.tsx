@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import type { ResolvedProject } from "@/lib/cms/types";
+import { sinBarras } from "@/lib/v2/texto";
 
 /**
  * Casos en filas con borde: texto a un lado (cliente, categoría, año,
@@ -22,9 +23,9 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
         <span aria-hidden data-draw className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-[var(--v2-line)]" />
         <div className="flex flex-col items-center gap-5 px-6 py-20 text-center lg:py-24">
           <span className="v2-label" data-reveal>
-            {t("label")}
+            {sinBarras(t("label"))}
           </span>
-          <h2 className="text-[38px] font-medium leading-[1.05] tracking-[-0.03em] md:text-[56px]" data-reveal>
+          <h2 className="v2-h2" data-reveal>
             {t("title_part1")}
             <em className="font-display italic font-semibold text-[var(--v2-accent)]">{t("title_emphasis")}</em>
             {t("title_part2")}
@@ -35,7 +36,7 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
           {casos.map((p, i) => (
             <Link
               key={p.slug}
-              href={{ pathname: "/work", query: { caso: p.slug } }}
+              href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }}
               className="group grid grid-cols-1 border-b border-[var(--v2-line)] lg:grid-cols-12"
               data-reveal
             >
@@ -79,7 +80,7 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
         </div>
 
         <div className="flex justify-center px-6 py-10">
-          <Link href="/work" className="v2-btn v2-btn--ghost">
+          <Link href="/v2/work" className="v2-btn v2-btn--ghost">
             {t("seeAll")} <ArrowRight size={14} />
           </Link>
         </div>

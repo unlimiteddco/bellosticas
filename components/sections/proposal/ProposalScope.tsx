@@ -18,6 +18,7 @@ export function ProposalScope({
   title2,
   providesLabel,
   excludedLabel,
+  v2 = false,
 }: {
   data: Datos;
   label: string;
@@ -26,6 +27,8 @@ export function ProposalScope({
   title2: string;
   providesLabel: string;
   excludedLabel: string;
+  /** En la propuesta de la V2: la etiqueta con su estilo y sin «//». */
+  v2?: boolean;
 }) {
   const columnas = [
     { titulo: providesLabel, items: data.provides },
@@ -35,7 +38,7 @@ export function ProposalScope({
   return (
     <section id="alcance" className="scroll-mt-28">
       <Reveal>
-        <EditorialLabel>{`// ${label}`}</EditorialLabel>
+        {v2 ? <span className="v2-label">{label}</span> : <EditorialLabel>{`// ${label}`}</EditorialLabel>}
       </Reveal>
       <Reveal delay={0.08}>
         <MixedHeadline
