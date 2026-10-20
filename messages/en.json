@@ -263,7 +263,8 @@
   },
   "announcement": {
     "badge": "NEW",
-    "text": "We launched FlyLead, our own SaaS",
+    "text": "Spain's largest Google partner now works with us",
+    "textShort": "New client: Spain's largest Google partner",
     "close": "Dismiss"
   },
   "marqueeDivider": {

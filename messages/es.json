@@ -263,7 +263,8 @@
   },
   "announcement": {
     "badge": "NUEVO",
-    "text": "Lanzamos FlyLead, nuestro propio SaaS",
+    "text": "El mayor partner de Google en España ya trabaja con nosotros",
+    "textShort": "Nuevo cliente: el mayor partner de Google en España",
     "close": "Cerrar aviso"
   },
   "marqueeDivider": {
