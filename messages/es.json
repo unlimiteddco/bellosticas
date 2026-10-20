@@ -264,7 +264,8 @@
   "announcement": {
     "badge": "NUEVO",
     "text": "El mayor partner de Google en España ya trabaja con nosotros",
-    "textShort": "Nuevo cliente: el mayor partner de Google en España",
+    "textShort": "El mayor partner de Google en España",
+    "badgeClient": "NUEVO CLIENTE",
     "close": "Cerrar aviso"
   },
   "marqueeDivider": {
