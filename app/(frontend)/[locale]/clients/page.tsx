@@ -44,11 +44,14 @@ export default async function ClientesV2({ params }: { params: Promise<{ locale:
   const conCaso = new Set(proyectos.filter((p) => !p.comingSoon).map((p) => p.slug));
 
   const fv = t.raw("featuredVideos.items") as { name: string; role: string; company: string; quote: string }[];
-  // En los textos van Javier y Themis, en ese orden; los vídeos, por nombre.
-  const videos: VideoCliente[] = fv.flatMap((v) => {
-    const id = /javier/i.test(v.name) ? "javier" : /themis/i.test(v.name) ? "themis" : null;
-    return id ? [{ id, ...v }] : [];
-  });
+  // En los textos van Javier y Themis; aquí va primero Themis. Los vídeos, por nombre.
+  const ORDEN: Record<string, number> = { themis: 0, javier: 1 };
+  const videos: VideoCliente[] = fv
+    .flatMap((v) => {
+      const id = /javier/i.test(v.name) ? "javier" : /themis/i.test(v.name) ? "themis" : null;
+      return id ? [{ id, ...v } as VideoCliente] : [];
+    })
+    .sort((a, b) => ORDEN[a.id] - ORDEN[b.id]);
   const cifras = t.raw("numbers.items") as { value: string; label: string }[];
   const frases = t.raw("mosaic.items") as Record<string, { name: string; role: string; company: string; quote: string }>;
   const resultados = t.raw("results.items") as { metric: string; label: string; client: string; description: string; projectSlug?: string }[];

@@ -16,7 +16,9 @@ export function VideosClientes({ videos, etiqueta }: { videos: VideoCliente[]; e
   const [abierto, setAbierto] = useState<LightboxVideo | null>(null);
   return (
     <>
-      <div className="grid grid-cols-1 gap-px bg-[var(--v2-line)] md:grid-cols-2">
+      {/* Entre los dos vídeos, una junta oscura en el propio vídeo: la línea
+          clara del resto de la página se veía como una raya blanca entre fotos. */}
+      <div className="grid grid-cols-1 md:grid-cols-2">
         {videos.map((v, i) => {
           const media = TESTIMONIAL_MEDIA[v.id];
           return (
@@ -29,7 +31,9 @@ export function VideosClientes({ videos, etiqueta }: { videos: VideoCliente[]; e
                 setAbierto({ videoSrc: media.video, posterSrc: media.poster, name: v.name, role: v.role, company: v.company, chapters: media.chapters });
               }}
               aria-label={`${etiqueta} · ${v.name}`}
-              className="group relative block aspect-[4/5] overflow-hidden bg-[var(--v2-band)] text-left sm:aspect-[4/3] md:aspect-[4/5] lg:aspect-[5/6]"
+              className={`group relative block aspect-[4/5] overflow-hidden bg-[var(--v2-band)] text-left sm:aspect-[4/3] md:aspect-[4/5] lg:aspect-[5/6] ${
+                i > 0 ? "border-t border-[var(--v2-band-line)] md:border-l md:border-t-0" : ""
+              }`}
               data-reveal
             >
               <img
