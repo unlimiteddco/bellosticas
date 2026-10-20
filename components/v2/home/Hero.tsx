@@ -46,10 +46,10 @@ export async function Hero({ locale, casos }: { locale: string; casos: CasoReel[
             {th("sub")}
           </p>
           <div className="v2-hero-in flex flex-col gap-3 sm:flex-row sm:items-center" style={{ animationDelay: "240ms" }}>
-            <Link href="/v2/intro" className="v2-btn v2-btn--primary h-12 w-full sm:h-[46px] sm:w-auto">
+            <Link href="/intro" className="v2-btn v2-btn--primary h-12 w-full sm:h-[46px] sm:w-auto">
               {t("cta_primary")}
             </Link>
-            <Link href="/v2/work" className="v2-btn v2-btn--ghost h-12 w-full sm:h-[46px] sm:w-auto">
+            <Link href="/work" className="v2-btn v2-btn--ghost h-12 w-full sm:h-[46px] sm:w-auto">
               {t("cta_secondary")}
             </Link>
           </div>

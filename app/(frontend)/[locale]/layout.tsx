@@ -5,28 +5,11 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { defaultLocale, locales, type Locale } from "@/i18n";
 import { pathnames } from "@/navigation";
-import { SmoothScroll } from "@/components/effects/SmoothScroll";
-import { Preloader } from "@/components/effects/Preloader";
 import { HtmlLangSync } from "@/components/effects/HtmlLangSync";
 import { TrackingBootstrap } from "@/components/effects/TrackingBootstrap";
 import { MotionProvider } from "@/components/providers/MotionProvider";
-import { Navbar } from "@/components/layout/Navbar";
-import { NavbarPill } from "@/components/layout/NavbarPill";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
-import { MobileCTA } from "@/components/layout/MobileCTA";
 import { CookieProvider } from "@/components/cookies/CookieProvider";
-import { CookieBanner } from "@/components/cookies/CookieBanner";
 import { AnalyticsLoader } from "@/components/cookies/AnalyticsLoader";
-import { VideoTestimonialWidget } from "@/components/floating/VideoTestimonialWidget";
-import { TESTIMONIAL_MEDIA } from "@/lib/testimonial-media";
-import { getProjects } from "@/lib/cms/projects";
-
-/**
- * Toggle navbar style. Both components live side-by-side so reverting is one word.
- *   "pill"    → floating glassy pill (new look)
- *   "classic" → original full-width navbar
- */
-const NAVBAR_VARIANT: "pill" | "classic" = "pill";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bellostas.studio";
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
@@ -193,23 +176,6 @@ export default async function LocaleLayout({
 
   const messages = await getMessages({ locale: effectiveLocale });
 
-  // El desplegable de «Trabajos» enseña los proyectos recientes. Solo baja al
-  // navegador lo que el menú pinta, no la ficha entera de cada proyecto.
-  const trabajosMenu = (await getProjects(effectiveLocale)).map((p) => ({
-    slug: p.slug,
-    name: p.name,
-    category: p.category,
-    color: p.color,
-    cover: p.cover,
-    logo: p.logo,
-    comingSoon: p.comingSoon,
-  }));
-
-  // La V2 (/v2, /en/v2) trae su propia cabecera, footer y scroll nativo: aquí
-  // no se pinta nada de la cromática de la web actual, solo los proveedores.
-  const ruta = (await headers()).get("x-pathname") ?? "/";
-  const esV2 = /^(\/en)?\/v2(\/|$)/.test(ruta);
-
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -250,33 +216,13 @@ export default async function LocaleLayout({
       <CookieProvider>
         <HtmlLangSync locale={effectiveLocale} />
         <TrackingBootstrap />
+        {/* Cada página de la web trae su cabecera, su pie y su raíz (V2Root):
+            aquí solo van los proveedores. La web anterior (V1) está en
+            archivo/web-v1. */}
         <MotionProvider>
-          {esV2 ? (
-            <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
-          ) : (
-            <>
-              <Preloader />
-              <SmoothScroll>
-                <AnnouncementBar locale={effectiveLocale} />
-                {NAVBAR_VARIANT === "pill" ? <NavbarPill trabajos={trabajosMenu} /> : <Navbar />}
-                <main id="top" className="relative z-[2]">
-                  <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
-                </main>
-              </SmoothScroll>
-            </>
-          )}
+          <LocaleGuard isValid={isValidLocale}>{children}</LocaleGuard>
         </MotionProvider>
-        {!esV2 && <MobileCTA />}
-        <CookieBanner />
         <AnalyticsLoader />
-        {/* Floating video testimonial — only shows on pages that include a
-            [data-video-trigger] element (home, work, service pages). */}
-        {!esV2 && (
-          <VideoTestimonialWidget
-            videoSrc={TESTIMONIAL_MEDIA.themis.video}
-            posterSrc={TESTIMONIAL_MEDIA.themis.poster}
-          />
-        )}
       </CookieProvider>
 
       {/* JSON-LD lives in the body — crawlers parse it from anywhere in the document. */}

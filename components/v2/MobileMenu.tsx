@@ -98,21 +98,21 @@ export function MobileMenu({
 
   /* ── Lo que va dentro ── */
   const diseno: Enlace[] = [
-    { href: "/v2/services/brand-identity", titulo: tn("marca"), icono: PenTool },
-    { href: "/v2/services/desarrollo-web", titulo: tn("s01"), icono: Monitor },
-    { href: "/v2/services/ecommerce", titulo: tn("s02"), icono: ShoppingBag },
-    { href: "/v2/services/seo-aeo", titulo: tn("seo"), icono: Search },
+    { href: "/services/brand-identity", titulo: tn("marca"), icono: PenTool },
+    { href: "/services/desarrollo-web", titulo: tn("s01"), icono: Monitor },
+    { href: "/services/ecommerce", titulo: tn("s02"), icono: ShoppingBag },
+    { href: "/services/seo-aeo", titulo: tn("seo"), icono: Search },
   ];
   const producto: Enlace[] = [
-    { href: "/v2/services/aplicaciones-web", titulo: tn("s03"), icono: LayoutDashboard },
-    { href: "/v2/services/automatizaciones", titulo: tn("s04"), icono: Workflow },
-    { href: "/v2/services/migraciones", titulo: tn("s05"), icono: ArrowRightLeft },
-    { href: "/v2/services/white-label", titulo: tn("s06"), icono: Layers },
+    { href: "/services/aplicaciones-web", titulo: tn("s03"), icono: LayoutDashboard },
+    { href: "/services/automatizaciones", titulo: tn("s04"), icono: Workflow },
+    { href: "/services/migraciones", titulo: tn("s05"), icono: ArrowRightLeft },
+    { href: "/services/white-label", titulo: tn("s06"), icono: Layers },
   ];
   const paginas: Enlace[] = [
-    { href: "/v2/work", titulo: t("wm.work.title"), icono: LayoutGrid },
-    { href: "/v2/proceso", titulo: t("wm.process.title"), icono: Route },
-    { href: "/v2/clients", titulo: t("wm.clients.title"), icono: Heart },
+    { href: "/work", titulo: t("wm.work.title"), icono: LayoutGrid },
+    { href: "/proceso", titulo: t("wm.process.title"), icono: Route },
+    { href: "/clients", titulo: t("wm.clients.title"), icono: Heart },
   ];
   // Los mismos proyectos que el megamenú: los elegidos primero, como mucho cuatro.
   const visibles = trabajos.filter((p) => !p.comingSoon);
@@ -122,7 +122,7 @@ export function MobileMenu({
   const video = destacado ? VIDEO_DESTACADO[destacado.slug] : undefined;
 
   const activo = (href: Destino) => typeof href === "string" && pathname === href;
-  const casoActivo = (slug: string) => pathname === "/v2/work/[slug]" && params?.slug === slug;
+  const casoActivo = (slug: string) => pathname === "/work/[slug]" && params?.slug === slug;
 
   const elegir = () => {
     sonarClic("select");
@@ -205,7 +205,7 @@ export function MobileMenu({
     <div className="flex flex-col gap-3">
       {grupo(tv("mm.design"), diseno)}
       {grupo(tv("mm.product"), producto)}
-      <Link href="/v2/services" onClick={elegir} className="v2-link mt-1 self-start px-2 text-[14px]">
+      <Link href="/services" onClick={elegir} className="v2-link mt-1 self-start px-2 text-[14px]">
         {t("mm.viewAll")} <ArrowRight size={13} className="text-[var(--v2-accent)]" />
       </Link>
     </div>
@@ -215,7 +215,7 @@ export function MobileMenu({
     <div className="flex flex-col gap-4">
       {destacado && (
         <Link
-          href={{ pathname: "/v2/work/[slug]", params: { slug: destacado.slug } }}
+          href={{ pathname: "/work/[slug]", params: { slug: destacado.slug } }}
           onClick={elegir}
           className="group block overflow-hidden rounded-[8px] border border-[var(--v2-line)]"
         >
@@ -245,7 +245,7 @@ export function MobileMenu({
               return (
                 <li key={p.slug}>
                   <Link
-                    href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }}
+                    href={{ pathname: "/work/[slug]", params: { slug: p.slug } }}
                     onClick={elegir}
                     aria-current={on ? "page" : undefined}
                     className={`v2-mm-link flex items-center gap-3 rounded-[6px] px-2 py-2 ${on ? "bg-[var(--v2-hover)]" : ""}`}
@@ -321,14 +321,14 @@ export function MobileMenu({
           {/* Precios, a la vista: es de lo que más empuja a llamar. */}
           {filaSimple(
             t("pricing"),
-            "/v2/pricing",
+            "/pricing",
             2,
             <span className="v2-ico" aria-hidden>
               <ChartColumn size={14} strokeWidth={1.75} />
             </span>,
           )}
-          {filaSimple(t("studio"), "/v2/studio", 3)}
-          {filaSimple(t("contact"), "/v2/contact", 4)}
+          {filaSimple(t("studio"), "/studio", 3)}
+          {filaSimple(t("contact"), "/contact", 4)}
         </ul>
       </nav>
 
@@ -352,7 +352,7 @@ export function MobileMenu({
         </div>
         {/* La llamada y, al lado, el idioma (sonido y tema ya están en la cabecera). */}
         <div className="flex items-center gap-2">
-          <Link href="/v2/intro" onClick={elegir} className="v2-btn v2-btn--primary h-12 flex-1">
+          <Link href="/intro" onClick={elegir} className="v2-btn v2-btn--primary h-12 flex-1">
             {t("mm.helpCta")} <ArrowRight size={15} />
           </Link>
           <IdiomaToggle grande alCambiar={alCerrar} />

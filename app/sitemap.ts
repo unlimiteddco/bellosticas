@@ -2,31 +2,35 @@ import type { MetadataRoute } from "next";
 import { locales, defaultLocale, type Locale } from "@/i18n";
 import { pathnames } from "@/navigation";
 import { getAllPostSlugs } from "@/lib/cms/posts";
+import { getProjects } from "@/lib/cms/projects";
 
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://bellostas.studio"
 ).replace(/\/$/, "");
 
-/** Indexable routes (legal/cookies/privacidad/preview excluded — they're noindex). */
+/** Indexable routes (legal/cookies/privacidad, recursos, propuestas y la versión A de precios van sin indexar). */
 const ROUTE_KEYS = [
   "/",
+  "/services",
+  "/services/brand-identity",
+  "/services/desarrollo-web",
+  "/services/ecommerce",
+  "/services/seo-aeo",
+  "/services/aplicaciones-web",
+  "/services/automatizaciones",
+  "/services/migraciones",
+  "/services/white-label",
+  "/pricing",
   "/work",
+  "/clients",
   "/studio",
-  "/love",
+  "/proceso",
   "/blog",
   "/intro",
-  "/proceso",
   "/contact",
-  "/services/desarrollo-web",
-  "/services/aplicaciones-web",
-  "/services/ecommerce",
-  "/services/migraciones",
-  "/services/automatizaciones",
-  "/services/white-label",
   "/diseno-web-zaragoza",
   "/diseno-web-huesca",
   "/diseno-web-teruel",
-  "/seo-local",
 ] as const;
 
 /**
@@ -35,7 +39,6 @@ const ROUTE_KEYS = [
  * ES, así que no emitimos alternates hreflang para ellas.
  */
 const ES_ONLY_ROUTES: readonly string[] = [
-  "/seo-local",
   "/diseno-web-zaragoza",
   "/diseno-web-huesca",
   "/diseno-web-teruel",
@@ -66,7 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority:
       key === "/"
         ? 1
-        : key === "/contact" || key === "/work" || key.startsWith("/services")
+        : key === "/contact" || key === "/work" || key === "/pricing" || key.startsWith("/services")
           ? 0.8
           : 0.6,
     // Las landings locales son solo-ES: sin hreflang alternates.
@@ -94,5 +97,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     postEntries = [];
   }
 
-  return [...staticEntries, ...postEntries];
+  // Casos de éxito: /trabajos/<slug> (ES) y /en/work/<slug>. Los «próximamente»
+  // no tienen página propia todavía.
+  let caseEntries: MetadataRoute.Sitemap = [];
+  try {
+    const proyectos = await getProjects(defaultLocale);
+    caseEntries = proyectos
+      .filter((p) => !p.comingSoon)
+      .map((p) => ({
+        url: `${SITE_URL}/trabajos/${p.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.6,
+        alternates: {
+          languages: {
+            es: `${SITE_URL}/trabajos/${p.slug}`,
+            en: `${SITE_URL}/en/work/${p.slug}`,
+          },
+        },
+      }));
+  } catch {
+    caseEntries = [];
+  }
+
+  return [...staticEntries, ...caseEntries, ...postEntries];
 }

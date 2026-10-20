@@ -110,16 +110,16 @@ export function PanelServicios({ alElegir }: { alElegir: () => void }) {
   const tv2 = useTranslations("v2Servicios");
 
   const diseno = [
-    { href: "/v2/services/brand-identity" as Destino, icono: PenTool, titulo: ts("acc.brand.title") },
-    { href: "/v2/services/desarrollo-web" as Destino, icono: Monitor, titulo: ts("items.s01.title") },
-    { href: "/v2/services/ecommerce" as Destino, icono: ShoppingBag, titulo: ts("items.s02.title") },
-    { href: "/v2/services/seo-aeo" as Destino, icono: Search, titulo: tv2("seo") },
+    { href: "/services/brand-identity" as Destino, icono: PenTool, titulo: ts("acc.brand.title") },
+    { href: "/services/desarrollo-web" as Destino, icono: Monitor, titulo: ts("items.s01.title") },
+    { href: "/services/ecommerce" as Destino, icono: ShoppingBag, titulo: ts("items.s02.title") },
+    { href: "/services/seo-aeo" as Destino, icono: Search, titulo: tv2("seo") },
   ];
   const producto = [
-    { href: "/v2/services/aplicaciones-web" as Destino, icono: LayoutDashboard, titulo: ts("items.s03.title") },
-    { href: "/v2/services/automatizaciones" as Destino, icono: Workflow, titulo: ts("items.s04.title") },
-    { href: "/v2/services/migraciones" as Destino, icono: ArrowRightLeft, titulo: ts("items.s05.title") },
-    { href: "/v2/services/white-label" as Destino, icono: Layers, titulo: ts("items.s06.title") },
+    { href: "/services/aplicaciones-web" as Destino, icono: LayoutDashboard, titulo: ts("items.s03.title") },
+    { href: "/services/automatizaciones" as Destino, icono: Workflow, titulo: ts("items.s04.title") },
+    { href: "/services/migraciones" as Destino, icono: ArrowRightLeft, titulo: ts("items.s05.title") },
+    { href: "/services/white-label" as Destino, icono: Layers, titulo: ts("items.s06.title") },
   ];
 
   return (
@@ -150,7 +150,7 @@ export function PanelServicios({ alElegir }: { alElegir: () => void }) {
             <p className="text-[14px] leading-[1.45] text-white/90">{t("mm.helpText")}</p>
             <div className="flex items-center gap-3">
               <Link
-                href="/v2/intro"
+                href="/intro"
                 className="v2-btn v2-btn--primary v2-btn--sm"
                 onClick={() => {
                   sonarClic("select");
@@ -165,17 +165,17 @@ export function PanelServicios({ alElegir }: { alElegir: () => void }) {
         </div>
       </div>
       <FilaInferior>
-        <Acceso href="/v2/services" alElegir={alElegir} i={0}>
+        <Acceso href="/services" alElegir={alElegir} i={0}>
           <LayoutGrid size={13} strokeWidth={1.75} /> {t("mm.viewAll")} <ArrowRight size={12} />
         </Acceso>
-        <Acceso href="/v2/pricing" alElegir={alElegir} i={1}>
+        <Acceso href="/pricing" alElegir={alElegir} i={1}>
           {/* Icono en caja negra solo estando en Precios. */}
           <span className="-ml-0.5 inline-flex h-5 w-5 items-center justify-center rounded-[4px] group-aria-[current=page]/acceso:bg-[var(--v2-text)] group-aria-[current=page]/acceso:text-[var(--v2-bg)]">
             <ChartColumn size={12} strokeWidth={1.9} />
           </span>
           {t("pricing")}
         </Acceso>
-        <Acceso href="/v2/proceso" alElegir={alElegir} i={2}>
+        <Acceso href="/proceso" alElegir={alElegir} i={2}>
           <Route size={13} strokeWidth={1.75} /> {t("wm.process.title")}
         </Acceso>
       </FilaInferior>
@@ -198,9 +198,9 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
   const video = destacado ? VIDEO_DESTACADO[destacado.slug] : undefined;
 
   const paginas = [
-    { href: "/v2/work" as Destino, icono: LayoutGrid, titulo: t("wm.work.title"), sub: t("wm.work.sub") },
-    { href: "/v2/proceso" as Destino, icono: Route, titulo: t("wm.process.title"), sub: t("wm.process.sub") },
-    { href: "/v2/clients" as Destino, icono: Heart, titulo: t("wm.clients.title"), sub: t("wm.clients.sub") },
+    { href: "/work" as Destino, icono: LayoutGrid, titulo: t("wm.work.title"), sub: t("wm.work.sub") },
+    { href: "/proceso" as Destino, icono: Route, titulo: t("wm.process.title"), sub: t("wm.process.sub") },
+    { href: "/clients" as Destino, icono: Heart, titulo: t("wm.clients.title"), sub: t("wm.clients.sub") },
   ];
 
   return (
@@ -215,7 +215,7 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
         {recientes.map((p, i) => (
           <Link
             key={p.slug}
-            href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }}
+            href={{ pathname: "/work/[slug]", params: { slug: p.slug } }}
             className="v2-mm-link flex items-center gap-3 px-5 py-2.5 transition-colors"
             onPointerEnter={(e) => e.pointerType === "mouse" && sonarHover(i + 5)}
             onClick={() => {
@@ -246,7 +246,7 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
         <div className="v2-label border-b border-[var(--v2-line)] px-5 py-3">{sinBarras(t("wm.featuredLabel"))}</div>
         {destacado ? (
           <Link
-            href={{ pathname: "/v2/work/[slug]", params: { slug: destacado.slug } }}
+            href={{ pathname: "/work/[slug]", params: { slug: destacado.slug } }}
             className="group flex flex-1 flex-col"
             onClick={() => {
               sonarClic("select");

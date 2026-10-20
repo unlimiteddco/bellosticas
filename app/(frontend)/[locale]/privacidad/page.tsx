@@ -1,27 +1,20 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { LegalPage } from "@/components/sections/legal/LegalPage";
+import { LegalV2 } from "@/components/v2/legal/LegalV2";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+/* Texto legal en la V2: el contenido es el de la V1 (messages → legal.privacy). */
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "legal.privacy" });
   return {
-    title: t("metaTitle"),
+    title: `${t("metaTitle")}`,
     description: t("metaDescription"),
     robots: { index: false, follow: true },
   };
 }
 
-export default async function PrivacyPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function PrivacidadV2({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <LegalPage namespace="legal.privacy" locale={locale} />;
+  return <LegalV2 locale={locale} doc="privacy" />;
 }

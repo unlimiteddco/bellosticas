@@ -98,7 +98,7 @@ export async function ServicioHero({ locale, ns, ancla = "proceso" }: { locale: 
           className="v2-hero-in flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center"
           style={{ animationDelay: "240ms" }}
         >
-          <Link href="/v2/intro" className="v2-btn v2-btn--primary h-12 w-full sm:h-[46px] sm:w-auto">
+          <Link href="/intro" className="v2-btn v2-btn--primary h-12 w-full sm:h-[46px] sm:w-auto">
             {t("ctaPrimary")}
           </Link>
           <a href={`#${ancla}`} className="v2-btn v2-btn--ghost h-12 w-full sm:h-[46px] sm:w-auto">
@@ -168,7 +168,7 @@ export async function ServicioCasos({ locale, ns, casos }: { locale: string; ns:
                   </div>
                   <h3 className="text-[22px] font-medium leading-[1.2] tracking-[-0.015em] md:text-[24px]">{titular}</h3>
                   <p className="text-[15px] leading-[1.65] text-[var(--v2-muted)]">{p.description}</p>
-                  <Link href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }} className="v2-link self-start">
+                  <Link href={{ pathname: "/work/[slug]", params: { slug: p.slug } }} className="v2-link self-start">
                     {t("cta")} <ArrowUpRight size={14} className="text-[var(--v2-accent)]" />
                   </Link>
                   {testimonio && (
@@ -466,7 +466,7 @@ export async function ServicioFormatos({ locale, ns, opcion }: { locale: string;
                 </ul>
                 <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Link
-                    href={{ pathname: "/v2/intro", query: { interes: t.has("interes") ? `${t("interes")} · ${it.title}` : it.title } }}
+                    href={{ pathname: "/intro", query: { interes: t.has("interes") ? `${t("interes")} · ${it.title}` : it.title } }}
                     className={`v2-btn ${destacado ? "v2-btn--primary" : "v2-btn--ghost"}`}
                   >
                     {t("cta")}
@@ -474,7 +474,7 @@ export async function ServicioFormatos({ locale, ns, opcion }: { locale: string;
                   {opcion && t.has("precios") && (
                     <Link
                       href={{
-                        pathname: "/v2/pricing",
+                        pathname: "/pricing",
                         query: it.compromiso ? { opcion, compromiso: "1" } : { opcion, nivel: nivel(it.title) },
                       }}
                       className="v2-link text-[var(--v2-muted)] hover:text-[var(--v2-text)]"
@@ -579,14 +579,14 @@ const ICONO_SERVICIO: Record<ClaveServicio, LucideIcon> = {
 
 /** Las que ya tienen página en la V2; el resto, a su página de siempre. */
 const PAGINA_V2: Partial<Record<ClaveServicio, Destino>> = {
-  marca: "/v2/services/brand-identity",
-  seo: "/v2/services/seo-aeo",
-  s01: "/v2/services/desarrollo-web",
-  s02: "/v2/services/ecommerce",
-  s03: "/v2/services/aplicaciones-web",
-  s04: "/v2/services/automatizaciones",
-  s05: "/v2/services/migraciones",
-  s06: "/v2/services/white-label",
+  marca: "/services/brand-identity",
+  seo: "/services/seo-aeo",
+  s01: "/services/desarrollo-web",
+  s02: "/services/ecommerce",
+  s03: "/services/aplicaciones-web",
+  s04: "/services/automatizaciones",
+  s05: "/services/migraciones",
+  s06: "/services/white-label",
 };
 
 export async function ServicioRelacionados({ locale, ns, claves }: { locale: string; ns: string; claves: ClaveServicio[] }) {
@@ -623,7 +623,7 @@ export async function ServicioRelacionados({ locale, ns, claves }: { locale: str
               {t("sub")}
             </p>
             <span aria-hidden className="mt-4 h-px w-40 bg-[var(--v2-line-strong)]" />
-            <Link href="/v2/intro" className="v2-link self-start" data-reveal>
+            <Link href="/intro" className="v2-link self-start" data-reveal>
               {t("cta")} <ArrowRight size={14} className="text-[var(--v2-accent)]" />
             </Link>
           </div>

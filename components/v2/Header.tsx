@@ -39,14 +39,14 @@ const DESPLAZAMIENTO = 48;
 
 type Item =
   | { tipo: "menu"; clave: "services" | "work" }
-  | { tipo: "enlace"; clave: "studio" | "contact"; href: "/v2/studio" | "/v2/contact" };
+  | { tipo: "enlace"; clave: "studio" | "contact"; href: "/studio" | "/contact" };
 
 const ITEMS: Item[] = [
   { tipo: "menu", clave: "services" },
   { tipo: "menu", clave: "work" },
-  { tipo: "enlace", clave: "studio", href: "/v2/studio" },
+  { tipo: "enlace", clave: "studio", href: "/studio" },
   // Contacto ya tiene su versión V2: desde la V2 se queda en la V2.
-  { tipo: "enlace", clave: "contact", href: "/v2/contact" },
+  { tipo: "enlace", clave: "contact", href: "/contact" },
 ];
 
 export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
@@ -245,7 +245,7 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
       >
         <div className="v2-frame">
           <div className="relative flex h-[60px] items-center justify-between gap-6 px-5 md:px-0">
-            <Link href="/v2" className="flex items-center shrink-0" aria-label="Bellostas Studio">
+            <Link href="/" className="flex items-center shrink-0" aria-label="Bellostas Studio">
               {/* En el móvil, solo el símbolo: deja sitio a sonido, tema y menú. */}
               <AsteriskIcon className="h-7 w-7 text-[var(--v2-accent)] sm:hidden" />
               <span className="hidden sm:inline">
@@ -335,7 +335,7 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
                 </span>
               </div>
               <Link
-                href="/v2/intro"
+                href="/intro"
                 className="v2-btn v2-btn--primary v2-btn--sm ml-2 hidden sm:inline-flex"
                 onClick={() => sonarClic("select")}
               >

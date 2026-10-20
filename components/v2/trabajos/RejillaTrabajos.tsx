@@ -139,7 +139,7 @@ export function TarjetaTrabajo({
   }
   return (
     <Link
-      href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }}
+      href={{ pathname: "/work/[slug]", params: { slug: p.slug } }}
       aria-label={`${verCaso}: ${p.name}`}
       className="v2-card v2-rel group flex w-full flex-col"
     >

@@ -34,10 +34,10 @@ export function ClosingBand() {
             {t("sub")}
           </p>
           <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row" data-reveal>
-            <Link href="/v2/intro" className="v2-btn v2-btn--primary" onClick={() => sonarClic("select")}>
+            <Link href="/intro" className="v2-btn v2-btn--primary" onClick={() => sonarClic("select")}>
               {t("cta")} <ArrowRight size={15} />
             </Link>
-            <Link href="/v2/contact" className="v2-btn v2-btn--ghost">
+            <Link href="/contact" className="v2-btn v2-btn--ghost">
               {t("ctaSecundario")}
             </Link>
           </div>

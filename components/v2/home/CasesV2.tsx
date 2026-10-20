@@ -36,7 +36,7 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
           {casos.map((p, i) => (
             <Link
               key={p.slug}
-              href={{ pathname: "/v2/work/[slug]", params: { slug: p.slug } }}
+              href={{ pathname: "/work/[slug]", params: { slug: p.slug } }}
               className="group grid grid-cols-1 border-b border-[var(--v2-line)] lg:grid-cols-12"
               data-reveal
             >
@@ -80,7 +80,7 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
         </div>
 
         <div className="flex justify-center px-6 py-10">
-          <Link href="/v2/work" className="v2-btn v2-btn--ghost">
+          <Link href="/work" className="v2-btn v2-btn--ghost">
             {t("seeAll")} <ArrowRight size={14} />
           </Link>
         </div>

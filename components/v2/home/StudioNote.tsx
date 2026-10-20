@@ -54,7 +54,7 @@ export async function StudioNote({ locale }: { locale: string }) {
             </ul>
           </div>
           <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-[var(--v2-line)] pt-6" data-reveal>
-            <Link href="/v2/studio" className="v2-btn v2-btn--ghost">
+            <Link href="/studio" className="v2-btn v2-btn--ghost">
               {t("panelTag")}
             </Link>
             <span className="v2-label">{t("panelMeta")}</span>

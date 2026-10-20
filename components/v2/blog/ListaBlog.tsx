@@ -50,7 +50,7 @@ export function PortadaPost({ post, className = "" }: { post: PostTarjeta; class
 export function TarjetaPost({ post, i = 0, leer }: { post: PostTarjeta; i?: number; leer: string }) {
   return (
     <Link
-      href={{ pathname: "/v2/blog/[slug]", params: { slug: post.slug } }}
+      href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }}
       className="group flex flex-col bg-[var(--v2-bg)] transition-colors hover:bg-[var(--v2-bg-2)]"
       onPointerEnter={(e) => e.pointerType === "mouse" && sonarHover(i)}
       onClick={() => sonarClic("select", i)}
@@ -135,7 +135,7 @@ export function ListaBlog({ posts }: { posts: PostTarjeta[] }) {
 
       {destacado && (
         <Link
-          href={{ pathname: "/v2/blog/[slug]", params: { slug: destacado.slug } }}
+          href={{ pathname: "/blog/[slug]", params: { slug: destacado.slug } }}
           className="group grid grid-cols-1 border-t border-[var(--v2-line)] transition-colors hover:bg-[var(--v2-bg-2)] lg:grid-cols-12"
           onClick={() => sonarClic("select")}
           data-reveal

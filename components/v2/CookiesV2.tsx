@@ -23,7 +23,7 @@ export function CookiesV2() {
   const t = useTranslations("cookieBanner");
   const locale = useLocale();
   const { hasDecided, ready, modalOpen, openModal, acceptAll, rejectAll } = useCookieConsent();
-  const politica = locale === "es" ? "/v2/cookies" : "/en/v2/cookies";
+  const politica = locale === "es" ? "/cookies" : "/en/cookies";
 
   // Un momento después de cargar, para no tapar el hero al llegar.
   const [listo, setListo] = useState(false);

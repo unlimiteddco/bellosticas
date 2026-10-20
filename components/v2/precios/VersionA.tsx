@@ -74,7 +74,7 @@ export async function PreciosPacks({ locale }: { locale: string }) {
               </ul>
 
               <Link
-                href="/v2/intro"
+                href="/intro"
                 className={`v2-btn mt-auto self-start ${p.destacado ? "v2-btn--primary" : "v2-btn--ghost"}`}
               >
                 {t("cta")}
@@ -266,7 +266,7 @@ export async function PreciosAgencias({ locale }: { locale: string }) {
             <h2 className="text-[28px] font-medium tracking-[-0.025em] md:text-[36px]">{t("title")}</h2>
             <p className="max-w-[560px] text-[15.5px] leading-[1.6] text-[var(--v2-muted)]">{t("texto")}</p>
           </div>
-          <Link href="/v2/services/white-label" className="v2-btn v2-btn--ghost shrink-0 self-start lg:self-center">
+          <Link href="/services/white-label" className="v2-btn v2-btn--ghost shrink-0 self-start lg:self-center">
             {t("cta")} <ArrowRight size={14} />
           </Link>
         </div>

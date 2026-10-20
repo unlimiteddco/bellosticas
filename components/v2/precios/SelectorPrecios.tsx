@@ -253,7 +253,7 @@ export function SelectorPrecios({
     evento("pricing_cta", { option: op.id, level: nivelUrl ?? "", commitment: conComp ? "commit" : "" });
   };
 
-  const destinoLlamada = { pathname: "/v2/intro" as const, query: { interes } };
+  const destinoLlamada = { pathname: "/intro" as const, query: { interes } };
 
   let indice = 0;
 
@@ -558,7 +558,7 @@ function TarjetaAgencia() {
         <span className="text-[20px] font-medium tracking-[-0.015em]">{t("agencia.titulo")}</span>
         <span className="text-[14.5px] leading-[1.55] text-[var(--v2-muted)]">{t("agencia.texto")}</span>
       </span>
-      <Link href="/v2/services/white-label" className="v2-btn v2-btn--ghost mt-1 shrink-0 self-start md:mt-0 md:self-center">
+      <Link href="/services/white-label" className="v2-btn v2-btn--ghost mt-1 shrink-0 self-start md:mt-0 md:self-center">
         {t("agencia.cta")} <ArrowRight size={14} />
       </Link>
     </div>

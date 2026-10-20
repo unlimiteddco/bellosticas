@@ -12,11 +12,11 @@ import { LineaArriba } from "@/components/v2/servicio/Secciones";
  * y los cuatro caminos que sí existen, en tarjetas. Con la cabecera y el pie
  * de siempre para que nadie se quede sin salida. Textos en messages → v2NotFound.
  */
-const CAMINOS: { k: string; href: "/v2" | "/v2/services" | "/v2/work" | "/v2/intro"; icono: LucideIcon }[] = [
-  { k: "inicio", href: "/v2", icono: Home },
-  { k: "servicios", href: "/v2/services", icono: Layers },
-  { k: "trabajos", href: "/v2/work", icono: LayoutGrid },
-  { k: "llamada", href: "/v2/intro", icono: Calendar },
+const CAMINOS: { k: string; href: "/" | "/services" | "/work" | "/intro"; icono: LucideIcon }[] = [
+  { k: "inicio", href: "/", icono: Home },
+  { k: "servicios", href: "/services", icono: Layers },
+  { k: "trabajos", href: "/work", icono: LayoutGrid },
+  { k: "llamada", href: "/intro", icono: Calendar },
 ];
 
 export async function NotFoundV2({ ruta, locale }: { ruta: string; locale: string }) {
@@ -87,7 +87,7 @@ export async function NotFoundV2({ ruta, locale }: { ruta: string; locale: strin
           </div>
           <p className="border-t border-[var(--v2-line)] px-6 py-5 text-center text-[14px] text-[var(--v2-muted)]">
             {t("pie")}{" "}
-            <Link href="/v2/contact" className="text-[var(--v2-text)] underline underline-offset-2 hover:text-[var(--v2-accent)]">
+            <Link href="/contact" className="text-[var(--v2-text)] underline underline-offset-2 hover:text-[var(--v2-accent)]">
               {t("pieEnlace")}
             </Link>
           </p>

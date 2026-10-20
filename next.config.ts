@@ -39,6 +39,29 @@ const nextConfig: NextConfig = {
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  // Direcciones de la web anterior (V1) que cambian con la V2: 301 (308)
+  // para no perder posicionamiento ni enlaces. Las demás (/contacto,
+  // /servicios/…, /blog, /intro, /proceso, legales, ciudades) no cambian.
+  async redirects() {
+    return [
+      // Los casos se abrían en un modal (/work?caso=fada): ahora tienen página.
+      { source: "/work", has: [{ type: "query", key: "caso", value: "(?<caso>[a-z0-9-]+)" }], destination: "/trabajos/:caso", permanent: true },
+      { source: "/en/work", has: [{ type: "query", key: "caso", value: "(?<caso>[a-z0-9-]+)" }], destination: "/en/work/:caso", permanent: true },
+      { source: "/work", destination: "/trabajos", permanent: true },
+      { source: "/studio", destination: "/estudio", permanent: true },
+      { source: "/love", destination: "/clientes", permanent: true },
+      { source: "/en/love", destination: "/en/clients", permanent: true },
+      { source: "/seo-local", destination: "/servicios/seo-aeo", permanent: true },
+      { source: "/en/seo-local", destination: "/en/services/seo-aeo", permanent: true },
+      // La V2 se vio en /v2 mientras se preparaba.
+      { source: "/v2", destination: "/", permanent: true },
+      { source: "/v2/:path*", destination: "/:path*", permanent: true },
+      { source: "/en/v2", destination: "/en", permanent: true },
+      { source: "/en/v2/:path*", destination: "/en/:path*", permanent: true },
+      { source: "/preview/:path*", destination: "/", permanent: false },
+      { source: "/en/preview/:path*", destination: "/en", permanent: false },
+    ];
+  },
   // Long-lived caching for static media so repeat visits don't refetch.
   // NOTE: if Cloudflare sits in front, also set its "Browser Cache TTL" to
   // "Respect Existing Headers" (or add a Cache Rule) or it overrides these.

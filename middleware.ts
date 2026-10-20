@@ -15,8 +15,8 @@ export default function middleware(request: NextRequest) {
 export const config = {
   // Exclude Payload's admin UI (/admin) and its API (/payload-api) from the
   // next-intl locale middleware, plus the site's own /api, Next internals,
-  // any file with an extension, the branded download route (/descargar/…) and
-  // the bare lead-magnet landings (/g/…),
-  // which live outside the locale tree on purpose (ligeras, solo español).
-  matcher: ["/((?!api|payload-api|admin|g/|descargar/|_next|_vercel|.*\\..*).*)"],
+  // any file with an extension and the branded download route (/descargar/…).
+  // Las landings de recursos (/g/…) ya van dentro del árbol de idiomas, con
+  // el estilo de la web.
+  matcher: ["/((?!api|payload-api|admin|descargar/|_next|_vercel|.*\\..*).*)"],
 };

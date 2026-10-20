@@ -39,14 +39,15 @@ export function FaqV2({ ns = "faq" }: { ns?: string }) {
             <p className="text-[15px] text-[var(--v2-muted)]">
               {tv("faqAsk")} {tv("faqAskSub")}
             </p>
-            <Link href="/v2/intro" className="v2-btn v2-btn--primary self-start" onClick={() => sonarClic("select")}>
+            <Link href="/intro" className="v2-btn v2-btn--primary self-start" onClick={() => sonarClic("select")}>
               {tn("cta")}
             </Link>
           </div>
         </div>
 
         <ul className="lg:col-span-7">
-          {PREGUNTAS.map((k, i) => {
+          {/* Solo las que existen: hay páginas con cinco preguntas. */}
+          {PREGUNTAS.filter((k) => t.has(`items.${k}.question`)).map((k, i) => {
             const on = abierta === k;
             return (
               <li key={k} className="border-b border-[var(--v2-line)] last:border-b-0" data-reveal>

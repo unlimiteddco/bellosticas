@@ -19,12 +19,12 @@ type Destino = React.ComponentProps<typeof Link>["href"];
  */
 // Los servicios que ya tienen su página en la V2; el resto, a la de siempre.
 const V2: Record<string, Destino> = {
-  "desarrollo-web": "/v2/services/desarrollo-web",
-  ecommerce: "/v2/services/ecommerce",
-  "aplicaciones-web": "/v2/services/aplicaciones-web",
-  automatizaciones: "/v2/services/automatizaciones",
-  migraciones: "/v2/services/migraciones",
-  "white-label": "/v2/services/white-label",
+  "desarrollo-web": "/services/desarrollo-web",
+  ecommerce: "/services/ecommerce",
+  "aplicaciones-web": "/services/aplicaciones-web",
+  automatizaciones: "/services/automatizaciones",
+  migraciones: "/services/migraciones",
+  "white-label": "/services/white-label",
 };
 
 export function ServicesV2() {
@@ -38,7 +38,7 @@ export function ServicesV2() {
       descripcion: t("acc.brand.description"),
       puntos: t.raw("acc.brand.bullets") as string[],
       // La única con página propia en la V2 (de momento solo existe aquí).
-      href: "/v2/services/brand-identity" as Destino | null,
+      href: "/services/brand-identity" as Destino | null,
     },
     ...services.map((s) => ({
       clave: s.titleKey as string,

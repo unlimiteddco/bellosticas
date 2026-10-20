@@ -17,10 +17,10 @@ import { BotonAjustesCookies, IndiceLegal } from "./IndiceLegal";
 
 type Doc = "notice" | "privacy" | "cookies";
 
-const DOCS: { k: Doc; href: "/v2/legal" | "/v2/privacidad" | "/v2/cookies"; icono: LucideIcon }[] = [
-  { k: "notice", href: "/v2/legal", icono: FileText },
-  { k: "privacy", href: "/v2/privacidad", icono: ShieldCheck },
-  { k: "cookies", href: "/v2/cookies", icono: Cookie },
+const DOCS: { k: Doc; href: "/legal" | "/privacidad" | "/cookies"; icono: LucideIcon }[] = [
+  { k: "notice", href: "/legal", icono: FileText },
+  { k: "privacy", href: "/privacidad", icono: ShieldCheck },
+  { k: "cookies", href: "/cookies", icono: Cookie },
 ];
 
 /** Los títulos de la V1 van numerados («1. Titular»): el número se pinta aparte. */

@@ -108,7 +108,7 @@ export function BarraCaso({
               {t.web} <ArrowUpRight size={13} />
             </a>
           )}
-          <Link href="/v2/intro" className="v2-btn v2-btn--primary v2-btn--sm" onClick={() => sonarClic("select")}>
+          <Link href="/intro" className="v2-btn v2-btn--primary v2-btn--sm" onClick={() => sonarClic("select")}>
             {t.llamada}
           </Link>
         </span>

@@ -1,76 +1,30 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { LocalLanding } from "@/components/sections/local/LocalLanding";
 import { getLocalPage } from "@/lib/local-pages";
-import { serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/json-ld";
+import { LocalV2 } from "@/components/v2/local/LocalV2";
 
-const KEY = "teruel";
+/* «Diseño web en Teruel», en la V2. Solo en español, como la de la V1. */
+const CLAVE = "teruel";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const config = getLocalPage(KEY);
+  const config = getLocalPage(CLAVE);
   if (!config) return {};
   const t = await getTranslations({ locale, namespace: config.i18nNamespace });
+  const tv = await getTranslations({ locale, namespace: `v2Local.${CLAVE}` });
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
+    title: `${t("metaTitle")}`,
+    description: tv("metaDescription"),
   };
 }
 
-export default async function DisenoWebTeruelPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function DisenoWebTeruelV2({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-
-  const config = getLocalPage(KEY);
+  const config = getLocalPage(CLAVE);
   if (!config) notFound();
-
-  // Landing de SEO local: solo en español. La keyword es española y en inglés
-  // no hay demanda de búsqueda, así que /en/... redirige (308) a la versión ES
-  // en vez de servir una traducción duplicada y sin valor.
+  // La búsqueda es española: /en/... va a la versión en español.
   if (locale !== "es") permanentRedirect(`/${config.slug}`);
-
-  const t = await getTranslations({ locale, namespace: config.i18nNamespace });
-  const schemas = [
-    serviceSchema({
-      name: t("metaTitle"),
-      description: t("metaDescription"),
-      url: `/${config.slug}`,
-      areaServed: [config.city, "Aragón", "ES"],
-      serviceType: "Diseño y desarrollo web",
-    }),
-    faqSchema(
-      config.faqKeys.map((k) => ({
-        question: t(`faq.items.${k}.question`),
-        answer: t(`faq.items.${k}.answer`),
-      })),
-    ),
-    breadcrumbSchema([
-      { name: "Bellostas Studio", url: "/" },
-      { name: t("metaTitle"), url: `/${config.slug}` },
-    ]),
-  ];
-
-  return (
-    <>
-      {schemas.map((schema, i) =>
-        schema ? (
-          <script
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        ) : null,
-      )}
-      <LocalLanding config={config} locale={locale} />
-    </>
-  );
+  return <LocalV2 config={config} locale={locale} />;
 }

@@ -165,7 +165,7 @@ export async function LocalV2({ config, locale }: { config: LocalPageConfig; loc
             </p>
             <div className="v2-hero-in flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={{ animationDelay: "240ms" }}>
               <Link
-                href={{ pathname: "/v2/intro", query: { interes: tc("interes", { ciudad: config.city }) } }}
+                href={{ pathname: "/intro", query: { interes: tc("interes", { ciudad: config.city }) } }}
                 className="v2-btn v2-btn--primary h-12 w-full sm:h-[46px] sm:w-auto"
               >
                 {tc("cta")}
@@ -200,7 +200,7 @@ export async function LocalV2({ config, locale }: { config: LocalPageConfig; loc
                   {t("projects.title_part2")}
                 </h2>
               </div>
-              <Link href="/v2/work" className="v2-link" data-reveal>
+              <Link href="/work" className="v2-link" data-reveal>
                 {tc("casosCta")} <ArrowRight size={14} className="text-[var(--v2-accent)]" />
               </Link>
             </div>
