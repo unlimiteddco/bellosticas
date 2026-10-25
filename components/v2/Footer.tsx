@@ -132,7 +132,8 @@ export async function FooterV2({ locale }: { locale: string }) {
         <div className="v2-frame">
           <div className="flex flex-wrap items-center justify-between gap-3 border-x border-[var(--v2-band-line)] px-6 py-4 font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/45 md:px-10">
             <span>© {year} Bellostas Studio</span>
-            <span>{sinBarras(t("bottomRight"))}</span>
+            {/* El texto trae su propio «© 2026 ·»: el año ya va a la izquierda. */}
+            <span>{sinBarras(t("bottomRight")).replace(/^©\s*\d{4}\s*·\s*/, "")}</span>
           </div>
         </div>
       </div>

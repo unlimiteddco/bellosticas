@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/navigation";
 import { getProjects } from "@/lib/cms/projects";
-import { IMAGENES_CASO, VIDEO_CASO, conPortada } from "@/lib/v2/videos-casos";
+import { IMAGENES_CASO, VIDEO_CASO, conPortada, encuadre } from "@/lib/v2/videos-casos";
 import { TESTIMONIO_CASO } from "@/lib/v2/testimonios-casos";
 import { ClosingBand } from "@/components/v2/home/ClosingBand";
 import { PaginaServicio } from "@/components/v2/servicio/PaginaServicio";
@@ -189,7 +189,7 @@ export default async function CasoPagina({ params }: { params: Promise<{ locale:
             {video ? (
               <VideoCaso src={video} poster={imagen} />
             ) : imagen ? (
-              <img src={imagen} alt={p.name} className="absolute inset-0 h-full w-full object-cover object-left-top" />
+              <img src={imagen} alt={p.name} className={`absolute inset-0 h-full w-full object-cover ${encuadre(imagen)}`} />
             ) : p.logo ? (
               <span className="absolute inset-0 flex items-center justify-center p-16">
                 <img src={p.logo} alt={p.name} className="max-h-24 w-auto max-w-[60%] object-contain" />

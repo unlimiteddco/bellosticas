@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { getCMS, cmsLocale } from "./client";
 import { projects as staticProjects } from "@/lib/projects";
 import type { ResolvedProject } from "./types";
+import { conPortada } from "@/lib/v2/videos-casos";
 
 type MediaLike = { url?: string | null } | string | null | undefined;
 
@@ -16,9 +17,14 @@ function mediaUrl(m: MediaLike): string | undefined {
 /**
  * Projects for the active locale. Reads from Payload; if the CMS is empty or
  * unavailable, falls back to the static lib/projects.ts list with descriptions
- * resolved from the work.items.* i18n messages.
+ * resolved from the work.items.* i18n messages. Las portadas propias de la web
+ * (IMAGENES_CASO) se aplican aquí, para que salgan igual en todas las páginas.
  */
 export async function getProjects(locale: string): Promise<ResolvedProject[]> {
+  return conPortada(await cargarProyectos(locale));
+}
+
+async function cargarProyectos(locale: string): Promise<ResolvedProject[]> {
   const cms = await getCMS();
 
   if (cms) {

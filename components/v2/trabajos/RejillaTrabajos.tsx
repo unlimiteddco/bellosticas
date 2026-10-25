@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import type { ResolvedProject } from "@/lib/cms/types";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { encuadre } from "@/lib/v2/videos-casos";
 
 /*
  * La rejilla de la página de Trabajos (al estilo de la de DesignMe): filtros
@@ -187,7 +188,7 @@ function Medio({ p, video }: { p: ResolvedProject; video?: string }) {
         src={imagen}
         alt=""
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover object-left-top transition-transform duration-[900ms] ease-[var(--v2-ease)] group-hover:scale-[1.03]"
+        className={`absolute inset-0 h-full w-full object-cover ${encuadre(imagen)} transition-transform duration-[900ms] ease-[var(--v2-ease)] group-hover:scale-[1.03]`}
       />
     );
   }

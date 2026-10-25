@@ -19,6 +19,7 @@ import { services } from "@/lib/services";
 import { TOOL_COLORS, TOOL_LOGOS } from "@/lib/tool-logos";
 import type { ResolvedProject } from "@/lib/cms/types";
 import { ProofRow } from "@/components/v2/home/ProofRow";
+import { encuadre } from "@/lib/v2/videos-casos";
 import { ProcesoTabs, type Paso } from "./ProcesoTabs";
 
 /*
@@ -203,10 +204,11 @@ export async function ServicioCasos({ locale, ns, casos }: { locale: string; ns:
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                   ) : p.cover ? (
-                    // Capturas de webs: encuadradas por arriba a la izquierda, donde va el logo.
-                    <img src={p.cover} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-left-top" />
+                    // Capturas de webs: encuadradas por arriba a la izquierda, donde va el logo
+                    // (los mockups, centrados).
+                    <img src={p.cover} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover ${encuadre(p.cover)}`} />
                   ) : imagen ? (
-                    <img src={imagen} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-left-top" />
+                    <img src={imagen} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover ${encuadre(imagen)}`} />
                   ) : p.logo ? (
                     <span className="absolute inset-0 flex items-center justify-center p-10">
                       <img
