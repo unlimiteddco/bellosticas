@@ -154,10 +154,10 @@ export async function ProcesoPortal({ locale }: { locale: string }) {
         </div>
         <div className="relative min-h-[320px] overflow-hidden bg-[var(--v2-bg-2)] lg:col-span-7" data-reveal="fade">
           <img
-            src="/images/portal-cliente.webp"
+            src="/images/portal-cliente-mockup.webp"
             alt={t("imageAlt")}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-left-top"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
       </div>
