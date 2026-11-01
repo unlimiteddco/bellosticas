@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowDown, BookOpen, FileArchive } from "lucide-react";
 import { MarcoTienda } from "@/components/sections/tienda/MarcoTienda";
 import { alCrm } from "@/lib/tienda";
+import { T, idiomaDe } from "@/lib/tienda-textos";
 
 /*
  * La descarga de una compra (bellostas.studio/compra/<código>). El código va
@@ -11,7 +12,7 @@ import { alCrm } from "@/lib/tienda";
  */
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "Tu descarga · Bellostas Studio",
+  title: "Bellostas Studio",
   robots: { index: false, follow: false },
   referrer: "no-referrer",
 };
@@ -23,9 +24,11 @@ interface Compra {
 }
 
 const peso = (b: number | null) => (b === null ? "" : b > 1e6 ? `${(b / 1e6).toFixed(1)} MB` : `${Math.round(b / 1e3)} KB`);
+const esGuia = (nombre: string) => nombre.toLowerCase().endsWith(".pdf");
 
-export default async function CompraPage({ params }: { params: Promise<{ token: string }> }) {
-  const { token } = await params;
+export default async function CompraPage({ params }: { params: Promise<{ token: string; locale: string }> }) {
+  const { token, locale } = await params;
+  const t = T[idiomaDe(locale)];
   if (!/^[A-Za-z0-9_-]{16,64}$/.test(token)) notFound();
   let compra: Compra | null = null;
   try {
@@ -36,20 +39,20 @@ export default async function CompraPage({ params }: { params: Promise<{ token: 
   }
   if (!compra) notFound();
   // La guía primero: es por donde hay que empezar.
-  const esGuia = (nombre: string) => nombre.toLowerCase().endsWith(".pdf");
   compra.archivos.sort((a, b) => Number(esGuia(b.nombre)) - Number(esGuia(a.nombre)));
 
   return (
-    <MarcoTienda>
+    <MarcoTienda pie={t.problema}>
       <div className="flex flex-col gap-6">
         <div className="text-center">
-          <span className="v2-tag">Compra confirmada</span>
+          <span className="v2-tag">{t.compraConfirmada}</span>
           <h1 className="mt-4 text-[32px] font-medium leading-[1.1] tracking-[-0.03em] lg:text-[40px]">
-            Gracias. Aquí tienes {compra.producto}
+            {t.aquiTienes(compra.producto)}
           </h1>
           <p className="mt-3 text-[15px] leading-[1.6] text-[var(--v2-muted)]">
-            Te hemos mandado este mismo enlace a <strong className="text-[var(--v2-text)]">{compra.email}</strong>. Guárdalo: no
-            caduca y las versiones nuevas aparecerán aquí.
+            {t.teHemos[0]}
+            <strong className="text-[var(--v2-text)]">{compra.email}</strong>
+            {t.teHemos[1]}
           </p>
         </div>
 
@@ -67,7 +70,7 @@ export default async function CompraPage({ params }: { params: Promise<{ token: 
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-[15.5px] font-medium">{a.nombre}</span>
                     <span className="block text-[12.5px] text-[var(--v2-muted)]">
-                      {guia ? "La guía: empieza por aquí" : "El código"} · {peso(a.tamano)}
+                      {guia ? t.laGuia : t.elCodigo} · {peso(a.tamano)}
                     </span>
                   </span>
                   <ArrowDown size={18} strokeWidth={1.8} className="shrink-0" />
@@ -76,16 +79,14 @@ export default async function CompraPage({ params }: { params: Promise<{ token: 
             );
           })}
           {compra.archivos.length === 0 && (
-            <li className="px-5 py-6 text-center text-[15px] text-[var(--v2-muted)]">
-              Estamos preparando los archivos. Vuelve a este enlace en un rato.
-            </li>
+            <li className="px-5 py-6 text-center text-[15px] text-[var(--v2-muted)]">{t.preparando}</li>
           )}
         </ul>
 
         <p className="text-center text-[14px] leading-[1.6] text-[var(--v2-muted)]">
-          ¿Prefieres que te lo monte yo para tu club?{" "}
-          <a href="/contacto" className="text-[var(--v2-text)] underline underline-offset-2">
-            Escríbeme
+          {t.prefieres}{" "}
+          <a href={t.contacto} className="text-[var(--v2-text)] underline underline-offset-2">
+            {t.escribeme}
           </a>
         </p>
       </div>

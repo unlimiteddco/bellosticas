@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { MarcoTienda } from "@/components/sections/tienda/MarcoTienda";
 import { alCrm } from "@/lib/tienda";
+import { T, idiomaDe } from "@/lib/tienda-textos";
 
 /*
  * Vuelta de Stripe tras pagar (?session_id=cs_…). El CRM comprueba en Stripe
@@ -9,9 +10,17 @@ import { alCrm } from "@/lib/tienda";
  * devuelve el código de descarga: de aquí se salta a /compra/<código>.
  */
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "Gracias · Bellostas Studio", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Bellostas Studio", robots: { index: false, follow: false } };
 
-export default async function GraciasPage({ searchParams }: { searchParams: Promise<{ session_id?: string }> }) {
+export default async function GraciasPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ session_id?: string }>;
+}) {
+  const idioma = idiomaDe((await params).locale);
+  const t = T[idioma];
   const { session_id } = await searchParams;
   let token: string | null = null;
   if (session_id && /^cs_[A-Za-z0-9_]{10,200}$/.test(session_id)) {
@@ -23,18 +32,14 @@ export default async function GraciasPage({ searchParams }: { searchParams: Prom
       // se queda en el mensaje de abajo
     }
   }
-  if (token) redirect(`/compra/${token}`);
+  if (token) redirect(`${idioma === "en" ? "/en" : ""}/compra/${token}`);
 
   return (
-    <MarcoTienda>
+    <MarcoTienda pie={t.problema}>
       <div className="v2-card flex flex-col gap-3 p-6 text-center">
-        <h1 className="text-[26px] font-medium leading-[1.15] tracking-[-0.02em]">Estamos confirmando tu pago</h1>
-        <p className="text-[15px] leading-[1.6] text-[var(--v2-muted)]">
-          Si has pagado, en unos minutos te llega un email con el enlace de descarga. Mira también en spam o promociones.
-        </p>
-        <p className="text-[15px] leading-[1.6] text-[var(--v2-muted)]">
-          ¿Pasa un rato y no llega? Escribe a info@bellostas.studio con el email con el que pagaste.
-        </p>
+        <h1 className="text-[26px] font-medium leading-[1.15] tracking-[-0.02em]">{t.confirmando}</h1>
+        <p className="text-[15px] leading-[1.6] text-[var(--v2-muted)]">{t.confirmando1}</p>
+        <p className="text-[15px] leading-[1.6] text-[var(--v2-muted)]">{t.confirmando2}</p>
       </div>
     </MarcoTienda>
   );

@@ -25,25 +25,38 @@ export async function POST(request: Request) {
   }
   intentos.set(ip, r && ahora - r.desde < 60_000 ? { n: r.n + 1, desde: r.desde } : { n: 1, desde: ahora });
 
-  const body = (await request.json().catch(() => ({}))) as { producto?: unknown; acepta?: unknown; atribucion?: unknown };
+  const body = (await request.json().catch(() => ({}))) as {
+    producto?: unknown;
+    acepta?: unknown;
+    atribucion?: unknown;
+    idioma?: unknown;
+  };
+  const idioma = body.idioma === "en" ? "en" : "es";
+  const prefijo = idioma === "en" ? "/en" : "";
   const producto = typeof body.producto === "string" && /^[a-z0-9-]{1,60}$/.test(body.producto) ? body.producto : "";
   if (!producto || body.acepta !== true) {
-    return NextResponse.json({ ok: false, error: "Acepta las condiciones para seguir" }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: idioma === "en" ? "Accept the terms to continue" : "Acepta las condiciones para seguir" },
+      { status: 400 },
+    );
   }
 
   try {
     const res = await alCrm(`/api/public/tienda/${producto}/checkout`, {
       renunciaDesistimiento: true,
-      successUrl: `${SITE_URL}/tienda/gracias`,
-      cancelUrl: `${SITE_URL}/tienda/${producto}`,
+      idioma,
+      successUrl: `${SITE_URL}${prefijo}/tienda/gracias`,
+      cancelUrl: `${SITE_URL}${prefijo}/tienda/${producto}`,
       atribucion: body.atribucion && typeof body.atribucion === "object" ? body.atribucion : undefined,
     });
     const j = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string; error?: string };
     if (!res.ok || !j.url) {
-      return NextResponse.json({ ok: false, error: j.error ?? "No se pudo iniciar el pago" }, { status: res.status === 503 ? 503 : 502 });
+      const error = idioma === "en" ? "Couldn't start the payment" : (j.error ?? "No se pudo iniciar el pago");
+      return NextResponse.json({ ok: false, error }, { status: res.status === 503 ? 503 : 502 });
     }
     return NextResponse.json({ ok: true, url: j.url });
   } catch {
-    return NextResponse.json({ ok: false, error: "No se pudo iniciar el pago" }, { status: 502 });
+    const error = idioma === "en" ? "Couldn't start the payment" : "No se pudo iniciar el pago";
+    return NextResponse.json({ ok: false, error }, { status: 502 });
   }
 }

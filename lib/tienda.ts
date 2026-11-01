@@ -41,8 +41,3 @@ export async function alCrm(path: string, body: unknown): Promise<Response> {
     signal: AbortSignal.timeout(20_000),
   });
 }
-
-export const euros = (centimos: number) =>
-  new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", minimumFractionDigits: centimos % 100 ? 2 : 0 }).format(
-    centimos / 100,
-  );
