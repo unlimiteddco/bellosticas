@@ -55,6 +55,10 @@ export const routing = defineRouting({
     // Landings de recursos y propuestas (sin indexar).
     "/g/[slug]": "/g/[slug]",
     "/propuestas/[token]": "/propuestas/[token]",
+    // Tienda de productos digitales (sin indexar).
+    "/tienda/[slug]": "/tienda/[slug]",
+    "/tienda/gracias": "/tienda/gracias",
+    "/compra/[token]": "/compra/[token]",
     // De la V1: ya no tienen página y redirigen (next.config.ts). Se quedan
     // aquí solo porque algún componente antiguo aún los enlaza.
     "/love": "/love",
