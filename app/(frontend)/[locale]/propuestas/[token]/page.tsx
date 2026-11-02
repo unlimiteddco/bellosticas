@@ -100,6 +100,8 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
   // Sin IVA para empresas de fuera de España: lo marca Antonio en el CRM.
   const sinIva = Boolean(proposal.taxExempt);
   const IVA = sinIva ? 0 : 0.21;
+  // Moneda en la que se habló con el cliente (EUR, GBP o USD).
+  const moneda = proposal.currency ?? "EUR";
   const baseSum = installments.reduce((s, i) => s + (Number(i.amount) || 0), 0);
   const totalBase = installments.length > 0 ? baseSum : Number(proposal.total) || 0;
 
@@ -127,7 +129,7 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
 
   return (
     <V2Root>
-      <ProposalExtrasProvider extras={extras}>
+      <ProposalExtrasProvider extras={extras} moneda={moneda}>
         {!unavailable && <ProposalPreloader clientName={proposal.clientName} />}
 
         <div className="v2-propuesta">
@@ -277,11 +279,11 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
                                 <p className="text-[16px] md:text-[17px]">{item.description}</p>
                                 {qty !== 1 && (
                                   <p className="mt-0.5 text-[12px] text-[var(--v2-muted)]">
-                                    {qty} × {formatEUR(item.unitPrice, locale)}
+                                    {qty} × {formatEUR(item.unitPrice, locale, moneda)}
                                   </p>
                                 )}
                               </div>
-                              <span className="shrink-0 text-[16px] tabular-nums md:text-[17px]">{formatEUR(lineTotal(item), locale)}</span>
+                              <span className="shrink-0 text-[16px] tabular-nums md:text-[17px]">{formatEUR(lineTotal(item), locale, moneda)}</span>
                             </div>
                           );
                         })}
@@ -323,7 +325,7 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
                             </h3>
                           </div>
                           <p className="text-[26px] font-medium tracking-[-0.03em] md:text-[32px]">
-                            {formatEURPrecio(maintenance.mensual, locale)}
+                            {formatEURPrecio(maintenance.mensual, locale, moneda)}
                             <span className="text-[15px] font-normal text-[var(--v2-muted)]">{t(sinIva ? "maintenance_month_novat" : "maintenance_month")}</span>
                           </p>
                         </div>
@@ -340,8 +342,8 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
                           {/* El ahorro anual va en euros, nunca en porcentaje. */}
                           <p className="mt-5 text-[14px] text-[var(--v2-muted)]">
                             {t("maintenance_annual", {
-                              anual: formatEURPrecio(maintenance.anual, locale),
-                              ahorro: formatEURPrecio(maintenance.ahorro, locale),
+                              anual: formatEURPrecio(maintenance.anual, locale, moneda),
+                              ahorro: formatEURPrecio(maintenance.ahorro, locale, moneda),
                             })}
                           </p>
                         </div>

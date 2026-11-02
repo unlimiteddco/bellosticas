@@ -6,7 +6,7 @@ import { Check, FileText, Landmark, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import type { ProposalPrefill } from "@/lib/proposals";
-import { useProposalExtras } from "./ProposalExtrasContext";
+import { useMonedaPropuesta, useProposalExtras } from "./ProposalExtrasContext";
 import { SignaturePad } from "./SignaturePad";
 import { ContractReader } from "./ContractReader";
 import { eur } from "@/lib/eur";
@@ -62,6 +62,7 @@ export function ProposalWizard({
   const t = useTranslations("proposalPage");
   const locale = useLocale();
   const extrasCtx = useProposalExtras();
+  const moneda = useMonedaPropuesta();
 
   const [paso, setPaso] = useState<Paso>(1);
   const [enviando, setEnviando] = useState(false);
@@ -315,22 +316,22 @@ export function ProposalWizard({
                   <Dato
                     destacado
                     label={t("wizard_first_payment")}
-                    value={eur(primerPagoBase, locale)}
+                    value={eur(primerPagoBase, locale, false, moneda)}
                     sufijo={masIva}
                     sub={
                       sinIva
                         ? `${primero.label} · ${t("wizard_novat")}`
-                        : `${primero.label} · ${t("wizard_with_vat", { amount: eur(primerPagoBase * (1 + taxRate), locale) })}`
+                        : `${primero.label} · ${t("wizard_with_vat", { amount: eur(primerPagoBase * (1 + taxRate), locale, false, moneda) })}`
                     }
                   />
                   <Dato
                     label={t("wizard_total_project")}
-                    value={eur(base, locale)}
+                    value={eur(base, locale, false, moneda)}
                     sufijo={masIva}
                     sub={
                       otros.length === 1
-                        ? t(sinIva ? "wizard_rest_one_novat" : "wizard_rest_one", { amount: eur(restoBase, locale), label: otros[0].label })
-                        : t(sinIva ? "wizard_rest_many_novat" : "wizard_rest_many", { amount: eur(restoBase, locale), count: otros.length })
+                        ? t(sinIva ? "wizard_rest_one_novat" : "wizard_rest_one", { amount: eur(restoBase, locale, false, moneda), label: otros[0].label })
+                        : t(sinIva ? "wizard_rest_many_novat" : "wizard_rest_many", { amount: eur(restoBase, locale, false, moneda), count: otros.length })
                     }
                   />
                 </>
@@ -339,9 +340,9 @@ export function ProposalWizard({
                   <Dato
                     destacado
                     label={t("wizard_total_project")}
-                    value={eur(base, locale)}
+                    value={eur(base, locale, false, moneda)}
                     sufijo={masIva}
-                    sub={sinIva ? t("wizard_novat") : t("wizard_with_vat", { amount: eur(conIva, locale) })}
+                    sub={sinIva ? t("wizard_novat") : t("wizard_with_vat", { amount: eur(conIva, locale, false, moneda) })}
                   />
                   <Dato
                     label={primero ? t("wizard_single_payment") : t("wizard_first_payment")}
@@ -490,7 +491,7 @@ export function ProposalWizard({
                 </p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-3">
                   <Dato label={t("success.invoice_label")} value={resultado.invoice.number} />
-                  <Dato label={t("success.amount_label")} value={eur(resultado.invoice.total, locale, true)} />
+                  <Dato label={t("success.amount_label")} value={eur(resultado.invoice.total, locale, true, moneda)} />
                   {resultado.invoice.iban && (
                     <Dato label={t("success.iban_label")} value={iban(resultado.invoice.iban)} />
                   )}

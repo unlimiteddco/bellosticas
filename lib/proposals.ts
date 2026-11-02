@@ -49,6 +49,8 @@ export type ProposalData = {
   language?: "es" | "en";
   /** Sin IVA (empresa de fuera de España): ni se suma ni se escribe «+ IVA». */
   taxExempt?: boolean;
+  /** Moneda de la propuesta: EUR, GBP o USD. */
+  currency?: string;
   /** Fecha de expiración (ISO) — se muestra como "válida hasta" si existe. */
   expiresAt?: string | null;
   /** Piezas de la solución (rejilla cualitativa, estilo documento). */
@@ -362,8 +364,8 @@ export async function fetchProposal(token: string): Promise<ProposalPayload | nu
 }
 
 /** Importe con céntimos siempre: líneas de presupuesto y de factura. */
-export function formatEUR(amount: string | number, locale: string): string {
-  return eur(amount, locale, true);
+export function formatEUR(amount: string | number, locale: string, moneda = "EUR"): string {
+  return eur(amount, locale, true, moneda);
 }
 
 /**
@@ -371,8 +373,8 @@ export function formatEUR(amount: string | number, locale: string): string {
  * Los precios de mantenimiento son titulares ("89 €/mes"), no líneas de
  * factura: los ",00" ensucian la lectura.
  */
-export function formatEURPrecio(amount: number, locale: string): string {
-  return eur(amount, locale);
+export function formatEURPrecio(amount: number, locale: string, moneda = "EUR"): string {
+  return eur(amount, locale, false, moneda);
 }
 
 export function lineTotal(item: ProposalItem): number {

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, Info, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { ProposalExtra } from "@/lib/proposals";
-import { useProposalExtras } from "./ProposalExtrasContext";
+import { useMonedaPropuesta, useProposalExtras } from "./ProposalExtrasContext";
 import { eur } from "@/lib/eur";
 
 /** Popup de "ver más". Cierra con Escape y con clic fuera, y bloquea el scroll. */
@@ -18,6 +18,7 @@ function DetalleModal({
   onClose: () => void;
   cerrarLabel: string;
 }) {
+  const moneda = useMonedaPropuesta();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
@@ -84,7 +85,7 @@ function DetalleModal({
         )}
 
         <p className="mt-6 pt-5 border-t border-[var(--color-border)] font-body text-[17px] text-[var(--color-text)] tabular-nums">
-          + {eur(Number(extra.price) || 0, "es")}
+          + {eur(Number(extra.price) || 0, "es", false, moneda)}
         </p>
       </motion.div>
     </motion.div>
@@ -102,6 +103,7 @@ function DetalleModal({
  */
 export function ProposalExtras() {
   const ctx = useProposalExtras();
+  const moneda = useMonedaPropuesta();
   const t = useTranslations("proposalPage");
   const locale = useLocale();
   const [abierto, setAbierto] = useState<ProposalExtra | null>(null);
@@ -175,7 +177,7 @@ export function ProposalExtras() {
                   )}
                   <div className="flex items-center justify-between gap-3 mt-2.5">
                     <span className="font-body text-[15px] text-[var(--color-text)] tabular-nums">
-                      + {eur(Number(e.price) || 0, locale)}
+                      + {eur(Number(e.price) || 0, locale, false, moneda)}
                     </span>
                     {hayDetalle && (
                       <button

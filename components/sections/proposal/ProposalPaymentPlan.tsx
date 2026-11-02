@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import type { Installment } from "@/lib/proposals";
 import { eur } from "@/lib/eur";
+import { useMonedaPropuesta } from "./ProposalExtrasContext";
 
 /**
  * Plan de cobro en tarjetas.
@@ -23,6 +24,7 @@ export function ProposalPaymentPlan({
 }) {
   const t = useTranslations("proposalPage");
   const locale = useLocale();
+  const moneda = useMonedaPropuesta();
   if (installments.length === 0) return null;
 
   const total = installments.reduce((a, i) => a + (Number(i.amount) || 0), 0);
@@ -56,7 +58,7 @@ export function ProposalPaymentPlan({
                 destacada ? "text-[var(--color-bg)]" : "text-[var(--color-text)]"
               }`}
             >
-              {eur(base, locale)}
+              {eur(base, locale, false, moneda)}
               {!sinIva && ` ${t("plan_plus_vat")}`}
             </p>
             <p

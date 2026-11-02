@@ -15,7 +15,14 @@
  * «,00» lo ensucian. `conCentimos` los fuerza donde la cifra es la de una
  * transferencia y tiene que ser exacta.
  */
-export function eur(importe: number | string, locale: string, conCentimos = false): string {
+const SIMBOLO: Record<string, string> = { EUR: "€", GBP: "£", USD: "US$" };
+
+/**
+ * `moneda`: la de la propuesta (EUR, GBP o USD). A los clientes de fuera se les
+ * habla en su moneda, y la propuesta tiene que decir lo mismo que se habló.
+ */
+export function eur(importe: number | string, locale: string, conCentimos = false, moneda = "EUR"): string {
+  const m = SIMBOLO[moneda] ? moneda : "EUR";
   const v = typeof importe === "string" ? parseFloat(importe) : importe;
   const n = Number.isFinite(v) ? v : 0;
   const decimales = conCentimos || !Number.isInteger(Math.round(n * 100) / 100);
@@ -23,7 +30,7 @@ export function eur(importe: number | string, locale: string, conCentimos = fals
   if (locale === "en") {
     return new Intl.NumberFormat("en-IE", {
       style: "currency",
-      currency: "EUR",
+      currency: m,
       minimumFractionDigits: decimales ? 2 : 0,
       maximumFractionDigits: 2,
     }).format(n);
@@ -38,5 +45,5 @@ export function eur(importe: number | string, locale: string, conCentimos = fals
   }
   const miles = String(entero).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   // Espacio de no separación: la cifra y su «€» no pueden partirse en dos líneas.
-  return `${n < 0 ? "-" : ""}${miles}${decimales ? `,${String(cent).padStart(2, "0")}` : ""} €`;
+  return `${n < 0 ? "-" : ""}${miles}${decimales ? `,${String(cent).padStart(2, "0")}` : ""} ${SIMBOLO[m]}`;
 }

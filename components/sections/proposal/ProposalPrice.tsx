@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useProposalExtras } from "./ProposalExtrasContext";
+import { useMonedaPropuesta, useProposalExtras } from "./ProposalExtrasContext";
 import { eur } from "@/lib/eur";
 
 /**
@@ -23,6 +23,7 @@ export function ProposalPrice({
   entregables: string[];
 }) {
   const ctx = useProposalExtras();
+  const moneda = useMonedaPropuesta();
   const t = useTranslations("proposalPage");
   const locale = useLocale();
 
@@ -31,15 +32,15 @@ export function ProposalPrice({
   const sinIva = taxRate === 0;
 
   return (
-    <div className="rounded-2xl bg-[var(--color-text)] text-[var(--color-bg)] p-8 md:p-12">
+    <div className="rounded-2xl bg-[var(--color-text)] text-[var(--color-bg)] p-7 md:p-10">
       <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
         <div>
           {/* Sin etiqueta propia: la sección ya se titula "Inversión" justo
               encima y repetirlo es ruido. */}
-          <p className="font-display text-[54px] md:text-[76px] leading-[0.95] tabular-nums">
-            {eur(base, locale)}
+          <p className="font-display text-[40px] md:text-[52px] leading-[1] tracking-[-0.02em] tabular-nums">
+            {eur(base, locale, false, moneda)}
           </p>
-          <p className="mt-3 font-body text-[16px] text-[var(--color-bg)]/70">
+          <p className="mt-2 font-body text-[14px] text-[var(--color-bg)]/65">
             {t(sinIva ? "price_base_note_novat" : "price_base_note")}
           </p>
           <p className="mt-5 font-body text-[13px] leading-[1.65] text-[var(--color-bg)]/55 max-w-[380px]">
@@ -48,7 +49,7 @@ export function ProposalPrice({
           <p className="mt-4 font-body text-[13px] text-[var(--color-bg)]/45 tabular-nums">
             {sinIva
               ? t("total_novat_note")
-              : t("total_vat_note", { iva: eur(iva, locale), total: eur(base + iva, locale) })}
+              : t("total_vat_note", { iva: eur(iva, locale, false, moneda), total: eur(base + iva, locale, false, moneda) })}
           </p>
         </div>
 
