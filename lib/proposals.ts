@@ -45,6 +45,8 @@ export type ProposalData = {
   timeline: string | null;
   total: string | number;
   status: string;
+  /** Idioma en el que se lee: la página se abre en este, no en el de la URL. */
+  language?: "es" | "en";
   /** Fecha de expiración (ISO) — se muestra como "válida hasta" si existe. */
   expiresAt?: string | null;
   /** Piezas de la solución (rejilla cualitativa, estilo documento). */

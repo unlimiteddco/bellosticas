@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ArrowRight, CalendarClock, Check, Clock, Download } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/navigation";
@@ -76,6 +76,14 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
 
   const data = await fetchProposal(token);
   if (!data) notFound();
+
+  // Cada propuesta tiene su idioma (lo elige Antonio en el CRM). Se abre en
+  // ese, venga el enlace con /en o sin él: a un cliente inglés no se le puede
+  // enseñar la interfaz en un idioma y el contenido en otro.
+  const idioma = data.proposal.language === "en" ? "en" : "es";
+  if (idioma !== locale) {
+    redirect(idioma === defaultLocale ? `/propuestas/${token}` : `/${idioma}/propuestas/${token}`);
+  }
 
   const { proposal, items, installments, expired, maintenance, prefill } = data;
   const extras = data.extras ?? [];
