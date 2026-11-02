@@ -93,6 +93,9 @@ export function ProposalWizard({
 
   const base = totalBase + (extrasCtx?.extrasBase ?? 0);
   const conIva = base * (1 + taxRate);
+  // Sin IVA: las cifras van solas y debajo no se repite «con IVA».
+  const sinIva = taxRate === 0;
+  const masIva = sinIva ? undefined : t("wizard_plus_vat");
 
   /* Lo que paga AHORA, no lo que cuesta todo.
      Con el plan en varios plazos, justo antes de firmar la cifra que le
@@ -313,17 +316,21 @@ export function ProposalWizard({
                     destacado
                     label={t("wizard_first_payment")}
                     value={eur(primerPagoBase, locale)}
-                    sufijo={t("wizard_plus_vat")}
-                    sub={`${primero.label} · ${t("wizard_with_vat", { amount: eur(primerPagoBase * (1 + taxRate), locale) })}`}
+                    sufijo={masIva}
+                    sub={
+                      sinIva
+                        ? `${primero.label} · ${t("wizard_novat")}`
+                        : `${primero.label} · ${t("wizard_with_vat", { amount: eur(primerPagoBase * (1 + taxRate), locale) })}`
+                    }
                   />
                   <Dato
                     label={t("wizard_total_project")}
                     value={eur(base, locale)}
-                    sufijo={t("wizard_plus_vat")}
+                    sufijo={masIva}
                     sub={
                       otros.length === 1
-                        ? t("wizard_rest_one", { amount: eur(restoBase, locale), label: otros[0].label })
-                        : t("wizard_rest_many", { amount: eur(restoBase, locale), count: otros.length })
+                        ? t(sinIva ? "wizard_rest_one_novat" : "wizard_rest_one", { amount: eur(restoBase, locale), label: otros[0].label })
+                        : t(sinIva ? "wizard_rest_many_novat" : "wizard_rest_many", { amount: eur(restoBase, locale), count: otros.length })
                     }
                   />
                 </>
@@ -333,8 +340,8 @@ export function ProposalWizard({
                     destacado
                     label={t("wizard_total_project")}
                     value={eur(base, locale)}
-                    sufijo={t("wizard_plus_vat")}
-                    sub={t("wizard_with_vat", { amount: eur(conIva, locale) })}
+                    sufijo={masIva}
+                    sub={sinIva ? t("wizard_novat") : t("wizard_with_vat", { amount: eur(conIva, locale) })}
                   />
                   <Dato
                     label={primero ? t("wizard_single_payment") : t("wizard_first_payment")}

@@ -205,7 +205,13 @@
     "done_title": "Contract signed. Let's begin.",
     "done_body": "Everything's in order. We've emailed you your copy of the contract along with access to your portal.",
     "done_payment_note": "Only the first payment left: it's what books your slot in the calendar and gets the project moving.",
-    "done_transfer_hint": "Bank transfer with the project name as the reference. As soon as we see it we'll write asking for the materials so we can start."
+    "done_transfer_hint": "Bank transfer with the project name as the reference. As soon as we see it we'll write asking for the materials so we can start.",
+    "price_base_note_novat": "no VAT",
+    "total_novat_note": "No VAT: no Spanish VAT is charged.",
+    "maintenance_month_novat": "/month",
+    "wizard_novat": "No VAT",
+    "wizard_rest_one_novat": "{amount} remaining · {label}",
+    "wizard_rest_many_novat": "{amount} remaining, in {count} instalments"
   },
   "nav": {
     "work": "Work",

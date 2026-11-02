@@ -28,6 +28,7 @@ export function ProposalPrice({
 
   const base = baseSum + (ctx?.extrasBase ?? 0);
   const iva = base * taxRate;
+  const sinIva = taxRate === 0;
 
   return (
     <div className="rounded-2xl bg-[var(--color-text)] text-[var(--color-bg)] p-8 md:p-12">
@@ -39,13 +40,15 @@ export function ProposalPrice({
             {eur(base, locale)}
           </p>
           <p className="mt-3 font-body text-[16px] text-[var(--color-bg)]/70">
-            {t("price_base_note")}
+            {t(sinIva ? "price_base_note_novat" : "price_base_note")}
           </p>
           <p className="mt-5 font-body text-[13px] leading-[1.65] text-[var(--color-bg)]/55 max-w-[380px]">
             {t("price_closed")}
           </p>
           <p className="mt-4 font-body text-[13px] text-[var(--color-bg)]/45 tabular-nums">
-            {t("total_vat_note", { iva: eur(iva, locale), total: eur(base + iva, locale) })}
+            {sinIva
+              ? t("total_novat_note")
+              : t("total_vat_note", { iva: eur(iva, locale), total: eur(base + iva, locale) })}
           </p>
         </div>
 

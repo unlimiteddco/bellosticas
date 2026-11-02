@@ -205,7 +205,13 @@
     "done_title": "Contrato firmado. Empezamos.",
     "done_body": "Ya está todo en orden. Te hemos enviado tu copia del contrato por email, junto con el acceso a tu portal.",
     "done_payment_note": "Solo queda el primer pago: es lo que reserva tu sitio en el calendario y pone el proyecto en marcha.",
-    "done_transfer_hint": "Transferencia bancaria con el nombre del proyecto como concepto. En cuanto la veamos te escribimos para pedirte los materiales y arrancar."
+    "done_transfer_hint": "Transferencia bancaria con el nombre del proyecto como concepto. En cuanto la veamos te escribimos para pedirte los materiales y arrancar.",
+    "price_base_note_novat": "sin IVA",
+    "total_novat_note": "Sin IVA: no se aplica IVA español.",
+    "maintenance_month_novat": "/mes",
+    "wizard_novat": "Sin IVA",
+    "wizard_rest_one_novat": "Quedan {amount} · {label}",
+    "wizard_rest_many_novat": "Quedan {amount}, en {count} plazos"
   },
   "nav": {
     "work": "Trabajos",

@@ -97,7 +97,9 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
   const highlights = proposal.highlights ?? [];
   const phases = proposal.phases ?? [];
 
-  const IVA = 0.21;
+  // Sin IVA para empresas de fuera de España: lo marca Antonio en el CRM.
+  const sinIva = Boolean(proposal.taxExempt);
+  const IVA = sinIva ? 0 : 0.21;
   const baseSum = installments.reduce((s, i) => s + (Number(i.amount) || 0), 0);
   const totalBase = installments.length > 0 ? baseSum : Number(proposal.total) || 0;
 
@@ -304,7 +306,7 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
                     {installments.length > 0 && (
                       <div className="mt-14 border-t border-[var(--v2-line)] pt-12">
                         <Titulo etiqueta={t("plan_label")} partes={[t("plan_title_1"), t("plan_title_accent"), t("plan_title_2")]} />
-                        <ProposalPaymentPlan installments={installments} />
+                        <ProposalPaymentPlan installments={installments} sinIva={sinIva} />
                         <p className="mt-6 max-w-[620px] text-[13.5px] leading-[1.55]">{t("pay_today")}</p>
                         <p className="mt-2 text-[12.5px] text-[var(--v2-muted)]">{t("plan_note")}</p>
                       </div>
@@ -322,7 +324,7 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
                           </div>
                           <p className="text-[26px] font-medium tracking-[-0.03em] md:text-[32px]">
                             {formatEURPrecio(maintenance.mensual, locale)}
-                            <span className="text-[15px] font-normal text-[var(--v2-muted)]">{t("maintenance_month")}</span>
+                            <span className="text-[15px] font-normal text-[var(--v2-muted)]">{t(sinIva ? "maintenance_month_novat" : "maintenance_month")}</span>
                           </p>
                         </div>
                         <div className="px-6 py-6 md:px-8">

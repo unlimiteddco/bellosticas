@@ -13,7 +13,14 @@ import { eur } from "@/lib/eur";
  *
  * El primer plazo va destacado: es el único que decide hoy.
  */
-export function ProposalPaymentPlan({ installments }: { installments: Installment[] }) {
+export function ProposalPaymentPlan({
+  installments,
+  sinIva = false,
+}: {
+  installments: Installment[];
+  /** Sin IVA: el importe va solo, sin «+ IVA». */
+  sinIva?: boolean;
+}) {
   const t = useTranslations("proposalPage");
   const locale = useLocale();
   if (installments.length === 0) return null;
@@ -49,7 +56,8 @@ export function ProposalPaymentPlan({ installments }: { installments: Installmen
                 destacada ? "text-[var(--color-bg)]" : "text-[var(--color-text)]"
               }`}
             >
-              {eur(base, locale)} {t("plan_plus_vat")}
+              {eur(base, locale)}
+              {!sinIva && ` ${t("plan_plus_vat")}`}
             </p>
             <p
               className={`mt-1.5 font-body text-[13px] leading-[1.5] ${

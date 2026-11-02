@@ -47,6 +47,8 @@ export type ProposalData = {
   status: string;
   /** Idioma en el que se lee: la página se abre en este, no en el de la URL. */
   language?: "es" | "en";
+  /** Sin IVA (empresa de fuera de España): ni se suma ni se escribe «+ IVA». */
+  taxExempt?: boolean;
   /** Fecha de expiración (ISO) — se muestra como "válida hasta" si existe. */
   expiresAt?: string | null;
   /** Piezas de la solución (rejilla cualitativa, estilo documento). */
