@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/navigation";
 import { defaultLocale } from "@/i18n";
 import { Logo } from "@/components/ui/Logo";
+import { GoogleG, Star } from "@/components/ui/GoogleReviewBadge";
 import { Reveal } from "@/components/ui/Reveal";
 import { V2Root } from "@/components/v2/V2Root";
 import { TestimonialsV2 } from "@/components/v2/home/TestimonialsV2";
@@ -57,6 +58,22 @@ function Titulo({ etiqueta, partes }: { etiqueta: string; partes?: [string, stri
         </h2>
       )}
     </div>
+  );
+}
+
+/**
+ * El título de la propuesta con su última palabra en cursiva roja, como la
+ * portada del PDF. El punto final va en el color del texto.
+ */
+function TituloPropuesta({ texto }: { texto: string }) {
+  const m = texto.trim().match(/^([\s\S]*?\s)?(\S+?)([.!?…:]*)$/);
+  if (!m) return <>{texto}</>;
+  return (
+    <>
+      {m[1] ?? ""}
+      <em className="font-display italic font-semibold text-[var(--v2-accent)]">{m[2]}</em>
+      {m[3] || "."}
+    </>
   );
 }
 
@@ -162,45 +179,60 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
           </header>
 
           <main>
-            {/* ── Hero ── */}
-            <section className="v2-frame">
-              <div className="flex flex-col gap-7 px-5 pb-14 pt-12 md:px-0 lg:pb-16 lg:pt-16">
-                <span className="v2-label v2-hero-in flex items-center gap-2.5">
-                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[var(--v2-accent)]" />
-                  {serviceKey ? t(`service.${serviceKey}`) : t("label")}
-                </span>
-                <h1
-                  className="v2-hero-in v2-h1 v2-h1--doc max-w-[1180px]"
-                  style={{ animationDelay: "80ms" }}
-                >
-                  {proposal.title}
-                </h1>
-                {proposal.transformation && (
-                  <p
-                    className="v2-hero-in max-w-[780px] font-display text-[22px] italic leading-[1.4] text-[var(--v2-accent)] md:text-[28px]"
-                    style={{ animationDelay: "160ms" }}
+            {/* ── Hero: en negro, como la portada del PDF ── */}
+            <section data-header-tone="dark" className="v2-oscuro">
+              <div className="v2-frame">
+                <div className="flex flex-col gap-7 px-5 pb-14 pt-12 md:px-0 lg:pb-20 lg:pt-20">
+                  <span className="v2-label v2-hero-in flex items-center gap-2.5">
+                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[var(--v2-accent)]" />
+                    {serviceKey ? t(`service.${serviceKey}`) : t("label")}
+                  </span>
+                  <h1
+                    className="v2-hero-in v2-h1 v2-h1--doc max-w-[1180px]"
+                    style={{ animationDelay: "80ms" }}
                   >
-                    {proposal.transformation}
-                  </p>
-                )}
-                <div className="v2-hero-in flex flex-wrap items-center gap-3" style={{ animationDelay: "240ms" }}>
-                  {!accepted && !unavailable && (
-                    <a href="#incluye" className="v2-btn v2-btn--primary">
-                      {t("cta_view")} <ArrowRight size={15} />
-                    </a>
+                    <TituloPropuesta texto={proposal.title} />
+                  </h1>
+                  {/* Una sola palabra en rojo por bloque: la promesa va en gris. */}
+                  {proposal.transformation && (
+                    <p
+                      className="v2-hero-in max-w-[680px] text-[17px] leading-[1.55] text-[var(--v2-muted)] md:text-[19px]"
+                      style={{ animationDelay: "160ms" }}
+                    >
+                      {proposal.transformation}
+                    </p>
                   )}
-                  {proposal.timeline && (
-                    <span className="inline-flex items-center gap-2 rounded-[6px] border border-[var(--v2-line)] px-3.5 py-2 text-[13px] text-[var(--v2-muted)]">
-                      <Clock size={14} className="text-[var(--v2-accent)]" />
-                      {proposal.timeline}
+                  <div className="v2-hero-in flex flex-wrap items-center gap-3" style={{ animationDelay: "240ms" }}>
+                    {!accepted && !unavailable && (
+                      <a href="#incluye" className="v2-btn v2-btn--primary">
+                        {t("cta_view")} <ArrowRight size={15} />
+                      </a>
+                    )}
+                    {proposal.timeline && (
+                      <span className="inline-flex items-center gap-2 rounded-[6px] border border-[var(--v2-line)] px-3.5 py-2 text-[13px] text-[var(--v2-muted)]">
+                        <Clock size={14} className="text-[var(--v2-accent)]" />
+                        {proposal.timeline}
+                      </span>
+                    )}
+                    {validUntil && (
+                      <span className="inline-flex items-center gap-2 rounded-[6px] border border-[var(--v2-accent)]/30 bg-[var(--v2-accent)]/[0.06] px-3.5 py-2 text-[13px]">
+                        <CalendarClock size={14} className="text-[var(--v2-accent)]" />
+                        {t("valid_until", { date: validUntil })}
+                      </span>
+                    )}
+                  </div>
+                  {/* La valoración de Google ya en el hero: en el móvil no hay
+                      menú lateral, y era la única prueba antes de los testimonios. */}
+                  <div className="v2-hero-in flex items-center gap-2.5 lg:hidden" style={{ animationDelay: "300ms" }}>
+                    <GoogleG size={18} />
+                    <span className="text-[14px] font-medium tabular-nums">{t("trust_rating_value")}</span>
+                    <span className="flex items-center gap-px" aria-hidden>
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} size={11} />
+                      ))}
                     </span>
-                  )}
-                  {validUntil && (
-                    <span className="inline-flex items-center gap-2 rounded-[6px] border border-[var(--v2-accent)]/30 bg-[var(--v2-accent)]/[0.06] px-3.5 py-2 text-[13px]">
-                      <CalendarClock size={14} className="text-[var(--v2-accent)]" />
-                      {t("valid_until", { date: validUntil })}
-                    </span>
-                  )}
+                    <span className="text-[12.5px] text-[var(--v2-muted)]">{t("trust_rating_label")}</span>
+                  </div>
                 </div>
               </div>
             </section>
