@@ -52,7 +52,7 @@ export const projects: Project[] = [
   {
     slug: "flylead",
     name: "FlyLead",
-    category: "Producto propio · SaaS",
+    category: "Branding · SaaS",
     year: 2026,
     client: "Bellostas Studio",
     stack: ["Astro"],

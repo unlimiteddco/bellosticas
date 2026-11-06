@@ -21,6 +21,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/navigation";
 import { RECIENTES, VIDEO_DESTACADO, type TrabajoMenu } from "@/components/layout/WorkMegaMenu";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { posterDe } from "@/lib/v2/videos-casos";
 import { sinBarras } from "@/lib/v2/texto";
 
 type Destino = React.ComponentProps<typeof Link>["href"];
@@ -255,7 +256,7 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
           >
             <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: destacado.color }}>
               {video ? (
-                <video data-src={video} muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
+                <video data-src={video} poster={posterDe(video) ?? destacado.cover} muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
               ) : destacado.cover ? (
                 <img src={destacado.cover} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
               ) : null}

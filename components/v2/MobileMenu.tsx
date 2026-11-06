@@ -23,6 +23,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/navigation";
 import { RECIENTES, VIDEO_DESTACADO, type TrabajoMenu } from "@/components/layout/WorkMegaMenu";
 import { sonarClic } from "@/lib/v2/ui-sound";
+import { PORTADA_MOVIL, posterDe } from "@/lib/v2/videos-casos";
 import { sinBarras } from "@/lib/v2/texto";
 import { IdiomaToggle } from "./Toggles";
 
@@ -36,7 +37,7 @@ type Enlace = { href: Destino; titulo: string; icono: LucideIcon };
  *
  * Por dentro, lo mismo que el megamenú de escritorio: Servicios agrupados y
  * con su icono, Trabajos con el caso destacado y los proyectos recientes con
- * su logo, Precios a la vista y, abajo, la tarjeta de «¿No lo tienes claro?»
+ * su logo (Precios va dentro de Servicios) y, abajo, la tarjeta de «¿No lo tienes claro?»
  * con la llamada. La página en la que estás queda marcada.
  * `arriba`: dónde acaba la cabecera, medido al abrir.
  */
@@ -205,6 +206,10 @@ export function MobileMenu({
     <div className="flex flex-col gap-3">
       {grupo(tv("mm.design"), diseno)}
       {grupo(tv("mm.product"), producto)}
+      {/* Precios va aquí dentro, al final de los servicios, no como fila suelta. */}
+      <ul className="flex flex-col border-t border-[var(--v2-line)] pt-2">
+        {fila({ href: "/pricing", titulo: t("pricing"), icono: ChartColumn })}
+      </ul>
       <Link href="/services" onClick={elegir} className="v2-link mt-1 self-start px-2 text-[14px]">
         {t("mm.viewAll")} <ArrowRight size={13} className="text-[var(--v2-accent)]" />
       </Link>
@@ -220,8 +225,19 @@ export function MobileMenu({
           className="group block overflow-hidden rounded-[8px] border border-[var(--v2-line)]"
         >
           <span className="relative block aspect-[16/9]" style={{ backgroundColor: destacado.color }}>
-            {video ? (
-              <video ref={videoRef} data-src={video} muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
+            {PORTADA_MOVIL[destacado.slug] ? (
+              // Este menú solo sale en el móvil: la portada pensada para él, sin vídeo.
+              <img src={PORTADA_MOVIL[destacado.slug]} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            ) : video ? (
+              <video
+                ref={videoRef}
+                data-src={video}
+                poster={posterDe(video) ?? destacado.cover}
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             ) : destacado.cover ? (
               <img src={destacado.cover} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
             ) : null}
@@ -297,7 +313,7 @@ export function MobileMenu({
     );
   };
 
-  const pie = entrada(6);
+  const pie = entrada(5);
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-[45] flex flex-col bg-[var(--v2-bg)] lg:hidden"
@@ -318,17 +334,8 @@ export function MobileMenu({
         <ul className="pt-2">
           {acordeon("services", 0, servicios)}
           {acordeon("work", 1, trabajo)}
-          {/* Precios, a la vista: es de lo que más empuja a llamar. */}
-          {filaSimple(
-            t("pricing"),
-            "/pricing",
-            2,
-            <span className="v2-ico" aria-hidden>
-              <ChartColumn size={14} strokeWidth={1.75} />
-            </span>,
-          )}
-          {filaSimple(t("studio"), "/studio", 3)}
-          {filaSimple(t("contact"), "/contact", 4)}
+          {filaSimple(t("studio"), "/studio", 2)}
+          {filaSimple(t("contact"), "/contact", 3)}
         </ul>
       </nav>
 

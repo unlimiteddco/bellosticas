@@ -12,6 +12,25 @@ export const VIDEO_CASO: Record<string, string> = {
 };
 
 /**
+ * La imagen de espera de un vídeo de /videos: su primer fotograma, con el mismo
+ * nombre en .webp. En el móvil el vídeo tarda en llegar o no arranca solo (iOS
+ * con ahorro de batería no reproduce nada por su cuenta): sin ella se quedaba
+ * un hueco vacío.
+ */
+export function posterDe(video?: string) {
+  return video?.startsWith("/videos/") ? video.replace(/\.mp4$/, ".webp") : undefined;
+}
+
+/**
+ * La portada que sustituye a la normal (y al vídeo) en el móvil, donde un
+ * mockup ancho de ordenador se ve diminuto. El vestuario enseña sus tres
+ * pantallas de móvil: la barra, la ficha y el personalizador.
+ */
+export const PORTADA_MOVIL: Record<string, string> = {
+  "vestuario-3d": "/clientes/vestuario-mockup-moviles.webp",
+};
+
+/**
  * Imágenes de casos hechas para la web (mockups) o que no están en el gestor:
  * la portada para su tarjeta y su página, y las capturas de la galería (con
  * etiqueta antes/después si la llevan). Si `manda`, la portada sustituye a la

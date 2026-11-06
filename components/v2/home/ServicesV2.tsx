@@ -7,6 +7,7 @@ import { Link } from "@/navigation";
 import { services } from "@/lib/services";
 import { MEDIA } from "@/components/sections/Services";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { posterDe } from "@/lib/v2/videos-casos";
 import { sinBarras } from "@/lib/v2/texto";
 
 type Destino = React.ComponentProps<typeof Link>["href"];
@@ -116,7 +117,15 @@ export function ServicesV2() {
                       <div className="md:col-span-6 md:col-start-1">
                         <div className="relative aspect-[16/10] overflow-hidden border border-[var(--v2-line)] bg-[var(--v2-bg-2)]">
                           {media?.video ? (
-                            <video src={on ? media.video : undefined} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
+                            <video
+                              src={on ? media.video : undefined}
+                              poster={posterDe(media.video)}
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
                           ) : media?.img ? (
                             <img src={media.img} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                           ) : null}

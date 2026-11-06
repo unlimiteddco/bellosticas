@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import type { ResolvedProject } from "@/lib/cms/types";
 import { sinBarras } from "@/lib/v2/texto";
+import { PORTADA_MOVIL } from "@/lib/v2/videos-casos";
 
 /**
  * Casos en filas con borde: texto a un lado (cliente, categoría, año,
@@ -33,7 +34,7 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
         </div>
 
         <div className="flex flex-col gap-0 border-t border-[var(--v2-line)]">
-          {casos.map((p, i) => (
+          {casos.map((p, i) => [
             <Link
               key={p.slug}
               href={{ pathname: "/work/[slug]", params: { slug: p.slug } }}
@@ -68,15 +69,29 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
                 }`}
                 style={{ backgroundColor: p.color }}
               >
-                <img
-                  src={p.cover}
-                  alt=""
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[var(--v2-ease)] group-hover:scale-[1.03]"
-                />
+                {/* En el móvil, la portada pensada para él si la tiene (el
+                    vestuario: sus tres pantallas de móvil). */}
+                <picture>
+                  {PORTADA_MOVIL[p.slug] && <source media="(max-width: 1023px)" srcSet={PORTADA_MOVIL[p.slug]} />}
+                  <img
+                    src={p.cover}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[var(--v2-ease)] group-hover:scale-[1.03]"
+                  />
+                </picture>
               </div>
-            </Link>
-          ))}
+            </Link>,
+            // En el móvil cada caso es texto + imagen apilados y el siguiente
+            // empezaba pegado a la imagen: una franja rayada los separa.
+            i < casos.length - 1 && (
+              <div
+                key={`${p.slug}-sep`}
+                aria-hidden
+                className="h-6 border-b border-[var(--v2-line)] bg-[repeating-linear-gradient(135deg,var(--v2-line)_0_1px,transparent_1px_7px)] lg:hidden"
+              />
+            ),
+          ])}
         </div>
 
         <div className="flex justify-center px-6 py-10">

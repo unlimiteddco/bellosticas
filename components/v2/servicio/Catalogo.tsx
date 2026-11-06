@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Link } from "@/navigation";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { posterDe } from "@/lib/v2/videos-casos";
 import { ICONOS_CATALOGO } from "./iconos-catalogo";
 
 type Destino = React.ComponentProps<typeof Link>["href"];
@@ -50,6 +51,7 @@ function Pieza({ it, on, className = "" }: { it: ItemCatalogo; on: boolean; clas
   return it.media.video ? (
     <video
       src={on ? it.media.video : undefined}
+      poster={posterDe(it.media.video)}
       autoPlay
       muted
       loop

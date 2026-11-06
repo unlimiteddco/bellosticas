@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import { sonarClic, sonarHover } from "@/lib/v2/ui-sound";
+import { posterDe } from "@/lib/v2/videos-casos";
 
 export type CasoReel = {
   slug: string;
@@ -13,6 +14,8 @@ export type CasoReel = {
   color: string;
   video?: string;
   imagen?: string;
+  /** Sustituye al vídeo y a la portada en el móvil (ver PORTADA_MOVIL). */
+  imagenMovil?: string;
 };
 
 const DURACION_MS = 7000;
@@ -28,8 +31,18 @@ export function CaseReel({ casos }: { casos: CasoReel[] }) {
   const [quieto, setQuieto] = useState(false);
   const timer = useRef<number | undefined>(undefined);
 
+  // `movil`: por debajo de lg (donde el hero va en una columna). Hasta saberlo
+  // no se carga ningún vídeo: en el móvil, el del caso con imagen propia no
+  // llega a descargarse.
+  const [movil, setMovil] = useState<boolean | null>(null);
+
   useEffect(() => {
     setQuieto(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const cambia = () => setMovil(mq.matches);
+    cambia();
+    mq.addEventListener("change", cambia);
+    return () => mq.removeEventListener("change", cambia);
   }, []);
 
   useEffect(() => {
@@ -61,17 +74,30 @@ export function CaseReel({ casos }: { casos: CasoReel[] }) {
             style={{ opacity: n === i ? 1 : 0 }}
             aria-hidden={n !== i}
           >
+            {/* En el móvil, su imagen propia (con CSS, para que no parpadee
+                al hidratar); el vídeo queda solo para escritorio. */}
+            {x.imagenMovil && (
+              <img src={x.imagenMovil} alt="" className="h-full w-full object-cover lg:hidden" loading={n === 0 ? "eager" : "lazy"} />
+            )}
             {x.video ? (
               <video
-                src={n === i ? x.video : undefined}
+                // El primer fotograma mientras llega (o si el móvil no lo arranca solo).
+                src={n === i && movil !== null && !(movil && x.imagenMovil) ? x.video : undefined}
+                poster={posterDe(x.video) ?? x.imagen}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="h-full w-full object-cover"
+                preload="auto"
+                className={`h-full w-full object-cover ${x.imagenMovil ? "hidden lg:block" : ""}`}
               />
             ) : x.imagen ? (
-              <img src={x.imagen} alt="" className="h-full w-full object-cover" loading={n === 0 ? "eager" : "lazy"} />
+              <img
+                src={x.imagen}
+                alt=""
+                className={`h-full w-full object-cover ${x.imagenMovil ? "hidden lg:block" : ""}`}
+                loading={n === 0 ? "eager" : "lazy"}
+              />
             ) : null}
           </div>
         ))}

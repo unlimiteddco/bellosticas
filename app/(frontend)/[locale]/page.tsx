@@ -15,6 +15,7 @@ import { TestimonialsV2 } from "@/components/v2/home/TestimonialsV2";
 import { StudioNote } from "@/components/v2/home/StudioNote";
 import { FaqV2 } from "@/components/v2/home/FaqV2";
 import { ClosingBand } from "@/components/v2/home/ClosingBand";
+import { PORTADA_MOVIL } from "@/lib/v2/videos-casos";
 
 /*
  * La home. El título, la descripción y la imagen para compartir son los
@@ -47,7 +48,17 @@ export default async function V2Page({ params }: { params: Promise<{ locale: str
   const casos: CasoReel[] = REEL.flatMap((r): CasoReel[] => {
     const p = proyectos.find((x) => x.slug === r.slug);
     if (!p || (!r.video && !p.cover)) return [];
-    return [{ slug: p.slug, nombre: p.name, etiquetas: p.category, color: p.color, video: r.video, imagen: p.cover }];
+    return [
+      {
+        slug: p.slug,
+        nombre: p.name,
+        etiquetas: p.category,
+        color: p.color,
+        video: r.video,
+        imagen: p.cover,
+        imagenMovil: PORTADA_MOVIL[p.slug],
+      },
+    ];
   });
 
   return (
