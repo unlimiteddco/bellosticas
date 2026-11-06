@@ -4,7 +4,7 @@ import { routing } from "./navigation";
 
 const handleI18nRouting = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const response = handleI18nRouting(request);
   // Expose the requested (localized) pathname so the root layout can build
   // correct per-page hreflang alternates.
