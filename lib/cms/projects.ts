@@ -38,7 +38,7 @@ async function cargarProyectos(locale: string): Promise<ResolvedProject[]> {
       });
 
       if (res.docs.length > 0) {
-        return res.docs.map((doc): ResolvedProject => {
+        const delGestor = res.docs.map((doc): ResolvedProject => {
           const d = doc as Record<string, unknown>;
           const gallery = Array.isArray(d.gallery)
             ? (d.gallery as { image?: MediaLike }[])
@@ -67,6 +67,11 @@ async function cargarProyectos(locale: string): Promise<ResolvedProject[]> {
             comingSoon: Boolean(d.comingSoon),
           };
         });
+        // Los proyectos que viven en el código van delante, si el gestor no los tiene ya.
+        const fijos = (await staticFallback(locale)).filter(
+          (p) => staticProjects.find((s) => s.slug === p.slug)?.siempre && !delGestor.some((d) => d.slug === p.slug),
+        );
+        return [...fijos, ...delGestor];
       }
     } catch (err) {
       console.error("[cms] getProjects failed, using static fallback:", err);

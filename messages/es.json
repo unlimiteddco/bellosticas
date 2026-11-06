@@ -832,7 +832,8 @@
       "p_borrell": "Web de una correduría de seguros de Lleida: compara entre compañías y deja calcular el seguro desde la propia página.",
       "p_obrapartner": "Tienda online de azulejos, baño y materiales de construcción, con asesoramiento para obras y reformas.",
       "p_tajoh": "Estudio de branding, fotografía, vídeo y web. Web en construcción.",
-      "p_fabb": "Próximamente."
+      "p_fabb": "Próximamente.",
+      "p_vestuario": "Proyecto propio: las camisetas de la SD Huesca colgadas en un vestuario en 3D, una percha por jugador. Cada camiseta lleva su nombre y su dorsal, se abre con la ficha y las estadísticas del jugador, y un personalizador te lleva a la tienda oficial con tu nombre ya puesto. Un tributo no oficial, hecho con Blender y Three.js."
     }
   },
   "studio": {
@@ -4859,7 +4860,8 @@
       "proyecto": "El proyecto",
       "reto": "El reto",
       "trabajo": "El trabajo",
-      "resultado": "Resultados"
+      "resultado": "Resultados",
+      "proceso": "Cómo se hizo"
     },
     "datos": {
       "cliente": "Cliente",
@@ -4955,6 +4957,64 @@
           "Desarrollo a medida con Medusa",
           "Pagos con Stripe",
           "Descarga instantánea"
+        ]
+      },
+      "vestuario-3d": {
+        "titular": "El vestuario del Huesca, en 3D y en el navegador.",
+        "intro": "Las camisetas de la SD Huesca colgadas en su vestuario, una por jugador, para recorrerlas arrastrando la barra. Lo hicimos por gusto, como tributo no oficial, y para enseñar hasta dónde puede llegar una web: 3D de verdad, tela simulada y la tienda a un clic.",
+        "cifras": [
+          {
+            "valor": "300K",
+            "texto": "Visitas desde que lo publicamos"
+          },
+          {
+            "valor": "Miles",
+            "texto": "De «me gusta» y comentarios en redes"
+          },
+          {
+            "valor": "23",
+            "texto": "Camisetas en 3D, una por jugador, con su nombre y su dorsal"
+          }
+        ],
+        "hicimos": [
+          "Simulación de tela en Blender",
+          "3D en el navegador con Three.js",
+          "Serigrafía como la oficial",
+          "Ficha y estadísticas de cada jugador",
+          "Personalizador conectado a la tienda",
+          "Vídeo de convocatoria para redes"
+        ],
+        "proceso": [
+          {
+            "titulo": "De la foto al patrón",
+            "herramienta": "Python",
+            "texto": "Partimos de las fotos de producto de la tienda. Un script separa el frente, la espalda y la cara exterior de las mangas, y las convierte en las texturas de la camiseta."
+          },
+          {
+            "titulo": "La tela, en Blender",
+            "herramienta": "Blender",
+            "texto": "El patrón se cose por los hombros y se cuelga de una percha con el simulador de tela de Blender. Un molde invisible le da cuerpo, así que cae con sus pliegues como una camiseta de verdad. De ahí sale un modelo ligero para la web."
+          },
+          {
+            "titulo": "Nombre y dorsal, como en la tienda",
+            "herramienta": "Serigrafía",
+            "texto": "Las cifras y las letras se ajustaron en ancho y grosor a las oficiales, con fuentes libres, y el nombre va en arco. Cada camiseta se monta sola a partir de la plantilla."
+          },
+          {
+            "titulo": "El vestuario, en el navegador",
+            "herramienta": "Three.js · Astro",
+            "texto": "Three.js pinta la sala con su luz, las perchas, las botas y el balón. La barra se arrastra con inercia, la camiseta sale hacia ti al pasar el ratón y el sonido se sintetiza en el propio navegador, sin archivos."
+          },
+          {
+            "titulo": "La ficha y la tienda",
+            "herramienta": "Datos",
+            "texto": "Cada jugador tiene su ficha con partidos, minutos, goles y tarjetas, que se actualizan tras cada jornada. El personalizador te lleva a la tienda oficial con tu nombre y tu dorsal ya puestos."
+          },
+          {
+            "titulo": "La convocatoria, en vídeo",
+            "herramienta": "WebCodecs",
+            "texto": "Se marcan los convocados y el partido, y la web graba un vídeo vertical de 1080×1920 con las perchas llegando a la barra una a una, listo para reels y stories."
+          }
         ]
       }
     },

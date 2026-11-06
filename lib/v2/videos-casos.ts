@@ -8,6 +8,7 @@ export const VIDEO_CASO: Record<string, string> = {
   teleadhesivo: "/videos/ecommerce.mp4",
   "embroidery-download": "/videos/embroidery.mp4",
   "obra-partner": "/videos/obrapartner.mp4",
+  "vestuario-3d": "/videos/vestuario.mp4",
 };
 
 /**
@@ -18,8 +19,30 @@ export const VIDEO_CASO: Record<string, string> = {
  */
 export const IMAGENES_CASO: Record<
   string,
-  { portada?: string; manda?: boolean; galeria?: { src: string; alt: string; etiqueta?: string }[] }
+  {
+    portada?: string;
+    manda?: boolean;
+    galeria?: { src: string; alt: string; etiqueta?: string }[];
+    /** La tira de «Cómo se hizo», si el caso la tiene. */
+    proceso?: { src: string; alt: string };
+  }
 > = {
+  "vestuario-3d": {
+    portada: "/clientes/vestuario-mockup-portada.webp",
+    manda: true,
+    galeria: [
+      { src: "/clientes/vestuario-mockup-portada.webp", alt: "El vestuario del Huesca en 3D: la ficha de un jugador en el ordenador y el personalizador en el móvil" },
+      { src: "/clientes/vestuario-barra.webp", alt: "La barra del vestuario con una percha por jugador; al pasar el ratón, la camiseta sale hacia delante" },
+      { src: "/clientes/vestuario-portero.webp", alt: "La camiseta del portero abierta, con la ficha del jugador y sus estadísticas" },
+      { src: "/clientes/vestuario-mockup-personaliza.webp", alt: "El personalizador: tu nombre y tu dorsal en la camiseta, con la talla, listos para la tienda oficial" },
+      { src: "/clientes/vestuario-mockup-moviles.webp", alt: "El vestuario en el móvil: la barra, la ficha y el personalizador" },
+      { src: "/clientes/vestuario-convocatoria.webp", alt: "La convocatoria: se eligen los jugadores y el partido y se descarga un vídeo vertical para redes" },
+    ],
+    proceso: {
+      src: "/clientes/vestuario-proceso.webp",
+      alt: "Del producto a la percha: la foto de la tienda, la textura sacada de ella, la tela simulada en Blender, su malla y la camiseta final en el navegador",
+    },
+  },
   fada: {
     portada: "/clientes/fada-mockup-portada.webp",
     manda: true,

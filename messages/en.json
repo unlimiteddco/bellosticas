@@ -832,7 +832,8 @@
       "p_borrell": "Website for an insurance brokerage in Lleida: it compares across insurers and lets you get a quote right on the page.",
       "p_obrapartner": "Online shop for tiles, bathroom and building materials, with advice for building and renovation projects.",
       "p_tajoh": "Branding, photography, video and web studio. Website under construction.",
-      "p_fabb": "Coming soon."
+      "p_fabb": "Coming soon.",
+      "p_vestuario": "Our own project: SD Huesca's shirts hanging in a 3D dressing room, one hanger per player. Each shirt carries its name and number, opens with the player's profile and stats, and a customiser takes you to the official shop with your name already on it. An unofficial tribute, made with Blender and Three.js."
     }
   },
   "studio": {
@@ -4859,7 +4860,8 @@
       "proyecto": "The project",
       "reto": "The challenge",
       "trabajo": "The work",
-      "resultado": "Results"
+      "resultado": "Results",
+      "proceso": "How it was made"
     },
     "datos": {
       "cliente": "Client",
@@ -4955,6 +4957,64 @@
           "Custom build with Medusa",
           "Stripe payments",
           "Instant download"
+        ]
+      },
+      "vestuario-3d": {
+        "titular": "Huesca's dressing room, in 3D and in the browser.",
+        "intro": "SD Huesca's shirts hanging in their dressing room, one per player, to browse by dragging the rail. We made it for the love of it, as an unofficial tribute, and to show how far a website can go: real 3D, simulated cloth and the shop one click away.",
+        "cifras": [
+          {
+            "valor": "300K",
+            "texto": "Visits since we published it"
+          },
+          {
+            "valor": "Thousands",
+            "texto": "Of likes and comments on social media"
+          },
+          {
+            "valor": "23",
+            "texto": "Shirts in 3D, one per player, with their name and number"
+          }
+        ],
+        "hicimos": [
+          "Cloth simulation in Blender",
+          "3D in the browser with Three.js",
+          "Lettering like the official kit",
+          "Profile and stats for every player",
+          "Customiser linked to the shop",
+          "Squad announcement video for social"
+        ],
+        "proceso": [
+          {
+            "titulo": "From photo to pattern",
+            "herramienta": "Python",
+            "texto": "We started from the shop's product photos. A script separates the front, the back and the outer side of the sleeves, and turns them into the shirt's textures."
+          },
+          {
+            "titulo": "The cloth, in Blender",
+            "herramienta": "Blender",
+            "texto": "The pattern is stitched at the shoulders and hung on a hanger with Blender's cloth simulator. An invisible form gives it body, so it falls with its folds like a real shirt. Out of that comes a light model for the web."
+          },
+          {
+            "titulo": "Name and number, like in the shop",
+            "herramienta": "Lettering",
+            "texto": "The numbers and letters were matched in width and weight to the official ones, using free fonts, and the name runs in an arc. Each shirt builds itself from the squad list."
+          },
+          {
+            "titulo": "The dressing room, in the browser",
+            "herramienta": "Three.js · Astro",
+            "texto": "Three.js renders the room with its light, the hangers, the boots and the ball. The rail drags with inertia, the shirt comes towards you on hover, and the sound is synthesised in the browser itself, with no audio files."
+          },
+          {
+            "titulo": "The profile and the shop",
+            "herramienta": "Data",
+            "texto": "Every player has a profile with matches, minutes, goals and cards, updated after each matchday. The customiser takes you to the official shop with your name and number already set."
+          },
+          {
+            "titulo": "The squad, on video",
+            "herramienta": "WebCodecs",
+            "texto": "Pick the squad and the match, and the site records a 1080×1920 vertical video with the hangers arriving on the rail one by one, ready for reels and stories."
+          }
         ]
       }
     },

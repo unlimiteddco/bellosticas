@@ -25,7 +25,14 @@ import { BarraCaso, BotonVideoTestimonio, VideoCaso } from "@/components/v2/trab
  * messages → v2Casos.casos.[slug]; si un caso no lo tiene, ese bloque no sale.
  */
 
-type Extra = { titular?: string; intro?: string; cifras?: { valor: string; texto: string }[]; hicimos?: string[] };
+type Extra = {
+  titular?: string;
+  intro?: string;
+  cifras?: { valor: string; texto: string }[];
+  hicimos?: string[];
+  /** «Cómo se hizo»: los pasos, con la herramienta de cada uno. */
+  proceso?: { titulo: string; texto: string; herramienta?: string }[];
+};
 
 async function buscar(locale: string, slug: string) {
   const proyectos = conPortada(await getProjects(locale));
@@ -59,6 +66,7 @@ export default async function CasoPagina({ params }: { params: Promise<{ locale:
   const video = VIDEO_CASO[p.slug];
   const galeria: { src: string; alt?: string; etiqueta?: string }[] = IMAGENES_CASO[p.slug]?.galeria ?? p.gallery ?? [];
   const imagen = p.cover ?? p.gallery?.[0]?.src;
+  const imagenProceso = IMAGENES_CASO[p.slug]?.proceso;
 
   // Lo que dijo el cliente, si lo dijo.
   const tc = TESTIMONIO_CASO[p.slug];
@@ -242,6 +250,33 @@ export default async function CasoPagina({ params }: { params: Promise<{ locale:
           </div>
         ) : null}
       </Apartado>
+
+      {/* ── Cómo se hizo: la tira del proceso y los pasos ── */}
+      {extra.proceso?.length ? (
+        <Apartado n={num(++seccion)} titulo={t("secciones.proceso")}>
+          {imagenProceso && (
+            <div className="overflow-hidden rounded-[8px] border border-[var(--v2-line)]" style={{ backgroundColor: p.color }}>
+              <img src={imagenProceso.src} alt={imagenProceso.alt} loading="lazy" className="block h-auto w-full" />
+            </div>
+          )}
+          <ol className="flex flex-col border-t border-[var(--v2-line)]">
+            {extra.proceso.map((paso, k) => (
+              <li key={paso.titulo} className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 border-b border-[var(--v2-line)] py-6">
+                <span className="pt-1 font-mono text-[11px] text-[var(--v2-accent)]">{num(k + 1)}</span>
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                    <h3 className="text-[18px] font-medium tracking-[-0.01em] md:text-[20px]">{paso.titulo}</h3>
+                    {paso.herramienta && (
+                      <span className="rounded-[4px] bg-[var(--v2-hover)] px-2 py-0.5 text-[12px] text-[var(--v2-muted)]">{paso.herramienta}</span>
+                    )}
+                  </div>
+                  <p className="max-w-[620px] text-[15.5px] leading-[1.6] text-[var(--v2-muted)]">{paso.texto}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Apartado>
+      ) : null}
 
       {/* ── El trabajo: las capturas ── */}
       {galeria.length ? (

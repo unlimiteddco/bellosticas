@@ -25,9 +25,29 @@ export type Project = {
   gallery?: { src: string; alt?: string }[];
   /** Marca el trabajo como "Próximamente" (caso aún sin desarrollar). */
   comingSoon?: boolean;
+  /**
+   * Sale siempre, aunque el gestor de contenidos no lo tenga: se añade delante
+   * de los del gestor. Para los proyectos propios que viven en el código.
+   */
+  siempre?: boolean;
 };
 
 export const projects: Project[] = [
+  // Proyecto propio: un tributo no oficial, sin relación con el club. Vive en
+  // el código (no en el gestor) y va el primero mientras sea novedad.
+  {
+    slug: "vestuario-3d",
+    name: "El vestuario del Huesca en 3D",
+    category: "Proyecto propio · 3D interactivo",
+    year: 2026,
+    client: "Proyecto propio",
+    stack: ["Blender", "Three.js", "Astro", "Tailwind", "Python"],
+    liveUrl: "https://sdhuesca.bellostas.studio",
+    color: "#140E0C",
+    descriptionKey: "p_vestuario",
+    cover: "/clientes/vestuario-mockup-portada.webp",
+    siempre: true,
+  },
   // Producto propio: no es un encargo, es nuestro. Va primero mientras sea novedad.
   {
     slug: "flylead",
