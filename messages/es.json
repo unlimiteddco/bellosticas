@@ -4352,7 +4352,7 @@
               "id": "mantenimiento",
               "icono": "escudo",
               "nombre": "Mantenimiento",
-              "precio": "39 €",
+              "precio": "59 €",
               "sufijo": "/ mes",
               "desde": true,
               "texto": "Que tu web siga rápida, segura y al día, sin que tengas que pensar en ello.",
@@ -4370,12 +4370,12 @@
               "niveles": [
                 {
                   "nombre": "Esencial",
-                  "precio": "39 €",
+                  "precio": "59 €",
                   "compromiso": {
                     "etiqueta": "Anual",
-                    "precio": "420 €",
+                    "precio": "636 €",
                     "sufijo": "/ año",
-                    "nota": "Pagando el año ahorras 48 €."
+                    "nota": "Pagando el año ahorras 72 €."
                   },
                   "incluye": [
                     "Servidor, dominio y SSL",
@@ -6523,7 +6523,7 @@
         },
         "q5": {
           "question": "¿Qué pasa después de lanzar?",
-          "answer": "Tienes 30 días de soporte incluidos. Después puedes seguir con mantenimiento desde 39 €/mes, con el Partner creativo cada mes o pedirnos cambios puntuales por horas."
+          "answer": "Tienes 30 días de soporte incluidos. Después puedes seguir con mantenimiento desde 59 €/mes, con el Partner creativo cada mes o pedirnos cambios puntuales por horas."
         },
         "q6": {
           "question": "¿Podéis escribir sobre un tema que me interese?",
@@ -6891,7 +6891,7 @@
         "items": {
           "q1": {
             "question": "¿Cuánto cuesta una página web en Zaragoza?",
-            "answer": "Depende del alcance del proyecto. Una web corporativa a medida parte de 3.900 €, una tienda online desde 4.900 €, una aplicación web desde 5.900 € y una automatización de procesos desde 1.200 €. En todos los casos trabajamos con presupuesto cerrado: te damos el precio final tras una llamada de 30 minutos y no cambia después. Si necesitas mantenimiento, tenemos planes desde 39 €/mes."
+            "answer": "Depende del alcance del proyecto. Una web corporativa a medida parte de 3.900 €, una tienda online desde 4.900 €, una aplicación web desde 5.900 € y una automatización de procesos desde 1.200 €. En todos los casos trabajamos con presupuesto cerrado: te damos el precio final tras una llamada de 30 minutos y no cambia después. Si necesitas mantenimiento, tenemos planes desde 59 €/mes."
           },
           "q2": {
             "question": "¿Qué incluye el diseño de una web con vuestro estudio?",
@@ -6930,7 +6930,7 @@
           },
           "q2": {
             "question": "¿Cuánto cuesta una página web en Huesca?",
-            "answer": "Una web corporativa a medida parte de 3.900 €, una tienda online desde 4.900 € y una aplicación web desde 5.900 €. Las automatizaciones arrancan en 1.200 €. Trabajamos con presupuesto cerrado desde el inicio y ofrecemos mantenimiento opcional desde 39 €/mes. Te damos el precio final tras una llamada corta, sin compromiso."
+            "answer": "Una web corporativa a medida parte de 3.900 €, una tienda online desde 4.900 € y una aplicación web desde 5.900 €. Las automatizaciones arrancan en 1.200 €. Trabajamos con presupuesto cerrado desde el inicio y ofrecemos mantenimiento opcional desde 59 €/mes. Te damos el precio final tras una llamada corta, sin compromiso."
           },
           "q3": {
             "question": "¿Qué tipo de webs hacéis?",
@@ -6942,7 +6942,7 @@
           },
           "q5": {
             "question": "¿Qué pasa después de lanzar la web?",
-            "answer": "Incluimos 30 días de soporte gratis tras el lanzamiento. A partir de ahí puedes contratar un plan de mantenimiento desde 39 €/mes —para actualizaciones, copias de seguridad y pequeños cambios— o pedir cambios puntuales por horas. La web no se queda huérfana el día después de publicarla."
+            "answer": "Incluimos 30 días de soporte gratis tras el lanzamiento. A partir de ahí puedes contratar un plan de mantenimiento desde 59 €/mes —para actualizaciones, copias de seguridad y pequeños cambios— o pedir cambios puntuales por horas. La web no se queda huérfana el día después de publicarla."
           },
           "q6": {
             "question": "¿Ayudáis a posicionar el negocio en Google en Huesca?",
@@ -6965,7 +6965,7 @@
           },
           "q2": {
             "question": "¿Cuánto cuesta una página web en Teruel?",
-            "answer": "Lo mismo que en cualquier otro sitio, sin recargo por distancia: una web corporativa a medida desde 3.900 €, una tienda online desde 4.900 €, una aplicación web desde 5.900 € y automatizaciones desde 1.200 €. Presupuesto cerrado tras una llamada de 30 minutos y mantenimiento opcional desde 39 €/mes."
+            "answer": "Lo mismo que en cualquier otro sitio, sin recargo por distancia: una web corporativa a medida desde 3.900 €, una tienda online desde 4.900 €, una aplicación web desde 5.900 € y automatizaciones desde 1.200 €. Presupuesto cerrado tras una llamada de 30 minutos y mantenimiento opcional desde 59 €/mes."
           },
           "q3": {
             "question": "¿Qué sectores de Teruel encajan mejor?",

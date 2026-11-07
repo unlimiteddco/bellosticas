@@ -224,18 +224,8 @@ export function PanelTrabajos({ trabajos, alElegir }: { trabajos: TrabajoMenu[];
               alElegir();
             }}
           >
-            <span
-              className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[var(--v2-line)]"
-              style={{ backgroundColor: p.color }}
-            >
-              {p.logo ? (
-                <img src={p.logo} alt="" className="max-h-[12px] max-w-[20px] object-contain" />
-              ) : (
-                <span className="text-[11px] font-semibold text-white">{p.name.slice(0, 1)}</span>
-              )}
-            </span>
-            <span className="flex min-w-0 flex-col">
-              <span className="text-[14px] font-medium text-[var(--v2-text)]">{p.name}</span>
+            <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+              <span className="text-[14.5px] font-medium text-[var(--v2-text)]">{p.name}</span>
               <span className="truncate text-[12.5px] text-[var(--v2-muted)]">{p.category}</span>
             </span>
             <ArrowRight size={15} className="v2-mm-flecha" aria-hidden />

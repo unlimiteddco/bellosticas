@@ -266,16 +266,6 @@ export function MobileMenu({
                     aria-current={on ? "page" : undefined}
                     className={`v2-mm-link flex items-center gap-3 rounded-[6px] px-2 py-2 ${on ? "bg-[var(--v2-hover)]" : ""}`}
                   >
-                    <span
-                      className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[var(--v2-line)]"
-                      style={{ backgroundColor: p.color }}
-                    >
-                      {p.logo ? (
-                        <img src={p.logo} alt="" className="max-h-[12px] max-w-[20px] object-contain" />
-                      ) : (
-                        <span className="text-[11px] font-semibold text-white">{p.name.slice(0, 1)}</span>
-                      )}
-                    </span>
                     <span className="flex min-w-0 flex-1 flex-col">
                       <span className="text-[15px] font-medium">{p.name}</span>
                       <span className="truncate text-[12.5px] text-[var(--v2-muted)]">{p.category}</span>

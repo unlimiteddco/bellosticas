@@ -595,6 +595,10 @@
 }
 
 /* La cabecera sobre una banda oscura toma sus colores. */
+/* Con la franja de aviso encima (también fija), la cabecera se pega debajo. */
+.v2-announce + .v2-header {
+  top: 2.25rem;
+}
 .v2-header[data-tone="dark"] {
   --v2-bg: var(--v2-band);
   --v2-text: var(--v2-band-text);

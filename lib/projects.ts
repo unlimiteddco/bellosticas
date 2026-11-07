@@ -40,7 +40,7 @@ export const projects: Project[] = [
     name: "El vestuario del Huesca en 3D",
     category: "Proyecto propio · 3D interactivo",
     year: 2026,
-    client: "Proyecto propio",
+    client: "Bellostas Studio",
     stack: ["Blender", "Three.js", "Astro", "Tailwind", "Python"],
     liveUrl: "https://sdhuesca.bellostas.studio",
     color: "#140E0C",

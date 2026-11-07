@@ -4352,7 +4352,7 @@
               "id": "mantenimiento",
               "icono": "escudo",
               "nombre": "Maintenance",
-              "precio": "€39",
+              "precio": "€59",
               "sufijo": "/ month",
               "desde": true,
               "texto": "Keep your site fast, secure and up to date, without having to think about it.",
@@ -4370,12 +4370,12 @@
               "niveles": [
                 {
                   "nombre": "Essential",
-                  "precio": "€39",
+                  "precio": "€59",
                   "compromiso": {
                     "etiqueta": "Yearly",
-                    "precio": "€420",
+                    "precio": "€636",
                     "sufijo": "/ year",
-                    "nota": "Pay yearly and save €48."
+                    "nota": "Pay yearly and save €72."
                   },
                   "incluye": [
                     "Server, domain and SSL",
@@ -6523,7 +6523,7 @@
         },
         "q5": {
           "question": "What happens after launch?",
-          "answer": "You get 30 days of support included. After that you can continue with maintenance from €39/month, with the monthly Creative partner, or ask for one-off changes by the hour."
+          "answer": "You get 30 days of support included. After that you can continue with maintenance from €59/month, with the monthly Creative partner, or ask for one-off changes by the hour."
         },
         "q6": {
           "question": "Can you write about a topic I'm interested in?",
@@ -6891,7 +6891,7 @@
         "items": {
           "q1": {
             "question": "How much does a website cost in Zaragoza?",
-            "answer": "It depends on the scope. A custom corporate website starts at €3,900, an online store at €4,900, a web app at €5,900 and a process automation at €1,200. In every case we work with fixed pricing: you get the final price after a 30-minute call and it doesn't change later. If you need maintenance, we have plans from €39/month."
+            "answer": "It depends on the scope. A custom corporate website starts at €3,900, an online store at €4,900, a web app at €5,900 and a process automation at €1,200. In every case we work with fixed pricing: you get the final price after a 30-minute call and it doesn't change later. If you need maintenance, we have plans from €59/month."
           },
           "q2": {
             "question": "What does a website with your studio include?",
@@ -6930,7 +6930,7 @@
           },
           "q2": {
             "question": "How much does a website cost in Huesca?",
-            "answer": "A custom corporate website starts at €3,900, an online store at €4,900 and a web app at €5,900. Automations start at €1,200. We work with fixed pricing from the start and offer optional maintenance from €39/month. You get the final price after a short call, no commitment."
+            "answer": "A custom corporate website starts at €3,900, an online store at €4,900 and a web app at €5,900. Automations start at €1,200. We work with fixed pricing from the start and offer optional maintenance from €59/month. You get the final price after a short call, no commitment."
           },
           "q3": {
             "question": "What kind of websites do you build?",
@@ -6942,7 +6942,7 @@
           },
           "q5": {
             "question": "What happens after the website launches?",
-            "answer": "We include 30 days of free post-launch support. After that you can take a maintenance plan from €39/month — for updates, backups and small changes — or request one-off changes by the hour. Your site isn't left orphaned the day after it goes live."
+            "answer": "We include 30 days of free post-launch support. After that you can take a maintenance plan from €59/month — for updates, backups and small changes — or request one-off changes by the hour. Your site isn't left orphaned the day after it goes live."
           },
           "q6": {
             "question": "Do you help rank the business on Google in Huesca?",
@@ -6965,7 +6965,7 @@
           },
           "q2": {
             "question": "How much does a website cost in Teruel?",
-            "answer": "The same as anywhere else, with no distance surcharge: a custom corporate website from €3,900, an online store from €4,900, a web app from €5,900 and automations from €1,200. Fixed price after a 30-minute call and optional maintenance from €39/month."
+            "answer": "The same as anywhere else, with no distance surcharge: a custom corporate website from €3,900, an online store from €4,900, a web app from €5,900 and automations from €1,200. Fixed price after a 30-minute call and optional maintenance from €59/month."
           },
           "q3": {
             "question": "Which Teruel sectors are the best fit?",

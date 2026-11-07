@@ -222,7 +222,8 @@ export function Header({ trabajos }: { trabajos: TrabajoMenu[] }) {
   useEffect(() => {
     const bandas = [...document.querySelectorAll<HTMLElement>('[data-header-tone="dark"]')];
     if (!bandas.length || !headerRef.current) return;
-    const alto = headerRef.current.offsetHeight;
+    // Hasta donde acaba la cabecera (con la franja de aviso encima, si la hay).
+    const alto = Math.round(headerRef.current.getBoundingClientRect().bottom);
     const dentro = new Set<Element>();
     const io = new IntersectionObserver(
       (es) => {

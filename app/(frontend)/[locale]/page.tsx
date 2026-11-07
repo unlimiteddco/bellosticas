@@ -24,7 +24,6 @@ import { PORTADA_MOVIL } from "@/lib/v2/videos-casos";
 
 /** Qué casos pasa el reproductor del hero, y con qué vídeo si lo tienen. */
 const REEL: { slug: string; video?: string }[] = [
-  { slug: "vestuario-3d", video: "/videos/vestuario.mp4" },
   { slug: "flylead", video: "/videos/marca.mp4" },
   { slug: "teleadhesivo", video: "/videos/ecommerce.mp4" },
   { slug: "borrell-pinol" },

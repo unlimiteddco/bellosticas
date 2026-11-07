@@ -175,7 +175,7 @@ export default async function ServiciosV2({ params }: { params: Promise<{ locale
             desde: partner.desde,
             sufijo: partner.sufijo,
             precios: precios("partner"),
-            media: { img: "/images/estudio-escritorio.jpg" },
+            media: { img: "/images/estudio-mesa.webp" },
           },
         ]
       : []),

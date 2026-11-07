@@ -7,13 +7,14 @@ import { Link } from "@/navigation";
  * confidencialidad), que lleva a Trabajos, donde sale como «Próximamente».
  * En móvil, la etiqueta dice «Nuevo cliente» (así se entiende que trabaja
  * con nosotros) y la frase va corta; por debajo de 360 px, solo «Nuevo».
+ * Se queda fija arriba al bajar, con la cabecera pegada debajo (v2.css).
  */
 export async function AnnouncementV2({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "announcement" });
   return (
     <Link
       href="/work"
-      className="group flex h-9 items-center justify-center gap-2 bg-[var(--v2-band)] px-3 text-[12px] max-[374px]:text-[11.5px] sm:px-4 text-white/85 sm:gap-3 sm:text-[13px]"
+      className="v2-announce group sticky top-0 z-[51] flex h-9 items-center justify-center gap-2 bg-[var(--v2-band)] px-3 text-[12px] max-[374px]:text-[11.5px] sm:px-4 text-white/85 sm:gap-3 sm:text-[13px]"
     >
       <span className="shrink-0 bg-white px-1.5 py-[1px] font-mono text-[10px] font-semibold tracking-[0.08em] text-black">
         <span className="max-[359px]:hidden sm:hidden">{t("badgeClient")}</span>
