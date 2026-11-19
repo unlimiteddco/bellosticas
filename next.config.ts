@@ -88,4 +88,29 @@ const nextConfig: NextConfig = {
 
 // Compose both plugins. withPayload wraps the outside so it can inject its
 // build tweaks around the next-intl-augmented config.
-export default withPayload(withNextIntl(nextConfig));
+const conPayload = withPayload(withNextIntl(nextConfig));
+
+// Payload añade a TODAS las páginas «Critical-CH: Sec-CH-Prefers-Color-Scheme»
+// (para el tema de su panel). Con esa cabecera Chrome tira la primera respuesta
+// y repite la petición en la primera visita: unos 600-800 ms perdidos para cada
+// persona nueva (Lighthouse lo marca como redirección). La web no la usa: esas
+// cabeceras quedan solo para el panel de Payload, en /admin.
+const CABECERAS_PAYLOAD = ["Accept-CH", "Critical-CH"];
+const cabecerasPayload = conPayload.headers;
+export default {
+  ...conPayload,
+  async headers() {
+    const todas = (await cabecerasPayload?.()) ?? [];
+    return todas.flatMap((regla) => {
+      if (regla.source !== "/:path*") return [regla];
+      const deLaWeb = regla.headers.filter(
+        (h) => !CABECERAS_PAYLOAD.includes(h.key) && !(h.key === "Vary" && h.value === "Sec-CH-Prefers-Color-Scheme"),
+      );
+      const delPanel = regla.headers.filter((h) => !deLaWeb.includes(h));
+      return [
+        ...(deLaWeb.length ? [{ ...regla, headers: deLaWeb }] : []),
+        { ...regla, source: "/admin/:path*", headers: delPanel },
+      ];
+    });
+  },
+} satisfies NextConfig;

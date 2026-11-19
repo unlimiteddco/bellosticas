@@ -64,7 +64,7 @@ export default async function MigracionesV2({ params }: { params: Promise<{ loca
   // sola venta») y Voluntariado Aragón (de WordPress a Next.js y Sanity).
   const casos = await casosDe(locale, proyectos, [
     { slug: "teleadhesivo", video: VIDEO_CASO.teleadhesivo, testimonio: { clave: "t6", cara: "/caras/cara-teleadhesivo.jpg" } },
-    { slug: "voluntariado-aragon", testimonio: { clave: "t2", cara: "/caras/adela-face.png" } },
+    { slug: "voluntariado-aragon", testimonio: { clave: "t2", cara: "/caras/adela-face.webp" } },
   ]);
 
   return (

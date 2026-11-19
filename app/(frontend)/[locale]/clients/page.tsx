@@ -19,9 +19,9 @@ import { VideosClientes, type VideoCliente } from "@/components/v2/clientes/Vide
 
 /** Las caras que tenemos de quien dejó su frase (lovePage.mosaic). */
 const CARAS: Record<string, string> = {
-  t1: "/caras/javier-flores-face.png",
-  t2: "/caras/adela-face.png",
-  t3: "/caras/themis-face.png",
+  t1: "/caras/javier-flores-face.webp",
+  t2: "/caras/adela-face.webp",
+  t3: "/caras/themis-face.webp",
   t8: "/caras/cara-teleadhesivo.jpg",
 };
 

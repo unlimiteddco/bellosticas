@@ -672,7 +672,7 @@
       },
       "t6": {
         "name": "Alejandro Soro",
-        "role": "Marketing Lead",
+        "role": "CEO & Founder",
         "company": "Teleadhesivo",
         "quote": "Migró nuestra tienda con +500K clientes sin perder una sola venta. Impecable de principio a fin."
       }
@@ -852,7 +852,8 @@
     ],
     "tagline": "// THE WORLD IS YOURS — IF YOU SHIP IT RIGHT.",
     "panelTag": "ESTUDIO INDEPENDIENTE",
-    "panelMeta": "HUESCA, ES · 70+ PROYECTOS"
+    "panelMeta": "HUESCA, ES · 70+ PROYECTOS",
+    "panelCta": "Conoce el estudio"
   },
   "localPages": {
     "zaragoza": {
@@ -1961,7 +1962,7 @@
         },
         "t8": {
           "name": "Alejandro Soro",
-          "role": "Marketing Lead",
+          "role": "CEO & Founder",
           "company": "Teleadhesivo",
           "quote": "Profesional como pocos. No conoce el 'no se puede'."
         }
@@ -5056,7 +5057,8 @@
     "title_part2": ".",
     "sub": "Marcas y sistemas pensados para años, no para una campaña.",
     "cta": "Reservar llamada",
-    "ctaSecundario": "O escríbenos"
+    "ctaSecundario": "O escríbenos",
+    "casosLabel": "Algunos trabajos"
   },
   "v2Apps": {
     "metaTitle": "Aplicaciones web a medida · Bellostas Studio",

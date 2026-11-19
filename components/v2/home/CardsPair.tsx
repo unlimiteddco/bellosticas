@@ -33,7 +33,7 @@ export async function CardsPair({ locale }: { locale: string }) {
           {/* El portal de verdad (con un cliente inventado), en el mismo
               mockup sobre degradado que los casos. */}
           <div className="mt-auto border-t border-[var(--v2-line)]">
-            <img src="/images/portal-cliente-mockup.webp" alt={tp("mockup.alt")} loading="lazy" className="block h-auto w-full" />
+            <img src="/images/portal-cliente-mockup.webp" alt={tp("mockup.alt")} width={2400} height={1350} loading="lazy" className="block h-auto w-full" />
           </div>
         </article>
 

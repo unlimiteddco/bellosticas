@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import type { ResolvedProject } from "@/lib/cms/types";
+import { esPropio, nombreDeCliente } from "@/lib/cms/projects";
 import { sinBarras } from "@/lib/v2/texto";
 import { PORTADA_MOVIL } from "@/lib/v2/videos-casos";
 import { TESTIMONIO_CASO } from "@/lib/v2/testimonios-casos";
@@ -20,7 +21,10 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
   const t = await getTranslations({ locale, namespace: "work" });
   const tv = await getTranslations({ locale, namespace: "v2" });
   const tc = await getTranslations({ locale, namespace: "v2Casos" });
-  const casos = proyectos.filter((p) => p.cover && !p.comingSoon).slice(0, 3);
+  const elegidos = proyectos.filter((p) => p.cover && !p.comingSoon).slice(0, 3);
+  // FlyLead es nuestro propio producto: va el último, después de los encargos
+  // de clientes (Banner Imagen sube a su sitio).
+  const casos = [...elegidos.filter((p) => p.slug !== "flylead"), ...elegidos.filter((p) => p.slug === "flylead")];
   if (!casos.length) return null;
 
   // El titular y la intro propios del caso, y lo que dijo el cliente.
@@ -65,7 +69,7 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
             const etiquetas = p.category
               .split("·")
               .map((c) => c.trim())
-              .filter((c) => c && c !== (p.client || p.name));
+              .filter((c) => c && c !== nombreDeCliente(p));
             return (
               <Link
                 key={p.slug}
@@ -76,7 +80,10 @@ export async function CasesV2({ locale, proyectos }: { locale: string; proyectos
                 <div className="flex flex-col gap-6 p-6 md:p-10 lg:col-span-5 lg:py-12">
                   <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="mr-1 text-[15px] font-semibold tracking-[-0.01em]">{p.client || p.name}</span>
+                      {/* Los proyectos propios no llevan nombre delante: el titular ya lo dice. */}
+                      {!esPropio(p) && (
+                        <span className="mr-1 text-[15px] font-semibold tracking-[-0.01em]">{nombreDeCliente(p)}</span>
+                      )}
                       {etiquetas.map((c, k) => (
                         <span
                           key={c}

@@ -33,9 +33,9 @@ const VIDEO_ASSETS: Record<string, TestimonialMedia> = {
  * a esa persona un rostro que no es el suyo.
  */
 export const CARAS: Record<string, string> = {
-  t1: "/caras/javier-flores-face.png",
-  t2: "/caras/adela-face.png",
-  t3: "/caras/themis-face.png",
+  t1: "/caras/javier-flores-face.webp",
+  t2: "/caras/adela-face.webp",
+  t3: "/caras/themis-face.webp",
   // La foto que ya estaba en la carpeta para la reseña de TeleAdhesivo.
   t6: "/caras/cara-teleadhesivo.jpg",
 };

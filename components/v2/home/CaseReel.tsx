@@ -64,6 +64,7 @@ export function CaseReel({ casos }: { casos: CasoReel[] }) {
       <Link
         href={{ pathname: "/work/[slug]", params: { slug: c.slug } }}
         className="group relative block aspect-[16/11] overflow-hidden border border-[var(--v2-line)]"
+        aria-label={c.nombre}
         style={{ backgroundColor: c.color }}
         onClick={() => sonarClic("select")}
       >

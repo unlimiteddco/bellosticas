@@ -7,7 +7,7 @@ import { Header } from "@/components/v2/Header";
 import { FooterV2 } from "@/components/v2/Footer";
 import { Hero } from "@/components/v2/home/Hero";
 import type { CasoReel } from "@/components/v2/home/CaseReel";
-import { LogoCells } from "@/components/v2/home/LogoCells";
+import { ClientesHover } from "@/components/v2/home/ClientesHover"; // BORRADOR (antes: LogoCells)
 import { ServicesV2 } from "@/components/v2/home/ServicesV2";
 import { CardsPair } from "@/components/v2/home/CardsPair";
 import { CasesV2 } from "@/components/v2/home/CasesV2";
@@ -68,7 +68,7 @@ export default async function V2Page({ params }: { params: Promise<{ locale: str
         <Hero locale={locale} casos={casos} />
         {/* Primero los logos, de un vistazo, como base del hero; luego los
             testimonios, que piden pararse a leer. */}
-        <LogoCells />
+        <ClientesHover />
         <TestimonialsV2 />
         <ServicesV2 />
         <CardsPair locale={locale} />

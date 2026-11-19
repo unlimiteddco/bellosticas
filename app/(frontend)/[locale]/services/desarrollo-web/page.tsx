@@ -53,8 +53,8 @@ export default async function WebsCorporativasV2({ params }: { params: Promise<{
   const proyectos = await getProjects(locale);
   // Dos webs reales con lo que dijo su cliente.
   const casos = await casosDe(locale, proyectos, [
-    { slug: "fada", imagen: "/clientes/fada-mockup-portada.webp", testimonio: { clave: "t3", cara: "/caras/themis-face.png" } },
-    { slug: "voluntariado-aragon", testimonio: { clave: "t2", cara: "/caras/adela-face.png" } },
+    { slug: "fada", imagen: "/clientes/fada-mockup-portada.webp", testimonio: { clave: "t3", cara: "/caras/themis-face.webp" } },
+    { slug: "voluntariado-aragon", testimonio: { clave: "t2", cara: "/caras/adela-face.webp" } },
   ]);
 
   return (

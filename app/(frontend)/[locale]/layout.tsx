@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
@@ -207,10 +208,9 @@ export default async function LocaleLayout({
         <>
           {/* Google Consent Mode v2 — denied by default, granted on consent */}
           <script dangerouslySetInnerHTML={{ __html: gaConsentBootstrap }} />
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          />
+          {/* Cuando la página ya ha cargado: Analytics no compite con la web por el
+              procesador (Lighthouse lo marcaba como JS sin usar en la carga). */}
+          <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
         </>
       )}
       <CookieProvider>

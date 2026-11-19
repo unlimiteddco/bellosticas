@@ -8,9 +8,9 @@ type Testimonial = { name: string; role: string; quote: string };
 
 /** Face photos paired with the testimonials (same order as the messages array). */
 const FACES = [
-  "/caras/javier-flores-face.png",
-  "/caras/themis-face.png",
-  "/caras/adela-face.png",
+  "/caras/javier-flores-face.webp",
+  "/caras/themis-face.webp",
+  "/caras/adela-face.webp",
 ];
 
 const ROTATE_MS = 6500;

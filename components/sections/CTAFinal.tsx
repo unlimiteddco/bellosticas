@@ -18,17 +18,17 @@ type Client = {
 const clients: Client[] = [
   {
     name: "Javier Flores",
-    photo: "/caras/javier-flores-face.png",
+    photo: "/caras/javier-flores-face.webp",
     company: "Social11",
   },
   {
     name: "Adela Ocenic",
-    photo: "/caras/adela-face.png",
+    photo: "/caras/adela-face.webp",
     company: "Voluntariado Aragón",
   },
   {
     name: "Themis López",
-    photo: "/caras/themis-face.png",
+    photo: "/caras/themis-face.webp",
     company: "FADA",
   },
 ];

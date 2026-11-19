@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/navigation";
-import { getProjects } from "@/lib/cms/projects";
+import { esPropio, getProjects, nombreDeCliente } from "@/lib/cms/projects";
 import { IMAGENES_CASO, VIDEO_CASO, conPortada, encuadre } from "@/lib/v2/videos-casos";
 import { TESTIMONIO_CASO } from "@/lib/v2/testimonios-casos";
 import { ClosingBand } from "@/components/v2/home/ClosingBand";
@@ -214,7 +214,7 @@ export default async function CasoPagina({ params }: { params: Promise<{ locale:
         <p className="text-[18px] font-medium leading-[1.55] tracking-[-0.01em] md:text-[20px]">{p.description}</p>
         <dl className="flex flex-col border-t border-[var(--v2-line)]">
           {[
-            { k: t("datos.cliente"), v: p.client || p.name },
+            { k: t("datos.cliente"), v: esPropio(p) ? (locale === "en" ? "Own project" : "Proyecto propio") : p.client || p.name },
             { k: t("datos.sector"), v: etiquetas.join(" · ") },
             { k: t("datos.ano"), v: p.year ? String(p.year) : "" },
             { k: t("datos.tecnologia"), v: p.stack.join(" · ") },
@@ -332,7 +332,7 @@ export default async function CasoPagina({ params }: { params: Promise<{ locale:
 
       {/* ── Barra fija: cliente, llamada y año siempre a mano ── */}
       <BarraCaso
-        cliente={p.client || p.name}
+        cliente={nombreDeCliente(p)}
         ano={p.year ? String(p.year) : ""}
         web={p.liveUrl}
         t={{ cliente: t("barra.cliente"), ano: t("barra.ano"), llamada: t("barra.llamada"), web: t("verWeb") }}

@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=bellostas+studio+huesca";
 // Las caras de los testimonios (las mismas fotos que en «Palabra de cliente»).
-const CARAS = ["/caras/javier-flores-face.png", "/caras/adela-face.png", "/caras/themis-face.png", "/caras/cara-teleadhesivo.jpg"];
+const CARAS = ["/caras/javier-flores-face.webp", "/caras/adela-face.webp", "/caras/themis-face.webp", "/caras/cara-teleadhesivo.jpg"];
 
 /**
  * La prueba social corta de la V2: caras reales, 5,0 en Google, 70+ proyectos

@@ -67,9 +67,9 @@ const TESTIMONIO_DE: Record<string, string> = {
   mantenimiento: "t3",
 };
 const CARA_DE: Record<string, string> = {
-  t1: "/caras/javier-flores-face.png",
-  t2: "/caras/adela-face.png",
-  t3: "/caras/themis-face.png",
+  t1: "/caras/javier-flores-face.webp",
+  t2: "/caras/adela-face.webp",
+  t3: "/caras/themis-face.webp",
   t6: "/caras/cara-teleadhesivo.jpg",
 };
 

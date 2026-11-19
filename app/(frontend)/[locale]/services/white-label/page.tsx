@@ -87,7 +87,7 @@ export default async function MarcaBlancaV2({ params }: { params: Promise<{ loca
               <figure className="flex flex-col gap-4 border-t border-[var(--v2-line)] pt-6" data-reveal>
                 <blockquote className="text-[19px] font-medium leading-[1.45] tracking-[-0.01em]">“{ta("quote")}”</blockquote>
                 <figcaption className="flex items-center gap-3">
-                  <img src="/caras/javier-flores-face.png" alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover" />
+                  <img src="/caras/javier-flores-face.webp" alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover" />
                   <span className="flex flex-col">
                     <span className="text-[15px] font-medium">{ta("nombre")}</span>
                     <span className="text-[13.5px] text-[var(--v2-muted)]">

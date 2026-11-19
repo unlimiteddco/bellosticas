@@ -336,7 +336,7 @@ export function MobileMenu({
         {/* ¿No lo tienes claro?: tu cara, una frase y la llamada (como en el megamenú). */}
         <div className="flex items-center gap-3">
           <img
-            src="/images/antonio-bellostas-hero.jpg"
+            src="/images/antonio-avatar.webp"
             alt={t("mm.helpPerson")}
             width={44}
             height={44}

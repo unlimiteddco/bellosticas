@@ -14,8 +14,8 @@ export type TestimonioCaso = {
 
 export const TESTIMONIO_CASO: Record<string, TestimonioCaso> = {
   teleadhesivo: { ns: "shortTestimonials.items", clave: "t6", cara: "/caras/cara-teleadhesivo.jpg" },
-  "voluntariado-aragon": { ns: "shortTestimonials.items", clave: "t2", cara: "/caras/adela-face.png" },
-  fada: { ns: "shortTestimonials.items", clave: "t3", cara: "/caras/themis-face.png", video: "themis" },
+  "voluntariado-aragon": { ns: "shortTestimonials.items", clave: "t2", cara: "/caras/adela-face.webp" },
+  fada: { ns: "shortTestimonials.items", clave: "t3", cara: "/caras/themis-face.webp", video: "themis" },
   "primex-academy": { ns: "shortTestimonials.items", clave: "t4" },
   "gotten-gym": { ns: "shortTestimonials.items", clave: "t5" },
   "embroidery-download": { ns: "lovePage.mosaic.items", clave: "t7" },

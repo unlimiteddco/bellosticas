@@ -80,7 +80,6 @@ export function TestimonialsV2() {
                 {media ? (
                   <button
                     type="button"
-                    aria-label={`${tvid("watchAria")} · ${nombre}`}
                     onClick={() => {
                       sonarClic("open");
                       setVideo({

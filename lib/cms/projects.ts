@@ -114,3 +114,13 @@ function safeT(
     return "";
   }
 }
+
+/**
+ * Los proyectos propios (FlyLead, el vestuario del Huesca) llevan de cliente
+ * «Bellostas Studio»: en las tarjetas se enseña el nombre del proyecto, no el
+ * nuestro repetido en cada una.
+ */
+export const esPropio = (p: { client?: string }) => (p.client ?? "").trim().toLowerCase() === "bellostas studio";
+
+/** Lo que va como «quién» en las tarjetas: el cliente o, si es nuestro, el proyecto. */
+export const nombreDeCliente = (p: { client?: string; name: string }) => (p.client && !esPropio(p) ? p.client : p.name);

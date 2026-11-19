@@ -632,11 +632,265 @@ a.v2-card:hover,
 .v2-hero-in {
   animation: v2-rv 0.8s var(--v2-ease-out) both;
 }
+/* El titular del hero entra igual a la vista, pero desde opacidad 0,01 y no 0:
+   Chrome no cuenta como LCP lo que se pinta invisible, así que con 0 el titular
+   nunca era el LCP y acababa siéndolo el aviso de cookies (que sale ~2 s
+   después). Con 0,01 cuenta desde la primera pintura. */
+.v2-hero-in.v2-hero-lcp {
+  animation-name: v2-rv-lcp;
+}
+@keyframes v2-rv-lcp {
+  from {
+    opacity: 0.01;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .v2-hero-in {
     animation: none;
   }
 }
+
+/* Cierre antes del footer (components/v2/home/ClosingBand.tsx): tarjeta clara
+   de línea fina, como las de la web, y tira de casos que pasa sola. */
+.cierre-tarjeta {
+  --cierre-tenue: var(--v2-muted);
+  --cierre-acento: var(--v2-accent);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--v2-line);
+  border-radius: 8px;
+  background: var(--v2-bg);
+  color: var(--v2-text);
+}
+.cierre-tira {
+  overflow: hidden;
+  padding-bottom: 28px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.cierre-tira-pista {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: cierre-pasa 50s linear infinite;
+}
+.cierre-tira:hover .cierre-tira-pista { animation-play-state: paused; }
+@keyframes cierre-pasa {
+  to { transform: translateX(calc(-50% - 7px)); }
+}
+.cierre-caso {
+  position: relative;
+  display: block;
+  width: 240px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--v2-line);
+  background: var(--v2-hover);
+}
+@media (min-width: 768px) { .cierre-caso { width: 300px; } }
+.cierre-caso img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--v2-ease-out);
+}
+.cierre-caso:hover img { transform: scale(1.04); }
+.cierre-caso-nombre {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 12.5px;
+  opacity: 0;
+  translate: 0 4px;
+  transition: opacity 0.3s var(--v2-ease), translate 0.3s var(--v2-ease-out);
+}
+.cierre-caso:hover .cierre-caso-nombre,
+.cierre-caso:focus-visible .cierre-caso-nombre { opacity: 1; translate: 0 0; }
+.cierre-caso:focus-visible { outline: 2px solid var(--v2-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .cierre-tira-pista { animation: none; }
+  .cierre-tira { overflow-x: auto; }
+}
+
+/* Selector de idioma (components/v2/Toggles.tsx): la píldora de la opción
+   elegida se desliza con la curva de la web. */
+.v2-idioma-pildora {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--v2-line);
+  transition: transform 0.4s var(--v2-ease-out);
+}
+.v2[data-theme="dark"] .v2-idioma-pildora {
+  background: #2a2926;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-idioma-pildora { transition: none; }
+}
+
+/* Clientes con tarjeta (BORRADOR, components/v2/home/ClientesHover.tsx):
+   celdas fijas con líneas y una tarjeta que viaja de un logo a otro. */
+.cli-rejilla {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .cli-rejilla { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.cli-celda {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
+  border-right: 1px solid var(--v2-line);
+  border-bottom: 1px solid var(--v2-line);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s var(--v2-ease);
+}
+.cli-celda:nth-child(2n) { border-right: 0; }
+.cli-celda:nth-last-child(-n + 3) { border-bottom: 0; } /* las 2 últimas celdas + la tarjeta */
+@media (min-width: 768px) {
+  .cli-celda { height: 128px; }
+  .cli-celda:nth-child(2n) { border-right: 1px solid var(--v2-line); }
+  .cli-celda:nth-child(4n) { border-right: 0; }
+  .cli-celda:nth-last-child(-n + 5) { border-bottom: 0; }
+}
+.cli-celda.is-on { background: var(--v2-hover); }
+.cli-celda:focus-visible { outline: 2px solid var(--v2-accent); outline-offset: -2px; }
+.cli-logo {
+  width: auto;
+  max-width: 70%;
+  object-fit: contain; /* con alto fijo y ancho limitado, sin esto se deformaban en el móvil */
+  opacity: 0.55;
+  filter: grayscale(1);
+  transition: opacity 0.35s var(--v2-ease), filter 0.35s var(--v2-ease), transform 0.35s var(--v2-ease-out);
+}
+.cli-celda.is-on .cli-logo { opacity: 1; filter: none; transform: scale(1.04); }
+.cli-celda.is-apagada .cli-logo { opacity: 0.3; }
+.cli-nombre { font-size: 19px; font-weight: 600; letter-spacing: -0.03em; color: var(--v2-text); opacity: 0.55; transition: opacity 0.35s var(--v2-ease); }
+.cli-celda.is-on .cli-nombre { opacity: 1; }
+.cli-celda.is-apagada .cli-nombre { opacity: 0.3; }
+.v2[data-theme="dark"] .cli-logo { filter: grayscale(1) invert(1); }
+/* En oscuro, al pasar: su color solo si se ve sobre negro (cli-color); los de
+   tinta oscura (Social11, Gotten, Noal…) se quedan en blanco, a plena opacidad. */
+.v2[data-theme="dark"] .cli-celda.is-on .cli-logo { filter: grayscale(1) invert(1); }
+.v2[data-theme="dark"] .cli-celda.cli-color.is-on .cli-logo { filter: none; }
+
+/* Cliente «Próximamente»: el logo ya viene emborronado (imagen, no CSS) y
+   una etiqueta pequeña con un punto rojo que late. */
+.cli-pronto-tag {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--v2-accent) 9%, transparent);
+  color: var(--v2-accent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.cli-pronto-tag--tarjeta { position: static; translate: none; }
+.cli-pronto-punto {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--v2-accent);
+  animation: booking-pulse 1.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) { .cli-pronto-punto { animation: none; } }
+
+/* La tarjeta: encima del logo, con su piquito. Al pasar de un logo a otro se
+   desliza (transform) y el texto se funde. */
+.cli-tarjeta {
+  position: absolute;
+  left: 0;
+  top: -12px;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    transform 0.45s var(--v2-ease-out),
+    opacity 0.25s var(--v2-ease);
+}
+.cli-tarjeta.is-on { opacity: 1; pointer-events: auto; }
+.cli-tarjeta-in {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--v2-line);
+  border-radius: 8px;
+  background: var(--v2-bg);
+  color: var(--v2-text);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.28);
+  animation: cli-entra 0.35s var(--v2-ease-out) both;
+}
+.cli-tarjeta-in::after {
+  content: "";
+  position: absolute;
+  left: var(--flecha, 50%);
+  bottom: -6px;
+  width: 11px;
+  height: 11px;
+  margin-left: -5.5px;
+  background: var(--v2-bg);
+  border-right: 1px solid var(--v2-line);
+  border-bottom: 1px solid var(--v2-line);
+  transform: rotate(45deg);
+}
+.cli-tarjeta.is-abajo { top: 12px; }
+.cli-tarjeta.is-abajo .cli-tarjeta-in::after {
+  bottom: auto;
+  top: -6px;
+  border: 0;
+  border-left: 1px solid var(--v2-line);
+  border-top: 1px solid var(--v2-line);
+}
+@keyframes cli-entra {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.cli-tarjeta-logo { width: auto; max-width: 160px; }
+.v2[data-theme="dark"] .cli-tarjeta-logo { filter: grayscale(1) invert(1); }
+.v2[data-theme="dark"] .cli-tarjeta-logo.cli-color { filter: none; }
+.cli-quien { margin: 0; font-size: 15px; line-height: 1.45; font-weight: 500; letter-spacing: -0.01em; text-wrap: pretty; }
+.cli-pie { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; border-top: 1px solid var(--v2-line); }
+.cli-pie .v2-label { color: var(--v2-text); }
+/* Lo que les hicimos: tarjetitas como las etiquetas de los casos (Branding · SaaS). */
+.cli-servicios { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.cli-servicio {
+  border-radius: 4px;
+  padding: 2px 8px;
+  background: var(--v2-hover);
+  color: var(--v2-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.is-falta { color: var(--v2-accent) !important; font-style: italic; }
+@media (prefers-reduced-motion: reduce) {
+  .cli-tarjeta, .cli-logo { transition: none; }
+  .cli-tarjeta-in { animation: none; }
+}
+
 }
 
 /* El fondo de la página (lo que asoma al estirar el scroll) sigue al tema,
