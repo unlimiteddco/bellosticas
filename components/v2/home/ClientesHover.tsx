@@ -144,6 +144,10 @@ export function ClientesHover() {
   const [activo, setActivo] = useState<number | null>(null);
   const [pos, setPos] = useState<{ x: number; y: number; flecha: number; abajo: boolean } | null>(null);
   const cierre = useRef<number | undefined>(undefined);
+  // Con qué se ha tocado la celda (mouse, touch, pen). Al tocar con el dedo,
+  // Chrome da primero el foco y luego el clic: si el foco abría y el clic
+  // cerraba, el primer toque no hacía nada.
+  const puntero = useRef<string>("");
   const apertura = useRef<number | undefined>(undefined);
 
   // Dónde va la tarjeta: encima de la celda, centrada, sin salirse del marco.
@@ -218,6 +222,7 @@ export function ClientesHover() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--v2-line)] px-6 py-3 md:px-10">
           <span className="v2-label">{t("label").replace(/^\/\/\s*/, "")}</span>
           <span className="v2-label hidden md:inline">{locale === "en" ? "Hover a logo" : "Pasa por un logo"}</span>
+          <span className="v2-label md:hidden">{locale === "en" ? "Tap a logo" : "Toca un logo"}</span>
         </div>
 
         <div ref={caja} className="cli-rejilla relative" onPointerLeave={(e) => e.pointerType === "mouse" && cerrar()}>
@@ -232,10 +237,19 @@ export function ClientesHover() {
               aria-describedby={activo === i ? "cli-tarjeta" : undefined}
               aria-expanded={activo === i}
               onPointerEnter={(e) => e.pointerType === "mouse" && abrir(i)}
-              onFocus={() => abrir(i, true)}
-              onClick={(e) => {
-                // Con ratón ya está abierta; con el dedo, tocar abre y cierra.
-                if ((e.nativeEvent as PointerEvent).pointerType === "mouse") return;
+              onPointerDown={(e) => {
+                puntero.current = e.pointerType;
+              }}
+              onFocus={(e) => {
+                // Solo con el teclado: con el dedo o el ratón decide el clic.
+                if (!puntero.current && e.currentTarget.matches(":focus-visible")) abrir(i, true);
+              }}
+              onClick={() => {
+                const tipo = puntero.current;
+                puntero.current = "";
+                // Con el ratón ya se abrió al pasar; con el teclado, al llegar con el foco.
+                if (tipo === "mouse" || !tipo) return;
+                // Con el dedo: tocar abre; tocar la misma otra vez, cierra.
                 if (activo === i) setActivo(null);
                 else abrir(i, true);
               }}
