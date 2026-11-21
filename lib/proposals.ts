@@ -53,6 +53,8 @@ export type ProposalData = {
   currency?: string;
   /** Fecha de expiración (ISO) — se muestra como "válida hasta" si existe. */
   expiresAt?: string | null;
+  /** Aceptada pero con el contrato sin firmar (se cerró la pestaña entre aceptar y firmar). */
+  contractPending?: boolean;
   /** Piezas de la solución (rejilla cualitativa, estilo documento). */
   highlights?: Highlight[] | null;
   /** Alcance fase a fase. */

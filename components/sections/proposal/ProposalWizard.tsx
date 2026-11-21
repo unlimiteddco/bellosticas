@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, FileText, Landmark, Loader2 } from "lucide-react";
+import { Check, FileText, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import type { ProposalPrefill } from "@/lib/proposals";
 import { useMonedaPropuesta, useProposalExtras } from "./ProposalExtrasContext";
 import { SignaturePad } from "./SignaturePad";
 import { ContractReader } from "./ContractReader";
+import { Dato, PagoTrasFirma, type FacturaTrasFirma } from "./PagoTrasFirma";
+import { FirmaDesdeMovil } from "./FirmaDesdeMovil";
 import { eur } from "@/lib/eur";
 
 type Paso = 1 | 2 | 3;
@@ -17,21 +19,9 @@ type AcceptResponse = {
   ok: boolean;
   error?: string;
   alreadyAccepted?: boolean;
-  invoice?: {
-    number: string;
-    total: number;
-    netAmount: number;
-    iban: string | null;
-    installmentLabel?: string;
-    installmentsCount?: number;
-  } | null;
+  invoice?: FacturaTrasFirma | null;
   portalLoginUrl?: string;
 };
-
-/** IBAN en grupos de cuatro: así se copia sin equivocarse. */
-function iban(v: string) {
-  return v.replace(/\s+/g, "").replace(/(.{4})/g, "$1 ").trim();
-}
 
 /**
  * Aceptar la propuesta en tres pasos: datos, firma y pago.
@@ -218,6 +208,13 @@ export function ProposalWizard({
       setFirmando(false);
     }
   };
+
+  /* Firmado desde el móvil (el QR del paso 2): esta pestaña pasa sola al pago. */
+  const firmadoEnElMovil = useCallback((factura: FacturaTrasFirma | null) => {
+    setFirmado(true);
+    if (factura) setResultado((x) => ({ ...(x ?? { ok: true }), invoice: factura }));
+    setPaso(3);
+  }, []);
 
   const pasos = [
     { n: 1 as Paso, label: t("wizard_step_data") },
@@ -463,6 +460,7 @@ export function ProposalWizard({
                 )}
               </PrimaryButton>
             </div>
+            <FirmaDesdeMovil token={token} alFirmar={firmadoEnElMovil} />
           </motion.div>
         )}
 
@@ -474,42 +472,7 @@ export function ProposalWizard({
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.28 }}
           >
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-accent)]/12">
-              <Check size={22} className="text-[var(--color-accent)]" strokeWidth={2.5} />
-            </span>
-            <h3 className="mt-5 font-display text-[28px] md:text-[34px] leading-tight text-[var(--color-text)]">
-              {t("done_title")}
-            </h3>
-            <p className="mt-2 font-body text-[16px] leading-[1.6] text-[var(--color-text)]/85 max-w-[540px]">
-              {t("done_body")}
-            </p>
-
-            {resultado?.invoice && (
-              <div className="mt-7 rounded-2xl border border-[var(--color-border)] p-6">
-                <p className="font-body text-[15px] leading-[1.55] text-[var(--color-text)]">
-                  {t("done_payment_note")}
-                </p>
-                <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                  <Dato label={t("success.invoice_label")} value={resultado.invoice.number} />
-                  <Dato label={t("success.amount_label")} value={eur(resultado.invoice.total, locale, true, moneda)} />
-                  {resultado.invoice.iban && (
-                    <Dato label={t("success.iban_label")} value={iban(resultado.invoice.iban)} />
-                  )}
-                </div>
-                <p className="mt-5 inline-flex items-start gap-2 font-body text-[13px] leading-[1.55] text-[var(--color-text-muted)]">
-                  <Landmark size={15} className="shrink-0 mt-0.5" /> {t("done_transfer_hint")}
-                </p>
-              </div>
-            )}
-
-            {resultado?.portalLoginUrl && (
-              <a
-                href={resultado.portalLoginUrl}
-                className="mt-7 inline-flex items-center gap-2 font-body text-[15px] text-[var(--color-text)] border-b border-[var(--color-accent)] pb-0.5"
-              >
-                {t("success.portal_title")}
-              </a>
-            )}
+            <PagoTrasFirma factura={resultado?.invoice} portalLoginUrl={resultado?.portalLoginUrl} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -551,45 +514,5 @@ function Campo({
         className="w-full h-11 px-3 rounded-md bg-transparent border border-[var(--color-border)] text-[16px] sm:text-[15px] font-body text-[var(--color-text)] focus:border-[var(--color-text)] focus:outline-none transition-colors"
       />
     </label>
-  );
-}
-
-function Dato({
-  label,
-  value,
-  sufijo,
-  sub,
-  destacado = false,
-}: {
-  label: string;
-  value: string;
-  /** «+ IVA»: va pegado a la cifra, pero en pequeño y apagado. */
-  sufijo?: string;
-  sub?: string;
-  /** La cifra a la que tiene que ir el ojo: una por caja. */
-  destacado?: boolean;
-}) {
-  return (
-    <div>
-      <span
-        className="block font-body uppercase text-[10px] text-[var(--color-text-muted)]"
-        style={{ letterSpacing: "0.16em" }}
-      >
-        {label}
-      </span>
-      <span
-        className={`block mt-1 font-body tabular-nums ${
-          destacado ? "text-[24px] leading-tight text-[var(--color-text)]" : "text-[16px] text-[var(--color-text)]"
-        }`}
-      >
-        {value}
-        {sufijo && (
-          <span className="ml-1.5 font-body text-[13px] text-[var(--color-text-muted)] whitespace-nowrap">{sufijo}</span>
-        )}
-      </span>
-      {sub && (
-        <span className="block mt-1 font-body text-[13px] leading-snug text-[var(--color-text-muted)]">{sub}</span>
-      )}
-    </div>
   );
 }

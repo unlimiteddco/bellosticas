@@ -129,6 +129,7 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
         )
       : null;
   const pdf = locale === defaultLocale ? `/propuestas/${token}/pdf` : `/${locale}/propuestas/${token}/pdf`;
+  const firmar = locale === defaultLocale ? `/propuestas/${token}/firmar` : `/${locale}/propuestas/${token}/firmar`;
 
   const navSections = [
     ...(contexto ? [{ id: "partida", label: t("nav_partida") }] : []),
@@ -423,7 +424,18 @@ export default async function PropuestaV2({ params }: { params: Promise<{ locale
                   {/* ── Empezar: datos, firma y pago ── */}
                   <Bloque id="aceptar">
                     <Titulo etiqueta={t("accept_label")} partes={[t("accept_title_1"), t("accept_title_accent"), t("accept_title_2")]} />
-                    {accepted || unavailable ? (
+                    {accepted && proposal.contractPending ? (
+                      /* Aceptó y cerró la pestaña antes de firmar: se le ofrece
+                         firmar en vez de decirle solo «ya está aceptada». */
+                      <div className="v2-card bg-[var(--v2-bg-2)] p-8">
+                        <h3 className="text-[24px] font-medium tracking-[-0.02em]">{t("pending_sign_title")}</h3>
+                        <p className="mt-2 text-[15px] text-[var(--v2-muted)]">{t("pending_sign_body")}</p>
+                        <a href={firmar} className="v2-btn v2-btn--primary mt-6">
+                          {t("pending_sign_cta")}
+                          <ArrowRight size={16} strokeWidth={1.75} />
+                        </a>
+                      </div>
+                    ) : accepted || unavailable ? (
                       <div className="v2-card bg-[var(--v2-bg-2)] p-8">
                         <h3 className="text-[24px] font-medium tracking-[-0.02em]">
                           {accepted ? t("accepted_title") : t("expired_title")}
