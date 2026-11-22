@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getProjects } from "@/lib/cms/projects";
-import { bookingQuarter } from "@/lib/booking";
+import { bookingQuarter, huecosLibres } from "@/lib/booking";
 import { Link } from "@/navigation";
 import { V2Root } from "@/components/v2/V2Root";
 import { AnnouncementV2 } from "@/components/v2/Announcement";
@@ -62,7 +62,7 @@ export default async function ContactoV2({ params }: { params: Promise<{ locale:
           <div className="flex flex-col gap-7 px-5 pt-12 pb-12 md:px-0 lg:pt-20 lg:pb-16">
             <span className="v2-label v2-hero-in flex items-center gap-2.5 tracking-[0.08em] sm:tracking-[0.14em]">
               <span className="booking-dot" aria-hidden />
-              {tv("heroLabel", { q: trimestre })}
+              {tv("heroLabel", { q: trimestre, n: huecosLibres() })}
             </span>
             <h1
               className="v2-hero-in v2-h1"

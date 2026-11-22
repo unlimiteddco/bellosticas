@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import { sonarClic } from "@/lib/v2/ui-sound";
-import { bookingQuarter } from "@/lib/booking";
+import { bookingQuarter, huecosLibres } from "@/lib/booking";
 import { projects } from "@/lib/projects";
 
 /**
@@ -59,7 +59,7 @@ export function ClosingBand() {
 
               <span className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--cierre-tenue)]" data-reveal>
                 <span className="booking-dot" aria-hidden />
-                {tv("heroLabel", { q: trimestre })}
+                {tv("heroLabel", { q: trimestre, n: huecosLibres() })}
               </span>
             </div>
 

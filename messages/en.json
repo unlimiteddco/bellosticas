@@ -2973,7 +2973,7 @@
     "faqAsk": "Can't find your answer?",
     "faqAskSub": "A 30-minute call, no strings attached.",
     "moreLabel": "More than websites",
-    "heroLabel": "Only 1 spot left for {q}",
+    "heroLabel": "Only {n, plural, one {# spot} other {# spots}} left for {q}",
     "since": "Since 2022, from Huesca",
     "contactDirect": "Or directly",
     "caso": {

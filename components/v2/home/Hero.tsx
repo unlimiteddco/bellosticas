@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
-import { bookingQuarter } from "@/lib/booking";
+import { bookingQuarter, huecosLibres } from "@/lib/booking";
 import { CaseReel, type CasoReel } from "./CaseReel";
 import { ProofRow } from "./ProofRow";
 
@@ -24,7 +24,7 @@ export async function Hero({ locale, casos }: { locale: string; casos: CasoReel[
         <div className="lg:col-span-8 flex flex-col justify-center gap-7 px-5 pt-12 pb-10 md:px-0 lg:py-24 lg:pr-10">
           <span className="v2-label v2-hero-in flex items-center gap-2.5 tracking-[0.08em] sm:tracking-[0.14em]" style={{ animationDelay: "0ms" }}>
             <span className="booking-dot" aria-hidden />
-            {tv("heroLabel", { q: trimestre })}
+            {tv("heroLabel", { q: trimestre, n: huecosLibres() })}
           </span>
           {/* Dos líneas en escritorio («Diseño y desarrollo web / que hace crecer
               tu marca.»), algo por debajo del resto de portadas para que
